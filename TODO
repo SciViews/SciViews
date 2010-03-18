@@ -1,0 +1,35 @@
+= SciViews To Do list
+
+* Refine panel.xxx() functions to avoid warning in case we provide non-par
+arguments to pairs() and design a better mechanism to define default (colors,
+line type and weight, etc.).
+
+* A better grid() for log scale, a grid() with intermediate lines (between two
+axis ticks), and a slightly different line for origin axes.
+
+* A plot.htest() method that graphically shows the test results (needs specific
+representation for each test => difficult, but think about a solution for that
+particular problem!)
+
+* QQ-plot and statistical distributions plots.
+
+* For PCA, look at ade4 (dudi.pca => c("pca", "dudi"), ellipse, area), FactoMineR (PCA), rrcov (Pca), pcaMethods (PcaRes), psych, nFactors, vegan rda = special case of pca => c("rda", "cca")), pcaPP, chemometrics (croos-validation), 
+BiodiversityR (broken-stick = PCAsignificance + variable importance = ordiequilibriumCircle) and labdsv packages => how to sort all this and make something coherent with our pcomp object and methods?
+See also zoonek znd http://www.statmethods.net/advstats/factor.html.
+
+* For correspondance analysis, see ca package.
+
+* recordPlot(), replayPlot() to save graphs between sessions.
+Look also at dev.control("inhibit") and dev.interactive().
+
+* gui? (dialog box), cmd? (fill dialog box with values) or gui? (do nothing), cmd? (run it).
+
+
+* Rethink depends, imports and suggests to install and/or load the right number
+of packages (+ options to avoiding to load certains packages, in certain cases).
+
+* Save SciViews-R/SciViews-K communication parameters and reconfigure the socket
+server accordingly (do not start the socket server automatically in case there
+is no config file).
+
+* Translation of this package (and what about the doc?).

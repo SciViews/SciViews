@@ -1,0 +1,19 @@
+= SciViews News
+
+== SciViews version 0.9-0
+
+This is the first version on R-forge. There used to ba a SciViews **bundle**
+that contained svMisc, svSocket, svIDE, svGUI, ..., but bundles are obsolete
+now. The new SciViews package plays a similar role as the bundle, i.e., it is
+a convenient way to install all SciViews-R packages with one instruction:
+
+> install.packages("SciViews", dependencies = TRUE).
+
+It now plays also other roles: (1) to load all SciViews requirements with a
+single instruction:
+
+> require(SciViews)
+
+(2) To make sure to reconfigure the socket server properly (that is, with the
+same configuration as latest one), (3) To provides a series of R functions that
+ease learning of R through the use of the R reference toolbox in Komodo Edit.

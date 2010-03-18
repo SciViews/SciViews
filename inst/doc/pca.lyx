@@ -1,0 +1,1627 @@
+#LyX 1.6.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% \VignetteIndexEntry{PCA - Principal Component Analysis tutorial}
+%\VignettePackage{SciViews}
+
+% provides caption formatting
+\usepackage[labelfont=bf, tableposition=top]{caption}
+\pdfimageresolution 96
+\end_preamble
+\use_default_options false
+\begin_modules
+sweave
+\end_modules
+\language english
+\inputencoding auto
+\font_roman palatino
+\font_sans berasans
+\font_typewriter beramono
+\font_default_family default
+\font_sc true
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\float_placement tbh
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "SciViews - Principal Component Analysis"
+\pdf_author "Philippe Grosjean"
+\pdf_subject "Tutorial for PCA"
+\pdf_keywords "PCA"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=blue, urlcolor=blue, citecolor=blue, pagecolor=blue"
+\papersize a4paper
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\bullet 0 0 17 -1
+\bullet 1 0 15 -1
+\bullet 2 0 8 -1
+\bullet 3 0 9 -1
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Principal Component Analysis (PCA)
+\end_layout
+
+\begin_layout Author
+Ph.
+ Grosjean <phgrosjean@sciviews.org>
+\end_layout
+
+\begin_layout Part
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkeys{Gin}{width=1.00
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout R-Opts
+keep.source = TRUE, pdf = TRUE, eps = FALSE
+\end_layout
+
+\begin_layout Standard
+Principal Component Analysis, or PCA is a widely used method to explore
+ linear associations among variables of large datasets.
+ There is, unfortunately, no consistent implementation of this technique
+ in R, which is even more a problem because the numerous additional R packages
+ that provide enhanced versions of PCA, or additional tools, have no consistent
+ template to start with.
+ In the 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+stats
+\end_layout
+
+\end_inset
+
+ package, there are two unconsistent implementations called 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+princomp()
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+prcomp()
+\end_layout
+
+\end_inset
+
+ that both create S3 objects of the same name.
+ There are a few methods available, like 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+print()
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+summary()
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+plot()
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+predict()
+\end_layout
+
+\end_inset
+
+ or 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+biplot()
+\end_layout
+
+\end_inset
+
+.
+ The whole set is rather deceptive and produces less interesting plots than
+ other (more specialized) software can do.
+ For instance, there is nothing to plot the so-called 
+\begin_inset Quotes eld
+\end_inset
+
+graph of the variables
+\begin_inset Quotes erd
+\end_inset
+
+ in the French terminology and you have to program it yourself.
+\end_layout
+
+\begin_layout Standard
+Of course, there are several specialized R packages available that provide
+ more powerful and/or more extended implementations, among others: 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+ade4
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+FactoMineR
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+vegan
+\end_layout
+
+\end_inset
+
+.
+ Each of these packages has a totally different approach: 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+ade4
+\end_layout
+
+\end_inset
+
+ creates a 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+c(
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+dudi
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+ S3 object and proposes nice graphs but has an interface that is completely
+ inconsistent with usual R analyses (no optional formula interface, exotic
+ names of arguments, non-standard handling of missing data, etc.).
+ Object orientation and name of objects are obscure and do not facilitate
+ first use of the PCA in 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+ade4
+\end_layout
+
+\end_inset
+
+.
+ A PCA is done, indeed, using the 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+dudi.pca()
+\end_layout
+
+\end_inset
+
+ function (or possibly, 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+nipals()
+\end_layout
+
+\end_inset
+
+, but that creates a different 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+nipals
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ object).
+ The same remarks can be made about the interface of functions in 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+FactoMineR
+\end_layout
+
+\end_inset
+
+: they use strange arguments and do not respect the general organisation
+ of analyses in R (an object constructs the analysis, possibly defined using
+ a formula; methods summarize or plot the results piece by piece).
+ At least, name of function and object related to PCA are clear in 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+FactorMineR
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+PCA()
+\end_layout
+
+\end_inset
+
+! There is also a non conventional handling of missing observations.
+ But the function is powerful and loows for a lot of investigations around
+ the PCA.
+ In 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+vegan
+\end_layout
+
+\end_inset
+
+, there is no PCA function, but a redundancy analysis 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+rda()
+\end_layout
+
+\end_inset
+
+, which reduces to a classical PCA when arguments 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+X
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+Y
+\end_layout
+
+\end_inset
+
+ are missing.
+ It creates a 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+c(
+\begin_inset Quotes eld
+\end_inset
+
+cca
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+rda
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+ S3 object which is not optimized at all for holding pure PCA data (many
+ unnecessary items in it for a PCA).
+ Finally, 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+labdsv
+\end_layout
+
+\end_inset
+
+ uses the default 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+prcomp()
+\end_layout
+
+\end_inset
+
+, but it wraps it into a 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+S3 object, in order to define additional plotting methods that are consistents
+ with the other analyses and objects in that package.
+ Note that both 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ S3 objects in 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+ade4
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+labdsv
+\end_layout
+
+\end_inset
+
+ are completely inconsistent, and you are likely to get very bad results
+ in case you load both packages and mix their respective methods!
+\end_layout
+
+\begin_layout Standard
+So, given that chaotic set of PCA functions in R, would it be possible to
+ design an object with minimal code that reuses code in the 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+stats
+\end_layout
+
+\end_inset
+
+ package (
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+princomp()
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+prcomp()
+\end_layout
+
+\end_inset
+
+), provides a couple of additional methods to make decent variables and
+ individuals plots (possibly with ellipses or conver hulls for subgroups)
+ in a way that a whole analysis would be easy to perform and to read in
+ R code? We will try to do so in the present 
+
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+
+SciViews
+\end_layout
+
+\end_inset
+
+ package.
+\end_layout
+
+\begin_layout Standard
+
+First of all, we want to keep things simple.
+ That is, we will design an S3 object, and not start from a complex S4 UML,
+ as it is done for instance in the 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+
+rrcov
+\end_layout
+
+\end_inset
+
+ package.
+ It would be nice to name this object 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ and we should be able to make it compatible with both 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+princomp
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+
+labdsv
+\end_layout
+
+\end_inset
+
+'s 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ (but not with 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+prcomp()
+\end_layout
+
+\end_inset
+
+ that names 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+loadings
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+scores
+\end_layout
+
+\end_inset
+
+ components 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+rotation
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\end_inset
+
+, respectively.
+ Also, that 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ S3 object could 
+\series bold
+not
+\series default
+ be compatible with 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+
+ade4
+\end_layout
+
+\end_inset
+
+'s 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ object.
+ Moreover, neither 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+
+ade4
+\end_layout
+
+\end_inset
+
+, nor 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+
+labdsv
+\end_layout
+
+\end_inset
+
+ use a namespace (as for versions available at 2010-02-06).
+ Hopefully, 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+
+ade4
+\end_layout
+
+\end_inset
+
+ does not define methods specific for its 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ object, except 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+score.pca()
+\end_layout
+
+\end_inset
+
+ for the 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+score()
+\end_layout
+
+\end_inset
+
+ generic function defined in the same package (and not elsewhere).
+ Thus, we could define 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+scores()
+\end_layout
+
+\end_inset
+
+, with 's', as for the corresponding item in 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+princomp
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ object without clash.
+ Note that, if we don't use a 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+nf
+\end_layout
+
+\end_inset
+
+ item in our 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ object, the 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+ade4
+\end_layout
+
+\end_inset
+
+'s 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+score()
+\end_layout
+
+\end_inset
+
+ function unadvertently applied to our object fails with the error message:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Error in x$nf : $ operator is invalid for atomic vectors
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+The SciViews' pcomp object
+\end_layout
+
+\begin_layout Standard
+We finally choose 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pcomp
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ as name of our object, but it inherits from 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+princomp
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, because 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is already used in 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+ade4
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+labdsv
+\end_layout
+
+\end_inset
+
+ (with conflicting definitions), 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+PCA
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is used in 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+FactoMineR
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+Pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ defines S4 objects in 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+rrcov
+\end_layout
+
+\end_inset
+
+ (and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pCa
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is something totally different in 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+seacarb
+\end_layout
+
+\end_inset
+
+).
+ Moreover, 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+pcomp()
+\end_layout
+
+\end_inset
+
+ is closer to 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+prcomp()
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+princomp()
+\end_layout
+
+\end_inset
+
+ as it is supposed to be a wrapper over these two (default) PCA functions
+ in R.
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+pcomp
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ S3 object is a list with components:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+loadings
+\end_layout
+
+\end_inset
+
+: (also required for 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+labdsv
+\end_layout
+
+\end_inset
+
+'s 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ object).
+ This is $rotation in prcomp, and a loadings object in princomp,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+scores
+\end_layout
+
+\end_inset
+
+: (also required for 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+labdsv
+\end_layout
+
+\end_inset
+
+'s 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ object).
+ Note for scores in princomp, components are Comp.1, Comp.2, etc., in prcomp,
+ it is PC1, PC2, ..., as well as in pca) => use PC1, PC2, ...
+ This is $x in prcomp.For princomp(), the argument 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+scores = TRUE
+\end_layout
+
+\end_inset
+
+ (by default) must be used to get this!
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+sdev
+\end_layout
+
+\end_inset
+
+: (also required for 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+labdsv
+\end_layout
+
+\end_inset
+
+'s 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ object).
+ princomp() uses names (to rename into PC1, PC2, ...), while prcomp() does
+ not, 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+totdev
+\end_layout
+
+\end_inset
+
+: the total deviance, as required to be compliant with 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+labdsv
+\end_layout
+
+\end_inset
+
+'s 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+pca
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ object.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+n.obs
+\end_layout
+
+\end_inset
+
+: the number of observations,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+center
+\end_layout
+
+\end_inset
+
+: (use 0 for all, if not centered),
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+scale
+\end_layout
+
+\end_inset
+
+: (use 1 for all, if not scaled),
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+method
+\end_layout
+
+\end_inset
+
+: currently only either 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+svd
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ (and the computation is the same as 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+prcomp()
+\end_layout
+
+\end_inset
+
+), or 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Quotes eld
+\end_inset
+
+eigen
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ (and the computation is the same as 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+princomp()
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+call
+\end_layout
+
+\end_inset
+
+: the matched call,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+
+na.action
+\end_layout
+
+\end_inset
+
+: if relevant.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+xxx
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+xxx
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Remarque
+\emph default
+ : xxx
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+xxx
+\end_layout
+
+\begin_layout Section
+interface card
+\end_layout
+
+\begin_layout Standard
+xxx
+\end_layout
+
+\begin_layout R-Chunk
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<<eval = FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+options(para.port = 1)	# If your card is connected to LPT1
+\end_layout
+
+\begin_layout Plain Layout
+
+para(c(T,F,F,T,F,F,F,T))  # Channels 1, 4, 8 ON, the others OFF
+\end_layout
+
+\begin_layout Plain Layout
+
+para(change = FALSE)      # Read current state
+\end_layout
+
+\begin_layout Plain Layout
+
+para(c(F,F,F,F,F,F,F,F))  # All channels OFF
+\end_layout
+
+\begin_layout Plain Layout
+
+para(change = FALSE)      # Make sure current state is changed
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+xxx
+\end_layout
+
+\end_body
+\end_document
