@@ -1,0 +1,54 @@
+import(stats, grDevices, graphics, MASS, ellipse)
+
+export(correlation,
+	   is.correlation,
+	   as.correlation,
+	   cwm.colors,
+	   rwb.colors,
+	   ryg.colors,
+	   e,
+	   ln,
+	   ln1p,
+	   lg,
+	   lg1p,
+	   panel.boxplot,
+	   panel.density,
+	   panel.hist,
+	   panel.qqnorm,
+	   panel.cor,
+	   panel.ellipse,
+	   panel.reg,
+	   pcomp,
+	   scores,
+	   vectorplot)
+
+S3method(vectorplot, default)
+S3method(vectorplot, loadings)
+S3method(vectorplot, correlation)
+
+S3method(correlation, formula)
+S3method(correlation, default)
+
+S3method(print, correlation)
+S3method(summary, correlation)
+S3method(print, summary.correlation)
+S3method(plot, correlation)
+S3method(lines, correlation)
+
+S3method(pcomp, formula)
+S3method(pcomp, default)
+
+S3method(print, pcomp)
+S3method(summary, pcomp)
+S3method(print, summary.pcomp)
+S3method(plot, pcomp)
+S3method(points, pcomp)
+S3method(lines, pcomp)
+S3method(text, pcomp)
+S3method(screeplot, pcomp)
+S3method(biplot, pcomp)
+S3method(predict, pcomp)
+#S3method(loadings, pcomp) # This is NOT a generic function, but it works well on pcomp
+S3method(pairs, pcomp)
+S3method(scores, pcomp)
+S3method(correlation, pcomp)

@@ -1,0 +1,432 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% \VignetteIndexEntry{Correlation tutorial}
+%\VignettePackage{SciViews}
+
+% provides caption formatting
+\usepackage[labelfont=bf, tableposition=top]{caption}
+\pdfimageresolution 96
+\end_preamble
+\use_default_options false
+\begin_modules
+sweave
+\end_modules
+\language english
+\inputencoding auto
+\font_roman palatino
+\font_sans berasans
+\font_typewriter beramono
+\font_default_family default
+\font_sc true
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\float_placement tbh
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "SciViews - Correlation"
+\pdf_author "Philippe Grosjean"
+\pdf_subject "Tutorial for correlation"
+\pdf_keywords "correlation, Pearson's product-moment, Spearmann's rank correlation, Kendall's tau, partial correlation"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=blue, urlcolor=blue, citecolor=blue, pagecolor=blue"
+\papersize a4paper
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\bullet 0 0 17 -1
+\bullet 1 0 15 -1
+\bullet 2 0 8 -1
+\bullet 3 0 9 -1
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Correlation
+\end_layout
+
+\begin_layout Author
+Ph.
+ Grosjean <phgrosjean@sciviews.org>
+\end_layout
+
+\begin_layout Part
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkeys{Gin}{width=1.00
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout R-Opts
+keep.source = TRUE, pdf = TRUE, eps = FALSE
+\end_layout
+
+\begin_layout Standard
+Correlation is a form of 
+\series bold
+association
+\series default
+ between two random variables or samples of these in statistics.
+ Dependence is a synonym of correlation (???) Aspects to develop:
+\end_layout
+
+\begin_layout Itemize
+Three degrees of association: correlation, relationship and causality.
+\end_layout
+
+\begin_layout Itemize
+Correlation does not mean causality.
+\end_layout
+
+\begin_layout Itemize
+There are several kinds of correlation coefficients, with basic hypotheses
+ one should know.
+\end_layout
+
+\begin_layout Itemize
+It is relatively easy to measure independence, but not dependence, because
+ correlation coefficient measure only one given type of dependence (linear
+ for Pearson's product-moment).
+ Should derive something from the picture in Wikipedia that illustrates
+ several cases).
+\end_layout
+
+\begin_layout Itemize
+Correlation coefficient is invariant for the slope of relationship,
+\end_layout
+
+\begin_layout Itemize
+Pearson's is not always defined (when there is no variation in 
+\emph on
+X
+\emph default
+ or in 
+\emph on
+Y
+\emph default
+), same for Spearmann's and Kendall's (???) => but not useful in this case
+ (!?).
+\end_layout
+
+\begin_layout Itemize
+In 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+cor.test()
+\end_layout
+
+\end_inset
+
+, the confidence interval on the correlation coefficient is only calculated
+ for Pearson's and when there are at least 4 complete cases.
+ Also look at resampling estimation and test???
+\end_layout
+
+\begin_layout Itemize
+More robust correlation coefficients and less sensitive to nonlinear relationshi
+p.
+\end_layout
+
+\begin_layout Itemize
+Pearson's is not restricted to bivariate Normal distribution (!), but correlatio
+n hypothesis test is (=> use rank correlation to create test and confidence
+ interval in case you suspect a different distribution)!
+\end_layout
+
+\begin_layout Itemize
+Show also problem with multimodal (multipopulation) data + solution = coef
+ calculated per group.
+\end_layout
+
+\begin_layout Itemize
+A diagram indicating independence versus dependence + various types of dependenc
+ies (any kind, monotonous, linear) and the corresponding correlation coefficient
+ that applies.
+\end_layout
+
+\begin_layout Itemize
+Useful simple examples to compare Pearson's and rank correlation in Wikipedia.
+\end_layout
+
+\begin_layout Itemize
+Correlation coefficients should be independent from translations and scaling,
+ i.e., 
+\emph on
+X'
+\emph default
+ = 
+\emph on
+aX
+\emph default
+ + 
+\emph on
+b
+\emph default
+, and 
+\emph on
+Y'
+\emph default
+ = 
+\emph on
+cY
+\emph default
+ + 
+\emph on
+d
+\emph default
+.
+ Rank coefficients are insensitive to monotone transformation too.
+\end_layout
+
+\begin_layout Itemize
+Unbiased? Asymptotically consistent?
+\end_layout
+
+\begin_layout Itemize
+Problem of restricted range for one or both variables: example in Wikipedia
+ + the case of a sinusoidal signal!
+\end_layout
+
+\begin_layout Itemize
+Correlation matrices + properties + they are var/covar matrices of standardized
+ (scaled) variables => demonstrate!
+\end_layout
+
+\begin_layout Itemize
+Manual calculation + tricks to speed up calc.
+\end_layout
+
+\begin_layout Itemize
+Nice example of correlation versus linearity in Anscombe's quartet (see
+ Wikipedia).
+\end_layout
+
+\begin_layout Itemize
+Introduce and illustrate partial correlation.
+\end_layout
+
+\begin_layout Itemize
+See also 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+corpcor
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+mvoutlier
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+corrperm
+\end_layout
+
+\end_inset
+
+ (for permutation tests of correlation with repeated measurements using
+ 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+cp.test()
+\end_layout
+
+\end_inset
+
+) packages.
+ Also, 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+pcalg
+\end_layout
+
+\end_inset
+
+ for robust estimation and causal inference.
+\end_layout
+
+\begin_layout Section
+Correlation in R
+\end_layout
+
+\begin_layout Standard
+Correlation in R is 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+cor()
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+cor.test()
+\end_layout
+
+\end_inset
+
+ + 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+cov.wt(cor = TRUE)$cor
+\end_layout
+
+\end_inset
+
+ for weighted correlation matrix and 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+cov2cor()
+\end_layout
+
+\end_inset
+
+ to convert efficiently a covariance matrix into a correlation matrix.
+ 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+cor.test()
+\end_layout
+
+\end_inset
+
+ is a generic function that provides both a default and a formula interface
+ in the 
+\begin_inset Flex CharStyle:Pkg
+status collapsed
+
+\begin_layout Plain Layout
+stats
+\end_layout
+
+\end_inset
+
+ package.
+\end_layout
+
+\begin_layout R-Chunk
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<<eval = FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+options(para.port = 1)	# If your card is connected to LPT1
+\end_layout
+
+\begin_layout Plain Layout
+
+para(c(T,F,F,T,F,F,F,T))  # Channels 1, 4, 8 ON, the others OFF
+\end_layout
+
+\begin_layout Plain Layout
+
+para(change = FALSE)      # Read current state
+\end_layout
+
+\begin_layout Plain Layout
+
+para(c(F,F,F,F,F,F,F,F))  # All channels OFF
+\end_layout
+
+\begin_layout Plain Layout
+
+para(change = FALSE)      # Make sure current state is changed
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+xxx
+\end_layout
+
+\end_body
+\end_document
