@@ -1,0 +1,320 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+% \VignetteIndexEntry{Correlation tutorial}
+%\VignettePackage{SciViews}
+
+% provides caption formatting
+\usepackage[labelfont=bf, tableposition=top]{caption}
+\pdfimageresolution 96
+\end_preamble
+\use_default_options false
+\begin_modules
+sweave
+\end_modules
+\language english
+\inputencoding auto
+\font_roman palatino
+\font_sans berasans
+\font_typewriter beramono
+\font_default_family default
+\font_sc true
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\float_placement tbh
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "SciViews - Why SciViews?"
+\pdf_author "Philippe Grosjean"
+\pdf_subject "Rationates for the SciViews scientific suite"
+\pdf_keywords "Data analysis, Statistics, Reporting, Word processing, Slideshow"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=blue, urlcolor=blue, citecolor=blue, pagecolor=blue"
+\papersize a4paper
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\bullet 0 0 17 -1
+\bullet 1 0 15 -1
+\bullet 2 0 8 -1
+\bullet 3 0 9 -1
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Why SciViews?
+\end_layout
+
+\begin_layout Author
+Ph.
+ Grosjean <phgrosjean@sciviews.org>
+\end_layout
+
+\begin_layout Part
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkeys{Gin}{width=1.00
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout R-Opts
+keep.source = TRUE, pdf = TRUE, eps = FALSE
+\end_layout
+
+\begin_layout Standard
+There are several office suites, including (at least) a word processor,
+ a spreadsheet, a sildeshow presentation program, and tools to draw pictures
+ and write mathematic equations.
+ Microsoft Office and OpenOffice seem to fulfill the needs of most users.
+ Son why should a 
+\emph on
+scientific
+\emph default
+ user need a different suite for his work? Well, we believe that those general
+ purpose office suites are not well adapted for scientists.
+ They need something radically different.
+ The 
+\begin_inset Flex SciViews
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ Scientific Suite aims to provide those tools to them.
+ In short:
+\end_layout
+
+\begin_layout Itemize
+The spreadsheet paradigm is very popular to do calculations and graphs on
+ tabulated data.
+ However, there are many reasons why this paradigm is not efficient, error-prone
+ and barely fits the needs for more serious data analysis, as most scientists
+ need.
+ We believe that 
+\begin_inset Flex R
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+, together with a carefully ciseled GUI is a much more adequate general
+ purpose calculation and plotting engine.
+ That is why the 
+\begin_inset Flex SciViews
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ Scientific Suite is build around 
+\begin_inset Flex R
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+, and reserves so little space to a spreadsheet program.
+\end_layout
+
+\begin_layout Itemize
+The Word Processor and its WYSIWYG
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+WYSIWYG = What You See Is What You Get.
+\end_layout
+
+\end_inset
+
+ paradigm makes a poor document preparation environment for scientific litteratu
+re like papers and books.
+ Scientific litterature is highly structured text and it does not fit well
+ with the loose presentation of text elements in a WYSIWYG program.
+ Also, Word Processors tend to be relatively poor and inefficient in mathematic
+ formula typesetting and in bibliographic references formatting.
+ LaTeX text processing system is much, much more adequate, but it requires
+ to 
+\begin_inset Quotes eld
+\end_inset
+
+program
+\begin_inset Quotes erd
+\end_inset
+
+ your text, and not all scientists are ready to take thay way.
+ A good alternative is the WYSIWIM paradigm of LyX.
+ WYSIWIM stands for 
+\begin_inset Quotes eld
+\end_inset
+
+What You See Is What You Mean
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Here, you don't see the code hidden in you rich text formatted document,
+ but you don't see the final result either.
+ You see, instead, a very suggestive representation of the 
+\emph on
+structure
+\emph default
+ of your text (titles, paragraphs, equations, etc.).
+ You can then concentrate on both the content and the structure, and deleguate
+ to the very capable LaTeX system that LyX uses to typeset its documents
+ on the background to produce the final result.
+ Thzt WYSIWIM approach, together with the possibility to include results,
+ tables and graphs from 
+\begin_inset Flex R
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ computations directly in the LyX document using the 
+\series bold
+Sweave
+\series default
+ mechanism makes is a very suitable alternative to more traditional Word
+ Processing programs for scientists.
+\end_layout
+
+\begin_layout Itemize
+The WYSIWYG slideshow programs, like PowerPoint, are not well suitable for
+ scientists for the same reasons (mainly, a lack of correct formula typesetting
+ and the inhability to include code to produce calculation results, tables
+ or graphs directly in the presentation).
+ Here, we go back to LyX and Sweave again, but together with the excellent
+ 
+\series bold
+Beamer
+\series default
+ LaTeX package.
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Section
+Processing data, analysing data
+\end_layout
+
+\begin_layout Standard
+Scientist study facts, and they mostly convert these facts into numbers
+ by mean of measurements in a given context (observation or experiment).
+ They, then, manipulate these numbers in different ways...
+\end_layout
+
+\begin_layout R-Chunk
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<<eval = FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+options(para.port = 1)	# If your card is connected to LPT1
+\end_layout
+
+\begin_layout Plain Layout
+
+para(c(T,F,F,T,F,F,F,T))  # Channels 1, 4, 8 ON, the others OFF
+\end_layout
+
+\begin_layout Plain Layout
+
+para(change = FALSE)      # Read current state
+\end_layout
+
+\begin_layout Plain Layout
+
+para(c(F,F,F,F,F,F,F,F))  # All channels OFF
+\end_layout
+
+\begin_layout Plain Layout
+
+para(change = FALSE)      # Make sure current state is changed
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+xxx
+\end_layout
+
+\end_body
+\end_document
