@@ -3,7 +3,7 @@ citHeader("To cite SciViews-R in publications use:")
 citEntry(entry="Manual",
          title = "SciViews-R: A GUI API for R",
          author = "Philippe Grosjean",
-         organization = "UMons",
+         organization = "UMONS",
          address      = "Mons, Belgium",
          year         = version$year,
          url          = "http://www.sciviews.org/SciViews-R",
@@ -11,7 +11,7 @@ citEntry(entry="Manual",
          textVersion =
          paste("Grosjean, Ph. (", version$year, "). ",
                "SciViews: A GUI API for R. ",
-               "UMons, Mons, Belgium. ",
+               "UMONS, Mons, Belgium. ",
                "URL http://www.sciviews.org/SciViews-R.",
                sep="")
          )
