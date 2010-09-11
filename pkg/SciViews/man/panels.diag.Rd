@@ -1,5 +1,4 @@
 \name{panels.diag}
-\Rdversion{1.1}
 \alias{panel.boxplot}
 \alias{panel.density}
 \alias{panel.hist}
@@ -72,19 +71,21 @@ panel.qqnorm(x, pch = par("pch"), col = par("col"), bg = par("bg"),
   \code{\link{density}}, \code{\link{qqnorm}} }
 
 \examples{
-# Example of scatterplot matrices with custom plots on the diagonal
-# Boxplots
+## Example of scatterplot matrices with custom plots on the diagonal
+## Boxplots
 pairs(trees, panel = panel.smooth, diag.panel = panel.boxplot)
 pairs(trees, diag.panel = panel.boxplot, box.col = "gray")
-# Densities
+## Densities
 pairs(trees, panel = panel.smooth, diag.panel = panel.density)
 pairs(trees, diag.panel = panel.density, line.col = "red", adjust = 0.5)
-# Histograms
+## Histograms
 pairs(trees, panel = panel.smooth, diag.panel = panel.hist)
 pairs(trees, diag.panel = panel.hist, hist.col = "gray", breaks = "Scott")
-# QQ-plots against Normal theoretical distribution
+## QQ-plots against Normal theoretical distribution
 pairs(trees, panel = panel.smooth, diag.panel = panel.qqnorm)
 pairs(trees, diag.panel = panel.qqnorm, qqline.col = 2, qq.cex = .5, qq.pch = 3)
 }
 
 \keyword{aplot}
+
+\concept{ panel plots }

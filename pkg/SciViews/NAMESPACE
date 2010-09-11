@@ -7,6 +7,7 @@ export(correlation,
 	   rwb.colors,
 	   ryg.colors,
 	   e,
+	   lb,
 	   ln,
 	   ln1p,
 	   lg,
@@ -48,7 +49,7 @@ S3method(text, pcomp)
 S3method(screeplot, pcomp)
 S3method(biplot, pcomp)
 S3method(predict, pcomp)
-#S3method(loadings, pcomp) # This is NOT a generic function, but it works well on pcomp
+#S3method(loadings, pcomp)  # This is NOT a generic function, but it works well on pcomp
 S3method(pairs, pcomp)
 S3method(scores, pcomp)
 S3method(correlation, pcomp)

@@ -1,5 +1,4 @@
 \name{pcomp}
-\Rdversion{1.1}
 \alias{pcomp}
 \alias{pcomp.default}
 \alias{pcomp.formula}
@@ -35,7 +34,8 @@ pcomp(x, \dots)
 
 \method{print}{pcomp}(x, \dots)
 \method{summary}{pcomp}(object, loadings = TRUE, cutoff = 0.1, \dots)
-\method{print}{summary.pcomp}(x, digits = 3, loadings = x$print.loadings, cutoff = x$cutoff, \dots)
+\method{print}{summary.pcomp}(x, digits = 3, loadings = x$print.loadings,
+    cutoff = x$cutoff, \dots)
 
 \method{plot}{pcomp}(x, which = c("screeplot", "loadings", "correlations", "scores"),
     choices = 1L:2L, col = par("col"), bar.col = "gray", circle.col = "gray",
@@ -177,38 +177,40 @@ scores(x, \dots)
   \code{\link{loadings}}, \code{link{correlation}} }
 
 \examples{
-# We will analyze mtcars without the Mercedes data (rows 8:14)
+## We will analyze mtcars without the Mercedes data (rows 8:14)
 data(mtcars)
 cars.pca <- pcomp(~mpg+cyl+disp+hp+drat+wt+qsec, data = mtcars, subset = -(8:14))
 cars.pca
 summary(cars.pca)
 screeplot(cars.pca)
 
-# Loadings are extracted and plotted like this
+## Loadings are extracted and plotted like this
 (cars.ldg <- loadings(cars.pca))
 plot(cars.pca, which = "loadings") # Equivalent to vectorplot(cars.ldg)
 
-# Similarly, correlations of variables with PCs are extracted and plotted
+## Similarly, correlations of variables with PCs are extracted and plotted
 (cars.cor <- correlation(cars.pca))
 plot(cars.pca, which = "correlations") # Equivalent to vectorplot(cars.cor)
-# One can add supplementary variables on this graph
+## One can add supplementary variables on this graph
 lines(correlation(cars.pca,
     newvars = mtcars[-(8:14), c("vs", "am", "gear", "carb")]))
 
-# Plot the scores
+## Plot the scores
 plot(cars.pca, which = "scores", cex = 0.8) # Similar to plot(scores(x)[, 1:2])
-# Add supplementary individuals to this plot (labels), use also points() or lines()
+## Add supplementary individuals to this plot (labels), use also points() or lines()
 text(predict(cars.pca, newdata = mtcars[8:14, ]), col = "gray", cex = 0.8)
 
-# More scores plot
-# TODO...
+## More scores plot
+## TODO...
 
-# Pairs plot for 3 PCs
+## Pairs plot for 3 PCs
 iris.pca <- pcomp(iris[, -5])
 pairs(iris.pca, col = (2:4)[iris$Species])
 
-# rgl plot for 3 PCs
-# TODO...
+## rgl plot for 3 PCs
+## TODO...
 }
 
-\keyword{models}
+\keyword{ models }
+
+\concept{ principal component analysis and biplot }

@@ -2,7 +2,7 @@
 
 == SciViews version 0.9-1
 
-* ...
+* Added lb() function as a synonym of log2().
 
 
 == SciViews version 0.9-0
@@ -14,8 +14,8 @@ convenient way to install all SciViews-R packages with one instruction:
 
 > install.packages("SciViews", dependencies = TRUE).
 
-It now plays also other roles: (1) to load all SciViews requirements with a
-single instruction:
+It now plays also other roles:
+(1) to load all SciViews requirements with a single instruction:
 
 > require(SciViews)
 

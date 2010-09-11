@@ -14,4 +14,6 @@
   \Sexpr[results=rd, stage=render]{c("The content of the arguments section...", sep = "")}
 }
 
-\keyword{package}
+\keyword{ package }
+
+\concept{ snippets and electrnoic reference card }
