@@ -1,5 +1,4 @@
 \name{correlation}
-\Rdversion{1.1}
 \alias{correlation}
 \alias{correlation.formula}
 \alias{correlation.default}
@@ -32,8 +31,9 @@ as.correlation(x)
 \method{print}{summary.correlation}(x, \dots)
 \method{plot}{correlation}(x, y = NULL, outline = TRUE,
     cutpoints = c(0.3, 0.6, 0.8, 0.9, 0.95), palette = rwb.colors, col = NULL,
-	numbers = TRUE, digits = 2, type = c("full", "lower", "upper"),
-	diag = (type == "full"), cex.lab = par("cex.lab"), cex = 0.75 * par("cex"), \dots)
+    numbers = TRUE, digits = 2, type = c("full", "lower", "upper"),
+    diag = (type == "full"), cex.lab = par("cex.lab"), cex = 0.75 * par("cex"),
+    \dots)
 }
 
 \arguments{
@@ -69,7 +69,7 @@ as.correlation(x)
   \item{cutpoints}{ the cut points to use for categories. Specify only positive
     values (absolute value of correlation coefficients are summarized, or
 	negative equivalents are automatically computed for the graph. Do not include
-	0 or 1 in the cutpoints. )}
+	0 or 1 in the cutpoints). }
   \item{symbols}{ the symbols to use to summarize the correlation matrix. }
   \item{outline}{ do we draw the outline of the ellipse? }
   \item{palette}{ a function that can produce a palette of colors. }
@@ -110,18 +110,18 @@ as.correlation(x)
   \code{\link{panel.cor}} }
 
 \examples{
-# This is a simple correlation coefficient
+## This is a simple correlation coefficient
 cor(rnorm(10), runif(10))
-# but this is a 'correlation' object containing a correlation matrix
+## but this is a 'correlation' object containing a correlation matrix
 correlation(rnorm(10), runif(10))
 
-# 'correlation' objects allow better inspection of the correlation matrices
-# than the output of default R cor() function
+## 'correlation' objects allow better inspection of the correlation matrices
+## than the output of default R cor() function
 (longley.cor <- correlation(longley))
 summary(longley.cor) # Synthetic view of the correlation matrix
 plot(longley.cor)    # Graphical representation
 
-# Use of the formula interface
+## Use of the formula interface
 (mtcars.cor <- correlation(~ mpg + cyl + disp + hp, data = mtcars,
     method = "spearman", na.action = "na.omit"))
 
@@ -131,7 +131,9 @@ summary(mtcars.cor2)
 plot(mtcars.cor2, type = "lower")
 
 mtcars.cor2["mpg", "cyl"] # Extract one correlation from the correlation matrix
-# TODO: a plot comparing two correlation matrices
+## TODO: a plot comparing two correlation matrices
 }
 
 \keyword{distribution}
+
+\concept{ correlation matrix and plot }

@@ -1,5 +1,4 @@
 \name{colors}
-\Rdversion{1.1}
 \alias{cwm.colors}
 \alias{rwb.colors}
 \alias{ryg.colors}
@@ -46,7 +45,7 @@ ryg.colors(n, alpha = 1, gamma = 1, s = 0.9, v = 0.9)
 \seealso{ \code{\link{cm.colors}}, \code{\link{colorRampPalette}} }
 
 \examples{
-# Draw color wheels with various palettes
+## Draw color wheels with various palettes
 opar <- par(mfrow = c(2, 2))
 pie(rep(1, 11), col = cwm.colors(11), main = "Cyan - white - magenta")
 pie(rep(1, 11), col = rwb.colors(11), main = "Red - white - blue")
@@ -56,3 +55,5 @@ par(opar)
 }
 
 \keyword{color}
+
+\concept{ color palettes }

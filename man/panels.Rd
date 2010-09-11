@@ -1,5 +1,4 @@
 \name{panels}
-\Rdversion{1.1}
 \alias{panel.reg}
 \alias{panel.ellipse}
 \alias{panel.cor}
@@ -39,14 +38,15 @@ panel.cor(x, y, use = "everything", method = c("pearson", "kendall", "spearman")
   \item{untf}{ logical asking whether to untransform the straight line in case
     one or both axis are in log scale. }
   \item{el.level}{ the confidence level for the bivariate normal ellipse
-    around data; the default value of 0.7 draws an ellipse of roughly +/- 1 sd. }
+    around data; the default value of 0.7 draws an ellipse of roughly +/-1 sd. }
   \item{el.col}{ the color used to fill the ellipse. }
   \item{el.border}{ the color used to draw the border of the ellipse and the
     standardized major axis. }
   \item{major}{ if \code{TRUE}, the standardized major axis is also drawn. }
-  \item{use}{ one of \code{"everything"}, \code{"all.obs"}, /code{"complete.obs"},
-    \code{"na.or.complete"}, or \code{"pairwise.complete.obs"} (can be abbreviated).
-    Defines how the \code{cor()} function behaves with missing observations. }
+  \item{use}{ one of \code{"everything"}, \code{"all.obs"},
+    \code{"complete.obs"}, \code{"na.or.complete"}, or
+    \code{"pairwise.complete.obs"} (can be abbreviated). Defines how the
+    \code{cor()} function behaves with missing observations. }
   \item{method}{ one of the three correlation coefficients \code{"pearson"},
     (default), \code{"kendall"}, or \code{"spearman"} (can be abbreviated). }
   \item{alternative}{ the alternative hypothesis in correlation test, see
@@ -63,8 +63,9 @@ panel.cor(x, y, use = "everything", method = c("pearson", "kendall", "spearman")
 }
 
 \details{
-  Theses functions should be used outside of the diagonal in \code{\link{pairs}()},
-  or with \code{\link{coplot}()}, as they are bivariate plots.
+  Theses functions should be used outside of the diagonal in
+  \code{\link{pairs}()}, or with \code{\link{coplot}()}, as they are bivariate
+  plots.
 }
 
 \value{
@@ -78,36 +79,38 @@ panel.cor(x, y, use = "everything", method = c("pearson", "kendall", "spearman")
 }
 
 \seealso{ \code{\link{coplot}}, \code{\link{pairs}}, \code{\link{panel.smooth}},
-  \code{\link{lm}}, \code{\link[ellipse]{ellipse}},
-  \code{\link{cor}} and \code{\link{cor.test}} }
+  \code{\link{lm}}, \code{\link[ellipse]{ellipse}}, \code{\link{cor}} and
+  \code{\link{cor.test}} }
 
 \examples{
-# Smooth lines in lower graphs and straight lines in upper graphs
+## Smooth lines in lower graphs and straight lines in upper graphs
 pairs(trees, lower.panel = panel.smooth, upper.panel = panel.reg)
-# Robust regression lines
-require(MASS) # For rlm()
+## Robust regression lines
+require(MASS)  # For rlm()
 pairs(trees, panel = panel.reg, diag.panel = panel.boxplot,
     reg.line = rlm, line.col = "blue", line.lwd = 2)
-# A Double log graph
+## A Double log graph
 pairs(trees, lower.panel = panel.smooth, upper.panel = panel.reg, log = "xy")
 
-# Graph suitables to explore correlations (take care that there are potentially
-# many simultaneous tests done here... So, you loose much power is the whole
-# analysis... use it just as an indication, nothing more!)
-# Pearson's r
+## Graph suitables to explore correlations (take care that there are potentially
+## many simultaneous tests done here... So, you loose much power is the whole
+## analysis... use it just as an indication, nothing more!)
+## Pearson's r
 pairs(trees, lower.panel = panel.ellipse, upper.panel = panel.cor)
-# Spearman's rho (ellipse and straight lines not suitable here!)
+## Spearman's rho (ellipse and straight lines not suitable here!)
 pairs(trees, lower.panel = panel.smooth, upper.panel = panel.cor,
     method = "spearman", span = 1)
-# Several groups (visualize how bad it is to consider the whole set at once!)
+## Several groups (visualize how bad it is to consider the whole set at once!)
 pairs(iris[, -5], lower.panel = panel.smooth, upper.panel = panel.cor,
     method = "kendall", span = 1, col = c("red3", "blue3", "green3")[iris$Species])
-# Now analyze correlation for one species only
+## Now analyze correlation for one species only
 pairs(iris[iris$Species == "virginica", -5], lower.panel = panel.ellipse,
     upper.panel = panel.cor)
     
-# A coplot with custom panes
+## A coplot with custom panes
 coplot(Petal.Length ~ Sepal.Length | Species, data = iris, panel = panel.ellipse)
 }
 
-\keyword{aplot}
+\keyword{ aplot }
+
+\concept{ panel plots }

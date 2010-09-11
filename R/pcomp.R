@@ -1,16 +1,16 @@
-# Define a "pcomp" S3 object for PCA, because there is too much chaos with
-# default "prcomp" and "princomp" R objects, plus "pca" in ade4 and labdsv,
-# "PCA" in FactoMineR, etc.
+## Define a "pcomp" S3 object for PCA, because there is too much chaos with
+## default "prcomp" and "princomp" R objects, plus "pca" in ade4 and labdsv,
+## "PCA" in FactoMineR, etc.
 
-# Create the pcomp generic function that returns a "pcomp" object
+## Create the pcomp generic function that returns a "pcomp" object
 pcomp <- function (x, ...)
 	UseMethod("pcomp")
 	
 pcomp.formula <- function (formula, data = NULL, subset, na.action,
 method = c("svd", "eigen"), ...)
 {
-	# Defines a PCA through the formula interface
-	# Largely inspired from prcomp.formula
+	## Define a PCA through the formula interface
+	## Largely inspired from prcomp.formula
 	mt <- terms(formula, data = data)
     if (attr(mt, "response") > 0L) 
         stop("response not allowed in formula")
@@ -33,18 +33,18 @@ method = c("svd", "eigen"), ...)
         if (!is.null(sc <- res$x)) 
             res$x <- napredict(na.act, sc)
     }
-    res
+    return(res)
 }
 
 pcomp.default <- function (x, method = c("svd", "eigen"), scores = TRUE, 
 center = TRUE, scale = TRUE, tol = NULL, covmat = NULL,
 subset = rep(TRUE, nrow(as.matrix(x))), ...)
 {
-	# Perform a PCA, either using prcomp (method = "svd"), or princomp ("eigen")
+	## Perform a PCA, either using prcomp (method = "svd"), or princomp ("eigen")
 	svd.pca <- function (x, retx, center, scale, tol, ...) {
 		pca <- prcomp(x, retx = retx, center = center, scale = scale, tol = tol,
 			...)
-		# Rework the result to make it fit in the "pcomp" object
+		## Rework the result to make it fit in the "pcomp" object
 		names(pca$sdev) <- paste("PC", 1:length(pca$sdev), sep = "") 
 		if (isTRUE(!pca$center)) {
 			pca$center <- rep(0, length(pca$sdev))
@@ -81,12 +81,12 @@ subset = rep(TRUE, nrow(as.matrix(x))), ...)
 				subset = subset, ...)
 		}
 		n <- length(pca$sdev)
-		pc <- paste("PC", 1:n, sep = "") # rename Comp.1, ... in PC1, ...
+		pc <- paste("PC", 1:n, sep = "")  # rename Comp.1, ... in PC1, ...
 		names(pca$sdev) <- pc
 		colnames(pca$loadings) <- pc
 		if (!is.null(pca$scores)) {
 			colnames(pca$scores) <- pc
-			# If there are rownames to x, use it
+			## If there are rownames to x, use it
 			rn <- rownames(x)
 			if (is.null(rn)) {
 				rownames(pca$scores) <- as.character(1:nrow(pca$scores))
@@ -111,7 +111,7 @@ subset = rep(TRUE, nrow(as.matrix(x))), ...)
 	cl <- match.call()
     cl[[1L]] <- as.name("pcomp")
 	
-	# Check that all variables are numeric (otherwise, issue a clear message)!
+	## Check that all variables are numeric (otherwise, issue a clear message)!
 	x <- as.data.frame(x)
 	if (!all(sapply(x, is.numeric)))
 		stop("Cannot perform a PCA: one or more variables are not numeric.")
@@ -126,15 +126,15 @@ subset = rep(TRUE, nrow(as.matrix(x))), ...)
 			subset = subset, ...),
 		stop("method must be either 'svd' or 'eigen'")
 	)
-	# Add a call item
+	## Add a call item
 	res$call <- cl
-	# We return a specific object, but it is compatible (i.e., overloads), both
-	# "pca" in package labdsv and "princomp" in package stats
+	## We return a specific object, but it is compatible (i.e., overloads), both
+	## "pca" in package labdsv and "princomp" in package stats
 	class(res) <- c("pcomp", "pca", "princomp")
 	return(res)
 }
 
-# print method (similar to print.princomp, but reports variances instead of sds)
+## print method (similar to print.princomp, but reports variances instead of sds)
 print.pcomp <- function (x, ...)
 {
     cat("Call:\n")
@@ -145,7 +145,7 @@ print.pcomp <- function (x, ...)
     invisible(x)
 }
 
-# summary method (same as summary.princomp, but with TRUE for loadings)
+## summary method (same as summary.princomp, but with TRUE for loadings)
 summary.pcomp <- function (object, loadings = TRUE, cutoff = 0.1, ...) 
 {
     object$cutoff <- cutoff
@@ -154,7 +154,7 @@ summary.pcomp <- function (object, loadings = TRUE, cutoff = 0.1, ...)
     object
 }
 
-#print method for summary.pcomp object (slightly modified from princomp)
+## print method for summary.pcomp object (slightly modified from princomp)
 print.summary.pcomp <- function (x, digits = 3, loadings = x$print.loadings,
 cutoff = x$cutoff, ...) 
 {
@@ -174,11 +174,12 @@ cutoff = x$cutoff, ...)
     invisible(x)
 }
 
-#plot method
-# TODO: same mechanism as for plot.lm: multiplot allowed!
-plot.pcomp <- function (x, which = c("screeplot", "loadings", "correlations", "scores"),
-choices = 1L:2L, col = par("col"), bar.col = "gray", circle.col = "gray",
-ar.length = 0.1, pos = NULL, labels = NULL, cex = par("cex"),
+## plot method
+## TODO: same mechanism as for plot.lm: multiplot allowed!
+plot.pcomp <- function (x,
+which = c("screeplot", "loadings", "correlations", "scores"), choices = 1L:2L,
+col = par("col"), bar.col = "gray", circle.col = "gray", ar.length = 0.1,
+pos = NULL, labels = NULL, cex = par("cex"),
 main = paste(deparse(substitute(x)), which, sep = " - "), xlab, ylab, ...)
 {	
 	plotScores <- function (x, choices, col, circle.col, labels, cex, main,
@@ -188,7 +189,7 @@ main = paste(deparse(substitute(x)), which, sep = " - "), xlab, ylab, ...)
 			stop("no scores are available: refit with 'scores = TRUE'")
 		if (is.null(labels)) {
 			labels <- rownames(x$scores)
-			if (is.null(labels)) # If still no labels
+			if (is.null(labels))  # If still no labels
 				labels <- as.character(1:nrow(x$scores))
 		} else if (!isTRUE(!as.numeric(labels)))
 			labels <- as.character(labels)
@@ -202,7 +203,7 @@ main = paste(deparse(substitute(x)), which, sep = " - "), xlab, ylab, ...)
 	
 	which <- match.arg(which)
 	main <- main[1]
-	# Calculate default xlab and ylab
+	## Calculate default xlab and ylab
 	labs <- paste(names(x$sdev), " (", round((x$sdev^2 / x$totdev^2) * 100,
 		digits = 1), "%)", sep = "")
 	if (missing(xlab)) xlab <- labs[choices[1]] else xlab
@@ -224,7 +225,7 @@ main = paste(deparse(substitute(x)), which, sep = " - "), xlab, ylab, ...)
 	)
 }
 
-#screeplot method (add cumulative variance curve to the plot)
+## screeplot method (add cumulative variance curve to the plot)
 screeplot.pcomp <- function (x, npcs = min(10, length(x$sdev)),
 type = c("barplot", "lines"), col = "cornsilk", main = deparse(substitute(x)),
 ...) 
@@ -242,10 +243,10 @@ type = c("barplot", "lines"), col = "cornsilk", main = deparse(substitute(x)),
         axis(2)
         axis(1, at = xp, labels = names(pcs[xp]))
     }
-    invisible()
+    return(invisible())
 }
 
-#points method
+## points method
 # This is supposed to add points to a graph of scores
 points.pcomp <- function (x, choices = 1L:2L, type = "p", pch = par("pch"),
 col = par("col"), bg = par("bg"), cex = par("cex"), ...)
@@ -256,7 +257,7 @@ col = par("col"), bg = par("bg"), cex = par("cex"), ...)
 		cex = cex, ...)
 }
 
-#lines method
+## lines method
 # Uses groups to draw either polygons or ellipses for each group
 lines.pcomp <- function (x, choices = 1L:2L, groups, type = c("p", "e"),
 col = par("col"), border = par("fg"), level = 0.9, ...)
@@ -267,9 +268,10 @@ col = par("col"), border = par("fg"), level = 0.9, ...)
 			sc <- na.omit(scores[as.numeric(groups) == i, ])
 			if (NROW(sc) > 1) {
 				pts <- chull(sc)
-				# Close polygon
+				## Close polygon
 				pts <- c(pts, pts[1])
-				polygon(sc[pts, 1], sc[pts, 2], col = col[i], border = border[i], ...)
+				polygon(sc[pts, 1], sc[pts, 2], col = col[i],
+					border = border[i], ...)
 			}
 		}
 	}
@@ -298,23 +300,26 @@ col = par("col"), border = par("fg"), level = 0.9, ...)
 	border <- rep(border, length.out = n)
 	type <- match.arg(type)
 	switch(type,
-		p = polygons(scores, groups = groups, n = n, col = col, border = border, ...),
-		e = ellipses(scores, groups = groups, n = n, col = col, border = border, level = level, ...),
+		p = polygons(scores, groups = groups, n = n, col = col,
+			border = border, ...),
+		e = ellipses(scores, groups = groups, n = n, col = col,
+			border = border, level = level, ...),
 		stop("unknown type, currently only 'p' for polygons et 'e' for ellipses")
 	)
 }
 
-#text method
+## text method
 text.pcomp <- function (x, choices = 1L:2L, labels = NULL, col = par("col"),
 cex = par("cex"), pos = NULL, ...) {
 	if (is.null(x$scores))
 		stop("no scores are available: refit with 'scores = TRUE'")
 	if (is.null(labels))
 		labels <- as.character(1:nrow(x$scores))
-	text(x$scores[, choices], labels = labels, col = col, cex = cex, pos = pos, ...)
+	text(x$scores[, choices], labels = labels, col = col, cex = cex,
+		pos = pos, ...)
 }
 
-#biplot method (note: it plots loadings, not correlations!)
+## biplot method (note: it plots loadings, not correlations!)
 biplot.pcomp <- function (x, choices = 1L:2L, scale = 1, pc.biplot = FALSE, ...) 
 {
     if (length(choices) != 2) 
@@ -336,49 +341,50 @@ biplot.pcomp <- function (x, choices = 1L:2L, scale = 1, pc.biplot = FALSE, ...)
         lam <- lam/sqrt(n)
     stats:::biplot.default(t(t(scores[, choices])/lam),
 		t(t(x$loadings[, choices]) * lam), ...)
-    invisible()
+    return(invisible())
 }
 
-#.panel.individuals required by pairs.pcomp
+## .panel.individuals required by pairs.pcomp
 .panel.individuals <- function (x, y, ...) {
-	# x and y are c(indivs, NaN, vars) => collect indivs
+	## x and y are c(indivs, NaN, vars) => collect indivs
 	pos <- 1:(which(is.nan(x))[1] - 1)
 	points(x[pos], y[pos], ...)
 }
 
-#.panel.variables required by pairs.pcomp
+## .panel.variables required by pairs.pcomp
 .panel.variables <- function (x, y, ar.labels, ar.col, ar.cex, labels, col,
 cex, ...)
 {
-	# x and y are c(indivs, NaN, vars) => collect indivs
+	## x and y are c(indivs, NaN, vars) => collect indivs
 	pos <- (which(is.nan(x))[1] + 1):length(x)
 	par(new = TRUE)
-	# We want to invert position of x and y here to get same one as indivs
+	## We want to invert position of x and y here to get same one as indivs
 	vectorplot(y[pos], x[pos], axes = FALSE, labels = ar.labels, col = ar.col,
 		cex = ar.cex, ...)
 }
 
-#pairs plot for pcomp objects
-pairs.pcomp <- function (x, choices = 1L:3L, type = c("loadings", "correlations"),
-col = par("col"), circle.col = "gray", ar.col = par("col"), ar.length = 0.05,
-pos = NULL, ar.cex = par("cex"), cex = par("cex"), ...)
+## pairs plot for pcomp objects
+pairs.pcomp <- function (x, choices = 1L:3L,
+type = c("loadings", "correlations"), col = par("col"), circle.col = "gray",
+ar.col = par("col"), ar.length = 0.05, pos = NULL, ar.cex = par("cex"),
+cex = par("cex"), ...)
 {
 	type <- match.arg(type)
 	X <- scores(x)[, choices]
-	# Calculate labels
+	## Calculate labels
 	labs <- paste(names(x$sdev), " (", round((x$sdev^2 / x$totdev^2) * 100,
 		digits = 1), "%)", sep = "")[choices]
-	# Add a row of NaN to separate indivs and vars
+	## Add a row of NaN to separate indivs and vars
 	X <- rbind(X, rep(NaN, length(choices)))
-	# Add vars
+	## Add vars
 	vars <- switch(type,
 		loadings = loadings(x)[, choices],
 		correlations = correlation(x)[, choices]
 	)
 	X <- rbind(X, vars)
-	# Change names
+	## Change names
 	names(X) <- labs
-	# Why do I get warning with non par arguments?!
+	## Why do I get warning with non par arguments?!
 	suppressWarnings(pairs(X, lower.panel = .panel.individuals,
 		upper.panel = .panel.variables,
 		col = col, circle.col = circle.col, ar.col = ar.col, ar.cex = ar.cex,
@@ -386,7 +392,7 @@ pos = NULL, ar.cex = par("cex"), cex = par("cex"), ...)
 		cex = cex, ...))	
 }
 
-#predict method
+## predict method
 predict.pcomp <- function (object, newdata, dim = length(object$sdev), ...) 
 {
     if (dim > length(object$sdev)) {
@@ -411,12 +417,12 @@ predict.pcomp <- function (object, newdata, dim = length(object$sdev), ...)
     scale(newdata, object$center, object$scale) %*% object$loadings[, 1:dim]
 }
 
-# Extract correlation from a pcomp object. If newvar is provided, it
-# calculates correlations between this new variable and corresponding PCs
-# (providing that scores were calculated, and that the nrow() of new
-# variable is the same as nrow(scores), assumed to be the same individuals
-# as in the original PCA)
-# It creates a 'corr' object
+## Extract correlation from a pcomp object. If newvar is provided, it
+## calculates correlations between this new variable and corresponding PCs
+## (providing that scores were calculated, and that the nrow() of new
+## variable is the same as nrow(scores), assumed to be the same individuals
+## as in the original PCA)
+## It creates a 'corr' object
 correlation.pcomp <- function (x, newvars, dim = length(x$sdev), ...)
 {
 	Call <- match.call()
@@ -429,38 +435,38 @@ correlation.pcomp <- function (x, newvars, dim = length(x$sdev), ...)
 	dims <- 1:dim
 	
 	if (missing(newvars)) {
-		# Just extract correlations (calculated after loadings)
+		## Just extract correlations (calculated after loadings)
 		if (is.null(loads <- loadings(x))) {
 			return(NULL)
 		} else {
 			res <- sweep(loads[, dims], 2,  x$sdev[dims], "*")
-			# Create a 'corr' object with this
+			## Create a 'corr' object with this
 			attr(res, "method") <- "PCA variables and components correlation"
 			attr(res, "call") <- Call
 			class(res) <- c("correlation", "matrix")
 			return(res)
 		}
 	} else {
-		# Calculate correlation of new variables with PCs
-		# Must have same number of observations as in scores, otherwise, we got
-		# the error message: "incompatible dimensions"
+		## Calculate correlation of new variables with PCs
+		## Must have same number of observations as in scores, otherwise, we got
+		## the error message: "incompatible dimensions"
 		if (is.null(scores <- x$scores))
 			stop("no scores are available: refit with 'scores = TRUE'")
-		# TODO: if these are rownames, check that they match
+		## TODO: if these are rownames, check that they match
 		res <- correlation(newvars, scores[, dims])
-		# Just change method attribute
+		## Just change method attribute
 		attr(res, "method") <- "PCA variables and components correlation"
 		return(res)
 	}
 }
 
-# A generic function compatible with the corresponding one in labdsv package
+## A generic function compatible with the corresponding one in labdsv package
 scores <- function (x, ...)
 	UseMethod("scores")
 
-# Borrowed from scores in labdsv
-# but return a data frame instead of a matrix
-# TODO: check labels length, dim perhaps not the best argument name
+## Borrowed from scores in labdsv
+## but return a data frame instead of a matrix
+## TODO: check labels length, dim perhaps not the best argument name
 scores.pcomp <- function (x, labels = NULL, dim = length(x$sdev), ...)
 {
 	if (dim > length(x$sdev)) {

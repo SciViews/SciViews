@@ -1,9 +1,7 @@
 \name{SciViews-package}
-\Rdversion{1.1}
 \alias{SciViews-package}
 \alias{SciViews}
 \docType{package}
-
 
 \title{ SciViews GUI API - Main package }
 
@@ -16,7 +14,7 @@
     Package: \tab SciViews\cr
     Type: \tab Package\cr
     Version: \tab 0.9-1\cr
-    Date: \tab 2010-02-15\cr
+    Date: \tab 2010-09-11\cr
     License: \tab GPL (>= 2)\cr
     LazyLoad: \tab yes\cr
   }
@@ -32,4 +30,6 @@
   SciViews: http://www.sciviews.org/
 }
 
-\keyword{package}
+\keyword{ package }
+
+\concept{ R enhancement }

@@ -13,17 +13,21 @@ particular problem!)
 
 * QQ-plot and statistical distributions plots.
 
-* For PCA, look at ade4 (dudi.pca => c("pca", "dudi"), ellipse, area), FactoMineR (PCA), rrcov (Pca), pcaMethods (PcaRes), psych, nFactors, vegan rda = special case of pca => c("rda", "cca")), pcaPP, chemometrics (croos-validation), 
-BiodiversityR (broken-stick = PCAsignificance + variable importance = ordiequilibriumCircle) and labdsv packages => how to sort all this and make something coherent with our pcomp object and methods?
-See also zoonek znd http://www.statmethods.net/advstats/factor.html.
+* For PCA, look at ade4 (dudi.pca => c("pca", "dudi"), ellipse, area),
+  FactoMineR (PCA), rrcov (Pca), pcaMethods (PcaRes), psych, nFactors, vegan
+  rda = special case of pca => c("rda", "cca")), pcaPP, chemometrics
+  (cross-validation), BiodiversityR (broken-stick = PCAsignificance + variable
+  importance = ordiequilibriumCircle) and labdsv packages => how to sort all
+  this and make something coherent with our pcomp object and methods?
+  See also zoonek znd http://www.statmethods.net/advstats/factor.html.
 
 * For correspondance analysis, see ca package.
 
 * recordPlot(), replayPlot() to save graphs between sessions.
 Look also at dev.control("inhibit") and dev.interactive().
 
-* gui? (dialog box), cmd? (fill dialog box with values) or gui? (do nothing), cmd? (run it).
-
+* gui? (dialog box), cmd? (fill dialog box with values) or gui? (do nothing),
+  cmd? (run it).
 
 * Rethink depends, imports and suggests to install and/or load the right number
 of packages (+ options to avoiding to load certains packages, in certain cases).
@@ -32,10 +36,10 @@ of packages (+ options to avoiding to load certains packages, in certain cases).
 server accordingly (do not start the socket server automatically in case there
 is no config file).
 
-* Automatically load projects and snippets associated with a package. Use a context
-  string that ensures that we have require(XXXX) somewhere up the script for using
-  a command in a R package. Reload the tooltips definition each time we use them...
-  or better: use contextual arguments: svMisc::expr => can superseed expr tooltip
-  but uses it, if there is no svMisc::expr tooltip!
+* Automatically load projects and snippets associated with a package. Use a
+  context string that ensures that we have require(XXXX) somewhere up the scrip
+  for using a command in a R package. Reload the tooltips definition each time
+  we use them... or better: use contextual arguments: svMisc::expr => can
+  superseed expr tooltip but uses it, if there is no svMisc::expr tooltip!
 
 * Translation of this package (and what about the doc?).

@@ -1,5 +1,4 @@
 \name{vectorplot}
-\Rdversion{1.1}
 \alias{vectorplot}
 \alias{vectorplot.default}
 \alias{vectorplot.loadings}
@@ -54,12 +53,14 @@ vectorplot(x, \dots)
   \code{\link{correlation}} }
 
 \examples{
-# Create a PCA and plot loadings and correlations
+## Create a PCA and plot loadings and correlations
 iris.pca <- pcomp(iris[, -5])
 vectorplot(loadings(iris.pca))
 vectorplot(correlation(iris.pca))
-# Note: on screen devices, change aspect ratio of the graph by resizing
-# the window to reveal cropped labels...
+## Note: on screen devices, change aspect ratio of the graph by resizing
+## the window to reveal cropped labels...
 }
 
 \keyword{aplot}
+
+\concept{ Vector and circular plot }
