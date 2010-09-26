@@ -16,4 +16,4 @@
 
 \keyword{ package }
 
-\concept{ snippets and electrnoic reference card }
+\concept{ snippets and electronic reference card }
