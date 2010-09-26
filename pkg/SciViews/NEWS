@@ -1,5 +1,10 @@
 = SciViews News
 
+== SciViews version 0.9-2
+
+* Slight style refactoring of R code and man pages.
+
+
 == SciViews version 0.9-1
 
 * Added lb() function as a synonym of log2().
