@@ -5,7 +5,7 @@ Imports: ellipse
 Depends: R (>= 2.6.0), stats, grDevices, graphics, MASS
 Enhances: base, stats
 Description: Functions to install SciViews additions to R, and more (various) tools
-Version: 0.9-2
+Version: 0.9-3
 Date: 2010-09-26
 Author: Philippe Grosjean
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
