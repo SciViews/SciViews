@@ -1,5 +1,10 @@
 = SciViews News
 
+== SciViews version 0.9-3
+
+* A bug in svd.pca() subfunction of pcomp.default() was corrected.
+
+
 == SciViews version 0.9-2
 
 * Slight style refactoring of R code and man pages.

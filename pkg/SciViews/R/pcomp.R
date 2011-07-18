@@ -48,11 +48,11 @@ subset = rep(TRUE, nrow(as.matrix(x))), ...)
 		names(pca$sdev) <- paste("PC", 1:length(pca$sdev), sep = "") 
 		if (isTRUE(!pca$center)) {
 			pca$center <- rep(0, length(pca$sdev))
-			names(pca$center) <- rownames(pca$rotation)
+			names(pca$center) <- colnames(pca$rotation)
 		}
 		if (isTRUE(!pca$scale)) {
 			pca$scale <- rep(1, length(pca$sdev))
-			names(pca$scale) <- rownames(pca$rotation)
+			names(pca$scale) <- colnames(pca$rotation)
 		}
 		rn <- rownames(x)
 			if (is.null(rn)) {
