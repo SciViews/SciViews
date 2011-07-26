@@ -1,5 +1,12 @@
 = SciViews News
 
+== SciViews version 0.9-4
+
+* The gamma argument in hsv() function disappears in R 2.14.0. As a consequence,
+  the same gamma argument is dropped from rwb.colors(), ryg.colors() and
+  cwm.colors().
+
+
 == SciViews version 0.9-3
 
 * A bug in svd.pca() subfunction of pcomp.default() was corrected.

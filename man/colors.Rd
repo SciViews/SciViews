@@ -10,17 +10,15 @@
 }
 
 \usage{
-cwm.colors(n, alpha = 1, gamma = 1, s = 0.9, v = 0.9)
-rwb.colors(n, alpha = 1, gamma = 1, s = 0.9, v = 0.9)
-ryg.colors(n, alpha = 1, gamma = 1, s = 0.9, v = 0.9)
+cwm.colors(n, alpha = 1, s = 0.9, v = 0.9)
+rwb.colors(n, alpha = 1, s = 0.9, v = 0.9)
+ryg.colors(n, alpha = 1, s = 0.9, v = 0.9)
 }
 
 \arguments{
   \item{n}{ the number of colors (>= 1) to be in the palette. }
   \item{alpha}{ the alpha transparency, a number in [0, 1], see argument
     \code{alpha} in \code{\link{hsv}}. }
-  \item{gamma}{ the gamma correction, see argument \code{gamma} in
-    \code{\link{hsv}}. }
   \item{s}{ the 'saturation' to be used to complete the HSV color descriptions. }
   \item{v}{ the 'value' to use for the HSV color descriptions. }
 }
