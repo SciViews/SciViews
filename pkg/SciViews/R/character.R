@@ -4,12 +4,12 @@
 
 ## Count the number of characters
 ## No: make an exception: after n (or nz) do not use uppercase!
-#nChar 				<- nchar
-#nzChar				<- nzchar
+#nChar <- nchar
+#nzChar <- nzchar
 
 ## Format character strings
-strEscape			<- encodeString
-strWrap				<- strwrap
+strEscape <- encodeString
+strWrap <- strwrap
 # Add strPad => pad a string left/right or both or Padb/Padl/Padr?
 #+sprintf/gettextf?
 
@@ -101,9 +101,9 @@ strSplit <- function (x, pattern, ...) # for useBytes
 rxSplit <- function (x, pattern, ...) # for perl & useBytes
 	return(strsplit(x, split = pattern, fixed = FALSE, ...))
 
-strSub				<- substr
-`strSub<-`			<- `substr<-`
-strTrunc			<- strtrim ## This indeed truncs strings!!!
+strSub <- substr
+`strSub<-` <- `substr<-`
+strTrunc <- strtrim ## This indeed truncs strings!!!
 
 ## paste() is rather long name, in comparison with, e.g., c().
 ## Also the default argument of sep = " " is irritating and is not consistent
@@ -112,7 +112,7 @@ strTrunc			<- strtrim ## This indeed truncs strings!!!
 p <- function (..., sep = "", collapse = NULL) 
 	.Internal(paste(list(...), sep, collapse))
 	
-p_  <- paste
+p_ <- paste
 
 ## The same is true for cat() with sep = " "... and the default behaviour of
 ## not ending with line feed is more confusing that useful => change this
@@ -162,24 +162,24 @@ strTrimr <- function (x, all.spaces = FALSE) # Trim right-side only
 
 
 ## Change case and translate
-strTr()				<- chartr
-strCaseFold()		<- casefold
-strLower()			<- tolower
-strUpper()			<- toupper
+strTr <- chartr
+strCaseFold <- casefold
+strLower <- tolower
+strUpper <- toupper
 
 ## Character encoding
-encodingToNative()	<- enc2native
-encodingToUTF8()	<- enc2utf8
-encoding()			<- Encoding
-`encoding<-`		<- `Encoding<-`
+encodingToNative <- enc2native
+encodingToUTF8 <- enc2utf8
+encoding <- Encoding
+`encoding<-` <- `Encoding<-`
 
 ## Measure size of a string (package graphics)
-strHeight()			<- strheight
-strWidth()			<- strwidth
+strHeight <- strheight
+strWidth <- strwidth
 
 ## Match and expand character strings to a list of items
-strExpand()			<- char.expand
-strMatch()			<- charmatch
+strExpand <- char.expand
+strMatch <- charmatch
 # What to do with pmatch()???
 
 ## Conversion to character string
@@ -187,8 +187,8 @@ strMatch()			<- charmatch
 
 # To avoid using strtoi(), we prefer as.integerBase (because as.integer cannot
 # be converted into a generic function, because it is a primitive!)
-#strToInt()			<- strtoi # Allows to choose the base used for char representation
-as.integerBase 		<- strtoi
+#strToInt <- strtoi # Allows to choose the base used for char representation
+as.integerBase <- strtoi
 
 #+paste = cChar? + my special character string manipulation functions?
 # is.wholenumber(), see ?as.integer => define isWholeInt?
@@ -206,7 +206,7 @@ ifIs <- function (x, what, yes = valid(x),
 no = stop("need a ", what, " object"))
 	return(if (inherits(x, what)) yes else no)
 
-ifElse			<- ifelse
+ifElse <- ifelse
 
 ## This is useful to get something similar to df$var or obj@slot
 ## TODO: how to solve the case ll%a%metadata$OK for metadata being a list?

@@ -91,25 +91,25 @@ fileFind <- function (names)
 	return(structure(Sys.which(names), class = c("filePath", "character")))
 
 
-dirList				dir
-dirList				list.dirs
-fileList			list.files
-dirCreate			dir.create
-fileAccess			file.access
-fileAppend			file.append
-fileChoose			file.choose
-fileCopy			file.copy
-fileCreate			file.create
-fileExists			file.exists
-fileInfo			file.info
-fileLink			file.link
-fileRemove			file.remove
-fileRename			file.rename
-fileShow			file.show
-fileSymlink			file.symlink
-fileChmod			Sys.chmod
-fileGlob			Sys.glob
-fileUnlink			unlink
+#dirList <- dir
+#dirList <- list.dirs
+#fileList <-	list.files
+#dirCreate <- dir.create
+#fileAccess <- file.access
+#fileAppend <- file.append
+#fileChoose <- file.choose
+#fileCopy <-	file.copy
+#fileCreate <- file.create
+#fileExists <- file.exists
+#fileInfo <-	file.info
+#fileLink <- file.link
+#fileRemove <- file.remove
+#fileRename <- file.rename
+#fileShow <-	file.show
+#fileSymlink <- file.symlink
+#fileChmod <- Sys.chmod
+#fileGlob <- Sys.glob
+#fileUnlink <- unlink
 # = isDir/isFile
 
 ## A more convenient setwd()/getwd() using objects
