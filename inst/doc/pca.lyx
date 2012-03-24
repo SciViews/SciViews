@@ -1,5 +1,5 @@
-#LyX 1.6.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 345
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
 \begin_document
 \begin_header
 \textclass article
@@ -13,20 +13,28 @@
 \end_preamble
 \use_default_options false
 \begin_modules
-sweave
+svSweave
 \end_modules
+\maintain_unincluded_children false
 \language english
-\inputencoding auto
+\language_package default
+\inputencoding utf8x
+\fontencoding global
 \font_roman palatino
 \font_sans berasans
 \font_typewriter beramono
 \font_default_family default
+\use_non_tex_fonts false
 \font_sc true
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 
 \graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
 \float_placement tbh
 \paperfontsize default
 \spacing single
@@ -49,13 +57,22 @@ sweave
 \use_geometry false
 \use_amsmath 0
 \use_esint 0
+\use_mhchem 1
+\use_mathdots 1
 \cite_engine natbib_authoryear
 \use_bibtopic false
+\use_indices false
 \paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\defskip medskip
+\paragraph_indentation default
 \quotes_language english
 \papercolumns 1
 \papersides 2
@@ -66,8 +83,9 @@ sweave
 \bullet 3 0 9 -1
 \tracking_changes false
 \output_changes false
-\author "" 
-\author "" 
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
 \end_header
 
 \begin_body
@@ -124,12 +142,11 @@ stats
 
 \end_inset
 
- package, there are two unconsistent implementations called 
+ package, there are two inconsistent implementations called 
 \begin_inset Flex CharStyle:Code
 status collapsed
 
 \begin_layout Plain Layout
-
 princomp()
 \end_layout
 
@@ -140,7 +157,6 @@ princomp()
 status collapsed
 
 \begin_layout Plain Layout
-
 prcomp()
 \end_layout
 
@@ -152,7 +168,6 @@ prcomp()
 status collapsed
 
 \begin_layout Plain Layout
-
 print()
 \end_layout
 
@@ -163,7 +178,6 @@ print()
 status collapsed
 
 \begin_layout Plain Layout
-
 summary()
 \end_layout
 
@@ -174,7 +188,6 @@ summary()
 status collapsed
 
 \begin_layout Plain Layout
-
 plot()
 \end_layout
 
@@ -185,7 +198,6 @@ plot()
 status collapsed
 
 \begin_layout Plain Layout
-
 predict()
 \end_layout
 
@@ -196,7 +208,6 @@ predict()
 status collapsed
 
 \begin_layout Plain Layout
-
 biplot()
 \end_layout
 
@@ -260,11 +271,10 @@ ade4
 \end_inset
 
  creates a 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
 c(
 \begin_inset Quotes eld
 \end_inset
@@ -306,7 +316,6 @@ ade4
 status collapsed
 
 \begin_layout Plain Layout
-
 dudi.pca()
 \end_layout
 
@@ -317,26 +326,17 @@ dudi.pca()
 status collapsed
 
 \begin_layout Plain Layout
-
 nipals()
 \end_layout
 
 \end_inset
 
 , but that creates a different 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 nipals
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -352,7 +352,7 @@ FactoMineR
 
 \end_inset
 
-: they use strange arguments and do not respect the general organisation
+: they use strange arguments and do not respect the general organization
  of analyses in R (an object constructs the analysis, possibly defined using
  a formula; methods summarize or plot the results piece by piece).
  At least, name of function and object related to PCA are clear in 
@@ -370,7 +370,6 @@ FactorMineR
 status collapsed
 
 \begin_layout Plain Layout
-
 PCA()
 \end_layout
 
@@ -394,7 +393,6 @@ vegan
 status collapsed
 
 \begin_layout Plain Layout
-
 rda()
 \end_layout
 
@@ -405,8 +403,7 @@ rda()
 status collapsed
 
 \begin_layout Plain Layout
-
-X
+X =
 \end_layout
 
 \end_inset
@@ -416,19 +413,17 @@ X
 status collapsed
 
 \begin_layout Plain Layout
-
-Y
+Y =
 \end_layout
 
 \end_inset
 
  are missing.
  It creates a 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
 c(
 \begin_inset Quotes eld
 \end_inset
@@ -467,46 +462,29 @@ labdsv
 status collapsed
 
 \begin_layout Plain Layout
-
 prcomp()
 \end_layout
 
 \end_inset
 
 , but it wraps it into a 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
 
-S3 object, in order to define additional plotting methods that are consistents
+ S3 object, in order to define additional plotting methods that are consistent
  with the other analyses and objects in that package.
  Note that both 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -552,7 +530,6 @@ stats
 status collapsed
 
 \begin_layout Plain Layout
-
 princomp()
 \end_layout
 
@@ -563,7 +540,6 @@ princomp()
 status collapsed
 
 \begin_layout Plain Layout
-
 prcomp()
 \end_layout
 
@@ -573,12 +549,10 @@ prcomp()
  individuals plots (possibly with ellipses or conver hulls for subgroups)
  in a way that a whole analysis would be easy to perform and to read in
  R code? We will try to do so in the present 
-
 \begin_inset Flex CharStyle:Pkg
 status collapsed
 
 \begin_layout Plain Layout
-
 SciViews
 \end_layout
 
@@ -588,7 +562,6 @@ SciViews
 \end_layout
 
 \begin_layout Standard
-
 First of all, we want to keep things simple.
  That is, we will design an S3 object, and not start from a complex S4 UML,
  as it is done for instance in the 
@@ -596,7 +569,6 @@ First of all, we want to keep things simple.
 status collapsed
 
 \begin_layout Plain Layout
-
 rrcov
 \end_layout
 
@@ -604,37 +576,21 @@ rrcov
 
  package.
  It would be nice to name this object 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
 
  and we should be able to make it compatible with both 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 princomp
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -644,26 +600,17 @@ princomp
 status collapsed
 
 \begin_layout Plain Layout
-
 labdsv
 \end_layout
 
 \end_inset
 
 's 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -673,7 +620,6 @@ pca
 status collapsed
 
 \begin_layout Plain Layout
-
 prcomp()
 \end_layout
 
@@ -684,7 +630,6 @@ prcomp()
 status collapsed
 
 \begin_layout Plain Layout
-
 loadings
 \end_layout
 
@@ -695,7 +640,6 @@ loadings
 status collapsed
 
 \begin_layout Plain Layout
-
 scores
 \end_layout
 
@@ -706,7 +650,6 @@ scores
 status collapsed
 
 \begin_layout Plain Layout
-
 rotation
 \end_layout
 
@@ -717,7 +660,6 @@ rotation
 status collapsed
 
 \begin_layout Plain Layout
-
 x
 \end_layout
 
@@ -725,19 +667,11 @@ x
 
 , respectively.
  Also, that 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -751,26 +685,17 @@ not
 status collapsed
 
 \begin_layout Plain Layout
-
 ade4
 \end_layout
 
 \end_inset
 
 's 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -781,7 +706,6 @@ pca
 status collapsed
 
 \begin_layout Plain Layout
-
 ade4
 \end_layout
 
@@ -792,7 +716,6 @@ ade4
 status collapsed
 
 \begin_layout Plain Layout
-
 labdsv
 \end_layout
 
@@ -804,26 +727,17 @@ labdsv
 status collapsed
 
 \begin_layout Plain Layout
-
 ade4
 \end_layout
 
 \end_inset
 
  does not define methods specific for its 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -833,7 +747,6 @@ pca
 status collapsed
 
 \begin_layout Plain Layout
-
 score.pca()
 \end_layout
 
@@ -844,7 +757,6 @@ score.pca()
 status collapsed
 
 \begin_layout Plain Layout
-
 score()
 \end_layout
 
@@ -856,26 +768,17 @@ score()
 status collapsed
 
 \begin_layout Plain Layout
-
 scores()
 \end_layout
 
 \end_inset
 
 , with 's', as for the corresponding item in 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Pkg
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 princomp
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -886,26 +789,17 @@ princomp
 status collapsed
 
 \begin_layout Plain Layout
-
 nf
 \end_layout
 
 \end_inset
 
  item in our 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -925,18 +819,27 @@ ade4
 status collapsed
 
 \begin_layout Plain Layout
-
 score()
 \end_layout
 
 \end_inset
 
- function unadvertently applied to our object fails with the error message:
+ function inadvertently applied to our object fails with the error message:
  
 \begin_inset Quotes eld
 \end_inset
 
+
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
 Error in x$nf : $ operator is invalid for atomic vectors
+\end_layout
+
+\end_inset
+
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -949,73 +852,41 @@ The SciViews' pcomp object
 
 \begin_layout Standard
 We finally choose 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pcomp
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
 
  as name of our object, but it inherits from 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
 
  and 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 princomp
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
 
 , because 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1041,19 +912,11 @@ labdsv
 \end_inset
 
  (with conflicting definitions), 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 PCA
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1069,19 +932,11 @@ FactoMineR
 \end_inset
 
  and 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 Pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1101,15 +956,7 @@ rrcov
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pCa
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1124,13 +971,12 @@ seacarb
 
 \end_inset
 
-).
+ package).
  Moreover, 
 \begin_inset Flex CharStyle:Code
 status collapsed
 
 \begin_layout Plain Layout
-
 pcomp()
 \end_layout
 
@@ -1141,7 +987,6 @@ pcomp()
 status collapsed
 
 \begin_layout Plain Layout
-
 prcomp()
 \end_layout
 
@@ -1152,7 +997,6 @@ prcomp()
 status collapsed
 
 \begin_layout Plain Layout
-
 princomp()
 \end_layout
 
@@ -1164,19 +1008,11 @@ princomp()
 
 \begin_layout Standard
 The 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-
-\begin_inset Quotes eld
-\end_inset
-
 pcomp
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1189,7 +1025,6 @@ pcomp
 status collapsed
 
 \begin_layout Plain Layout
-
 loadings
 \end_layout
 
@@ -1206,24 +1041,57 @@ labdsv
 \end_inset
 
 's 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
 
  object).
- This is $rotation in prcomp, and a loadings object in princomp,
+ This is 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+$rotation
+\end_layout
+
+\end_inset
+
+ in 
+\begin_inset Flex CharStyle:Class
+status collapsed
+
+\begin_layout Plain Layout
+prcomp
+\end_layout
+
+\end_inset
+
+, and a 
+\begin_inset Flex CharStyle:Class
+status collapsed
+
+\begin_layout Plain Layout
+loadings
+\end_layout
+
+\end_inset
+
+ object in 
+\begin_inset Flex CharStyle:Class
+status collapsed
+
+\begin_layout Plain Layout
+princomp
+\end_layout
+
+\end_inset
+
+,
 \end_layout
 
 \begin_layout Itemize
@@ -1247,18 +1115,11 @@ labdsv
 \end_inset
 
 's 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1271,7 +1132,6 @@ pca
 status collapsed
 
 \begin_layout Plain Layout
-
 scores = TRUE
 \end_layout
 
@@ -1301,25 +1161,37 @@ labdsv
 \end_inset
 
 's 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
 
  object).
- princomp() uses names (to rename into PC1, PC2, ...), while prcomp() does
- not, 
+ 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+princomp()
+\end_layout
+
+\end_inset
+
+ uses names (to rename into PC1, PC2, ...), while 
+\begin_inset Flex CharStyle:Code
+status collapsed
+
+\begin_layout Plain Layout
+prcomp()
+\end_layout
+
+\end_inset
+
+ does not, 
 \end_layout
 
 \begin_layout Itemize
@@ -1343,18 +1215,11 @@ labdsv
 \end_inset
 
 's 
-\begin_inset Flex CharStyle:Code
+\begin_inset Flex CharStyle:Class
 status collapsed
 
 \begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
 pca
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1380,7 +1245,6 @@ n.obs
 status collapsed
 
 \begin_layout Plain Layout
-
 center
 \end_layout
 
@@ -1394,7 +1258,6 @@ center
 status collapsed
 
 \begin_layout Plain Layout
-
 scale
 \end_layout
 
@@ -1408,7 +1271,6 @@ scale
 status collapsed
 
 \begin_layout Plain Layout
-
 method
 \end_layout
 
@@ -1419,7 +1281,6 @@ method
 status collapsed
 
 \begin_layout Plain Layout
-
 \begin_inset Quotes eld
 \end_inset
 
@@ -1437,7 +1298,6 @@ svd
 status collapsed
 
 \begin_layout Plain Layout
-
 prcomp()
 \end_layout
 
@@ -1448,7 +1308,6 @@ prcomp()
 status collapsed
 
 \begin_layout Plain Layout
-
 \begin_inset Quotes eld
 \end_inset
 
@@ -1466,7 +1325,6 @@ eigen
 status collapsed
 
 \begin_layout Plain Layout
-
 princomp()
 \end_layout
 
@@ -1480,7 +1338,6 @@ princomp()
 status collapsed
 
 \begin_layout Plain Layout
-
 call
 \end_layout
 
@@ -1494,7 +1351,6 @@ call
 status collapsed
 
 \begin_layout Plain Layout
-
 na.action
 \end_layout
 
@@ -1517,6 +1373,7 @@ hor_pos "c"
 has_inner_box 1
 inner_pos "t"
 use_parbox 0
+use_makebox 0
 width "100col%"
 special "none"
 height "1in"
@@ -1524,103 +1381,12 @@ height_special "totalheight"
 status open
 
 \begin_layout Plain Layout
-xxx
+This document needs to be finalized!
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Chapter
-xxx
-\end_layout
-
-\begin_layout Standard
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-status open
-
-\begin_layout Plain Layout
-
-\emph on
-Remarque
-\emph default
- : xxx
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-xxx
-\end_layout
-
-\begin_layout Section
-interface card
-\end_layout
-
-\begin_layout Standard
-xxx
-\end_layout
-
-\begin_layout R-Chunk
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-<<eval = FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-options(para.port = 1)	# If your card is connected to LPT1
-\end_layout
-
-\begin_layout Plain Layout
-
-para(c(T,F,F,T,F,F,F,T))  # Channels 1, 4, 8 ON, the others OFF
-\end_layout
-
-\begin_layout Plain Layout
-
-para(change = FALSE)      # Read current state
-\end_layout
-
-\begin_layout Plain Layout
-
-para(c(F,F,F,F,F,F,F,F))  # All channels OFF
-\end_layout
-
-\begin_layout Plain Layout
-
-para(change = FALSE)      # Make sure current state is changed
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-xxx
 \end_layout
 
 \end_body

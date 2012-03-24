@@ -1,12 +1,12 @@
 Package: SciViews
 Type: Package
 Title: SciViews GUI API - Main package
-Imports: ellipse
-Depends: R (>= 2.6.0), stats, grDevices, graphics, MASS
+Imports: ellipse, data.table
+Depends: R (>= 2.6.0), methods, grDevices, graphics, stats, MASS
 Enhances: base, stats
 Description: Functions to install SciViews additions to R, and more (various) tools
-Version: 0.9-5
-Date: 2011-11-28
+Version: 0.9-6
+Date: 2012-03-21
 Author: Philippe Grosjean
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 License: GPL-2

@@ -1,5 +1,19 @@
 = SciViews News
 
+== SciViews version 0.9-6
+
+* Added further (misc) functions.
+
+* New syntax using x@attr for attributes, plus := for replacement by reference
+  inspired from data.table package, which Sciviews now imports too.
+
+
+== SciViews version 0.9-5
+
+* Added functions to homogenize function names for strings and files
+  manipulations.
+  
+
 == SciViews version 0.9-4
 
 * The gamma argument in hsv() function disappears in R 2.14.0. As a consequence,

@@ -1,5 +1,7 @@
 = SciViews To Do list
 
+* Rd files for character, file and misc.
+
 * Refine panel.xxx() functions to avoid warning in case we provide non-par
 arguments to pairs() and design a better mechanism to define default (colors,
 line type and weight, etc.).

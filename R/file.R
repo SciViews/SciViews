@@ -1,37 +1,19 @@
 ## Essentially a series of base R function that manipulate files and directories
 ## and that are renamed/rationalized for facility
 
-subclass <- function (x, class, superclasses = NULL)
-{
-	## TODO: check this is an S3 object that inherits from the gicven class(es)
-	if (!is.null(superclasses)) {
-		misClass <- inherits(x, as.character(superclasses), which = TRUE) == 0
-		if (any(misClass))
-			stop("'x' soes not inherits from", paste(superclasses[misClass],
-				collapse = ", "))
-	}
-	## Check if new class in not already defined
-	if (class %in% class(x)) return(x)
-	## Prepend that class
-	class(x) <- c(class, class(x))
-	return(x)
-}
-
-`subclass<-` <- function (x, value)
-{
-	if (!value %in% class(x)) class(x) <- c(value, class(x))
-	return(x)
-}
-
 ## A replacement for file.path
-filePath <- function (..., fsep = .Platform$file.sep)
+path <- function (..., fsep = .Platform$file.sep)
 {
-	## Create a filePath objects inheriting from character
+	## Create a path objects inheriting from character
 	return(structure(.Internal(file.path(list(...), fsep)),
-		class = c("filePath", "character")))
+		class = c("path", "character")))
 }
 
-print.filePath <- function (x, ...)
+## The print function of filename separates dirs (ending with /) from files
+## and also indicate which file already exists on disk or not
+## EXPRERIMENTAL FEATURE... Should require an option to activate/inactivate
+## test of files on disk!
+print.path <- function (x, ...)
 {
 	path <- as.character(x)
 	path <- gsub("\\\\", "/", path)
@@ -49,75 +31,111 @@ print.filePath <- function (x, ...)
 	return(invisible(x))
 }
 
-## Rework file paths
+as.path <- function (x, ...)
+	return(structure(as.character(x), class = c("path", "character")))
+
+is.path <- function (x)
+	return(inherits(x, "path"))
+
+isDir <- function (path)
+	return(file.info(path)$isdir)
+
+isFile <- function (path)
+	return(file.exists(path) & !file.info(path)$isdir)
+
+## Rework paths
 ## basename
 fileName <- function (path)
-	return(structure(basename(path), class = c("filePath", "character")))
+	return(structure(basename(path), class = c("path", "character")))
 
 ## dirname
 fileDir <- function (path)
-	return(structure(dirname(path), class = c("filePath", "character")))
+	return(structure(dirname(path), class = c("path", "character")))
 
 ## path.expand
 fileExpand <- function (path)
-	return(structure(path.expand(path), class = c("filePath", "character")))
+	return(structure(path.expand(path), class = c("path", "character")))
 
 ## normalizePath
 fileNormalize <- function (path, mustWork = FALSE)
 	return(structure(normalizePath(path, winslash = "/", mustWork = mustWork),
-		class = c("filePath", "character")))
+		class = c("path", "character")))
 
 ## Get various files or directories
 ## R.home
 dirR <- function (component = "home")
-	return(structure(R.home(component), class = c("filePath", "character")))
-	
+	return(structure(R.home(component), class = c("path", "character")))
+
+## TODO: find.package() and path.package()	
 ## system.file TODO: case it returns ""! And should we use mustWork?
 filePackage	<- function (..., package = "base", lib.loc = NULL, mustWork = FALSE)
 	return(structure(system.file(..., package = package, lib.loc = lib.loc,
-		mustWork = mustWork), class = c("filePath", "character")))
+		mustWork = mustWork), class = c("path", "character")))
 	
 ## tempdir
 dirTemp <- function ()
-	return(structure(.Internal(tempdir()), class = c("filePath", "character")))
+	return(structure(.Internal(tempdir()), class = c("path", "character")))
 
 ## tempfile
 fileTemp <- function (pattern = "file", tmpdir = tempdir(), fileext = "")
 	return(structure(.Internal(tempfile(pattern, tmpdir, fileext)),
-		class = c("filePath", "character")))
+		class = c("path", "character")))
 
-## Sys.which, TODO: keep names and display them in print.filePath objects!
+## Sys.which, TODO: keep names and display them in print.path objects!
 fileFind <- function (names)
-	return(structure(Sys.which(names), class = c("filePath", "character")))
+	return(structure(Sys.which(names), names = names, class = c("path", "character")))
 
+## List dirs = dir() = list.dirs()
+dirList <- function (path = ".", full.names = TRUE, recursive = TRUE)
+	return(structure(list.dirs(path = path, full.names = full.names,
+		recursive = recursive), class = c("path", "character")))
 
-#dirList <- dir
-#dirList <- list.dirs
-#fileList <-	list.files
-#dirCreate <- dir.create
-#fileAccess <- file.access
-#fileAppend <- file.append
+## List files = dir() and list.files()
+fileList <- function (path = ".", pattern = NULL, all.files = FALSE,
+full.names = FALSE, recursive = FALSE, ignore.case = FALSE, include.dirs = FALSE)
+	return(structure(dir(path = path, pattern = pattern, all.files = all.files,
+		full.names = full.names, recursive = recursive,
+		ignore.case = ignore.case, include.dirs = include.dirs),
+		class = c("path", "character")))
+
+## List files using wildcard expansion ('globbing')
+fileListGlob <- function (path, dir.mark = FALSE)
+	return(structure(Sys.glob(paths = path, dirmark = dir.mark),
+		class = c("path", "character")))
+
+## Various file manipulation functions that do not return a path object
+## (just homogenize the name...)
+dirCreate <- dir.create
+fileAccess <- file.access
+fileAppend <- file.append
+fileRename <- file.rename
+fileCopy <-	file.copy
+fileCreate <- file.create
+fileExists <- file.exists
+fileInfo <-	file.info
+fileChmod <- Sys.chmod
+fileRemove <- file.remove
+## This is "stronger" than fileRemove()!
+fileDelete <- function (path, recursive = FALSE, force = FALSE)
+	return(unlink(x = path, recursive = recursive, force = force))
+
+fileLink <- file.link
+fileSymlink <- file.symlink
+fileReadLink <- function (path)
+	return(structure(Sys.readlink(paths = path),
+		class = c("path", "character")))
+
+## This is linked to some GUI element, possibly... anyway...
+fileShow <-	file.show
+## TODO: this file choose... but this is really for svDialogs (dlgOpen(), dlgSave())
 #fileChoose <- file.choose
-#fileCopy <-	file.copy
-#fileCreate <- file.create
-#fileExists <- file.exists
-#fileInfo <-	file.info
-#fileLink <- file.link
-#fileRemove <- file.remove
-#fileRename <- file.rename
-#fileShow <-	file.show
-#fileSymlink <- file.symlink
-#fileChmod <- Sys.chmod
-#fileGlob <- Sys.glob
-#fileUnlink <- unlink
-# = isDir/isFile
 
 ## A more convenient setwd()/getwd() using objects
 wdir <- function (dir = NULL)
 {
 	if (is.null(dir)) {
 		dir <- getwd()
-		class(dir) <- c("filename", "character")
+		class(dir) <- c("path", "character")
 		## Make sure to use /, even under Windows
 		dir <- gsub("\\\\", "/", dir)
 		return(dir)
@@ -125,9 +143,9 @@ wdir <- function (dir = NULL)
 		owdir <- setwd(dir)
 		## Make sure to use /, even under Windows
 		owdir <- gsub("\\\\", "/", owdir)
-		class(owdir) <- c("filename", "character")
+		class(owdir) <- c("path", "character")
 		## Save old working directory
-		.owdir <<- owdir
+		.assignTemp(".owdir", owdir)
 		return(owdir)
 	}
 }
@@ -138,7 +156,7 @@ sdir <- function (dir = NULL)
 	if (is.null(dir)) {
 		dir <- getOption("R.initdir")
 		if (is.null(dir)) return(NULL)
-		class(dir) <- c("filePath", "character")
+		class(dir) <- c("path", "character")
 		## Make sure to use /, even under Windows
 		dir <- gsub("\\\\", "/", dir)
 		return(dir)
@@ -151,9 +169,9 @@ sdir <- function (dir = NULL)
 		## TODO: make everything we need to open the new session directory
 		## Make sure to use /, even under Windows
 		osdir <- gsub("\\\\", "/", osdir)
-		class(osdir) <- c("filePath", "character")
+		class(osdir) <- c("path", "character")
 		## Save old session directory
-		.osdir <<- osdir
+		.assignTemp(".osdir", osdir)
 		return(osdir)
 	}
 }
