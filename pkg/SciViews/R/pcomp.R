@@ -230,7 +230,7 @@ screeplot.pcomp <- function (x, npcs = min(10, length(x$sdev)),
 type = c("barplot", "lines"), col = "cornsilk", main = deparse(substitute(x)),
 ...) 
 {
-    main
+    force(main)
     type <- match.arg(type)
     pcs <- x$sdev^2
     xp <- seq_len(npcs)
