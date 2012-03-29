@@ -72,6 +72,14 @@ l <- length
 nc <- NCOL
 nr <- NROW
 
+## Constants (must start with an uppercase letter)
+## => redefine Pi instead of pi
+Pi <- pi
+## Useful for apply() familly:
+Rows <- 1
+Cols <- 2
+## Instead of apply(x, 2, sum), it gives apply(x, Cols, sum)
+
 ## Problem of functional language like R: too much copy!
 ## For instance, change a simple attribute using attr(x) <- value
 ## leads to a copy of the object.... If the object is large, time

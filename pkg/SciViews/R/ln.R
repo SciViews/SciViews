@@ -12,6 +12,7 @@ lg <- function (x) log10(x)
 
 lg1p <- function (x) log1p(x) / log(10)
 
-e <- exp(1)
+## Use of uppercase E, because all constants start with an uppercase
+E <- exp(1)
 
 lb <- function (x) log2(x)

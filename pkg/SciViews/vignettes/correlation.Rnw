@@ -1,0 +1,124 @@
+%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[a4paper,twoside,english]{article}
+\usepackage[sc]{mathpazo}
+\usepackage{berasans}
+\usepackage{beramono}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{latexsym}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 1},backref=false,colorlinks=true]
+ {hyperref}
+\hypersetup{pdftitle={SciViews - Correlation},
+ pdfauthor={Philippe Grosjean},
+ pdfsubject={Tutorial for correlation},
+ pdfkeywords={correlation, Pearson's product-moment, Spearmann's rank correlation, Kendall's tau, partial correlation},
+ linkcolor=blue, urlcolor=blue, citecolor=blue, pagecolor=blue}
+\usepackage{breakurl}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\special{papersize=\the\paperwidth,\the\paperheight}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\usepackage[noae]{Sweave}
+{\catcode`\ =\active\global\def\code{\bgroup\@noligs\catcode`\ =\active\let \codespace\@codex}}
+\def\codespace{{ }}
+\def\@codex#1{\normalfont\texttt{#1}\egroup}
+\providecommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% \VignetteIndexEntry{Correlation}
+%\VignettePackage{SciViews}
+
+% provides caption formatting
+\usepackage[labelfont=bf, tableposition=top]{caption}
+\pdfimageresolution 96
+
+\AtBeginDocument{
+  \def\labelitemi{\(\rhd\)}
+  \def\labelitemii{\(\triangleright\)}
+  \def\labelitemiii{\(\bullet\)}
+  \def\labelitemiv{\(\circ\)}
+}
+
+\makeatother
+
+\begin{document}
+
+\title{Correlation}
+
+
+\author{Ph. Grosjean <phgrosjean@sciviews.org>}
+
+\maketitle
+
+\part{Introduction}
+
+\setkeys{Gin}{width=1.00\textwidth}
+
+\SweaveOpts{keep.source = TRUE, pdf = TRUE, eps = FALSE}
+
+Correlation is a form of \textbf{association} between two random variables
+or samples of these in statistics. Dependence is a synonym of correlation
+(???) Aspects to develop:
+\begin{itemize}
+\item Three degrees of association: correlation, relationship and causality.
+\item Correlation does not mean causality.
+\item There are several kinds of correlation coefficients, with basic hypotheses
+one should know.
+\item It is relatively easy to measure independence, but not dependence,
+because correlation coefficient measure only one given type of dependence
+(linear for Pearson's product-moment). Should derive something from
+the picture in Wikipedia that illustrates several cases).
+\item Correlation coefficient is invariant for the slope of relationship,
+\item Pearson's is not always defined (when there is no variation in \emph{X}
+or in \emph{Y}), same for Spearmann's and Kendall's (???) => but not
+useful in this case (!?).
+\item In \code{cor.test()}, the confidence interval on the correlation
+coefficient is only calculated for Pearson's and when there are at
+least 4 complete cases. Also look at resampling estimation and test???
+\item More robust correlation coefficients and less sensitive to nonlinear
+relationship.
+\item Pearson's is not restricted to bivariate Normal distribution (!),
+but correlation hypothesis test is (=> use rank correlation to create
+test and confidence interval in case you suspect a different distribution)!
+\item Show also problem with multimodal (multipopulation) data + solution
+= coef calculated per group.
+\item A diagram indicating independence versus dependence + various types
+of dependencies (any kind, monotonous, linear) and the corresponding
+correlation coefficient that applies.
+\item Useful simple examples to compare Pearson's and rank correlation in
+Wikipedia.
+\item Correlation coefficients should be independent from translations and
+scaling, i.e., \emph{X'} = \emph{aX} + \emph{b}, and \emph{Y'} = \emph{cY}
++ \emph{d}. Rank coefficients are insensitive to monotone transformation
+too.
+\item Unbiased? Asymptotically consistent?
+\item Problem of restricted range for one or both variables: example in
+Wikipedia + the case of a sinusoidal signal!
+\item Correlation matrices + properties + they are var/covar matrices of
+standardized (scaled) variables => demonstrate!
+\item Manual calculation + tricks to speed up calc.
+\item Nice example of correlation versus linearity in Anscombe's quartet
+(see Wikipedia).
+\item Introduce and illustrate partial correlation.
+\item See also \pkg{corpcor}, \pkg{mvoutlier}, \pkg{corrperm} (for permutation
+tests of correlation with repeated measurements using \code{cp.test()})
+packages. Also, \pkg{pcalg} for robust estimation and causal inference.
+\end{itemize}
+
+\section{Correlation in R}
+
+Correlation in R is \code{cor()} and \code{cor.test()} + \code{cov.wt(cor = TRUE)\$cor}
+for weighted correlation matrix and \code{cov2cor()} to convert efficiently
+a covariance matrix into a correlation matrix. \code{cor.test()}
+is a generic function that provides both a default and a formula interface
+in the \pkg{stats} package.
+\end{document}

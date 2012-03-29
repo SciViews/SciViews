@@ -1,0 +1,123 @@
+%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[a4paper,twoside,english]{article}
+\usepackage[sc]{mathpazo}
+\usepackage{berasans}
+\usepackage{beramono}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{latexsym}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 1},backref=false,colorlinks=true]
+ {hyperref}
+\hypersetup{pdftitle={SciViews - Why SciViews?},
+ pdfauthor={Philippe Grosjean},
+ pdfsubject={Rationates for the SciViews scientific suite},
+ pdfkeywords={Data analysis, Statistics, Reporting, Word processing, Slideshow},
+ linkcolor=blue, urlcolor=blue, citecolor=blue, pagecolor=blue}
+\usepackage{breakurl}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\special{papersize=\the\paperwidth,\the\paperheight}
+
+\providecommand{\LyX}{\texorpdfstring%
+  {L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\usepackage[noae]{Sweave}
+\providecommand{\SciViews}[1]{\textsf{\textsl{S}\lower.08em\hbox{ci}\textsl{\kern-.04emV}\kern-.02em\lower.08em\hbox{iews}\@#1}}
+\providecommand{\R}{\textsf{R}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% \VignetteIndexEntry{Introduction to SciViews}
+%\VignettePackage{SciViews}
+
+% provides caption formatting
+\usepackage[labelfont=bf, tableposition=top]{caption}
+\pdfimageresolution 96
+
+\AtBeginDocument{
+  \def\labelitemi{\(\rhd\)}
+  \def\labelitemii{\(\triangleright\)}
+  \def\labelitemiii{\(\bullet\)}
+  \def\labelitemiv{\(\circ\)}
+}
+
+\makeatother
+
+\begin{document}
+
+\title{Why SciViews?}
+
+
+\author{Ph. Grosjean <phgrosjean@sciviews.org>}
+
+\maketitle
+
+\part{Introduction}
+
+\setkeys{Gin}{width=1.00\textwidth}
+
+\SweaveOpts{keep.source = TRUE, pdf = TRUE, eps = FALSE}
+
+There are several office suites, including (at least) a word processor,
+a spreadsheet, a slideshow presentation program, and tools to draw
+pictures and write mathematic equations. Microsoft Office and OpenOffice
+seem to fulfill the needs of most users. Son why should a \emph{scientific}
+user need a different suite for his work? Well, we believe that those
+general purpose office suites are not well adapted for scientists.
+They need something radically different. The \SciViews{} Scientific
+Suite aims to provide those tools to them. In short:
+\begin{itemize}
+\item The spreadsheet paradigm is very popular to do calculations and graphs
+on tabulated data. However, there are many reasons why this paradigm
+is not efficient, error-prone and barely fits the needs for more serious
+data analysis, as most scientists need. We believe that \R{}, together
+with a carefully ciseled GUI is a much more adequate general purpose
+calculation and plotting engine. That is why the \SciViews{} Scientific
+Suite is build around \R{}, and reserves so little space to a spreadsheet
+program.
+\item The Word Processor and its WYSIWYG%
+\footnote{WYSIWYG = What You See Is What You Get.%
+} paradigm makes a poor document preparation environment for scientific
+literature like papers and books. Scientific literature is highly
+structured text and it does not fit well with the loose presentation
+of text elements in a WYSIWYG program. Also, Word Processors tend
+to be relatively poor and inefficient in mathematic formula typesetting
+and in bibliographic references formatting. \LaTeX{} text processing
+system is much, much more adequate, but it requires to {}``program''
+your text, and not all scientists are ready to take that way. A good
+alternative is the WYSIWIM paradigm of \LyX{}. WYSIWIM stands for
+{}``What You See Is What You Mean''. Here, you don't see the code
+hidden in you rich text formatted document, but you don't see the
+final result either. You see, instead, a very suggestive representation
+of the \emph{structure} of your text (titles, paragraphs, equations,
+etc.). You can then concentrate on both the content and the structure,
+and delegate to the very capable \LaTeX{} system that \LyX{} uses
+to typeset its documents on the background to produce the final result.
+That WYSIWIM approach, together with the possibility to include results,
+tables and graphs from \R{} computations directly in the \LyX{} document
+using the \textbf{Sweave} mechanism makes is a very suitable alternative
+to more traditional Word Processing programs for scientists.
+\item The WYSIWYG slideshow programs, like PowerPoint, are not well suitable
+for scientists for the same reasons (mainly, a lack of correct formula
+typesetting and the inability to include code to produce calculation
+results, tables or graphs directly in the presentation). Here, we
+go back to \LyX{} and Sweave again, but together with the excellent
+\textbf{Beamer} \LaTeX{} package.
+\end{itemize}
+...
+
+
+\section{Processing data, analyzing data}
+
+Scientist study facts, and they mostly convert these facts into numbers
+by mean of measurements in a given context (observation or experiment).
+They, then, manipulate these numbers in different ways...
+\end{document}
