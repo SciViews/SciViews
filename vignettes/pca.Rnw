@@ -1,0 +1,184 @@
+%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[a4paper,twoside,english]{article}
+\usepackage[sc]{mathpazo}
+\usepackage{berasans}
+\usepackage{beramono}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{latexsym}
+\usepackage{calc}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 1},backref=false,colorlinks=true]
+ {hyperref}
+\hypersetup{pdftitle={SciViews - Principal Component Analysis},
+ pdfauthor={Philippe Grosjean},
+ pdfsubject={Tutorial for PCA},
+ pdfkeywords={PCA},
+ linkcolor=blue, urlcolor=blue, citecolor=blue, pagecolor=blue}
+\usepackage{breakurl}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\special{papersize=\the\paperwidth,\the\paperheight}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\usepackage[noae]{Sweave}
+\providecommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
+{\catcode`\ =\active\global\def\code{\bgroup\@noligs\catcode`\ =\active\let \codespace\@codex}}
+\def\codespace{{ }}
+\def\@codex#1{\normalfont\texttt{#1}\egroup}
+\providecommand{\class}[1]{\texttt{\textquotedbl{}#1\textquotedbl{}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% \VignetteIndexEntry{PCA - Principal Component Analysis tutorial}
+%\VignettePackage{SciViews}
+
+% provides caption formatting
+\usepackage[labelfont=bf, tableposition=top]{caption}
+\pdfimageresolution 96
+
+\AtBeginDocument{
+  \def\labelitemi{\(\rhd\)}
+  \def\labelitemii{\(\triangleright\)}
+  \def\labelitemiii{\(\bullet\)}
+  \def\labelitemiv{\(\circ\)}
+}
+
+\makeatother
+
+\begin{document}
+
+\title{Principal Component Analysis (PCA)}
+
+
+\author{Ph. Grosjean <phgrosjean@sciviews.org>}
+
+\maketitle
+
+\part{Introduction}
+
+\setkeys{Gin}{width=1.00\textwidth}
+
+\SweaveOpts{keep.source = TRUE, pdf = TRUE, eps = FALSE}
+
+Principal Component Analysis, or PCA is a widely used method to explore
+linear associations among variables of large datasets. There is, unfortunately,
+no consistent implementation of this technique in R, which is even
+more a problem because the numerous additional R packages that provide
+enhanced versions of PCA, or additional tools, have no consistent
+template to start with. In the \pkg{stats} package, there are two
+inconsistent implementations called \code{princomp()} and \code{prcomp()}
+that both create S3 objects of the same name. There are a few methods
+available, like \code{print()}, \code{summary()}, \code{plot()},
+\code{predict()} or \code{biplot()}. The whole set is rather deceptive
+and produces less interesting plots than other (more specialized)
+software can do. For instance, there is nothing to plot the so-called
+{}``graph of the variables'' in the French terminology and you have
+to program it yourself.
+
+Of course, there are several specialized R packages available that
+provide more powerful and/or more extended implementations, among
+others: \pkg{ade4}, \pkg{FactoMineR} and \pkg{vegan}. Each of these
+packages has a totally different approach: \pkg{ade4} creates a \class{c({}``pca'', {}``dudi'')}
+S3 object and proposes nice graphs but has an interface that is completely
+inconsistent with usual R analyses (no optional formula interface,
+exotic names of arguments, non-standard handling of missing data,
+etc.). Object orientation and name of objects are obscure and do not
+facilitate first use of the PCA in \pkg{ade4}. A PCA is done, indeed,
+using the \code{dudi.pca()} function (or possibly, \code{nipals()},
+but that creates a different \class{nipals} object). The same remarks
+can be made about the interface of functions in \pkg{FactoMineR}:
+they use strange arguments and do not respect the general organization
+of analyses in R (an object constructs the analysis, possibly defined
+using a formula; methods summarize or plot the results piece by piece).
+At least, name of function and object related to PCA are clear in
+\pkg{FactorMineR}: \code{PCA()}! There is also a non conventional
+handling of missing observations. But the function is powerful and
+loows for a lot of investigations around the PCA. In \pkg{vegan},
+there is no PCA function, but a redundancy analysis \code{rda()},
+which reduces to a classical PCA when arguments \code{X =} and \code{Y =}
+are missing. It creates a \class{c({}``cca'', {}``rda'')} S3 object
+which is not optimized at all for holding pure PCA data (many unnecessary
+items in it for a PCA). Finally, \pkg{labdsv} uses the default \code{prcomp()},
+but it wraps it into a \class{pca} S3 object, in order to define
+additional plotting methods that are consistent with the other analyses
+and objects in that package. Note that both \class{pca} S3 objects
+in \pkg{ade4} and \pkg{labdsv} are completely inconsistent, and
+you are likely to get very bad results in case you load both packages
+and mix their respective methods!
+
+So, given that chaotic set of PCA functions in R, would it be possible
+to design an object with minimal code that reuses code in the \pkg{stats}
+package (\code{princomp()} and \code{prcomp()}), provides a couple
+of additional methods to make decent variables and individuals plots
+(possibly with ellipses or conver hulls for subgroups) in a way that
+a whole analysis would be easy to perform and to read in R code? We
+will try to do so in the present \pkg{SciViews} package.
+
+First of all, we want to keep things simple. That is, we will design
+an S3 object, and not start from a complex S4 UML, as it is done for
+instance in the \pkg{rrcov} package. It would be nice to name this
+object \class{pca} and we should be able to make it compatible with
+both \class{princomp} and \pkg{labdsv}'s \class{pca} (but not with
+\code{prcomp()} that names \code{loadings} and \code{scores} components
+\code{rotation} and \code{x}, respectively. Also, that \class{pca}
+S3 object could \textbf{not} be compatible with \pkg{ade4}'s \class{pca}
+object. Moreover, neither \pkg{ade4}, nor \pkg{labdsv} use a namespace
+(as for versions available at 2010-02-06). Hopefully, \pkg{ade4}
+does not define methods specific for its \class{pca} object, except
+\code{score.pca()} for the \code{score()} generic function defined
+in the same package (and not elsewhere). Thus, we could define \code{scores()},
+with 's', as for the corresponding item in \pkg{princomp} object
+without clash. Note that, if we don't use a \code{nf} item in our
+\class{pca} object, the \pkg{ade4}'s \code{score()} function inadvertently
+applied to our object fails with the error message: {}``\code{Error in x\$nf : \$ operator is invalid for atomic vectors}''.
+
+
+\section{The SciViews' pcomp object}
+
+We finally choose \class{pcomp} as name of our object, but it inherits
+from \class{pca} and \class{princomp}, because \class{pca} is already
+used in \pkg{ade4} and \pkg{labdsv} (with conflicting definitions),
+\class{PCA} is used in \pkg{FactoMineR} and \class{Pca} defines
+S4 objects in \pkg{rrcov} (and \code{pCa} is something totally different
+in \pkg{seacarb} package). Moreover, \code{pcomp()} is closer to
+\code{prcomp()} and \code{princomp()} as it is supposed to be a
+wrapper over these two (default) PCA functions in R.
+
+The \class{pcomp} S3 object is a list with components:
+\begin{itemize}
+\item \code{loadings}: (also required for \pkg{labdsv}'s \class{pca}
+object). This is \code{\$rotation} in \class{prcomp}, and a \class{loadings}
+object in \class{princomp},
+\item \code{scores}: (also required for \pkg{labdsv}'s \class{pca} object).
+Note for scores in princomp, components are Comp.1, Comp.2, etc.,
+in prcomp, it is PC1, PC2, ..., as well as in pca) => use PC1, PC2,
+... This is \$x in prcomp.For princomp(), the argument \code{scores = TRUE}
+(by default) must be used to get this!
+\item \code{sdev}: (also required for \pkg{labdsv}'s \class{pca} object).
+\code{princomp()} uses names (to rename into PC1, PC2, ...), while
+\code{prcomp()} does not, 
+\item \code{totdev}: the total deviance, as required to be compliant with
+\pkg{labdsv}'s \class{pca} object.
+\item \code{n.obs}: the number of observations,
+\item \code{center}: (use 0 for all, if not centered),
+\item \code{scale}: (use 1 for all, if not scaled),
+\item \code{method}: currently only either \code{{}``svd''} (and the computation
+is the same as \code{prcomp()}), or \code{{}``eigen''} (and the
+computation is the same as \code{princomp()}),
+\item \code{call}: the matched call,
+\item \code{na.action}: if relevant.
+\end{itemize}
+\medskip{}
+
+
+\framebox{\begin{minipage}[t]{1\columnwidth}%
+This document needs to be finalized!%
+\end{minipage}}
+\end{document}
