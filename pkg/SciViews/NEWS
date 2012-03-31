@@ -1,5 +1,12 @@
 = SciViews News
 
+== SciViews version 0.9-7
+
+* Small corrections in man pages.
+
+* Partial argument matching for all(.names) in names(). Fixed.
+
+
 == SciViews version 0.9-6
 
 * Added further (misc) functions.

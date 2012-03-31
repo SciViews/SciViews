@@ -5,7 +5,7 @@
 path <- function (..., fsep = .Platform$file.sep)
 {
 	## Create a path objects inheriting from character
-	return(structure(.Internal(file.path(list(...), fsep)),
+	return(structure(file.path(..., fsep = fsep),
 		class = c("path", "character")))
 }
 
@@ -74,12 +74,12 @@ filePackage	<- function (..., package = "base", lib.loc = NULL, mustWork = FALSE
 	
 ## tempdir
 dirTemp <- function ()
-	return(structure(.Internal(tempdir()), class = c("path", "character")))
+	return(structure(tempdir(), class = c("path", "character")))
 
 ## tempfile
 fileTemp <- function (pattern = "file", tmpdir = tempdir(), fileext = "")
-	return(structure(.Internal(tempfile(pattern, tmpdir, fileext)),
-		class = c("path", "character")))
+	return(structure(tempfile(pattern = pattern, tmpdir = tmpdir,
+		fileext = fileext), class = c("path", "character")))
 
 ## Sys.which, TODO: keep names and display them in print.path objects!
 fileFind <- function (names)
