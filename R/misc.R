@@ -64,7 +64,7 @@ newEnv <- new.env
 ## Note that for environments, we got items by alphabetic order
 ## => not exactly the same as for vector, list, or so!
 names <- function (x)
-	if (inherits(x, "environment")) ls(x, all = TRUE) else base::names(x)
+	if (inherits(x, "environment")) ls(x, all.names = TRUE) else base::names(x)
 ## Do we implement `names<-` for environments???
 
 ## Simpler names for often used functions

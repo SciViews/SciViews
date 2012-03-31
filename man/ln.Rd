@@ -51,8 +51,8 @@ ln(exp(3))              # Same as log(exp(3))
 ln1p(c(0, 1, 10, 100))  # Wrapper for log1p()
 lg(10^3)                # Same as log10(10^3)
 lg1p(c(0, 1, 10, 100))  # log10(x + 1), but optimized for x << 1
-e^4                     # Similar to exp(4), but different calculation!
-## Note: exp(4) is to be preferred to e^4, if possible!
+E^4                     # Similar to exp(4), but different calculation!
+## Note: exp(4) is to be preferred to E^4, if possible!
 lb(1:3)                 # Wrapper for log2()
 }
 

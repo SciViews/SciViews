@@ -112,7 +112,7 @@ cTrunc <- strtrim ## This indeed truncs strings!!!
 ## with stop() or warning() for instance, that use sep = "".
 ## Thus, we define:
 p <- function (..., sep = "", collapse = NULL) 
-	.Internal(paste(list(...), sep, collapse))
+	paste(..., sep = sel, collapse = collapse)
 	
 p_ <- paste
 
