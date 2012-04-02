@@ -18,7 +18,7 @@ ifValid <- function (x, what, is.not = stop("need a ", what, " object"))
 ## or in a function
 # return(ifValid(obj, "class"))
 
-ifElse <- ifelse
+ifElse <- get("ifelse", envir = baseenv())
 
 `%else%` <- function (test, expr) if (test) return(invisible()) else expr
 ## Useful to write shorter code in something like:
@@ -30,7 +30,8 @@ ifElse <- ifelse
 # res <- try(...., silent = TRUE)
 # if (inherits(res, "try-error")) stop(msg)
 
-enum <- seq_along
+enum <- function (x)
+	return(seq_along(x))
 
 ## Defines only increasing integer sequences
 `%:%` <- function (lower, upper)
@@ -57,7 +58,7 @@ error = stop("there is no package called '", package, "'"))
 ## Usually, to create an object, we use its name, but
 ## environment() means something else here!
 ## So, OK, we'll stick with
-newEnv <- new.env
+newEnv <- get("new.env", envir = baseenv())
 ## for the moment...
 
 ## Now, we want to be able to use names() on it too!
@@ -68,13 +69,13 @@ names <- function (x)
 ## Do we implement `names<-` for environments???
 
 ## Simpler names for often used functions
-l <- length
-nc <- NCOL
-nr <- NROW
+n <- get("length", envir = baseenv())
+nc <- get("NCOL", envir = baseenv())
+nr <- get("NROW", envir = baseenv())
 
 ## Constants (must start with an uppercase letter)
 ## => redefine Pi instead of pi
-Pi <- pi
+Pi <- get("pi", envir = baseenv())
 ## Useful for apply() familly:
 Rows <- 1
 Cols <- 2

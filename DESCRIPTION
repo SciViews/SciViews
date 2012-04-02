@@ -1,7 +1,7 @@
 Package: SciViews
 Type: Package
 Version: 0.9-7
-Date: 2012-03-31
+Date: 2012-04-01
 Title: SciViews GUI API - Main package
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org"))

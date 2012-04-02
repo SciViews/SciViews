@@ -105,28 +105,28 @@ fileListGlob <- function (path, dir.mark = FALSE)
 
 ## Various file manipulation functions that do not return a path object
 ## (just homogenize the name...)
-dirCreate <- dir.create
-fileAccess <- file.access
-fileAppend <- file.append
-fileRename <- file.rename
-fileCopy <-	file.copy
-fileCreate <- file.create
-fileExists <- file.exists
-fileInfo <-	file.info
-fileChmod <- Sys.chmod
-fileRemove <- file.remove
+dirCreate <- get("dir.create", envir = baseenv())
+fileAccess <- get("file.access", envir = baseenv())
+fileAppend <- get("file.append", envir = baseenv())
+fileRename <- get("file.rename", envir = baseenv())
+fileCopy <-	get("file.copy", envir = baseenv())
+fileCreate <- get("file.create", envir = baseenv())
+fileExists <- get("file.exists", envir = baseenv())
+fileInfo <-	get("file.info", envir = baseenv())
+fileChmod <- get("Sys.chmod", envir = baseenv())
+fileRemove <- get("file.remove", envir = baseenv())
 ## This is "stronger" than fileRemove()!
 fileDelete <- function (path, recursive = FALSE, force = FALSE)
 	return(unlink(x = path, recursive = recursive, force = force))
 
-fileLink <- file.link
-fileSymlink <- file.symlink
+fileLink <- get("file.link", envir = baseenv())
+fileSymlink <- get("file.symlink", envir = baseenv())
 fileReadLink <- function (path)
 	return(structure(Sys.readlink(paths = path),
 		class = c("path", "character")))
 
 ## This is linked to some GUI element, possibly... anyway...
-fileShow <-	file.show
+fileShow <-	get("file.show", envir = baseenv())
 ## TODO: this file choose... but this is really for svDialogs (dlgOpen(), dlgSave())
 #fileChoose <- file.choose
 
