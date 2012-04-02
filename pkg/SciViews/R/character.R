@@ -9,15 +9,15 @@
 #nzChar <- nzchar
 
 ## Format character strings
-cEscape <- encodeString
-cWrap <- strwrap
+cEscape <- get("encodeString", envir = baseenv())
+cWrap <- get("strwrap", envir = baseenv())
 # Add cPad => pad a string left/right or both or Pad/PadL/PadR?
 #+sprintf/gettextf?
 
 ## String find/replace using fixed pattern (char*) or regular expressions (rx*)
 ## TODO: a rx object which prints an example of its work! => fine-tune it
 ## to make it easy to experiment with the rx object
-rx <- glob2rx
+rx <- glob2rx # This is in utils package
 
 cSearch <- function (x, pattern, ignore.case = FALSE,
 type = c("logical", "position", "value"), ...) # ... for useBytes
@@ -103,18 +103,22 @@ cSplit <- function (x, pattern, ...) # ... for useBytes
 rxSplit <- function (x, pattern, ...) # for perl & useBytes
 	return(strsplit(x, split = pattern, fixed = FALSE, ...))
 
-cSub <- substr
-`cSub<-` <- `substr<-`
-cTrunc <- strtrim ## This indeed truncs strings!!!
+cSub <- get("substr", envir = baseenv())
+`cSub<-` <- get("substr<-", envir = baseenv())
+cTrunc <- get("strtrim", envir = baseenv()) ## This indeed truncs strings!!!
 
 ## paste() is rather long name, in comparison with, e.g., c().
 ## Also the default argument of sep = " " is irritating and is not consistent
 ## with stop() or warning() for instance, that use sep = "".
 ## Thus, we define:
-p <- function (..., sep = "", collapse = NULL) 
-	paste(..., sep = sel, collapse = collapse)
+if (exists("paste0", envir = baseenv())) { # Starting from R 2.15.0
+	p <- get("paste0", envir = baseenv())
+} else {
+	p <- function (..., sep = "", collapse = NULL) 
+		paste(..., sep = sep, collapse = collapse)
+}
 	
-p_ <- paste
+p_ <- get("paste", envir = baseenv())
 
 ## The same is true for cat() with sep = " "... and the default behaviour of
 ## not ending with line feed is more confusing that useful => change this
@@ -164,24 +168,24 @@ cTrimR <- function (x, all.spaces = FALSE) # Trim right-side only
 
 
 ## Change case and translate
-cTrans <- chartr
-cFold <- casefold
-cLower <- tolower
-cUpper <- toupper
+cTrans <- get("chartr", envir = baseenv())
+cFold <- get("casefold", envir = baseenv())
+cLower <- get("tolower", envir = baseenv())
+cUpper <- get("toupper", envir = baseenv())
 
 ## Character encoding
-encodingToNative <- enc2native
-encodingToUTF8 <- enc2utf8
-encoding <- Encoding
-`encoding<-` <- `Encoding<-`
+encodingToNative <- get("enc2native", envir = baseenv())
+encodingToUTF8 <- get("enc2utf8", envir = baseenv())
+encoding <- get("Encoding", envir = baseenv())
+`encoding<-` <- get("Encoding<-", envir = baseenv())
 
 ## Measure size of a string (package graphics)
-cHeight <- strheight
-cWidth <- strwidth
+cHeight <- strheight # From package graphics
+cWidth <- strwidth # From package graphics
 
 ## Match and expand character strings to a list of items
-cExpand <- char.expand
-cMatch <- charmatch
+cExpand <- get("char.expand", envir = baseenv())
+cMatch <- get("charmatch", envir = baseenv())
 # What to do with pmatch()???
 
 ## Conversion to character string... no change required
@@ -190,7 +194,7 @@ cMatch <- charmatch
 # To avoid using strtoi(), we prefer as.integerBase (because as.integer cannot
 # be converted into a generic function, because it is a primitive!)
 #charToInt <- strtoi # Allows to choose the base used for char representation
-as.integerBase <- strtoi
+as.integerBase <- get("strtoi", envir = baseenv())
 
 ## Define a function that takes: singular/plural msg and a vector of strings
 ## and construct a single string with:
