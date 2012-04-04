@@ -59,3 +59,7 @@
     if (isTRUE(replace.existing) || !exists(x, envir = .TempEnv(), mode = "any",
 		inherits = FALSE))
         assign(x, value, envir = .TempEnv())
+
+## This is for convenience: . == .GlobalEnv
+.assignTemp(".", base::.GlobalEnv)
+

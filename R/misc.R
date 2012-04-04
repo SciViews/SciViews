@@ -2,6 +2,10 @@
 
 # is.wholenumber(), see ?as.integer => define isWholeInt?
 
+## A convenient starting object for holding items: . == .GlobalEnv
+## TODO: take care there is no clash with proto objects!
+. <- base::.GlobalEnv
+
 ## This should be nice:
 ## Define a valid method to be applied to S3 objects to make sure they are
 ## correct
