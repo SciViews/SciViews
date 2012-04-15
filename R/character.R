@@ -1,7 +1,8 @@
 ## Essentially a series of base R function that manipulate character strings
 ## and that are renamed/rationalized for facility
+
 ## TODO: deal with zero length strings and NAs appropriately in all functions
-## TODO: make.names, make.unique, Sys.setFileTime => fileTime, Sys.umask
+## TODO: make.names, make.unique, abbreviate
 
 ## Count the number of characters
 ## No: make an exception: after n (or nz) do not use uppercase!
@@ -79,19 +80,19 @@ rxFindAll <- function (x, pattern, ignore.case = FALSE, ...) # ... for perl & us
 	return(gregexpr(pattern, text = x, ignore.case = ignore.case, fixed = FALSE,
 		...))
 
-cRep <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for useBytes
+cSub <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for useBytes
 	return(sub(pattern, replacement, x, ignore.case = ignore.case, fixed = TRUE,
 		...))
 	
-rxRep <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for Perl & useBytes
+rxSub <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for Perl & useBytes
 	return(sub(pattern, replacement, x, ignore.case = ignore.case, fixed = FALSE,
 		...))
 	
-cRepAll <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for useBytes
+cSubAll <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for useBytes
 	return(gsub(pattern, replacement, x, ignore.case = ignore.case, fixed = TRUE,
 		...))
 	
-rxRepAll <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for Perl & useBytes
+rxSubAll <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for Perl & useBytes
 	return(gsub(pattern, replacement, x, ignore.case = ignore.case, fixed = FALSE,
 		...))
 
@@ -103,8 +104,8 @@ cSplit <- function (x, pattern, ...) # ... for useBytes
 rxSplit <- function (x, pattern, ...) # for perl & useBytes
 	return(strsplit(x, split = pattern, fixed = FALSE, ...))
 
-cSub <- get("substr", envir = baseenv())
-`cSub<-` <- get("substr<-", envir = baseenv())
+cSubstr <- get("substr", envir = baseenv())
+`cSubstr<-` <- get("substr<-", envir = baseenv())
 cTrunc <- get("strtrim", envir = baseenv()) ## This indeed truncs strings!!!
 
 ## paste() is rather long name, in comparison with, e.g., c().
@@ -149,21 +150,21 @@ cTrim <- function (x, all.spaces = FALSE) # Trim both sides
 {
 	pat <- (if (isTRUE(all.spaces)) "[[:space:]]+" else "[[:blank:]]+")
 	## Trim left first
-	x <- cRep(p("^", pat), "", x)
+	x <- cSub(p("^", pat), "", x)
 	## ... then trim right
-	return(cRep(p(pat, "$"), "", x))
+	return(cSub(p(pat, "$"), "", x))
 }
 
 cTrimL <- function (x, all.spaces = FALSE) # Trim left-side only
 {
 	pat <- (if (isTRUE(all.spaces)) "^[[:space:]]+" else "^[[:blank:]]+")
-	return(cRep(pat, "", x))
+	return(cSub(pat, "", x))
 }
 
 cTrimR <- function (x, all.spaces = FALSE) # Trim right-side only
 {
 	pat <- (if (isTRUE(all.spaces)) "[[:space:]]+$" else "[[:blank:]]+$")
-	return(cRep(pat, "", x))
+	return(cSub(pat, "", x))
 }
 
 
