@@ -1,5 +1,6 @@
 ## Essentially a series of base R function that manipulate files and directories
 ## and that are renamed/rationalized for facility
+## TODO: Sys.setFileTime => fileTime, Sys.umask
 
 ## A replacement for file.path
 path <- function (..., fsep = .Platform$file.sep)

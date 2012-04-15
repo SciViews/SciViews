@@ -1,26 +1,18 @@
 ## A series of functions defined or redefined for a simpler or better use of R
+## Note to get a function, but change its default parameters, use:
+## fun2 <- fun
+## formals(fun2)$arg <- newDefaultValue
 
 # is.wholenumber(), see ?as.integer => define isWholeInt?
 
 ## A convenient starting object for holding items: . == .GlobalEnv
 ## TODO: take care there is no clash with proto objects!
-. <- base::.GlobalEnv
+#. <- base::.GlobalEnv
 
-## This should be nice:
-## Define a valid method to be applied to S3 objects to make sure they are
-## correct
-valid <- function (object, ...)
-	UseMethod("valid")
-	
-valid.default <- function (object, ...)
-	return(object)
-
-## A concise construct to make shure we return the right object	
-ifValid <- function (x, what, is.not = stop("need a ", what, " object"))
-	return(if (inherits(x, what)) valid(x) else is.not)
-# res <- ifValid(obj, "class")
-## or in a function
-# return(ifValid(obj, "class"))
+## Testing is.null(obj) is not enough to decide if an object is empty, because
+## there may be like numeric(0), character(0), etc. The right way to do so is
+## to use if (!length(obj)), but it would be more intuitive to define:
+isEmpty <- function (x) return(!length(x))
 
 ifElse <- get("ifelse", envir = baseenv())
 
@@ -34,8 +26,7 @@ ifElse <- get("ifelse", envir = baseenv())
 # res <- try(...., silent = TRUE)
 # if (inherits(res, "try-error")) stop(msg)
 
-enum <- function (x)
-	return(seq_along(x))
+enum <- function (x) return(seq_along(x))
 
 ## Defines only increasing integer sequences
 `%:%` <- function (lower, upper)
@@ -58,13 +49,6 @@ error = stop("there is no package called '", package, "'"))
 	if (!res) return(error) else return(invisible(res))
 }
 
-## Environments management
-## Usually, to create an object, we use its name, but
-## environment() means something else here!
-## So, OK, we'll stick with
-newEnv <- get("new.env", envir = baseenv())
-## for the moment...
-
 ## Now, we want to be able to use names() on it too!
 ## Note that for environments, we got items by alphabetic order
 ## => not exactly the same as for vector, list, or so!
@@ -73,17 +57,94 @@ names <- function (x)
 ## Do we implement `names<-` for environments???
 
 ## Simpler names for often used functions
-n <- get("length", envir = baseenv())
-nc <- get("NCOL", envir = baseenv())
-nr <- get("NROW", envir = baseenv())
+n <- base::as.numeric # TODO: define a "n" object?
+i <- base::as.integer
+## To avoid problems with factors, tell to always use s(f1), or n(f1)/i(f1)
+
+## Since n is already used for a synonym of as.numeric(), I use l() here
+l <- base::length
+nc <- base::NCOL
+nr <- base::NROW
 
 ## Constants (must start with an uppercase letter)
 ## => redefine Pi instead of pi
-Pi <- get("pi", envir = baseenv())
+Pi <- base::pi
 ## Useful for apply() familly:
 Rows <- 1
 Cols <- 2
 ## Instead of apply(x, 2, sum), it gives apply(x, Cols, sum)
+
+## I don't like isTRUE, because if there is an attribute attached to TRUE,
+## it returns FALSE! =>
+asTRUE <- function (x) identical(TRUE, as.logical(x))
+isFALSE <- function (x) identical(FALSE, x)
+asFALSE <- function (x) identical(FALSE, as.logical(x))
+
+## How to simplify the use of if() by limiting possible special cases?
+## use of any() and all() is there to cope with this, but still:
+## 1) any(NA) => NA, unless any(NA, na.rm = TRUE) => FALSE
+## 2) any(NULL) & any(logical(0)) => FALSE => OK
+## We solve this by defining any.() and all.()
+any. <- function (..., na.rm = TRUE) any(..., na.rm = na.rm)
+all. <- function (..., na.rm = TRUE) all(..., na.rm = na.rm)
+one <- function (x, na.rm = FALSE) UseMethod("one")
+## Same as asTRUE(), but slower, because it is a method
+one.default <- function (x, na.rm = FALSE)
+{
+	if (isTRUE(na.rm)) x <- na.omit(x)
+	return(identical(TRUE, as.logical(x)))
+}
+one. <- function (x, na.rm = TRUE) one(x, na.rm = na.rm)
+stopIfNot <- base::stopifnot
+
+## TODO: other xxx. functions for those using na.rm = FALSE
+## like mean, median, sd, var, quantile, fivenum, ...
+
+`%is%` <- function (x, class) is(x, as.character(substitute(class)))
+`%as%` <- function (x, class) as(x, as.character(substitute(class)))
+
+#s1 <- 12.3
+#s1 %is% numeric
+#s1 %is% integer
+#s1 %as% integer %is% integer
+
+## Ternary condition statement, like in JavaScript cond ? yes : no
+## Not possible to do in R... but the closest is:
+`%?%` <- function (cond, yes.no) { if (cond) yes.no[1] else yes.no[2] }
+## ... and its vectorized conterpart:
+`%??%` <- function (cond, yes.no) ifelse(cond, yes = yes.no[1], no = yes.no[2])
+
+TRUE %?% c(1, 2)
+FALSE %?% c(yes = 1, no = 2)
+x <- 1:3
+res <- any(x > 2) %?% c("yes", "no"); res
+res <- (x > 2) %??% c("yes", "no"); res # Take care of parentheses!
+rm(x, res)
+
+## It is common to test if something is zero, or one... Here, the non vectorized
+## version asks for all items being zero or one, excluding missing data!
+## TODO: good idea (perhaps)... but this does not work well!
+#`%?0%` <- function (x, yes.no) { if (all.(x == 0)) yes.no[1] else yes.no[2] }
+#`%?1%` <- function (x, yes.no) { if (all.(x == 1)) yes.no[1] else yes.no[2] }
+#`%??0%` <- function (x, yes.no) ifelse(x == 0, yes = yes.no[1], no = yes.no[2])
+#`%??1%` <- function (x, yes.no) ifelse(x == 1, yes = yes.no[1], no = yes.no[2])
+
+#x <- 1; x %?0% c(yes = stop("x must be non null"), no = x^2)
+#x <- 0; x %?0% c(yes = stop("x must be non null"), no = x^2)
+## This helps to construct sentences with single or plural
+#x <- 1; rep(x, 3) %??1% c(single = c("There is ", 1, " item in x"),
+#	plural = c("There are ", length(x), " items in x"))
+#x <- 3; rep(x, 3) %??1% c(single = c("There is ", 1, " item in x"),
+#	plural = c("There are ", length(x), " items in x"))
+
+
+## Should we keep these without renaming???
+#na.action()
+#na.omit()
+#na.fail()
+#na.exclude()
+#na.pass()
+## And what to do with naresid() and napredict()?
 
 ## Problem of functional language like R: too much copy!
 ## For instance, change a simple attribute using attr(x) <- value
@@ -181,7 +242,7 @@ Cols <- 2
 #			})
 		stop(":= cannot be used directly on an object")
 	}
-	## If a more complex is provided, try to run `fun:=` instead
+	## If a more complex call is provided, try to run `fun:=` instead
 	X <- as.pairlist(substitute(X))
 	## To emulate `fun<-`, but using `fun:=`
 	fun <- paste(deparse(X[[1]]), ":=", sep = "")
@@ -241,6 +302,10 @@ timing <- function (expr, gc.first = TRUE)
 #htestPropTrend <- prop.trend.test
 #htestShapiroWilk <- shapiro.test
 
+#all.names
+#all.vars
+
+#Data and POSIXct
 
 #contrHelmert <- contr.helmert
 #contrPoly <- contr.poly
@@ -251,15 +316,6 @@ timing <- function (expr, gc.first = TRUE)
 #equal <- all.equal
 #equalA <- attr.all.equal
 
-#baseEnv <- baseenv
-#emptyEnv <- emptyenv
-#globalEnv <- globalEnv
-#parentEnv <- parent.env
-#`parentEnv<-` <- `parent.env<-`
-##TODO: use tempEnv instead of TempEnv?
-
-#evalParent <- eval.parent
-
 #expandGrid <- expand.grid
 
 #gcTiming <- gc.time + return a difftime object
@@ -267,25 +323,24 @@ timing <- function (expr, gc.first = TRUE)
 #gcTorture <- gctorture
 #??? gcTorture2 <- gctorture2
 
-#inverseRle <- inverse.rle or rleInverse?
+#rleInverse <- inverse.rle
 
-#isAtomic <- is.atomic
-#isCall <- is.call??
+#No -> isAtomic <- is.atomic
+#No -> isCall <- is.call??
 #isElement <- is.element
 #?isExpression??
 #isFinite <- is.finite
-#isLanguage <- is.language
+#No -> isLanguage <- is.language
 #isLoaded <- is.loaded
 #isNA <- is.na
 #isNaN <- is.nan
 #isNULL <- is.null
 #isR <- is.R
-#isRecursive <- is.recursive
-#isSymbol <- is.symbol
+#No -> isRecursive <- is.recursive
+#No -> isSymbol <- is.symbol
 #isUnsorted <- is.unsorted
-#isVector <- is.vector
+#No -> isVector <- is.vector
 #isTTY <- isatty
-#isDebugged <- isdebugged
 
 #l10n.info?
 #list2env should be as.environment() applied to list, really
@@ -293,7 +348,6 @@ timing <- function (expr, gc.first = TRUE)
 #mat.or.vec
 #maxCol <- max.col... or colMax, cf. colSum
 #average() as a simpler version than mean() for fast run
-#onExit <- on.exit
 
 #qrX <- qr.X
 #qrQ <- qr.Q
@@ -309,8 +363,8 @@ timing <- function (expr, gc.first = TRUE)
 #setdiff & other setxxx functions
 
 #dateCurrent <- Sys.Date
-#Sys.getenv, Sys.getlocale, Sys.getpid, Sys.info, Sys.localeconv, sys.on.exit
-#sys.parent, Sys.setenv, Sys.setlocale, sys.source, sys.status
+#Sys.getenv, Sys.getlocale, Sys.getpid, Sys.info, Sys.localeconv
+#Sys.setenv, Sys.setlocale
 #timeCurrent <- Sys.time
 #Sys.timezone, Sys.unsetenv
 
@@ -318,6 +372,128 @@ timing <- function (expr, gc.first = TRUE)
 #upperTri <- upper.tri
 
 #utf8ToInt
+#cStackInfo <- base::Cstack_info
+#.Internal() triggers notes => what to do?
+#.Primitive()
+
+## Read this carefully before rethinking these function, trying to simplify a bit things:
+## http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/
+## Environments management
+## Use of frame as a synonym of environment brings an additional difficulty on
+## an already difficult subject! => use env(ironment) everywhere?!
+## TODO: all these sys.xxx must remain like this!
+sysFunction <- base::sys.function
+sysCall <- base::sys.call
+sysCalls <- base::sys.calls
+matchCall <- base::match.call
+sysParent <- base::sys.parent
+sysParents <- base::sys.parents
+## TODO: do not use frame => what??? sys.prevEnv()??
+parentFrame <- base::parent.frame
+sysFrame <- base::sys.frame
+sysFrames <- base::sys.frames
+sysnFrame <- base::sys.nframe
+sysStatus <- base::sys.status
+onExit <- function (expr = NULL, add = FALSE) base::on.exit(expr = expr, add = add)
+sysOnExit <- base::sys.on.exit
+dumpFrames <- utils::dump.frames
+#debugger(dump = last.dump) # utils
+#browser()
+#browserText()
+#browserCondition()
+#browserSetDebug()
+#debug()
+#undebug()
+debugOnce <- base::debugonce
+isDebugged <- base::isdebugged
+baseEnv <- base::baseenv
+.BaseEnv <- base::baseenv()
+baseNamespaceEnv <- function () return(.BaseNamespaceEnv)
+#.BaseNamespaceEnv already defined
+## Those four environments are specials and start with an uppercase letter!
+emptyEnv <- base::emptyenv
+.EmptyEnv <- base::emptyenv()
+globalEnv <- base::globalenv # Also .GlobalEnv
+# .GlobalEnv already defined
+autoloadEnv <- function () return(.AutoloadEnv)
+#.AutoloadEnv already defined
+#TempEnv() in svMisc
+tempEnv <- svMisc::TempEnv
+.TempEnv <- svMisc::TempEnv()
+## TODO: or sys.topEnv()???
+topEnv <- base::topenv
+# Usually, to create an object, we use its name, but
+## environment() means something else here!
+## So, OK, we'll stick with:
+environmentNew <- base::new.env
+## Should not be used!
+environmentParent <- base::parent.env
+`environmentParent<-` <- base::`parent.env<-`
+#environmentName()
+#environment()
+#`environment<-`()
+#is.environment()
+environmentProfile <- base::env.profile
+## name attribute to an environment,... see ?environment
+#source()
+
+sysSource <- base::sys.source
+#.First.sys and .Last.sys cannot be changed!
+#eval()
+evalQuote <- base::evalq
+evalParent <- base::eval.parent
+evalLocal <- base::local
+
+autoloaded <- function () return(.Autoloaded)
+#autoload()
+#autoloader()
+#delayedAssign()
+
+## This is the options() mechanism:
+## I don't like the options("width") returning a list with only $width in it!
+## I want a mechanisms much like par("ask") which directly returns the value, thus:
+### Covered function: base::options(), base::getOption(), base::.Options
+opt <- function (...) {
+	arg <- list(...)
+	l <- length(arg)
+	if (l == 0) {
+		return(options()) # List of all options
+	} else if (l == 1 && is.null(names(arg))) {
+		return(options(...)[[1]]) # The value for this option
+	} else return(invisible(options(...))) # Invisible list of previous options
+}
+## With a single argument, opt() and optDef() give the same thing, but
+## optDef() allows to provide a default value for the option, if not found
+optDef <- getOption # (x, default = NULL)
 
 
+## For R help on the web:
+## http://rseek.org
+## http://www.r-project.org/mail.html for mailing lists
+## StackOverflow http://stackoverflow.com/questions/tagged/r
+## #rstats Twitter hashtag http://search.twitter.com/search?q=%23rstats
+## R-Bloggers http://www.r-bloggers.com
+## Video Rchive (of presentations) http://www.vcasmo.com/user/drewconway
 
+## Useful packages from "machine learning for hackers"
+## arm, glmnet, ggplot2, igraph, lme4, lubridate, RCurl, plyr, RJSONIO, spatstat, RSXML
+
+## ! is not defined for character strings... Use it here for quick conversion
+## of character into an "s" (string) object... Used in doc blocks for an R script
+## compatible with Sweave
+`!` <- function(x) if (is.character(x))
+	structure(x, class = c("s", "character")) else .Primitive("!")(x)
+
+## The print.s method is designed to print nothing in case of a doc block
+## TODO: need methods to convert these into Html or Pdf for quick view!
+## TODO: a method to check correctness of these blocks for Asciidoc blocks
+## (for LaTeX blocks, it would not work)
+print.s <- function (x, ...)
+{
+	## If the string starts with @\n and ends with <<.*>>=,
+	## treat it specially (it is a doc chunk!): print just nothing!
+	if (grepl("^@[ \t]*\n.*<<[^\n]*>>=[ \t]*$", x)) {
+		cat("<...doc chunk...>\n")
+	} else print(as.character(x))
+	return(invisible(x))
+}
