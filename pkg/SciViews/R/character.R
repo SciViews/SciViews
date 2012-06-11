@@ -2,7 +2,7 @@
 ## and that are renamed/rationalized for facility
 
 ## TODO: deal with zero length strings and NAs appropriately in all functions
-## TODO: make.names, make.unique, abbreviate
+## TODO: make.names, make.unique, regmatches, grepRaw and charToRaw
 
 ## Count the number of characters
 ## No: make an exception: after n (or nz) do not use uppercase!
@@ -10,140 +10,176 @@
 #nzChar <- nzchar
 
 ## Format character strings
-cEscape <- get("encodeString", envir = baseenv())
-cWrap <- get("strwrap", envir = baseenv())
-# Add cPad => pad a string left/right or both or Pad/PadL/PadR?
+cEscape <- base::encodeString
+cWrap <- base::strwrap
+# Add cPad => pad a string left/right or both or chrPad/chrPadL/chrPadR?
 #+sprintf/gettextf?
 
-## String find/replace using fixed pattern (char*) or regular expressions (rx*)
-## TODO: a rx object which prints an example of its work! => fine-tune it
-## to make it easy to experiment with the rx object
-rx <- glob2rx # This is in utils package
-
-cSearch <- function (x, pattern, ignore.case = FALSE,
-type = c("logical", "position", "value"), ...) # ... for useBytes
+## String find/replace using fixed pattern or regular expressions
+rx <- function (pattern, use.bytes = FALSE, globbing,
+trim.head = FALSE, trim.tail = TRUE)
 {
-	type <- pmatch(type)
-	res <- switch(type,
-		logical = grepl(pattern, x, ignore.case = ignore.case,
-			fixed = TRUE, ...),
-		position = grep(pattern, x, ignore.case = ignore.case, value = FALSE,
-			fixed = TRUE, ...),
-		value = grep(pattern, x, ignore.case = ignore.case, value = TRUE,
-			fixed = TRUE, ...),
-		stop("Unknown type"))
-	return(res)
+	## Construct an rx object containing a regular expression pattern
+	if (!missing(globbing)) pattern <- utils::glob2rx(globbing,
+		trim.head = trim.head, trim.tail = trim.tail)
+	pattern <- as.character(pattern)
+	class(pattern) <- c("rx", "character")
+	if (isTRUE(as.logical(use.bytes))) attr(pattern, "useBytes") <- TRUE
+	pattern
 }
 
-rxSearch <- function (x, pattern, ignore.case = FALSE, max.distance = 0,
-type = c("logical", "position", "value"), ...) # ... for Perl & useBytes
+print.rx <- function (x, ...)
+{
+	msg <- "Regular expression pattern"
+	if (useBytes(x)) {
+		msg <- paste(msg, "(byte-by-byte):\n")
+	} else msg <- paste(msg, ":\n", sep = "")
+	cat(msg)
+	print(as.character(x))
+}
+
+is.rx <- function (x) inherits(x, "rx")
+
+perl <- function (pattern, use.bytes = FALSE)
+{
+	pattern <- as.character(pattern)
+	class(pattern) <- c("perl", "rx", "character")
+	if (isTRUE(as.logical(use.bytes))) attr(pattern, "useBytes") <- TRUE
+	pattern
+}
+
+print.perl <- function (x, ...)
+{
+	msg <- "Perl-compatible regular expression pattern"
+	if (useBytes(x)) {
+		msg <- paste(msg, "(byte-by-byte):\n")
+	} else msg <- paste(msg, ":\n", sep = "")
+	cat(msg)
+	print(as.character(x))
+}
+
+is.perl <- function (x) inherits(x, "perl")
+
+useBytes <- function (x) isTRUE(attr(x, "useBytes"))
+
+`useBytes<-` <- function (x, value)
+{
+	if (!is.character(x)) x <- as.character(x)
+	attr(x, "useBytes") <- isTRUE(as.logical(value))
+	x
+}
+
+cSearch <- function (x, pattern, ignore.case = FALSE,
+type = c("logical", "position", "value"), max.distance = 0, costs = NULL)
 {
 	type <- pmatch(type)
-	## If max.distance > 0, use approximate search
-	if (max.distance > 0) { # Use agrep()
-		res <- switch(type,
-			logical = 1:length(x) %in% agrep(pattern, x,
-				ignore.case = ignore.case, value = FALSE,
-				max.distance = max.distance, ...),
-			position = agrep(pattern, x, ignore.case = ignore.case,
-				value = FALSE, max.distance = max.distance, ...),
-			value = agrep(pattern, x, ignore.case = ignore.case,
-				value = TRUE, max.distance = max.distance, ...),
-			stop("Unknown type"))
-	} else { # Use regular search (grep())
+	if (!is.rx(pattern)) { # Search fixed string
 		res <- switch(type,
 			logical = grepl(pattern, x, ignore.case = ignore.case,
-				fixed = FALSE, ...),
-			position = grep(pattern, x, ignore.case = ignore.case,
-				value = FALSE, fixed = FALSE, ...),
-			value = grep(pattern, x, ignore.case = ignore.case,
-				value = TRUE, fixed = FALSE, ...),
+				fixed = TRUE, useBytes = useBytes(pattern)),
+			position = grep(pattern, x, ignore.case = ignore.case, value = FALSE,
+				fixed = TRUE, useBytes = useBytes(pattern)),
+			value = grep(pattern, x, ignore.case = ignore.case, value = TRUE,
+				fixed = TRUE, useBytes = useBytes(pattern)),
 			stop("Unknown type"))
+	} else { # Search regular expression
+		## If max.distance > 0, use approximate search
+		if (max.distance > 0) { # Use agrep()
+			## No perl expression currently accepted!
+			if (is.perl(pattern))
+				stop("Perl regular expression not allowed with max.distance > 0")
+			res <- switch(type,
+				logical = 1:length(x) %in% agrep(pattern, x,
+					ignore.case = ignore.case, value = FALSE,
+					max.distance = max.distance, costs = costs,
+					useBytes = useBytes(pattern)),
+				position = agrep(pattern, x, ignore.case = ignore.case,
+					value = FALSE, max.distance = max.distance, costs = costs,
+					useBytes = useBytes(pattern)),
+				value = agrep(pattern, x, ignore.case = ignore.case,
+					value = TRUE, max.distance = max.distance, costs = costs,
+					useBytes = useBytes(pattern)),
+				stop("Unknown type"))
+		} else { # Use regular search (grep())
+			res <- switch(type,
+				logical = grepl(pattern, x, ignore.case = ignore.case,
+					fixed = FALSE, perl = is.perl(pattern),
+					useBytes = useBytes(pattern)),
+				position = grep(pattern, x, ignore.case = ignore.case,
+					value = FALSE, fixed = FALSE, perl = is.perl(pattern),
+					useBytes = useBytes(pattern)),
+				value = grep(pattern, x, ignore.case = ignore.case,
+					value = TRUE, fixed = FALSE, perl = is.perl(pattern),
+					useBytes = useBytes(pattern)),
+				stop("Unknown type"))
+		}
 	}
-	return(res)
+	res
 }
 
 ## Inconsistencies: regexpr(pattern, text, ...) and strsplit(x, xplit, ...)
-cFind <- function (x, pattern, ignore.case = FALSE, ...) # ... for useBytes
-	return(regexpr(pattern, text = x, ignore.case = ignore.case, fixed = TRUE,
-		...))
+## Solved with the present versions!
+cFind <- function (x, pattern, ignore.case = FALSE)
+	regexpr(pattern, text = x, ignore.case = ignore.case, fixed = !is.rx(pattern),
+		perl = is.perl(pattern), useBytes = useBytes(pattern))
 	
-rxFind <- function (x, pattern, ignore.case = FALSE, ...) # ... for perl & useBytes
-	return(regexpr(pattern, text = x, ignore.case = ignore.case, fixed = FALSE,
-		...))
-	
-cFindAll <- function (x, pattern, ignore.case = FALSE, ...) # ... for useBytes
-	return(gregexpr(pattern, text = x, ignore.case = ignore.case, fixed = TRUE,
-		...))
-	
-rxFindAll <- function (x, pattern, ignore.case = FALSE, ...) # ... for perl & useBytes
-	return(gregexpr(pattern, text = x, ignore.case = ignore.case, fixed = FALSE,
-		...))
+cFindAll <- function (x, pattern, ignore.case = FALSE)
+	gregexpr(pattern, text = x, ignore.case = ignore.case, fixed = !is.rx(pattern),
+		perl = is.perl(pattern), useBytes = useBytes(pattern))
 
-cSub <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for useBytes
-	return(sub(pattern, replacement, x, ignore.case = ignore.case, fixed = TRUE,
-		...))
+cSub <- function (x, pattern, replacement, ignore.case = FALSE)
+	sub(pattern, replacement, x, ignore.case = ignore.case, fixed = !is.rx(pattern),
+		perl = is.perl(pattern), useBytes = useBytes(pattern))
 	
-rxSub <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for Perl & useBytes
-	return(sub(pattern, replacement, x, ignore.case = ignore.case, fixed = FALSE,
-		...))
-	
-cSubAll <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for useBytes
-	return(gsub(pattern, replacement, x, ignore.case = ignore.case, fixed = TRUE,
-		...))
-	
-rxSubAll <- function (x, pattern, replacement, ignore.case = FALSE, ...) # ... for Perl & useBytes
-	return(gsub(pattern, replacement, x, ignore.case = ignore.case, fixed = FALSE,
-		...))
-
+cSubAll <- function (x, pattern, replacement, ignore.case = FALSE)
+	gsub(pattern, replacement, x, ignore.case = ignore.case, fixed = !is.rx(pattern),
+		perl = is.perl(pattern), useBytes = useBytes(x))
 
 ## Substrings
-cSplit <- function (x, pattern, ...) # ... for useBytes
-	return(strsplit(x, split = pattern, fixed = TRUE, ...))
-	
-rxSplit <- function (x, pattern, ...) # for perl & useBytes
-	return(strsplit(x, split = pattern, fixed = FALSE, ...))
+cSplit <- function (x, pattern)
+	strsplit(x, split = pattern, fixed = !is.rx(pattern),
+		perl = is.perl(pattern), useBytes = useBytes(pattern))
 
-cSubstr <- get("substr", envir = baseenv())
-`cSubstr<-` <- get("substr<-", envir = baseenv())
-cTrunc <- get("strtrim", envir = baseenv()) ## This indeed truncs strings!!!
+cSubstr <- base::substr
+`cSubstr<-` <- base::`substr<-`
+cTrunc <- base::strtrim ## This indeed truncs strings!!!
 
 ## paste() is rather long name, in comparison with, e.g., c().
 ## Also the default argument of sep = " " is irritating and is not consistent
 ## with stop() or warning() for instance, that use sep = "".
 ## Thus, we define:
 if (exists("paste0", envir = baseenv())) { # Starting from R 2.15.0
-	p <- get("paste0", envir = baseenv())
+	p <- base::paste0
 } else {
-	p <- function (..., sep = "", collapse = NULL) 
-		paste(..., sep = sep, collapse = collapse)
+	p <- function (..., collapse = NULL) 
+		paste(..., sep = "", collapse = collapse)
 }
 	
-p_ <- get("paste", envir = baseenv())
+p_ <- base::paste
 
 ## The same is true for cat() with sep = " "... and the default behaviour of
 ## not ending with line feed is more confusing that useful => change this
 ## behaviour by adding a end = "\n" argument.
 ## TODO: by default, interpret unicode and formatting like ucat() or ecat()!
-ct <- function (..., file = "", sep = "", end = "\n", fill = FALSE,
-labels = NULL, append = FALSE)
-	return(cat(..., end, file = file, sep = sep, fill = fill, labels = labels,
-		append = append))
-
-cta <- function (..., file = "", sep = "", end = "\n", fill = FALSE,
+ct <- function (..., file = "", end = "\n", fill = FALSE,
 labels = NULL)
-	return(cat(..., end, file = file, sep = sep, fill = fill, labels = labels,
-		append = TRUE))
+	cat(..., end, file = file, sep = "", fill = fill, labels = labels,
+		append = FALSE)
+
+cta <- function (..., file = "", end = "\n", fill = FALSE,
+labels = NULL)
+	cat(..., end, file = file, sep = "", fill = fill, labels = labels,
+		append = TRUE)
 
 ct_ <- function (..., file = "", sep = " ", end = "\n", fill = FALSE,
-labels = NULL, append = FALSE)
-	return(cat(..., end, file = file, sep = sep, fill = fill, labels = labels,
-		append = append))
-
-cta_ <- function (..., file = " ", sep = "", end = "\n", fill = FALSE,
 labels = NULL)
-	return(cat(..., end, file = file, sep = sep, fill = fill, labels = labels,
-		append = TRUE))
+	cat(..., end, file = file, sep = sep, fill = fill, labels = labels,
+		append = FALSE)
+
+cta_ <- function (..., file = "", sep = " ", end = "\n", fill = FALSE,
+labels = NULL)
+	cat(..., end, file = file, sep = sep, fill = fill, labels = labels,
+		append = TRUE)
 
 	
 cTrim <- function (x, all.spaces = FALSE) # Trim both sides
@@ -152,42 +188,43 @@ cTrim <- function (x, all.spaces = FALSE) # Trim both sides
 	## Trim left first
 	x <- cSub(p("^", pat), "", x)
 	## ... then trim right
-	return(cSub(p(pat, "$"), "", x))
+	cSub(p(pat, "$"), "", x)
 }
 
 cTrimL <- function (x, all.spaces = FALSE) # Trim left-side only
-{
-	pat <- (if (isTRUE(all.spaces)) "^[[:space:]]+" else "^[[:blank:]]+")
-	return(cSub(pat, "", x))
-}
+	cSub(if (isTRUE(all.spaces)) "^[[:space:]]+" else "^[[:blank:]]+", "", x)
 
 cTrimR <- function (x, all.spaces = FALSE) # Trim right-side only
-{
-	pat <- (if (isTRUE(all.spaces)) "[[:space:]]+$" else "[[:blank:]]+$")
-	return(cSub(pat, "", x))
-}
+	cSub(if (isTRUE(all.spaces)) "[[:space:]]+$" else "[[:blank:]]+$", "", x)
 
 
 ## Change case and translate
-cTrans <- get("chartr", envir = baseenv())
-cFold <- get("casefold", envir = baseenv())
-cLower <- get("tolower", envir = baseenv())
-cUpper <- get("toupper", envir = baseenv())
+cTrans <- function (x, old, new) chartr(old = old, new = new, x = x)
+cFold <- base::casefold
+cLower <- base::tolower
+cUpper <- base::toupper
 
 ## Character encoding
-encodingToNative <- get("enc2native", envir = baseenv())
-encodingToUTF8 <- get("enc2utf8", envir = baseenv())
-encoding <- get("Encoding", envir = baseenv())
-`encoding<-` <- get("Encoding<-", envir = baseenv())
+encodingToNative <- base::enc2native
+encodingToUTF8 <- base::enc2utf8
+encoding <- base::Encoding
+`encoding<-` <- base::`Encoding<-`
 
 ## Measure size of a string (package graphics)
-cHeight <- strheight # From package graphics
-cWidth <- strwidth # From package graphics
+cHeight <- graphics::strheight
+cWidth <- graphics::strwidth
 
-## Match and expand character strings to a list of items
-cExpand <- get("char.expand", envir = baseenv())
-cMatch <- get("charmatch", envir = baseenv())
-# What to do with pmatch()???
+## Match, expand or abbreviate character strings to a list of items
+cAbbreviate <- function (x, min.length = 4, dot = FALSE, strict = FALSE,
+method = c("left.kept", "both.sides"))
+	abbreviate(names.arg = x, minlength = min.length, dot = dot, strict = strict,
+		method = method)
+
+cExpand <- function (x, target, nomatch = NA_character_)
+	char.expand(input = x, target = target, nomatch = nomatch)
+
+cMatch <- base::charmatch
+cPMatch <- base::pmatch
 
 ## Conversion to character string... no change required
 #as.character
@@ -195,7 +232,7 @@ cMatch <- get("charmatch", envir = baseenv())
 # To avoid using strtoi(), we prefer as.integerBase (because as.integer cannot
 # be converted into a generic function, because it is a primitive!)
 #charToInt <- strtoi # Allows to choose the base used for char representation
-as.integerBase <- get("strtoi", envir = baseenv())
+as.integerBase <- base::strtoi
 
 ## Define a function that takes: singular/plural msg and a vector of strings
 ## and construct a single string with:
@@ -204,5 +241,4 @@ as.integerBase <- get("strtoi", envir = baseenv())
 ## plural msg: item1, item2, ..., itemN
 #+paste = cChar? + my special character string manipulation functions?
 
-#sAbbreviate <- abbreviate
 

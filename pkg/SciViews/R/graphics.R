@@ -183,7 +183,8 @@ coplotIntervals <- graphics::co.intervals
 plotWindowInternal <- graphics::plot.window
 plotInternal <- graphics::plot.xy
 boxplotInternal <- graphics::bxp
-filledplotInternal <- graphics::.filled.contour
+## Apparently not in R 2.14.0!
+#filledplotInternal <- graphics::.filled.contour
 
 
 ## grDevices ###################################################################

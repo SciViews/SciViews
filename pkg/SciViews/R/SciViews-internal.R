@@ -61,5 +61,5 @@
         assign(x, value, envir = .TempEnv())
 
 ## This is for convenience: . == .GlobalEnv
-.assignTemp(".", base::.GlobalEnv)
+#.assignTemp(".", base::.GlobalEnv)
 
