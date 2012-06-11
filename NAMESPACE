@@ -8,6 +8,7 @@ export(cEscape,
 	   cHeight,
 	   cLower,
 	   cMatch,
+	   cPMatch,
 	   cSearch,
 	   cSplit,
 	   cSubstr,
@@ -34,12 +35,11 @@ export(cEscape,
 	   "encoding<-",
 	   as.integerBase,
 	   rx,
-	   rxFind,
-	   rxFindAll,
-	   rxSearch,
-	   rxSplit,
-	   rxSub,
-	   rxSubAll,
+	   perl,
+	   is.rx,
+	   is.perl,
+	   useBytes,
+	   "useBytes<-",
 	   path,
 	   as.path,
 	   is.path,
@@ -132,6 +132,9 @@ S3method(one, default)
 S3method(print, path)
 
 S3method(print, s)
+
+S3method(print, rx)
+S3method(print, perl)
 
 S3method(vectorplot, default)
 S3method(vectorplot, loadings)
