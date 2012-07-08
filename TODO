@@ -1,5 +1,20 @@
 = SciViews To Do list
 
+* Change isEmpty because clash with a generic in filehash. permutations()
+defined in gtools and e1071 and do something different! Also, combine() is
+defined in both gdata and randomForests. It should really be a generic with the
+gdata version being the default and the randomForest version being
+combine.randomForest(). nobs() in gdata and stats are both S3 generics defined
+a little bit differently... but their default, at least, do something very
+different! There is also object.size() in gdata and utils. In this case, the
+version in gdata is compatible with the one in utils, but it is vectorized.
+For gplots, there is lowess() which is also defined in stats. Indeed, in gplots
+it is a S3 generic with lowess.default() being the same as the function in stats
+=> it is fine! For Rweka, LogitBoost() is also defined in caTools. These seem
+very different and should be named differently too!
+A clash for Args() between gdata and svMisc is solved, because the function in
+svMisc is renamed argsTip().
+
 * Rd files for character, file and misc.
 
 * Refine panel.xxx() functions to avoid warning in case we provide non-par
