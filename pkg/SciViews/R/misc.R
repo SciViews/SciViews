@@ -12,6 +12,8 @@
 ## Testing is.null(obj) is not enough to decide if an object is empty, because
 ## there may be like numeric(0), character(0), etc. The right way to do so is
 ## to use if (!length(obj)), but it would be more intuitive to define:
+## TODO: isEmpty is a generic function (or even S4?) in filehash that does
+##       something different => change the name!
 isEmpty <- function (x) return(!length(x))
 
 ifElse <- get("ifelse", envir = baseenv())
