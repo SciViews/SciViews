@@ -11,6 +11,18 @@ rwb.colors <- function (n, alpha = 1, s = 0.9, v = 0.9)
 	return(colorRampPalette(cols)(n))
 }
 
+## Red-white-green palette (take care for color-blind people here)!
+rwg.colors <- function (n, alpha = 1, s = 0.9, v = 0.9)
+{
+	if ((n <- as.integer(n[1L])) <= 0) return(character(0L))
+	## Define the initial (red) and final (blue) colors with white in between
+	cols <- c(hsv(0, s, v, alpha = alpha),   # Red
+			  hsv(0, 0, v, alpha = alpha),   # White
+			  hsv(2/6, s, v, alpha = alpha)) # Green
+	## Use a color ramp from red to white to green
+	return(colorRampPalette(cols)(n))
+}
+
 ## Red-yellow-green palette (take care for color-blind people here)!
 ryg.colors <- function (n, alpha = 1, s = 0.9, v = 0.9)
 {
@@ -27,6 +39,6 @@ cwm.colors <- function (n, alpha = 1, s = 0.9, v = 0.9)
 	cols <- c(hsv(1/2, s, v, alpha = alpha), # Cyan
 			  hsv(0, 0, v, alpha = alpha),   # White
 			  hsv(5/6, s, v, alpha = alpha)) # Magenta
-	## Use a color ramp from red to white to blue
+	## Use a color ramp from cyan to white to magenta
 	return(colorRampPalette(cols)(n))
 }
