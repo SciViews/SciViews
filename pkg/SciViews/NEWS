@@ -4,6 +4,8 @@
 
 * Several changes in character.R.
 
+* Added the rwg.colors() function.
+
 
 == SciViews version 0.9-7
 

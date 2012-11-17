@@ -1,6 +1,7 @@
 \name{colors}
 \alias{cwm.colors}
 \alias{rwb.colors}
+\alias{rwg.colors}
 \alias{ryg.colors}
 
 \title{Various color palettes}
@@ -12,6 +13,7 @@
 \usage{
 cwm.colors(n, alpha = 1, s = 0.9, v = 0.9)
 rwb.colors(n, alpha = 1, s = 0.9, v = 0.9)
+rwg.colors(n, alpha = 1, s = 0.9, v = 0.9)
 ryg.colors(n, alpha = 1, s = 0.9, v = 0.9)
 }
 
@@ -47,8 +49,8 @@ ryg.colors(n, alpha = 1, s = 0.9, v = 0.9)
 opar <- par(mfrow = c(2, 2))
 pie(rep(1, 11), col = cwm.colors(11), main = "Cyan - white - magenta")
 pie(rep(1, 11), col = rwb.colors(11), main = "Red - white - blue")
-pie(rep(1, 11), col = ryg.colors(11), main = "Red - yellow - green (1)")
-pie(rep(1, 11), col = ryg.colors(11, s = 0.5, v = 1), main = "Red - yellow - green (2)")
+pie(rep(1, 11), col = rwg.colors(11), main = "Red - white - green")
+pie(rep(1, 11), col = ryg.colors(11), main = "Red - yellow - green")
 par(opar)
 }
 
