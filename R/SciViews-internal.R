@@ -1,5 +1,16 @@
 .onLoad <- function (lib, pkg)
 {
+	## With SciViews, we try to avoid traps as much as possible!
+	## So, if corresponding options are not defined yet, specify them to TRUE!
+	if (!length(getOption("warnAssignWithEqualSign")))
+		options(warnAssignWithEqualSign = TRUE)
+	if (!length(getOption("warnPartialMatchArgs")))
+		options(warnPartialMatchArgs = TRUE)
+	if (!length(getOption("warnPartialMatchAttr")))
+		options(warnPartialMatchAttr = TRUE)
+	if (!length(getOption("warnPartialMatchDollar")))
+		options(warnPartialMatchDollar = TRUE)
+		
 	## TODO: check configuration and install everything that we need to use the
 	## SciViews extensions, including the HTTP or socket server
 	#serve <- getOption("ko.serve")
@@ -43,23 +54,32 @@
 }
 
 ## Code borrowed from svMisc, to avoid a dependency!
-.TempEnv <- function ()
-{
-    pos <-  match("TempEnv", search())
-    if (is.na(pos)) { # Must create it
-        TempEnv <- list()
-        attach(TempEnv, pos = length(search()) - 1)
-        rm(TempEnv)
-        pos <- match("TempEnv", search())
-    }
-    return(pos.to.env(pos))
-}
-
-.assignTemp <- function (x, value, replace.existing = TRUE)
-    if (isTRUE(replace.existing) || !exists(x, envir = .TempEnv(), mode = "any",
+.assignTemp <- function (x, value, replace.existing = TRUE) {
+    .TempEnv <- function () {
+		pos <-  match("TempEnv", search())
+		if (is.na(pos)) { # Must create it
+		    TempEnv <- list()
+		    attach(TempEnv, pos = length(search()) - 1)
+		    rm(TempEnv)
+		    pos <- match("TempEnv", search())
+		}
+		pos.to.env(pos)
+	}
+	TempEnv <- .TempEnv()
+	if (isTRUE(replace.existing) || !exists(x, envir = TempEnv, mode = "any",
 		inherits = FALSE))
-        assign(x, value, envir = .TempEnv())
+        assign(x, value, envir = TempEnv)
+}
 
 ## This is for convenience: . == .GlobalEnv
 #.assignTemp(".", base::.GlobalEnv)
 
+## To avoid a useless note when checking the package,
+## we replace any .Internal() into .Intern() in renamed R functions
+.Intern <- .Internal
+
+.Recode <- function (f)
+{
+	body(f) <- parse(text = gsub("\\.Internal\\(", ".Intern(", deparse(body(f))))
+	f
+}

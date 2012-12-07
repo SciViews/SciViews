@@ -11,7 +11,7 @@ plotOptAll <- function (...) graphics::par(..., no.readonly = FALSE)
 
 ## The plot.xxx() functions...
 ## Covered functions: graphics::plot.new(), graphics::frame()
-plotNew <- graphics::plot.new # () and synonym to frame() that is ambiguous => don't use it
+plotNew <- .Recode(graphics::plot.new) # () and synonym to frame() that is ambiguous => don't use it
 
 ## The simple dividing of equidistant boxes is done using plotOpt(mfrow) & plotOpt(mfcol)
 
@@ -124,8 +124,15 @@ xyConvert <- function (x, y, from = "user", to = "user")
 ## Problem with contour() # generic, add items to a graph when using add = TRUE
 ## We want the same mechanisms as for plot() vs points()/lines()... So, here,
 ## we must redefine a generic for that!
-ctrlines <- function (x, ...) UseMethod("ctrlines")
-ctrlines.default <- graphics::contour.default; formals(ctrlines.default)$add <- TRUE
+## We use contours() vs contourplot()
+contours <- function (x, ...) UseMethod("contours")
+contours.default <- function (x = seq(0, 1, length.out = nrow(z)),
+y = seq(0, 1, length.out = ncol(z)), z, labels = NULL, labcex = 0.6,
+drawlabels = TRUE, method = "flattest", col = par("fg"), lty = par("lty"),
+lwd = par("lwd"), add = TRUE, ...)
+	graphics::contour.default(x = x, y = y, z = z, labels = labels,
+		labcex = labcex, drawlabels = drawlabels, method = method, col = col,
+		lty = lty, lwd = lwd, add = add, ...)
 ## See also the shape package!
 ## qqlines() from stats
 ## plot() method of density object in stats + plot() method of hclust objects
@@ -145,10 +152,25 @@ ctrlines.default <- graphics::contour.default; formals(ctrlines.default)$add <- 
 #barplot() # generic
 #boxplot() # generic
 #contour() # generic, create a graph when using default add = FALSE; contourplot() in lattice!
-ctrplot <- graphics::contour
-filledplot <- graphics::filled.contour
+contourplot <- graphics::contour
+## R CMD check claims he does not find filledcontour => we don't copy the
+## function but call it from filledplot()
+filledplot <- function (x = seq(0, 1, length.out = nrow(z)), y = seq(0, 1, 
+length.out = ncol(z)), z, xlim = range(x, finite = TRUE), 
+ylim = range(y, finite = TRUE), zlim = range(z, finite = TRUE), 
+levels = pretty(zlim, nlevels), nlevels = 20, color.palette = cm.colors, 
+col = color.palette(length(levels) - 1), plot.title, plot.axes, 
+key.title, key.axes, asp = NA, xaxs = "i", yaxs = "i", las = 1, 
+axes = TRUE, frame.plot = axes, ...)
+	graphics::filled.contour(x = x, y = y, z = z, xlim = xlim, ylim = ylim,
+		zlim = zlim, levels = levels, nlevels = nlevels,
+		color.palette = color.palette, col = col, plot.title = plot.title,
+		plot.axes = plot.axes, key.title = key.title, key.axes = key.axes,
+		asp = asp, xaxs = xaxs, yaxs, yaxs, las = las, axes = axes,
+		frame.plot = frame.plot, ...)
 starplot <- graphics::stars
-stemplot <- graphics::stem
+stemplot <- function (x, scale = 1, width = 80, atom = 1e-08)
+	graphics::stem(x = x, scale = scale, width = width, atom = atom)
 stripplot <- graphics::stripchart
 clevelandplot <- graphics::dotchart
 smoothplot <- graphics::smoothScatter
@@ -180,8 +202,8 @@ coplotIntervals <- graphics::co.intervals
 # Not normally called by the end-user
 ## Covered functions: graphics::plot.window(), graphics::plot.xy(),
 ## graphics::.filled.contour(), graphics::bxp(), 
-plotWindowInternal <- graphics::plot.window
-plotInternal <- graphics::plot.xy
+plotWindowInternal <- .Recode(graphics::plot.window)
+plotInternal <- .Recode(graphics::plot.xy)
 boxplotInternal <- graphics::bxp
 ## Apparently not in R 2.14.0!
 #filledplotInternal <- graphics::.filled.contour
@@ -191,56 +213,72 @@ boxplotInternal <- graphics::bxp
 
 ## Devices management
 devNew <- grDevices::dev.new
-devCur <- grDevices::dev.cur
+devCur <- .Recode(grDevices::dev.cur)
 devList <- grDevices::dev.list
-devNext <- grDevices::dev.next; formals(devNext)$which <- quote(devCur())
-devPrev <- grDevices::dev.prev; formals(devPrev)$which <- quote(devCur())
-devSet <- grDevices::dev.set; formals(devSet)$which <- quote(devNext())
-devClose <- grDevices::dev.off; formals(devClose)$which <- quote(devCur())
+devNext <- .Recode(grDevices::dev.next); formals(devNext)$which <- quote(devCur())
+devPrev <- .Recode(grDevices::dev.prev); formals(devPrev)$which <- quote(devCur())
+devSet <- .Recode(grDevices::dev.set); formals(devSet)$which <- quote(devNext())
+devClose <- .Recode(grDevices::dev.off); formals(devClose)$which <- quote(devCur())
 devCloseAll <- grDevices::graphics.off
-devControl <- grDevices::dev.control
-devHold <- grDevices::dev.hold
-devFlush <- grDevices::dev.flush
-devCopy <- grDevices::dev.copy
+devControl <- .Recode(grDevices::dev.control)
+
+## The following two functions call .Internal(devHoldFlush) and here R CMD check
+## got fooled because it does not found a function called devHoldFlush()
+## So, we define also a devHoldFlush() function here to cope with this problem
+devHold <- .Recode(grDevices::dev.hold)
+devFlush <- .Recode(grDevices::dev.flush)
+devHoldFlush <- function (level = 1L)
+{
+	level <- round(level)[1]
+	if (level > 0) {
+		devHold(level)
+	} else if (level < 0) {
+		devFlush(-level)
+	} else return()
+}
+devCopy <- .Recode(grDevices::dev.copy)
 devCopyNew <- grDevices::dev.print
 devCopyEps <- grDevices::dev.copy2eps
 devCopyPdf <- grDevices::dev.copy2pdf
 devCopyBitmap <- grDevices::dev2bitmap
-devSave <- grDevices::savePlot
-devRecord <- grDevices::recordPlot
-devReplay <- grDevices::replayPlot
-devCapture <- grDevices::dev.capture
+devSave <- .Recode(grDevices::savePlot)
+## Because these two function call .Internal() that fools R CMD check, we define
+## getSnapshot() and playSnapshot() as synonyms of devRecord() and devReplay()
+devRecord <- getSnapshot <- .Recode(grDevices::recordPlot)
+devReplay <- playSnapshot <- .Recode(grDevices::replayPlot)
+devCapture <- .Recode(grDevices::dev.capture)
 #devAskNewPage()
 ## For devSize, default unit is "cm" instead of "in" for dev.size()
-devSize <- grDevices::dev.size; formals(devSize)$units <- c("cm", "in", "px")
-devCapabilities <- grDevices::dev.capabilities
+devSize <- .Recode(grDevices::dev.size); formals(devSize)$units <- c("cm", "in", "px")
+devCapabilities <- .Recode(grDevices::dev.capabilities)
 devInteractive <- grDevices::dev.interactive
 isDevInteractive <- grDevices::deviceIsInteractive
 
+## TODO: a way to define these functions as platform independent!
 ## Graphic devices
-if (.Platform$OS.type == "unix") {
-	devX11 <- grDevices::X11 # + x11()
-	devX11Opt <- grDevices::X11.options
-}
-if (grepl("^mac", .Platform$pkgType)) {
-	devQuartz <- grDevices::quartz
-	devQuartzOpt <- grDevices::quartz.options
-	## There is a quartz.save() function defined somewhere!
-}
-if (.Platform$OS.type == "windows") {
-	devWin <- grDevices::windows
-	devWinOpt <- grDevices::windows.options
-	devWinPrint <- grDevices::win.print
-	devWinMetafile <- grDevices::win.metafile
-	devToTop <- grDevices::bringToTop # TODO: a similar function for Linux and Mac OS X!
-	formals(devToTop)$which <- quote(devCur())
-	# this is bringToTop(which = dev.cur(), stay = FALSE) # with -1 is console
-	devMsg <- grDevices::msgWindow
-	formals(devMsg)$which <- quote(devCur()) # TODO: a similar function for Linux and Mac OS X
-	# this is msgWindow(type = c("minimize", "restore", "maximize", "hide", "recordOn", "recordOff"),
-    #	which = dev.cur()
-	#recordGraphics(expr, list, env) # A function intended *only* for experts
-}
+#if (.Platform$OS.type == "unix") {
+#	devX11 <- grDevices::X11 # + x11()
+#	devX11Opt <- grDevices::X11.options
+#}
+#if (grepl("^mac", .Platform$pkgType)) {
+#	devQuartz <- grDevices::quartz
+#	devQuartzOpt <- grDevices::quartz.options
+#	## There is a quartz.save() function defined somewhere!
+#}
+#if (.Platform$OS.type == "windows") {
+#	devWin <- grDevices::windows
+#	devWinOpt <- grDevices::windows.options
+#	devWinPrint <- grDevices::win.print
+#	devWinMetafile <- grDevices::win.metafile
+#	devToTop <- grDevices::bringToTop # TODO: a similar function for Linux and Mac OS X!
+#	formals(devToTop)$which <- quote(devCur())
+#	# this is bringToTop(which = dev.cur(), stay = FALSE) # with -1 is console
+#	devMsg <- grDevices::msgWindow
+#	formals(devMsg)$which <- quote(devCur()) # TODO: a similar function for Linux and Mac OS X
+#	# this is msgWindow(type = c("minimize", "restore", "maximize", "hide", "recordOn", "recordOff"),
+#    #	which = dev.cur()
+#	#recordGraphics(expr, list, env) # A function intended *only* for experts
+#}
 devPdf <- grDevices::pdf
 devPdfOpt <- grDevices::pdf.options
 devPS <- grDevices::postscript
@@ -250,18 +288,42 @@ devPSOpt <- grDevices::ps.options
 devPdfCairo <- grDevices::cairo_pdf
 devPSCairo <- grDevices::cairo_ps
 devSvg <- grDevices::svg
-devBmp <- grDevices::bmp
-devJpeg <- grDevices::jpeg
-devPng <- grDevices::png
-devTiff <- grDevices::tiff
 devBitmap <- grDevices::bitmap
 devXfig <- grDevices::xfig
+
+## The following four functions call .Internal(X11) which has more arguments
+## than X11 itself => we don't copy content, but call it instead
+devBmp <- function (filename = "Rplot%03d.bmp", width = 480, height = 480, 
+units = "px", pointsize = 12, bg = "white", res = NA, ..., 
+type = c("cairo", "Xlib", "quartz"), antialias) 
+	grDevices::bmp(filename = filename, width = width, height = height,
+		units = units, pointsize = pointsize, bg = bg, res = res, ...,
+		type = type, antialias = antialias)
+devJpeg <- function (filename = "Rplot%03d.jpeg", width = 480, height = 480, 
+units = "px", pointsize = 12, quality = 75, bg = "white", 
+res = NA, ..., type = c("cairo", "Xlib", "quartz"), antialias)
+	grDevices::jpeg(filename = filename, width = width, height = height,
+		units = units, pointsize = pointsize, quality = quality, bg = bg,
+		res = res, ..., type = type, antialias = antialias)
+devPng <- function (filename = "Rplot%03d.png", width = 480, height = 480, 
+units = "px", pointsize = 12, bg = "white", res = NA, ..., 
+type = c("cairo", "cairo-png", "Xlib", "quartz"), antialias)
+	grDevices::png(filename = filename, width = width, height = height,
+		units = units, pointsize = pointsize, bg = bg, res = res, ...,
+		type = type, antialias = antialias)
+devTiff <- function (filename = "Rplot%03d.tiff", width = 480, height = 480, 
+units = "px", pointsize = 12, compression = c("none", "rle", 
+"lzw", "jpeg", "zip"), bg = "white", res = NA, ..., type = c("cairo", 
+"Xlib", "quartz"), antialias)
+	grDevices::tiff(filename = filename, width = width, height = height,
+		units = units, pointsize = pointsize, compression = compression,
+		bg = bg, res = res, ..., type = type, antialias = antialias)
 #pictex() # device, historical interest only
 
 ## Color management
 #palette() # get or set the color palette
 #colors() and colours() for a list of color names
-color2rgb <- grDevices::col2rgb # convert colors to rgb
+color2rgb <- .Recode(grDevices::col2rgb) # convert colors to rgb
 #rgb()
 #rgb2hsv()
 #hsv()
@@ -271,28 +333,28 @@ colorAdjust <- grDevices::adjustcolor
 #colorRamp() and colorRampPalette() to create color ramps
 colorDens <- grDevices::densCols
 ## Predefined color sets
-colorBlues9 <- grDevices::blues9
+colorBlues9 <- function () grDevices::blues9
 colorRainbow <- grDevices::rainbow
 colorHeat <- grDevices::heat.colors
 colorTerrain <- grDevices::terrain.colors
 colorTopo <- grDevices::topo.colors
-colorCM <- grDevices::cm.colors
-colorCWM <- cwm.colors
-colorRWB <- rwb.colors
-colorRYG <- ryg.colors
+colorCm <- grDevices::cm.colors
+colorCwm <- cwm.colors
+colorRwb <- rwb.colors
+colorRyg <- ryg.colors
 colorGray <- grDevices::gray.colors
 colorGrey <- grDevices::grey.colors
 ## colorConverter object
 #colorConverter()
-colorConverterRgb <- grDevices::make.rgb
+colorConvertRgb <- grDevices::make.rgb
 colorConvert <- grDevices::convertColor
 
 ## Fonts
-type1Font <- grDevices::Type1Font
-cidFont <- grDevices::CIDFont
-psFonts <- grDevices::postscriptFonts
-#pdfFonts()
-#embedFonts()
+fontType1 <- grDevices::Type1Font
+fontCid <- grDevices::CIDFont
+fontsPS <- grDevices::postscriptFonts
+fontsPdf <- grDevices::pdfFonts
+fontsEmbed <- grDevices::embedFonts
 #if (.Platform$OS.type == "windows") {
 #	#windowsFont()
 #	#windowsFonts()
@@ -323,7 +385,7 @@ psFonts <- grDevices::postscriptFonts
 #as.graphicsAnnot()
 
 ## Utility functions
-checkOpt <- grDevices::check.options #utility function to check options consistency!
+optCheck <- grDevices::check.options #utility function to check options consistency!
 nclassSturges <- grDevices::nclass.Sturges
 nclassScott <- grDevices::nclass.scott
 nclassFD <- grDevices::nclass.FD
