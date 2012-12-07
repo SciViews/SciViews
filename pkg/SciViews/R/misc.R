@@ -2,6 +2,17 @@
 ## Note to get a function, but change its default parameters, use:
 ## fun2 <- fun
 ## formals(fun2)$arg <- newDefaultValue
+##
+## Note that we should do something about T and F!!!
+
+## Warn when using = instead of <- for assignation...
+## if option warnAssignWithEqualSign is TRUE
+`=` <- function(x, value)
+{
+	if (isTRUE(getOption("warnAssignWithEqualSign")))
+		warning("Use <- instead of = for assignation, or use == for equalty test")
+	assign(deparse(substitute(x)), value, envir = parent.frame())
+}
 
 # is.wholenumber(), see ?as.integer => define isWholeInt?
 
@@ -14,7 +25,7 @@
 ## to use if (!length(obj)), but it would be more intuitive to define:
 ## TODO: isEmpty is a generic function (or even S4?) in filehash that does
 ##       something different => change the name!
-isEmpty <- function (x) return(!length(x))
+isEmpty <- function (x) !length(x)
 
 ifElse <- get("ifelse", envir = baseenv())
 
@@ -28,7 +39,7 @@ ifElse <- get("ifelse", envir = baseenv())
 # res <- try(...., silent = TRUE)
 # if (inherits(res, "try-error")) stop(msg)
 
-enum <- function (x) return(seq_along(x))
+enum <- function (x) seq_along(x)
 
 ## Defines only increasing integer sequences
 `%:%` <- function (lower, upper)
@@ -37,7 +48,7 @@ enum <- function (x) return(seq_along(x))
 ## Useful in:
 # for (ii in 1%:%l(v)) print(v)
 ## Because if (!l(v)) => prints nothing! 1:l(v) would give an error in this case
-# for (ii in enum(v) print(v))
+# for (ii in enum(v)) print(v)
 ## is fine too!
 
 ## A better require()
@@ -48,19 +59,21 @@ error = stop("there is no package called '", package, "'"))
 	res <- suppressWarnings(require(package, lib.loc = lib.loc,
 		quietly = quietly, warn.conflicts = warn.conflicts,
 		character.only = TRUE))
-	if (!res) return(error) else return(invisible(res))
+	if (!res) error else invisible(res)
 }
 
-## Now, we want to be able to use names() on it too!
+## Now, we want to be able to use names() on environments too!
 ## Note that for environments, we got items by alphabetic order
 ## => not exactly the same as for vector, list, or so!
 names <- function (x)
 	if (inherits(x, "environment")) ls(x, all.names = TRUE) else base::names(x)
-## Do we implement `names<-` for environments???
+## Do we implement `names<-` for environments??? This is a nonsense, may be?
 
 ## Simpler names for often used functions
-n <- base::as.numeric # TODO: define a "n" object?
-i <- base::as.integer
+num <- base::as.numeric
+int <- base::as.integer
+char <- base::as.character
+logic <- base::as.logical
 ## To avoid problems with factors, tell to always use s(f1), or n(f1)/i(f1)
 
 ## Since n is already used for a synonym of as.numeric(), I use l() here
@@ -77,7 +90,7 @@ Cols <- 2
 ## Instead of apply(x, 2, sum), it gives apply(x, Cols, sum)
 
 ## I don't like isTRUE, because if there is an attribute attached to TRUE,
-## it returns FALSE! =>
+## it returns FALSE! => define asTRUE which is more permissive!
 asTRUE <- function (x) identical(TRUE, as.logical(x))
 isFALSE <- function (x) identical(FALSE, x)
 asFALSE <- function (x) identical(FALSE, as.logical(x))
@@ -112,16 +125,15 @@ stopIfNot <- base::stopifnot
 
 ## Ternary condition statement, like in JavaScript cond ? yes : no
 ## Not possible to do in R... but the closest is:
-`%?%` <- function (cond, yes.no) { if (cond) yes.no[1] else yes.no[2] }
+#`%?%` <- function (cond, yes.no) { if (cond) yes.no[1] else yes.no[2] }
 ## ... and its vectorized conterpart:
-`%??%` <- function (cond, yes.no) ifelse(cond, yes = yes.no[1], no = yes.no[2])
-
-TRUE %?% c(1, 2)
-FALSE %?% c(yes = 1, no = 2)
-x <- 1:3
-res <- any(x > 2) %?% c("yes", "no"); res
-res <- (x > 2) %??% c("yes", "no"); res # Take care of parentheses!
-rm(x, res)
+#`%??%` <- function (cond, yes.no) ifelse(cond, yes = yes.no[1], no = yes.no[2])
+#TRUE %?% c(1, 2)
+#FALSE %?% c(yes = 1, no = 2)
+#x <- 1:3
+#res <- any(x > 2) %?% c("yes", "no"); res
+#res <- (x > 2) %??% c("yes", "no"); res # Take care of parentheses!
+#rm(x, res)
 
 ## It is common to test if something is zero, or one... Here, the non vectorized
 ## version asks for all items being zero or one, excluding missing data!
@@ -130,7 +142,6 @@ rm(x, res)
 #`%?1%` <- function (x, yes.no) { if (all.(x == 1)) yes.no[1] else yes.no[2] }
 #`%??0%` <- function (x, yes.no) ifelse(x == 0, yes = yes.no[1], no = yes.no[2])
 #`%??1%` <- function (x, yes.no) ifelse(x == 1, yes = yes.no[1], no = yes.no[2])
-
 #x <- 1; x %?0% c(yes = stop("x must be non null"), no = x^2)
 #x <- 0; x %?0% c(yes = stop("x must be non null"), no = x^2)
 ## This helps to construct sentences with single or plural
@@ -384,20 +395,20 @@ timing <- function (expr, gc.first = TRUE)
 ## Use of frame as a synonym of environment brings an additional difficulty on
 ## an already difficult subject! => use env(ironment) everywhere?!
 ## TODO: all these sys.xxx must remain like this!
-sysFunction <- base::sys.function
-sysCall <- base::sys.call
-sysCalls <- base::sys.calls
-matchCall <- base::match.call
-sysParent <- base::sys.parent
-sysParents <- base::sys.parents
+sysFunction <- .Recode(base::sys.function)
+sysCall <- .Recode(base::sys.call)
+sysCalls <- .Recode(base::sys.calls)
+matchCall <- .Recode(base::match.call)
+sysParent <- .Recode(base::sys.parent)
+sysParents <- .Recode(base::sys.parents)
 ## TODO: do not use frame => what??? sys.prevEnv()??
-parentFrame <- base::parent.frame
-sysFrame <- base::sys.frame
-sysFrames <- base::sys.frames
-sysnFrame <- base::sys.nframe
+parentFrame <- .Recode(base::parent.frame)
+sysFrame <- .Recode(base::sys.frame)
+sysFrames <- .Recode(base::sys.frames)
+sysnFrame <- .Recode(base::sys.nframe)
 sysStatus <- base::sys.status
 onExit <- function (expr = NULL, add = FALSE) base::on.exit(expr = expr, add = add)
-sysOnExit <- base::sys.on.exit
+sysOnExit <- .Recode(base::sys.on.exit)
 dumpFrames <- utils::dump.frames
 #debugger(dump = last.dump) # utils
 #browser()
@@ -406,8 +417,8 @@ dumpFrames <- utils::dump.frames
 #browserSetDebug()
 #debug()
 #undebug()
-debugOnce <- base::debugonce
-isDebugged <- base::isdebugged
+debugOnce <- .Recode(base::debugonce)
+isDebugged <- .Recode(base::isdebugged)
 baseEnv <- base::baseenv
 .BaseEnv <- base::baseenv()
 baseNamespaceEnv <- function () return(.BaseNamespaceEnv)
@@ -423,26 +434,29 @@ autoloadEnv <- function () return(.AutoloadEnv)
 tempEnv <- svMisc::TempEnv
 .TempEnv <- svMisc::TempEnv()
 ## TODO: or sys.topEnv()???
-topEnv <- base::topenv
+## RCMD check claims he cannot find isNamespaceEnv() in topEnv() => provide it
+isNamespaceEnv <- function (envir = parentFrame())
+	.Intern(isNamespaceEnv(envir))
+topEnv <- .Recode(base::topenv)
 # Usually, to create an object, we use its name, but
 ## environment() means something else here!
 ## So, OK, we'll stick with:
-environmentNew <- base::new.env
+environmentNew <- .Recode(base::new.env)
 ## Should not be used!
-environmentParent <- base::parent.env
-`environmentParent<-` <- base::`parent.env<-`
+environmentParent <- .Recode(base::parent.env)
+`environmentParent<-` <- .Recode(base::`parent.env<-`)
 #environmentName()
 #environment()
 #`environment<-`()
 #is.environment()
-environmentProfile <- base::env.profile
+environmentProfile <- .Recode(base::env.profile)
 ## name attribute to an environment,... see ?environment
 #source()
 
 sysSource <- base::sys.source
 #.First.sys and .Last.sys cannot be changed!
 #eval()
-evalQuote <- base::evalq
+evalQuote <- .Recode(base::evalq)
 evalParent <- base::eval.parent
 evalLocal <- base::local
 

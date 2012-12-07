@@ -1,5 +1,19 @@
 = SciViews News
 
+== SciViews version 0.9-9
+
+* Improvements to activate warnings regarding possible R traps: if
+  warnPartialMatchArgs, warnPartialMatchAttr, or warnPartialMatchDollar options
+  are not defined yet, they are set to TRUE when the packages loads.
+  
+* For a similar purpose, we would like to avoid using = in place of <- for
+  assignation. So, the "=" function is redefined to display a warning when it
+  is used and when warnAssignWithEqualSign option is set to TRUE (by default).
+  The warning message also suggests it may be == erroneously written =.
+
+* Many functions are added with more coherent names for graphics.
+
+
 == SciViews version 0.9-8
 
 * Several changes in character.R.

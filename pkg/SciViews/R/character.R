@@ -10,7 +10,7 @@
 #nzChar <- nzchar
 
 ## Format character strings
-cEscape <- base::encodeString
+cEscape <- .Recode(base::encodeString)
 cWrap <- base::strwrap
 # Add cPad => pad a string left/right or both or chrPad/chrPadL/chrPadR?
 #+sprintf/gettextf?
@@ -140,22 +140,22 @@ cSplit <- function (x, pattern)
 	strsplit(x, split = pattern, fixed = !is.rx(pattern),
 		perl = is.perl(pattern), useBytes = useBytes(pattern))
 
-cSubstr <- base::substr
-`cSubstr<-` <- base::`substr<-`
-cTrunc <- base::strtrim ## This indeed truncs strings!!!
+cSubstr <- .Recode(base::substr)
+`cSubstr<-` <- .Recode(base::`substr<-`)
+cTrunc <- .Recode(base::strtrim) ## This indeed truncs strings!!!
 
 ## paste() is rather long name, in comparison with, e.g., c().
 ## Also the default argument of sep = " " is irritating and is not consistent
 ## with stop() or warning() for instance, that use sep = "".
 ## Thus, we define:
 if (exists("paste0", envir = baseenv())) { # Starting from R 2.15.0
-	p <- base::paste0
+	p <- .Recode(base::paste0)
 } else {
 	p <- function (..., collapse = NULL) 
 		paste(..., sep = "", collapse = collapse)
 }
 	
-p_ <- base::paste
+p_ <- .Recode(base::paste)
 
 ## The same is true for cat() with sep = " "... and the default behaviour of
 ## not ending with line feed is more confusing that useful => change this
@@ -201,18 +201,19 @@ cTrimR <- function (x, all.spaces = FALSE) # Trim right-side only
 ## Change case and translate
 cTrans <- function (x, old, new) chartr(old = old, new = new, x = x)
 cFold <- base::casefold
-cLower <- base::tolower
-cUpper <- base::toupper
+cLower <- .Recode(base::tolower)
+cUpper <- .Recode(base::toupper)
 
 ## Character encoding
 encodingToNative <- base::enc2native
 encodingToUTF8 <- base::enc2utf8
-encoding <- base::Encoding
-`encoding<-` <- base::`Encoding<-`
+encoding <- .Recode(base::Encoding)
+## R CMD check got fooled because it does not find setEncoding... We give it too
+`encoding<-` <- setEncoding <- .Recode(base::`Encoding<-`)
 
 ## Measure size of a string (package graphics)
-cHeight <- graphics::strheight
-cWidth <- graphics::strwidth
+cHeight <- .Recode(graphics::strheight)
+cWidth <- .Recode(graphics::strwidth)
 
 ## Match, expand or abbreviate character strings to a list of items
 cAbbreviate <- function (x, min.length = 4, dot = FALSE, strict = FALSE,
@@ -223,8 +224,8 @@ method = c("left.kept", "both.sides"))
 cExpand <- function (x, target, nomatch = NA_character_)
 	char.expand(input = x, target = target, nomatch = nomatch)
 
-cMatch <- base::charmatch
-cPMatch <- base::pmatch
+cMatch <- .Recode(base::charmatch)
+cPMatch <- .Recode(base::pmatch)
 
 ## Conversion to character string... no change required
 #as.character
@@ -232,7 +233,7 @@ cPMatch <- base::pmatch
 # To avoid using strtoi(), we prefer as.integerBase (because as.integer cannot
 # be converted into a generic function, because it is a primitive!)
 #charToInt <- strtoi # Allows to choose the base used for char representation
-as.integerBase <- base::strtoi
+as.integerBase <- .Recode(base::strtoi)
 
 ## Define a function that takes: singular/plural msg and a vector of strings
 ## and construct a single string with:
