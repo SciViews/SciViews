@@ -4,6 +4,41 @@
 ## formals(fun2)$arg <- newDefaultValue
 ##
 ## Note that we should do something about T and F!!!
+##
+## Try using utils::globalVariables(c(".obj1", "obj2"))
+## Use the dataframe package (+ aggregate?)
+## Parentheses slower than curly braces in R? See http://radfordneal.wordpress.com/category/statistics/statistics-computing/r-programming/
+## fileHead() to print first few lines of a file
+## Note that dataset is good replacement for data.frame, except it is also used in DMwR (minor issue?)
+## unscale inverts the effect of scale()
+
+## Note that missing is an object class associated to a missing argument in S4
+## method signatures. So, the missing() function should probably be named
+## is.missing() for consistency
+#is.missing <- missing
+## Also, classes() can show this:
+classes <- function (x)
+{
+	## Special case for a missing argument
+	X <- substitute(x)
+	res <- try(missing(X), silent = TRUE)
+	if (isTRUE(res)) return(c("missing", "ANY"))
+	## Return the class of an object plus atomic/recursive and ANY
+	res <- class(x)
+	## Special case for NULL
+	if (res == "NULL") return(c("NULL", "atomic", "ANY"))
+	## Special case for name which is neither atomic, nor recursive
+	if (res == "name") return(c("name", "symbol", "language", "ANY"))
+	## Is this a recursive or atomic object?
+	if (is.recursive(x)) {
+		## Is this a language object?
+		if (is.language(x)) c(res, "language", "recursive", "ANY") else 
+			c(res, "recursive", "ANY")
+	} else if (is.atomic(x)) {
+		c(res, "atomic", "ANY")
+	} else c(res, "ANY")
+}
+
 
 ## Warn when using = instead of <- for assignation...
 ## if option warnAssignWithEqualSign is TRUE
