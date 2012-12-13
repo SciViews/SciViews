@@ -10,9 +10,9 @@
 #nzChar <- nzchar
 
 ## Format character strings
-cEscape <- .Recode(base::encodeString)
-cWrap <- base::strwrap
-# Add cPad => pad a string left/right or both or chrPad/chrPadL/chrPadR?
+charEscape <- .Recode(base::encodeString)
+charWrap <- base::strwrap
+# Add charPad => pad a string left/right or both or charPad/charPadL/charPadR?
 #+sprintf/gettextf?
 
 ## String find/replace using fixed pattern or regular expressions
@@ -69,7 +69,7 @@ useBytes <- function (x) isTRUE(attr(x, "useBytes"))
 	x
 }
 
-cSearch <- function (x, pattern, ignore.case = FALSE,
+charSearch <- function (x, pattern, ignore.case = FALSE,
 type = c("logical", "position", "value"), max.distance = 0, costs = NULL)
 {
 	type <- pmatch(type)
@@ -119,30 +119,30 @@ type = c("logical", "position", "value"), max.distance = 0, costs = NULL)
 
 ## Inconsistencies: regexpr(pattern, text, ...) and strsplit(x, xplit, ...)
 ## Solved with the present versions!
-cFind <- function (x, pattern, ignore.case = FALSE)
+charFind <- function (x, pattern, ignore.case = FALSE)
 	regexpr(pattern, text = x, ignore.case = ignore.case, fixed = !is.rx(pattern),
 		perl = is.perl(pattern), useBytes = useBytes(pattern))
 	
-cFindAll <- function (x, pattern, ignore.case = FALSE)
+charFindAll <- function (x, pattern, ignore.case = FALSE)
 	gregexpr(pattern, text = x, ignore.case = ignore.case, fixed = !is.rx(pattern),
 		perl = is.perl(pattern), useBytes = useBytes(pattern))
 
-cSub <- function (x, pattern, replacement, ignore.case = FALSE)
+charSub <- function (x, pattern, replacement, ignore.case = FALSE)
 	sub(pattern, replacement, x, ignore.case = ignore.case, fixed = !is.rx(pattern),
 		perl = is.perl(pattern), useBytes = useBytes(pattern))
 	
-cSubAll <- function (x, pattern, replacement, ignore.case = FALSE)
+charSubAll <- function (x, pattern, replacement, ignore.case = FALSE)
 	gsub(pattern, replacement, x, ignore.case = ignore.case, fixed = !is.rx(pattern),
 		perl = is.perl(pattern), useBytes = useBytes(x))
 
 ## Substrings
-cSplit <- function (x, pattern)
+charSplit <- function (x, pattern)
 	strsplit(x, split = pattern, fixed = !is.rx(pattern),
 		perl = is.perl(pattern), useBytes = useBytes(pattern))
 
-cSubstr <- .Recode(base::substr)
-`cSubstr<-` <- .Recode(base::`substr<-`)
-cTrunc <- .Recode(base::strtrim) ## This indeed truncs strings!!!
+charSubstr <- .Recode(base::substr)
+`charSubstr<-` <- .Recode(base::`substr<-`)
+charTrunc <- .Recode(base::strtrim) ## This indeed truncs strings!!!
 
 ## paste() is rather long name, in comparison with, e.g., c().
 ## Also the default argument of sep = " " is irritating and is not consistent
@@ -182,27 +182,27 @@ labels = NULL)
 		append = TRUE)
 
 	
-cTrim <- function (x, all.spaces = FALSE) # Trim both sides
+charTrim <- function (x, all.spaces = FALSE) # Trim both sides
 {
 	pat <- (if (isTRUE(all.spaces)) "[[:space:]]+" else "[[:blank:]]+")
 	## Trim left first
-	x <- cSub(p("^", pat), "", x)
+	x <- charSub(p("^", pat), "", x)
 	## ... then trim right
-	cSub(p(pat, "$"), "", x)
+	charSub(p(pat, "$"), "", x)
 }
 
-cTrimL <- function (x, all.spaces = FALSE) # Trim left-side only
-	cSub(if (isTRUE(all.spaces)) "^[[:space:]]+" else "^[[:blank:]]+", "", x)
+charTrimL <- function (x, all.spaces = FALSE) # Trim left-side only
+	charSub(if (isTRUE(all.spaces)) "^[[:space:]]+" else "^[[:blank:]]+", "", x)
 
-cTrimR <- function (x, all.spaces = FALSE) # Trim right-side only
-	cSub(if (isTRUE(all.spaces)) "[[:space:]]+$" else "[[:blank:]]+$", "", x)
+charTrimR <- function (x, all.spaces = FALSE) # Trim right-side only
+	charSub(if (isTRUE(all.spaces)) "[[:space:]]+$" else "[[:blank:]]+$", "", x)
 
 
 ## Change case and translate
-cTrans <- function (x, old, new) chartr(old = old, new = new, x = x)
-cFold <- base::casefold
-cLower <- .Recode(base::tolower)
-cUpper <- .Recode(base::toupper)
+charTrans <- function (x, old, new) chartr(old = old, new = new, x = x)
+charFold <- base::casefold
+charLower <- .Recode(base::tolower)
+charUpper <- .Recode(base::toupper)
 
 ## Character encoding
 encodingToNative <- base::enc2native
@@ -212,28 +212,29 @@ encoding <- .Recode(base::Encoding)
 `encoding<-` <- setEncoding <- .Recode(base::`Encoding<-`)
 
 ## Measure size of a string (package graphics)
-cHeight <- .Recode(graphics::strheight)
-cWidth <- .Recode(graphics::strwidth)
+charHeight <- .Recode(graphics::strheight)
+charWidth <- .Recode(graphics::strwidth)
 
 ## Match, expand or abbreviate character strings to a list of items
-cAbbreviate <- function (x, min.length = 4, dot = FALSE, strict = FALSE,
+charAbbrev <- function (x, min.length = 4, dot = FALSE, strict = FALSE,
 method = c("left.kept", "both.sides"))
 	abbreviate(names.arg = x, minlength = min.length, dot = dot, strict = strict,
 		method = method)
 
-cExpand <- function (x, target, nomatch = NA_character_)
+charExpand <- function (x, target, nomatch = NA_character_)
 	char.expand(input = x, target = target, nomatch = nomatch)
 
-cMatch <- .Recode(base::charmatch)
-cPMatch <- .Recode(base::pmatch)
+charMatch <- .Recode(base::charmatch)
+charPMatch <- .Recode(base::pmatch)
 
-## Conversion to character string... no change required
-#as.character
+## Conversion to character string... + creation and test, shorter versions
+char <- .Recode(base::character)
+as.char <- base::as.character
+is.char <- base::is.character
 
 # To avoid using strtoi(), we prefer as.integerBase (because as.integer cannot
 # be converted into a generic function, because it is a primitive!)
-#charToInt <- strtoi # Allows to choose the base used for char representation
-as.integerBase <- .Recode(base::strtoi)
+as.intBase <- as.integerBase <- .Recode(base::strtoi)
 
 ## Define a function that takes: singular/plural msg and a vector of strings
 ## and construct a single string with:
@@ -241,5 +242,3 @@ as.integerBase <- .Recode(base::strtoi)
 ## or
 ## plural msg: item1, item2, ..., itemN
 #+paste = cChar? + my special character string manipulation functions?
-
-

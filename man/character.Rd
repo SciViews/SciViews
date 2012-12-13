@@ -1,34 +1,37 @@
-\name{character-fun}
+\name{char-fun}
+\alias{char}
+\alias{as.char}
+\alias{is.char}
 \alias{ct}
 \alias{cta}
 \alias{ct_}
 \alias{cta_}
 \alias{p}
 \alias{p_}
-\alias{cTrans}
-\alias{cFold}
-\alias{cLower}
-\alias{cUpper}
-\alias{cSplit}
-\alias{cTrim}
-\alias{cTrimL}
-\alias{cTrimR}
-\alias{cTrunc}
-\alias{cSubstr} 
-\alias{cSubstr<-}
-\alias{cSearch}
-\alias{cFind}
-\alias{cFindAll}
-\alias{cSub}
-\alias{cSubAll}
-\alias{cMatch}
-\alias{cPMatch}
-\alias{cExpand}
-\alias{cAbbreviate}
-\alias{cEscape}
-\alias{cWrap}
-\alias{cHeight}
-\alias{cWidth}
+\alias{charTrans}
+\alias{charFold}
+\alias{charLower}
+\alias{charUpper}
+\alias{charSplit}
+\alias{charTrim}
+\alias{charTrimL}
+\alias{charTrimR}
+\alias{charTrunc}
+\alias{charSubstr} 
+\alias{charSubstr<-}
+\alias{charSearch}
+\alias{charFind}
+\alias{charFindAll}
+\alias{charSub}
+\alias{charSubAll}
+\alias{charMatch}
+\alias{charPMatch}
+\alias{charExpand}
+\alias{charAbbrev}
+\alias{charEscape}
+\alias{charWrap}
+\alias{charHeight}
+\alias{charWidth}
 
 \title{Character strings manipulation functions}
 
@@ -37,6 +40,11 @@
 }
 
 \usage{
+## Create, test or coerce to character
+char(length = 0)
+as.char(x, \dots)
+is.char(x)
+
 ## Concatenate and print strings to the console or in a file
 ct(\dots, file = "", end = "\n", fill = FALSE, labels = NULL)
 cta(\dots, file = "", end = "\n", fill = FALSE, labels = NULL)
@@ -48,49 +56,53 @@ p(\dots, collapse = NULL)
 p_(\dots, sep = " ", collapse = NULL)
 
 ## character translation or folding
-cTrans(x, old, new)
-cFold(x, upper = FALSE)
-cLower(x)
-cUpper(x)
+charTrans(x, old, new)
+charFold(x, upper = FALSE)
+charLower(x)
+charUpper(x)
 
 ## Split, truncate or work with substrings
-cTrim(x, all.spaces = FALSE)
-cTrimL(x, all.spaces = FALSE)
-cTrimR(x, all.spaces = FALSE)
-cTrunc(x, width)
-cSubstr(x, start, stop) 
-cSubstr(x, start, stop) <- value
-cSplit(x, pattern)
+charTrim(x, all.spaces = FALSE)
+charTrimL(x, all.spaces = FALSE)
+charTrimR(x, all.spaces = FALSE)
+charTrunc(x, width)
+charSubstr(x, start, stop) 
+charSubstr(x, start, stop) <- value
+charSplit(x, pattern)
 
 ## Find and replace in character strings
-cSub(x, pattern, replacement, ignore.case = FALSE)
-cSubAll(x, pattern, replacement, ignore.case = FALSE)
-cFind(x, pattern, ignore.case = FALSE)
-cFindAll(x, pattern, ignore.case = FALSE)
-cSearch(x, pattern, ignore.case = FALSE,
+charSub(x, pattern, replacement, ignore.case = FALSE)
+charSubAll(x, pattern, replacement, ignore.case = FALSE)
+charFind(x, pattern, ignore.case = FALSE)
+charFindAll(x, pattern, ignore.case = FALSE)
+charSearch(x, pattern, ignore.case = FALSE,
     type = c("logical", "position", "value"), max.distance = 0, costs = NULL)
 
 ## Match, expand or abbreviate character strings
-cMatch(x, table, nomatch = NA_integer_) 
-cPMatch(x, table, nomatch = NA_integer_, duplicates.ok = FALSE)
-cExpand(x, target, nomatch = NA_character_)
-cAbbreviate(x, min.length = 4, dot = FALSE, strict = FALSE,
+charMatch(x, table, nomatch = NA_integer_) 
+charPMatch(x, table, nomatch = NA_integer_, duplicates.ok = FALSE)
+charExpand(x, target, nomatch = NA_character_)
+charAbbrev(x, min.length = 4, dot = FALSE, strict = FALSE,
     method = c("left.kept", "both.sides"))
 
 ## Format character strings
-cEscape(x, width = 0L, quote = "", na.encode = TRUE,
+charEscape(x, width = 0L, quote = "", na.encode = TRUE,
     justify = c("left", "right", "centre", "none")) 
-cWrap(x, width = 0.9 * getOption("width"), indent = 0, exdent = 0, 
+charWrap(x, width = 0.9 * getOption("width"), indent = 0, exdent = 0, 
     prefix = "", simplify = TRUE, initial = prefix)
 
-## Measure size of a character string or expression in a graph
-cHeight(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
-cWidth(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
+## Measure size of a character string or expression in a plot
+charHeight(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
+charWidth(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
 }
 
 \arguments{
+  \item{length}{ the length of the character vector to create. }
+  \item{x}{ a character string or an object that can be coerced to character or
+    tested as such. }
   \item{\dots}{ a series of character strings or objects that can be coerced to
-    character. }
+    character, or further arguments passed to or from other methods for
+    \code{as.char()}. }
   \item{file}{ a character string naming a file, or a connection. The default
     \code{""} prints to the standard output connection (see \code{\link[base]{cat}}). }
   \item{end}{ the character string to append at the end. By default, a carriage
@@ -103,7 +115,6 @@ cWidth(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
   \item{sep}{ the character string to use to separate successive strings. }
   \item{collapse}{ an optional character string to separate items in a character
     vector that is collapsed to a single item. }
-  \item{x}{ a character string or an object that can be coerced to character. }
   \item{old}{ a character string with characters to be translated. First element
     is used with a warning if length is higher than two. }
   \item{new}{ a character string with the translations. First element
@@ -144,11 +155,11 @@ cWidth(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
 }
 
 \details{
-  All these functions start with a lowercase c before an uppercase letter to
-  indicate that they operate on, character strings and coerce their first
+  All these functions start with char before an uppercase letter to
+  indicate that they operate on character strings or coerce their first
   argument \code{x} to a character object.
   
-  \code{cEscape(x)} ...
+  \code{charEscape(x)} ...
 }
 
 \value{

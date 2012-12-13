@@ -105,10 +105,10 @@ names <- function (x)
 ## Do we implement `names<-` for environments??? This is a nonsense, may be?
 
 ## Simpler names for often used functions
-num <- base::as.numeric
-int <- base::as.integer
-char <- base::as.character
-logic <- base::as.logical
+#as.num <- base::as.numeric
+#as.int <- base::as.integer
+#as.logic <- base::as.logical
+# is.num, is.int, is.logic + num, int and logic
 ## To avoid problems with factors, tell to always use s(f1), or n(f1)/i(f1)
 
 ## Since n is already used for a synonym of as.numeric(), I use l() here
@@ -476,15 +476,15 @@ topEnv <- .Recode(base::topenv)
 # Usually, to create an object, we use its name, but
 ## environment() means something else here!
 ## So, OK, we'll stick with:
-environmentNew <- .Recode(base::new.env)
+envNew <- .Recode(base::new.env)
 ## Should not be used!
-environmentParent <- .Recode(base::parent.env)
-`environmentParent<-` <- .Recode(base::`parent.env<-`)
+envParent <- .Recode(base::parent.env)
+`envParent<-` <- .Recode(base::`parent.env<-`)
 #environmentName()
 #environment()
 #`environment<-`()
 #is.environment()
-environmentProfile <- .Recode(base::env.profile)
+envProfile <- .Recode(base::env.profile)
 ## name attribute to an environment,... see ?environment
 #source()
 
