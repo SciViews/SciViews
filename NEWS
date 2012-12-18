@@ -1,5 +1,10 @@
 = SciViews News
 
+== SciViews version 0.9-10
+
+* Import from data.table is eliminated. For now, `@:=` is the same as `@<-`.
+
+
 == SciViews version 0.9-9
 
 * Improvements to activate warnings regarding possible R traps: if
