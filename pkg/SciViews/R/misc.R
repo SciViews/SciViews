@@ -260,7 +260,9 @@ stopIfNot <- base::stopifnot
 		## TODO: we need an assign by reference function for S4 slots here
 		`slot<-`(x, which, TRUE, value)
 	} else {
-		setattr(x, which, value)
+		## TODO: use setattr() from data.table, but we don't want to depend on all this stuff!!!
+		#setattr(x, which, value)
+		`attr<-`(x, which, value)
 	}
 }
 

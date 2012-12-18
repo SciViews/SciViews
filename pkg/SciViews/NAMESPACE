@@ -1,4 +1,4 @@
-import(methods, grDevices, graphics, stats, MASS, ellipse, data.table)
+import(methods, grDevices, graphics, stats, MASS, ellipse)
 
 export(.Intern,
 	   char,
