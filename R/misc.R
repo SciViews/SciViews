@@ -550,3 +550,7 @@ print.s <- function (x, ...)
 	} else print(as.character(x))
 	return(invisible(x))
 }
+
+
+## It may be useful to define a constant which represents a null byte (raw obj)
+# RAW_NULL <- raw(1)
