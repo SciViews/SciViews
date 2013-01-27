@@ -468,8 +468,8 @@ globalEnv <- base::globalenv # Also .GlobalEnv
 autoloadEnv <- function () return(.AutoloadEnv)
 #.AutoloadEnv already defined
 #TempEnv() in svMisc
-tempEnv <- svMisc::TempEnv
-.TempEnv <- svMisc::TempEnv()
+tempEnv <- .TempEnv()
+.TempEnv <- TempEnv()
 ## TODO: or sys.topEnv()???
 ## RCMD check claims he cannot find isNamespaceEnv() in topEnv() => provide it
 isNamespaceEnv <- function (envir = parentFrame())

@@ -56,12 +56,12 @@
 ## Code borrowed from svMisc, to avoid a dependency!
 .assignTemp <- function (x, value, replace.existing = TRUE) {
     .TempEnv <- function () {
-		pos <-  match("TempEnv", search())
+		pos <-  match("SciViews:TempEnv", search())
 		if (is.na(pos)) { # Must create it
-		    TempEnv <- list()
-		    attach(TempEnv, pos = length(search()) - 1)
-		    rm(TempEnv)
-		    pos <- match("TempEnv", search())
+		    `SciViews:TempEnv` <- list()
+		    attach(`SciViews:TempEnv`, pos = length(search()) - 1)
+		    rm(`SciViews:TempEnv`)
+		    pos <- match("SciViews:TempEnv", search())
 		}
 		pos.to.env(pos)
 	}
