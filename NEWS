@@ -4,6 +4,8 @@
 
 * Import from data.table is eliminated. For now, `@:=` is the same as `@<-`.
 
+* Temporary objects are now saved in SciViews:TempEnv instead of TempEnv.
+
 
 == SciViews version 0.9-9
 

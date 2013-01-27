@@ -54,18 +54,19 @@
 }
 
 ## Code borrowed from svMisc, to avoid a dependency!
-.assignTemp <- function (x, value, replace.existing = TRUE) {
-    .TempEnv <- function () {
-		pos <-  match("SciViews:TempEnv", search())
-		if (is.na(pos)) { # Must create it
-		    `SciViews:TempEnv` <- list()
-		    attach(`SciViews:TempEnv`, pos = length(search()) - 1)
-		    rm(`SciViews:TempEnv`)
-		    pos <- match("SciViews:TempEnv", search())
-		}
-		pos.to.env(pos)
+.TempEnv_ <- function () {
+	pos <-  match("SciViews:TempEnv", search())
+	if (is.na(pos)) { # Must create it
+	    `SciViews:TempEnv` <- list()
+	    attach(`SciViews:TempEnv`, pos = length(search()) - 1)
+	    rm(`SciViews:TempEnv`)
+	    pos <- match("SciViews:TempEnv", search())
 	}
-	TempEnv <- .TempEnv()
+	pos.to.env(pos)
+}
+	
+.assignTemp <- function (x, value, replace.existing = TRUE) {
+	TempEnv <- .TempEnv_()
 	if (isTRUE(replace.existing) || !exists(x, envir = TempEnv, mode = "any",
 		inherits = FALSE))
         assign(x, value, envir = TempEnv)
