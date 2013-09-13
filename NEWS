@@ -1,5 +1,12 @@
 = SciViews News
 
+== SciViews version 0.9-11
+
+* path object is renamed filePath to avoid a clash with a path object in grid
+  package. Related function path(), is.path(), as.path() are renamed accordingly
+  filePath(), is.filePath() and as.filePath(). The print method is also adapted.
+  
+
 == SciViews version 0.9-10
 
 * Import from data.table is eliminated. For now, `@:=` is the same as `@<-`.
