@@ -19,7 +19,8 @@ method = c("svd", "eigen"), ...)
     mf$... <- NULL
     mf[[1L]] <- as.name("model.frame")
     mf <- eval.parent(mf)
-    if (stats:::.check_vars_numeric(mf)) 
+    ## TODO: avoid this!
+	if (stats:::.check_vars_numeric(mf)) 
         stop("PCA applies only to numerical variables")
     na.act <- attr(mf, "na.action")
     mt <- attr(mf, "terms")
@@ -209,6 +210,7 @@ main = paste(deparse(substitute(x)), which, sep = " - "), xlab, ylab, ...)
 	if (missing(xlab)) xlab <- labs[choices[1]] else xlab
 	if (missing(ylab)) ylab <- labs[choices[2]] else ylab
 	switch(which,
+		## TODO: avoid this!
 		screeplot = stats:::screeplot.default(x, col = bar.col, main = main, ...),
 		loadings = vectorplot(loadings(x), choices = choices, col = col,
 			circle.col = circle.col, ar.length = ar.length, pos = pos, cex = cex,
@@ -339,7 +341,8 @@ biplot.pcomp <- function (x, choices = 1L:2L, scale = 1, pc.biplot = FALSE, ...)
     else lam <- 1
     if (pc.biplot) 
         lam <- lam/sqrt(n)
-    stats:::biplot.default(t(t(scores[, choices])/lam),
+    ## TODO: avoid this!
+	stats:::biplot.default(t(t(scores[, choices])/lam),
 		t(t(x$loadings[, choices]) * lam), ...)
     return(invisible())
 }

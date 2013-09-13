@@ -41,17 +41,15 @@ export(.Intern,
 	   setEncoding,
 	   as.integerBase,
 	   as.intBase,
-	   as.char,
-	   is.char,
 	   rx,
 	   perl,
 	   is.rx,
 	   is.perl,
 	   useBytes,
 	   "useBytes<-",
-	   path,
-	   as.path,
-	   is.path,
+	   filePath,
+	   as.filePath,
+	   is.filePath,
 	   isDir,
 	   isFile,
 	   fileAccess,
@@ -275,7 +273,7 @@ export(.Intern,
 	   
 S3method(one, default)
 
-S3method(print, path)
+S3method(print, filePath)
 
 S3method(contours, default)
 

@@ -19,7 +19,8 @@ correlation.formula <- function (formula, data = NULL, subset, na.action, ...)
     mf$... <- NULL
     mf[[1L]] <- as.name("model.frame")
     mf <- eval.parent(mf)
-    if (stats:::.check_vars_numeric(mf)) 
+    ## TODO: avoid this!
+	if (stats:::.check_vars_numeric(mf)) 
         stop("Correlation applies only to numerical variables")
     mt <- attr(mf, "terms")
     attr(mt, "intercept") <- 0L
@@ -45,7 +46,7 @@ method = c("pearson", "kendall", "spearman"), ...)
 	method <- match.arg(method)
 	
 	## Just call cor in stats package
-	res <- stats:::cor(x = x, y = y, use = use, method = method)
+	res <- stats::cor(x = x, y = y, use = use, method = method)
 	
 	## We want to return a correlation matrix, even if there is one correlation
 	if (length(res) == 1) {

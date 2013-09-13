@@ -59,4 +59,70 @@ is no config file).
   we use them... or better: use contextual arguments: svMisc::expr => can
   superseed expr tooltip but uses it, if there is no svMisc::expr tooltip!
 
+* unlist() should really be S3 generic with unlist.default + unlist.factor being
+the original unlist() function. Need also at least unlist.Date, unlist.POSIXct
+and unlist.POSIXlt, although the first two treatmenbts are (unexpectendly)
+already correct!
+
+* What about c.factor()??? C() applied to factor currently just produces
+rubbish... But, we may break existing code!
+
+* unlist applies to a list of matrices or arrays or data frames of the same
+shape, i.e., same objects types and same column names should really rbind()
+items... but using rbind() is inefficient => need another solution. Also, this
+should be called differently to unlist() to avoid breaking code, why not
+lbind()???
+
+* Generic method bare(object) to drop all attributes except the one required to
+define a given object... perhaps onlyNames(object) that does the same as c(x),
+but see ?c.
+
+* matrices of lists
+l <- list(x = 1:10, y = 3:7, z = TRUE, w = "azza")
+l
+#! $x
+#!  [1]  1  2  3  4  5  6  7  8  9 10
+#! 
+#! $y
+#! [1] 3 4 5 6 7
+#! 
+#! $z
+#! [1] TRUE
+#! 
+#! $w
+#! [1] "azza"
+
+as.matrix(l)
+#!   [,1]      
+#! x Integer,10
+#! y Integer,5 
+#! z TRUE      
+#! w "azza"    
+ 
+(ml <- matrix(l, nrow = 2))
+#!      [,1]       [,2]  
+#! [1,] Integer,10 TRUE  
+#! [2,] Integer,5  "azza"
+
+l$x
+#!  [1]  1  2  3  4  5  6  7  8  9 10
+
+ml$x
+#! NULL
+
+names(ml) <- c("x", "y", "z", "w")
+ml
+#!      [,1]       [,2]  
+#! [1,] Integer,10 TRUE  
+#! [2,] Integer,5  "azza"
+#! attr(,"names")
+#! [1] "x" "y" "z" "w"
+ml$x
+#!  [1]  1  2  3  4  5  6  7  8  9 10
+
+Why not to keep names when transforming into a matrix, since it is also
+considered as a vector... and it seems to work well!?
+
+
+
 * Translation of this package (and what about the doc?).
