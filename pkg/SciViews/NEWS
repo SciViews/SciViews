@@ -6,6 +6,10 @@
   package. Related function path(), is.path(), as.path() are renamed accordingly
   filePath(), is.filePath() and as.filePath(). The print method is also adapted.
   
+* warnAssignWithEqualSign, warnPartialMatchArgs, warnPartialMatchAttr and
+  warnPartialMatchDollar in options() are now initialized to FALSE if they are
+  not defined yet there.
+
 
 == SciViews version 0.9-10
 

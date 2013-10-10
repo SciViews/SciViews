@@ -1,15 +1,15 @@
 .onLoad <- function (lib, pkg)
 {
-	## With SciViews, we try to avoid traps as much as possible!
-	## So, if corresponding options are not defined yet, specify them to TRUE!
+	## If corresponding options are not defined yet, specify them to FALSE
+	## by default, but make them explicitly available in options()
 	if (!length(getOption("warnAssignWithEqualSign")))
-		options(warnAssignWithEqualSign = TRUE)
+		options(warnAssignWithEqualSign = FALSE)
 	if (!length(getOption("warnPartialMatchArgs")))
-		options(warnPartialMatchArgs = TRUE)
+		options(warnPartialMatchArgs = FALSE)
 	if (!length(getOption("warnPartialMatchAttr")))
-		options(warnPartialMatchAttr = TRUE)
+		options(warnPartialMatchAttr = FALSE)
 	if (!length(getOption("warnPartialMatchDollar")))
-		options(warnPartialMatchDollar = TRUE)
+		options(warnPartialMatchDollar = FALSE)
 		
 	## TODO: check configuration and install everything that we need to use the
 	## SciViews extensions, including the HTTP or socket server
