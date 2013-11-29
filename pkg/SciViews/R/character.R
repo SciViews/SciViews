@@ -225,6 +225,9 @@ charExpand <- function (x, target, nomatch = NA_character_)
 	char.expand(input = x, target = target, nomatch = nomatch)
 
 charMatch <- .Recode(base::charmatch)
+## There is a faster version in data.table! named chmatch, but is does not
+## exactly the same since it expects characters and do no partial matching!
+
 charPMatch <- .Recode(base::pmatch)
 
 ## Conversion to character string... + creation and test, shorter versions
