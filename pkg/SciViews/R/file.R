@@ -1,6 +1,6 @@
 ## Essentially a series of base R function that manipulate files and directories
 ## and that are renamed/rationalized for facility
-## TODO: Sys.setFileTime => fileTime, Sys.umask
+## TODO: is the object name correctly choosen? or filepath? or fpath?
 
 ## A replacement for file.path
 filePath <- function (..., fsep = .Platform$file.sep)
@@ -116,13 +116,16 @@ fileCreate <- .Recode(get("file.create", envir = baseenv()))
 fileExists <- .Recode(get("file.exists", envir = baseenv()))
 fileInfo <-	.Recode(get("file.info", envir = baseenv()))
 fileChmod <- .Recode(get("Sys.chmod", envir = baseenv()))
+fileUMask <- .Recode(get("Sys.umask", envir = baseenv()))
+fileTime <- function (filePath, time)
+	Sys.setFileTime(path = filePath, time = time)
 fileRemove <- .Recode(get("file.remove", envir = baseenv()))
 ## This is "stronger" than fileRemove()!
 fileDelete <- function (filePath, recursive = FALSE, force = FALSE)
 	return(unlink(x = filePath, recursive = recursive, force = force))
 
 fileLink <- .Recode(get("file.link", envir = baseenv()))
-fileSymlink <- .Recode(get("file.symlink", envir = baseenv()))
+fileSymLink <- .Recode(get("file.symlink", envir = baseenv()))
 fileReadLink <- function (filePath)
 	return(structure(Sys.readlink(paths = filePath),
 		class = c("filePath", "character")))

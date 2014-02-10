@@ -1,5 +1,14 @@
 = SciViews News
 
+== SciViews version 0.9-12
+
+* p() is renamed p0() to avoid a clash with p() in the ascii package.
+
+* rx objects are renamed regex and perl objects are renamec pcre.
+
+* fileSymlink() is renamed fileSymLink() for correct camel case support.
+
+
 == SciViews version 0.9-11
 
 * path object is renamed filePath to avoid a clash with a path object in grid

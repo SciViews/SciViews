@@ -28,7 +28,7 @@ export(.Intern,
 	   charUpper,
 	   charWidth,
 	   charWrap,
-	   p,
+	   p0,
 	   p_,
 	   ct,
 	   cta,
@@ -41,10 +41,10 @@ export(.Intern,
 	   setEncoding,
 	   as.integerBase,
 	   as.intBase,
-	   rx,
-	   perl,
-	   is.rx,
-	   is.perl,
+	   regex,
+	   pcre,
+	   is.regex,
+	   is.pcre,
 	   useBytes,
 	   "useBytes<-",
 	   filePath,
@@ -73,8 +73,10 @@ export(.Intern,
 	   fileRemove,
 	   fileRename,
 	   fileShow,
-	   fileSymlink,
+	   fileSymLink,
 	   fileTemp,
+	   fileTime,
+	   fileUMask,
 	   dirCreate,
 	   dirList,
 	   dirR,
@@ -279,8 +281,8 @@ S3method(contours, default)
 
 S3method(print, s)
 
-S3method(print, rx)
-S3method(print, perl)
+S3method(print, regex)
+S3method(print, pcre)
 
 S3method(vectorplot, default)
 S3method(vectorplot, loadings)
