@@ -2,28 +2,28 @@
 \alias{char}
 \alias{as.char}
 \alias{is.char}
+\alias{p0}
+\alias{p_}
 \alias{ct}
 \alias{cta}
 \alias{ct_}
 \alias{cta_}
-\alias{p}
-\alias{p_}
 \alias{charTrans}
 \alias{charFold}
 \alias{charLower}
 \alias{charUpper}
-\alias{charSplit}
 \alias{charTrim}
 \alias{charTrimL}
 \alias{charTrimR}
 \alias{charTrunc}
 \alias{charSubstr} 
 \alias{charSubstr<-}
-\alias{charSearch}
-\alias{charFind}
-\alias{charFindAll}
+\alias{charSplit}
 \alias{charSub}
 \alias{charSubAll}
+\alias{charFind}
+\alias{charFindAll}
+\alias{charSearch}
 \alias{charMatch}
 \alias{charPMatch}
 \alias{charExpand}
@@ -32,6 +32,13 @@
 \alias{charWrap}
 \alias{charHeight}
 \alias{charWidth}
+\alias{useBytes}
+\alias{useBytes<-}
+\alias{encodingToNative}
+\alias{encodingToUTF8}
+\alias{encoding}
+\alias{encoding<-}
+\alias{setEncoding}
 
 \title{Character strings manipulation functions}
 
@@ -45,15 +52,15 @@ char(length = 0)
 as.char(x, \dots)
 is.char(x)
 
+## Paste strings together
+p0(\dots, collapse = NULL)
+p_(\dots, sep = " ", collapse = NULL)
+
 ## Concatenate and print strings to the console or in a file
 ct(\dots, file = "", end = "\n", fill = FALSE, labels = NULL)
 cta(\dots, file = "", end = "\n", fill = FALSE, labels = NULL)
 ct_(\dots, file = "", sep = " ", end = "\n", fill = FALSE, labels = NULL)
 cta_(\dots, file = "", sep = " ", end = "\n", fill = FALSE, labels = NULL)
-
-## Paste strings together
-p(\dots, collapse = NULL)
-p_(\dots, sep = " ", collapse = NULL)
 
 ## character translation or folding
 charTrans(x, old, new)
@@ -94,6 +101,13 @@ charWrap(x, width = 0.9 * getOption("width"), indent = 0, exdent = 0,
 ## Measure size of a character string or expression in a plot
 charHeight(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
 charWidth(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
+
+## String encoding
+encodingToNative(x)
+encodingToUTF8(x)
+encoding(x)
+encoding(x) <- value
+setEncoding(x, value)
 }
 
 \arguments{
@@ -103,6 +117,9 @@ charWidth(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
   \item{\dots}{ a series of character strings or objects that can be coerced to
     character, or further arguments passed to or from other methods for
     \code{as.char()}. }
+  \item{sep}{ the character string to use to separate successive strings. }
+  \item{collapse}{ an optional character string to separate items in a character
+    vector that is collapsed to a single item. }
   \item{file}{ a character string naming a file, or a connection. The default
     \code{""} prints to the standard output connection (see \code{\link[base]{cat}}). }
   \item{end}{ the character string to append at the end. By default, a carriage
@@ -112,9 +129,6 @@ charWidth(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
     are formatted within \code{getOption("width")}. With a positive integer,
     strings are formatted within this number of characters. }
   \item{labels}{ labels of the lines printed. Ignored when \code{fill = FALSE}. }
-  \item{sep}{ the character string to use to separate successive strings. }
-  \item{collapse}{ an optional character string to separate items in a character
-    vector that is collapsed to a single item. }
   \item{old}{ a character string with characters to be translated. First element
     is used with a warning if length is higher than two. }
   \item{new}{ a character string with the translations. First element
@@ -172,7 +186,7 @@ charWidth(s, units = "user", cex = NULL, font = NULL, vfont = NULL, \dots)
   packages.
 }
 
-\seealso{ \code{\link[base]{character}} } %, \code{\link{rx}} }
+\seealso{ \code{\link[base]{character}}, \code{\link{regex}} }
 
 \examples{
 ## TODO: various examples of character string manipulations 

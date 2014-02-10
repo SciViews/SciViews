@@ -13,8 +13,8 @@
   \tabular{ll}{
     Package: \tab SciViews\cr
     Type: \tab Package\cr
-    Version: \tab 0.9-11\cr
-    Date: \tab 2013-08-28\cr
+    Version: \tab 0.9-12\cr
+    Date: \tab 2014-02-10\cr
     License: \tab GPL (>= 2)\cr
     LazyLoad: \tab yes\cr
   }
