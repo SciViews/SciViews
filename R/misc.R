@@ -77,6 +77,7 @@ ifElse <- get("ifelse", envir = baseenv())
 enum <- function (x) seq_along(x)
 
 ## Defines only increasing integer sequences
+## TODO: rethink this to make a more flexible sequencer + x:step:y? + rep()?
 `%:%` <- function (lower, upper)
 	if (lower > upper) integer(0) else
 		seq.int(from = as.integer(lower), to = as.integer(upper), by = 1L)
@@ -118,6 +119,7 @@ nr <- base::NROW
 
 ## Constants (must start with an uppercase letter)
 ## => redefine Pi instead of pi
+## TODO: only uppercase for constants => PI???
 Pi <- base::pi
 ## Useful for apply() familly:
 Rows <- 1
@@ -126,6 +128,7 @@ Cols <- 2
 
 ## I don't like isTRUE, because if there is an attribute attached to TRUE,
 ## it returns FALSE! => define asTRUE which is more permissive!
+## TODO: rethink all this!
 asTRUE <- function (x) identical(TRUE, as.logical(x))
 isFALSE <- function (x) identical(FALSE, x)
 asFALSE <- function (x) identical(FALSE, as.logical(x))
