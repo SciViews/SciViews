@@ -323,6 +323,7 @@ units = "px", pointsize = 12, compression = c("none", "rle",
 ## Color management
 #palette() # get or set the color palette
 #colors() and colours() for a list of color names
+## TODO: wrong name? colorToRgb?
 color2rgb <- .Recode(grDevices::col2rgb) # convert colors to rgb
 #rgb()
 #rgb2hsv()
@@ -404,7 +405,7 @@ cm2in <- function (x) x / cm(1)
 #n2mfrow() computes sensible mfrow from number of graphs
 # + .ps.prolog
 
-## Dynamite plot by Samule Brown
+## Dynamite plot by Samuel Brown
 ## http://www.r-bloggers.com/dynamite-plots-in-r/
 ## Much critisize! See http://emdbolker.wikidot.com/blog%3Adynamite
 ## http://pablomarin-garcia.blogspot.co.nz/2010/02/why-dynamite-plots-are-bad.html

@@ -42,18 +42,18 @@ classes <- function (x)
 
 ## Warn when using = instead of <- for assignation...
 ## if option warnAssignWithEqualSign is TRUE
-`=` <- function(x, value)
-{
-	if (isTRUE(getOption("warnAssignWithEqualSign")))
-		warning("Use <- instead of = for assignation, or use == for equalty test")
-	assign(deparse(substitute(x)), value, envir = parent.frame())
-}
+## NOTE: names(x) <- "a" assigns "a" to `names(x)` => this is wrong!
+#`=` <- function(x, value)
+#{
+#	if (isTRUE(getOption("warnAssignWithEqualSign")))
+#		warning("Use <- instead of = for assignation, or use == for equality test")
+#	assign(deparse(substitute(x)), value, envir = parent.frame())
+#}
 
 # is.wholenumber(), see ?as.integer => define isWholeInt?
 
-## A convenient starting object for holding items: . == .GlobalEnv
-## TODO: take care there is no clash with proto objects!
-#. <- base::.GlobalEnv
+## A convenient starting object for holding items: .. == .GlobalEnv
+#.. <- base::.GlobalEnv
 
 ## Testing is.null(obj) is not enough to decide if an object is empty, because
 ## there may be like numeric(0), character(0), etc. The right way to do so is
@@ -239,6 +239,7 @@ stopIfNot <- base::stopifnot
 
 ## Reuse `@<-` to set attribute from a non S4 object
 ## TODO: also use it for S4 object, in the case a slot is not defined
+## TODO: reduce the number of copies done here!
 `@<-` <- function (x, which, value)
 {
 	arg <- substitute(which)
@@ -255,19 +256,20 @@ stopIfNot <- base::stopifnot
 ## TODO: we need also something like that for S4 slots!
 ## Since they really are attributes with checking, check first, and then,
 ## use setattr(), and it is done!
-`@:=` <- function (x, which, value)
-{
-	arg <- substitute(which)
-    if (is.name(arg)) which <- as.character(arg)
-	if (isS4(x)) {
-		## TODO: we need an assign by reference function for S4 slots here
-		`slot<-`(x, which, TRUE, value)
-	} else {
-		## TODO: use setattr() from data.table, but we don't want to depend on all this stuff!!!
-		#setattr(x, which, value)
-		`attr<-`(x, which, value)
-	}
-}
+## This does not quite work yet, nor :=
+#`@:=` <- function (x, which, value)
+#{
+#	arg <- substitute(which)
+#    if (is.name(arg)) which <- as.character(arg)
+#	if (isS4(x)) {
+#		## TODO: we need an assign by reference function for S4 slots here
+#		`slot<-`(x, which, TRUE, value)
+#	} else {
+#		## TODO: use setattr() from data.table, but we don't want to depend on all this stuff!!!
+#		#setattr(x, which, value)
+#		`attr<-`(x, which, value)
+#	}
+#}
 
 ## TODO: `[:=`, `$:=` and `[[:=`
 ## This does not work...
@@ -279,51 +281,60 @@ stopIfNot <- base::stopifnot
 ## like fun(x) <- value calls `fun<-`
 ## TODO: a validation mechanism for the value passed to the function?
 ## TODO: use alist() instead of list()!!!
-`:=` <- function (x, value) {
-	call <- match.call()
-	X <- substitute(x)
-	## pairlist() because NULL would be lost using list()
-	value <- pairlist(value = value)
-	## In case single name, do the same as x[] <- value, i.e., keeping size
-	## and attributes of x ("replacement inside x")
-	if (length(X) == 1) {
-#		tryCatch(do.call("[<-", c(list(x = X), value), envir = parent.frame(1)),
-#			error = function (e) {
-#				## Construct a call that is closer to the actual syntax!
-#				e$call <- paste(deparse(call[[2]]), ":=", deparse(call[[3]]))
-#				stop(e)
-#			})
-		stop(":= cannot be used directly on an object")
-	}
-	## If a more complex call is provided, try to run `fun:=` instead
-	X <- as.pairlist(substitute(X))
-	## To emulate `fun<-`, but using `fun:=`
-	fun <- paste(deparse(X[[1]]), ":=", sep = "")
-	X[[1]] <- NULL
-	## Use tryCatch() to ensure a better error message is issued
-	tryCatch(do.call(fun, c(X, value), envir = parent.frame(1)),
-		error = function (e) {
-			## Construct a call that is closer to the actual syntax!
-			e$call <- paste(deparse(call[[2]]), ":=", deparse(call[[3]]))
-			stop(e)
-		})
-	## Like for `fun<-`, value is returned invisibly, probably to allow
-	## something like x <- y[2] <- value
-	return(invisible(value))
-}
+## TODO: this does not work as expected!
+#`:=` <- function (x, value) {
+#	call <- match.call()
+#	X <- substitute(x)
+#	## pairlist() because NULL would be lost using list()
+#	value <- pairlist(value = value)
+#	## In case single name, do the same as x[] <- value, i.e., keeping size
+#	## and attributes of x ("replacement inside x")
+#	if (length(X) == 1) {
+##		tryCatch(do.call("[<-", c(list(x = X), value), envir = parent.frame(1)),
+##			error = function (e) {
+##				## Construct a call that is closer to the actual syntax!
+##				e$call <- paste(deparse(call[[2]]), ":=", deparse(call[[3]]))
+##				stop(e)
+##			})
+#		stop(":= cannot be used directly on an object")
+#	}
+#	## If a more complex call is provided, try to run `fun:=` instead
+#	X <- as.pairlist(substitute(X))
+#	## To emulate `fun<-`, but using `fun:=`
+#	fun <- paste(deparse(X[[1]]), ":=", sep = "")
+#	X[[1]] <- NULL
+#	## Use tryCatch() to ensure a better error message is issued
+#	tryCatch(assign(deparse(X[[1]]), do.call(fun, c(X, value),
+#		envir = parent.frame(1))),
+#		error = function (e) {
+#			## Construct a call that is closer to the actual syntax!
+#			e$call <- paste(deparse(call[[2]]), ":=", deparse(call[[3]]))
+#			stop(e)
+#		})
+#	## Like for `fun<-`, value is returned invisibly, probably to allow
+#	## something like x <- y[2] <- value
+#	invisible(value)
+#}
 
 ## I don't like much system.time(), first because it returns 3 numbers where
 ## we want most of the time only one, and second because it creates a new
 ## object proc_time, where a difftime object should be perfectly suitable
-## => new function elapsed()
+## => new function timing(). It also replaces the synonym unix.time() and
+## the other function proc.time() when called without an expression.
 timing <- function (expr, gc.first = TRUE)
 {
-	res <- system.time(expr, gcFirst = gc.first)
+	if (missing(expr)) {
+		res <- proc.time()
+	} else {
+		res <- system.time(expr, gcFirst = gc.first)
+	}
 	## Results split into result and details
-	details <- as.difftime(res[c("user.self", "sys.self")], units = "secs")
-	details@names := c("user", "system")
-	res <- as.difftime(res["elapsed"], units = "secs")
-	res@details := details
+	#details <- as.difftime(res[c("user.self", "sys.self")], units = "secs")
+	#details@names <- c("user", "system")
+	details <- as.difftime(res, units = "secs")
+	#res <- as.difftime(res["elapsed"], units = "secs")
+	res <- details["elapsed"]
+	res@details <- details
 	return(res)
 }
 ## Test...
