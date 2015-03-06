@@ -10,7 +10,7 @@ Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends: R (>= 2.6.0), methods, grDevices, graphics, stats, MASS
 Imports: ellipse
 Enhances: base
-Description: Functions to install SciViews additions to R, and more (various) tools
+Description: Functions to install SciViews additions to R, and more (various) tools.
 License: GPL-2
 ByteCompile: yes
 URL: http://www.sciviews.org/SciViews-R
