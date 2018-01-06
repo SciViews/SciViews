@@ -1,32 +1,25 @@
-= SciViews To Do list
+# SciViews To Do list
 
-* Change isEmpty because clash with a generic in filehash. permutations()
-defined in gtools and e1071 and do something different! Also, combine() is
-defined in both gdata and randomForests. It should really be a generic with the
-gdata version being the default and the randomForest version being
-combine.randomForest(). nobs() in gdata and stats are both S3 generics defined
-a little bit differently... but their default, at least, do something very
-different! There is also object.size() in gdata and utils. In this case, the
-version in gdata is compatible with the one in utils, but it is vectorized.
-For gplots, there is lowess() which is also defined in stats. Indeed, in gplots
-it is a S3 generic with lowess.default() being the same as the function in stats
-=> it is fine! For Rweka, LogitBoost() is also defined in caTools. These seem
-very different and should be named differently too!
-A clash for Args() between gdata and svMisc is solved, because the function in
-svMisc is renamed argsTip().
+* file_head()
 
-* Rd files for character, file and misc.
+* attrNames() or attr_names() like slotNames()
+
+* unscale() to revert the effect of scale()?
+
+* is.wholenumber()
+
+* other xxx. functions for those using na.rm = FALSE like mean, median, sd, var,
+  quantile, fivenum, ...
 
 * Refine panel.xxx() functions to avoid warning in case we provide non-par
-arguments to pairs() and design a better mechanism to define default (colors,
-line type and weight, etc.).
+  arguments to pairs() and design a better mechanism to define default (colors,
+  line type and weight, etc.).
 
 * A better grid() for log scale, a grid() with intermediate lines (between two
-axis ticks), and a slightly different line for origin axes.
+  axis ticks), and a slightly different line for origin axes.
 
 * A plot.htest() method that graphically shows the test results (needs specific
-representation for each test => difficult, but think about a solution for that
-particular problem!)
+  representation for each test => how to do that?
 
 * QQ-plot and statistical distributions plots.
 
@@ -40,89 +33,24 @@ particular problem!)
 
 * For correspondance analysis, see ca package.
 
-* recordPlot(), replayPlot() to save graphs between sessions.
-Look also at dev.control("inhibit") and dev.interactive().
-
-* gui? (dialog box), cmd? (fill dialog box with values) or gui? (do nothing),
-  cmd? (run it).
-
-* Rethink depends, imports and suggests to install and/or load the right number
-of packages (+ options to avoiding to load certains packages, in certain cases).
-
-* Save SciViews-R/SciViews-K communication parameters and reconfigure the socket
-server accordingly (do not start the socket server automatically in case there
-is no config file).
-
-* Automatically load projects and snippets associated with a package. Use a
-  context string that ensures that we have require(XXXX) somewhere up the scrip
-  for using a command in a R package. Reload the tooltips definition each time
-  we use them... or better: use contextual arguments: svMisc::expr => can
-  superseed expr tooltip but uses it, if there is no svMisc::expr tooltip!
+* What about c.factor()??? C() applied to factor currently just produces
+  rubbish... But, we may break existing code!
 
 * unlist() should really be S3 generic with unlist.default + unlist.factor being
-the original unlist() function. Need also at least unlist.Date, unlist.POSIXct
-and unlist.POSIXlt, although the first two treatmenbts are (unexpectendly)
-already correct!
+  the original unlist() function. Need also at least unlist.Date(),
+  unlist.POSIXct() and unlist.POSIXlt(), although the first two treatments are
+  already correct!
 
-* What about c.factor()??? C() applied to factor currently just produces
-rubbish... But, we may break existing code!
-
-* unlist applies to a list of matrices or arrays or data frames of the same
-shape, i.e., same objects types and same column names should really rbind()
-items... but using rbind() is inefficient => need another solution. Also, this
-should be called differently to unlist() to avoid breaking code, why not
-lbind()???
+* unlist() applies to a list of matrices or arrays or data frames of the same
+  shape, i.e., same objects types and same column names should really rbind()
+  items... but using rbind() is inefficient => need another solution. Also, this
+  should be called differently to unlist() to avoid breaking code, why not
+  lbind()?
 
 * Generic method bare(object) to drop all attributes except the one required to
-define a given object... perhaps onlyNames(object) that does the same as c(x),
-but see ?c.
+  define a given object... perhaps onlyNames(object) that does the same as c(x),
+  but see ?c.
 
-* matrices of lists
-l <- list(x = 1:10, y = 3:7, z = TRUE, w = "azza")
-l
-#! $x
-#!  [1]  1  2  3  4  5  6  7  8  9 10
-#! 
-#! $y
-#! [1] 3 4 5 6 7
-#! 
-#! $z
-#! [1] TRUE
-#! 
-#! $w
-#! [1] "azza"
+* Analyze this: http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/
 
-as.matrix(l)
-#!   [,1]      
-#! x Integer,10
-#! y Integer,5 
-#! z TRUE      
-#! w "azza"    
- 
-(ml <- matrix(l, nrow = 2))
-#!      [,1]       [,2]  
-#! [1,] Integer,10 TRUE  
-#! [2,] Integer,5  "azza"
-
-l$x
-#!  [1]  1  2  3  4  5  6  7  8  9 10
-
-ml$x
-#! NULL
-
-names(ml) <- c("x", "y", "z", "w")
-ml
-#!      [,1]       [,2]  
-#! [1,] Integer,10 TRUE  
-#! [2,] Integer,5  "azza"
-#! attr(,"names")
-#! [1] "x" "y" "z" "w"
-ml$x
-#!  [1]  1  2  3  4  5  6  7  8  9 10
-
-Why not to keep names when transforming into a matrix, since it is also
-considered as a vector... and it seems to work well!?
-
-
-
-* Translation of this package (and what about the doc?).
+* Translation of this package.

@@ -1,5 +1,21 @@
 # SciViews News
 
+## SciViews version 0.9-13
+
+* 'correlation' objects are now 'Correlation' to avoid clash with 'correlation'
+  objects from **nlme** package.
+
+* Doc rewritten in Roxygen2 and R Markdown (keeping only pca vignette). More
+  strict `importFrom()` in particular from **ellipse** package.
+
+* Elimination of files.R, character.R & graphics.R (experimental code that never
+  reached CRAN).
+
+* Code reritten to comply with tidyverse style guide. Functions that are not
+  snake case like `rwb.colors()` or `panel.hist()` now are seconded by they
+  equivalent `rwb_colors()` or `panel_hist()`.
+
+
 ## SciViews version 0.9-12
 
 * Switch from R-Forge to Github https://github.com/SciViews/SciViews. CI added.
