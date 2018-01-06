@@ -1,5 +1,7 @@
 # SciViews To Do list
 
+* Plot functions issue warnings for unknown arguments
+
 * The vignette does not seem to be installed?!
 
 * file_head()
