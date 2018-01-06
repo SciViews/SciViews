@@ -2,7 +2,7 @@
 % Please edit documentation in R/misc.R
 \name{enum}
 \alias{enum}
-\title{Enumerate items in an object.}
+\title{Enumerate items in an object}
 \usage{
 enum(x)
 }
@@ -10,8 +10,9 @@ enum(x)
 \item{x}{Any object.}
 }
 \description{
-\code{enum()} is creating a vector of integers to enumarate items in an object. It
-is particularly useful in the \code{for(i in enum(object))} construct.
+\code{enum()} creates a vector of integers from 1 to length of the object (it
+enumerates items in the object), except if the object is empty. It is
+particularly useful in the \code{for(i in enum(object))} construct.
 }
 \note{
 The pattern \code{for(i in 1:length(object))} is often found, but it fails

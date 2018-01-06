@@ -5,13 +5,22 @@
 \alias{SciViews-package}
 \title{SciViews - Main package}
 \description{
-The SciViews package provides various functions to install the SciViews::R
-dialect. It also provides additional utilites besides base, recommended and
-tidyverse.
+The SciViews package provides various functions to install the \code{SciViews::R}
+dialect. It also provides additional function to supplement base, recommended
+and tidyverse packages.
 }
 \section{Important functions}{
 
-
-TODO...
+\itemize{
+\item \code{\link[=pcomp]{pcomp()}} for a PCA analysis (unifying various methods),
+\item \code{\link[=correlation]{correlation()}} to calculate and plot a correlation matrix,
+\item \code{\link[=panel_reg]{panel_reg()}} and others to plot panels in \code{pairs} or \code{coplot} graphs,
+\item \code{\link[=panel_boxplot]{panel_boxplot()}} and others for univariate panels in \code{pairs} plots.
+\item \code{\link[=rwb_colors]{rwb_colors()}} and others to generate color palettes.
+\item \code{\link[=enum]{enum()}} to enumerate items in a vector,
+\item \code{\link[=timing]{timing()}} to determine the time riquired to run an R expression,
+\item \code{\link[=nr]{nr()}} and co as convenient shorthands to columns and rows,
+\item \code{\link[=ln]{ln()}} and others for natural logarithm.
+}
 }
 

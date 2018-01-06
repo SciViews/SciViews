@@ -1,5 +1,10 @@
 # SciViews News
 
+## SciViews version 0.9-14
+
+* Better definition of `lg()`, `lb()` and `ln1p()`.
+
+
 ## SciViews version 0.9-13
 
 * 'correlation' objects are now 'Correlation' to avoid clash with 'correlation'

@@ -18,7 +18,7 @@
 \alias{correlation.pcomp}
 \alias{scores}
 \alias{scores.pcomp}
-\title{Principal Components Analysis.}
+\title{Principal Components Analysis}
 \usage{
 pcomp(x, ...)
 
@@ -74,20 +74,21 @@ scores(x, ...)
 \arguments{
 \item{x}{A matrix or data frame with numeric data.}
 
-\item{...}{Arguments passed to or from other methods. If `x\code{is a formula one might specify}scale =\code{,}tol =\code{or}covmat =`.}
+\item{...}{Arguments passed to or from other methods. If \code{x} is a
+formula one might specify \code{scale}, \code{tol} or \code{covmat}.}
 
 \item{formula}{A formula with no response variable, referring only to numeric
 variables.}
 
-\item{data}{An optional data frame (or similar: see \code{\link[=model.frame]{model.frame()}})
-containing the variables in the formula \code{formula =}. By default the variables
+\item{data}{An optional data frame (or similar, see \code{\link[=model.frame]{model.frame()}})
+containing the variables in the formula. By default the variables
 are taken from \code{environment(formula)}.}
 
 \item{subset}{An optional vector used to select rows (observations) of the
 data matrix \code{x}.}
 
 \item{na.action}{A function which indicates what should happen when the data
-contain \code{NA}s. The default is set by the \code{na.action =} setting of
+contain \code{NA}s. The default is set by the \code{na.action} setting of
 \code{\link[=options]{options()}}, and is \code{\link[=na.fail]{na.fail()}} if that is  not set. The 'factory-fresh'
 default is \code{\link[=na.omit]{na.omit()}}.}
 
@@ -97,9 +98,9 @@ default is \code{\link[=na.omit]{na.omit()}}.}
 \item{scores}{A logical value indicating whether the score on each principal
 component should be calculated.}
 
-\item{center}{A logical value indicating whether the variables should be
-shifted to be zero centered. Alternately, a vector of length equal the
-number of columns of \code{x} can be supplied. The value is passed to \code{scale =}.
+\item{center}{A logical value indicating whether the variables should
+centered. Alternately, a vector of length equal the number of columns of \code{x}
+can be supplied. The value is passed to \code{scale}.
 Note that this argument is ignored for \code{method = "eigen"} and the dataset is
 always centered in this case.}
 
@@ -187,15 +188,15 @@ individuals in the scores plot.}
 \item{dim}{The number of principal components to keep.}
 
 \item{newvars}{New variables with observations for same individuals as those
-used for mcalculating the PCA. Correlation with PCs is calculated. You can
+used for calculating the PCA. Correlation with PCs is calculated. You can
 then plot these additional variables in the correlation plot.}
 }
 \value{
 A \code{c("pcomp", "pca", "princomp")} object.
 }
 \description{
-Perform a principal components analysis on a matrix or data frame and return
-a \code{pcomp} object.
+Perform a principal components analysis (PCA) on a matrix or data frame and
+return a \code{pcomp} object.
 }
 \details{
 \code{pcomp()} is a generic function with \code{"formula"} and \code{"default"}
@@ -203,48 +204,49 @@ methods. It is essentially a wrapper around \code{\link[=prcomp]{prcomp()}} and 
 provide a coherent interface and object for both methods.
 
 A 'pcomp' object is created. It inherits from 'pca' (as in \strong{labdsv}
-package, but not compatible with the 'pca' object of package \strong{ade4}) and of
+package, but not compatible with the version of 'pca' in \strong{ade4}) and of
 'princomp'.
 
-For more information on calculation done, refer to \code{\link[=prcomp]{prcomp()}} for
+For more information on algorithms, refer to \code{\link[=prcomp]{prcomp()}} for
 \code{method = "svd"} or \code{\link[=princomp]{princomp()}} for \code{method = "eigen"}.
 }
 \note{
-The signs of the columns of the loadings and scores are arbitrary, and
-so may differ between functions for PCA, and even between different builds of
-\R.
+The signs of the columns for the loadings and scores are arbitrary. So,
+they could differ between functions for PCA, and even between different
+builds of \R.
 }
 \examples{
-# We will analyze mtcars without the Mercedes data (rows 8:14)
+# Let's analyze mtcars without the Mercedes data (rows 8:14)
 data(mtcars)
-cars.pca <- pcomp(~ mpg + cyl + disp + hp + drat + wt + qsec, data = mtcars,
-  subset = -(8:14))
+cars.pca <- pcomp(~ mpg + cyl + disp + hp + drat + wt + qsec,
+  data = mtcars, subset = -(8:14))
 cars.pca
 summary(cars.pca)
 screeplot(cars.pca)
 
-# Loadings are extracted and plotted like this
+# Loadings are extracted and plotted this way:
 (cars.ldg <- loadings(cars.pca))
 plot(cars.pca, which = "loadings") # Equivalent to vectorplot(cars.ldg)
 
-# Similarly, correlations of variables with PCs are extracted and plotted
+# Similarly, correlations of variables with PCs are extracted and plotted:
 (cars.cor <- Correlation(cars.pca))
 plot(cars.pca, which = "correlations") # Equivalent to vectorplot(cars.cor)
 # One can add supplementary variables on this graph
 lines(Correlation(cars.pca,
   newvars = mtcars[-(8:14), c("vs", "am", "gear", "carb")]))
 
-# Plot the scores
+# Plot the scores:
 plot(cars.pca, which = "scores", cex = 0.8) # Similar to plot(scores(x)[, 1:2])
 # Add supplementary individuals to this plot (labels), also points() or lines()
-text(predict(cars.pca, newdata = mtcars[8:14, ]), col = "gray", cex = 0.8)
+text(predict(cars.pca, newdata = mtcars[8:14, ]),
+  labels = rownames(mtcars[8:14, ]), col = "gray", cex = 0.8)
 
 # Pairs plot for 3 PCs
 iris.pca <- pcomp(iris[, -5])
 pairs(iris.pca, col = (2:4)[iris$Species])
 }
 \seealso{
-\code{\link[=vectorplot]{vectorplot()}}, \code{\link[=prcomp]{prcomp()}}, \code{\link[=princomp]{princomp()}}, \code{\link[=loadings]{loadings()}},
+\code{\link[=prcomp]{prcomp()}}, \code{\link[=princomp]{princomp()}}, \code{\link[=loadings]{loadings()}}, \code{\link[=vectorplot]{vectorplot()}},
 \code{\link[=Correlation]{Correlation()}}
 }
 \author{

@@ -1,7 +1,6 @@
-#' More panel plots.
+#' More panel plots
 #'
-#' Several panel plots that can be used with functions like [coplot()] and
-#' [pairs))].
+#' Several panel plots that can be used with [coplot()] and [pairs()].
 #'
 #' @param x A numeric vector.
 #' @param y A numeric vector of same length as `x`.
@@ -38,7 +37,7 @@
 #' @param stars.col The color used for significance stars (with: *** p < 0.001,
 #' ** p < 0.1, * p < 0.05, . p < 0.1.
 #' @param col.smooth Color to be used by lines for drawing the smooths.
-#' @param span Smoothing parameter f for [lowess()], see there.
+#' @param span Smoothing parameter `f` for [lowess()], see there.
 #' @param iter Number of robustness iterations for [lowess()].
 #' @param ... Further arguments to plot functions.
 #' @return These functions return nothing and are used for their side effect of

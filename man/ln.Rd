@@ -3,41 +3,55 @@
 \docType{data}
 \name{ln}
 \alias{ln}
-\alias{ln1p}
 \alias{lg}
+\alias{lb}
+\alias{ln1p}
 \alias{lg1p}
 \alias{E}
-\alias{lb}
-\title{Logarithms.}
+\title{Logarithms and exponentials}
 \format{An object of class \code{numeric} of length 1.}
 \usage{
 ln(x)
 
-ln1p()
+lg(x)
 
-lg()
+lb(x)
+
+ln1p(x)
 
 lg1p(x)
 
 E
-
-lb()
 }
 \arguments{
 \item{x}{A numeric or complex vector.}
 }
 \description{
-To avoid confusion using the default \code{log()} function, which is natural
-logarithm, but spells out like base 10 logarithm in the mind of some
-beginneRs, we define \code{ln()} and \code{ln1p()} as wrappers for \code{log()`` with default}base = exp(1)\code{argument and for}log1p()\code{, respectively. For similar reasons,}lg()\code{is a wrapper of}log10()\code{(there is no possible confusion here, but 'lg' is another common notation for base 10 logarithm).}lg1p()\code{is a convenient way to use the optimized code to calculate the logarithm of x + 1, but returning the result in base 10 logarithm.}E\code{is the Euler constant and is provided for convenience as}exp(1)\code{. Finally}lb()\code{is a synonym of}log2()`.
+\code{ln()} computes natural logarithm, \code{lg()} computes base 10 logarithm, and
+\code{lb()} computes binary (base 2) logarithm.
+
+\code{ln1p()} and \code{lg1p()} computes \code{ln(x + 1)} and \code{lg(x + 1)} accurately also
+for \code{|x| << 1}.
+
+\code{E} is the Euler constant and is equal to \code{exp(1)}.
+}
+\details{
+Those functions are synonyms of \code{log()}, \code{log10()}, \code{log2()},
+\code{log1p()} for those who prefer the shorter notation. BeginneRs sometimes
+make confusion between \code{log()} and \code{log10()}. Using \code{ln()} for natural
+logarithms instead of \code{log()} eliminates this confusion. \code{E} is provided for
+convenience as \code{exp(1)}, although the use of \code{exp()} is usually familar
+enough to everyone.
 }
 \examples{
 ln(exp(3))              # Same as log(exp(3))
-ln1p(c(0, 1, 10, 100))  # Wrapper for log1p()
 lg(10^3)                # Same as log10(10^3)
-lg1p(c(0, 1, 10, 100))  # log10(x + 1), but optimized for x << 1
-E^4                     # Similar to exp(4), but different calculation!
 lb(1:3)                 # Wrapper for log2()
+
+ln1p(c(0, 1, 10, 100))  # Wrapper for log1p()
+lg1p(c(0, 1, 10, 100))  # log10(x + 1), but optimized for x << 1
+
+E^4                     # Similar to exp(4), but different calculation!
 }
 \seealso{
 \code{\link[=log]{log()}}

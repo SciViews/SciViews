@@ -10,7 +10,7 @@
 \alias{ryg.colors}
 \alias{cwm_colors}
 \alias{cwm.colors}
-\title{Various color palettes.}
+\title{Various color palettes}
 \usage{
 rwb_colors(n, alpha = 1, s = 0.9, v = 0.9)
 
@@ -31,24 +31,21 @@ cwm.colors(n, alpha = 1, s = 0.9, v = 0.9)
 \arguments{
 \item{n}{The number of colors (>= 1) to be in the palette.}
 
-\item{alpha}{The alpha transparency, a number in [0, 1], see argument
-\code{alpha =} in [hsv()].
-
-[0, 1]: R:0,%201%5C
-[hsv()]: R:hsv()}
+\item{alpha}{The alpha transparency, a number in \code{[0, 1]}, see argument
+\code{alpha} in \code{\link[=hsv]{hsv()}}.}
 
 \item{s}{The 'saturation' to be used to complete the HSV color descriptions.}
 
 \item{v}{The 'value' to use for the HSV color descriptions.}
 }
 \description{
-Create vectors of \code{n} contiguous colors.
+Create vectors of \code{n} colors.
 }
 \details{
 \code{cwm_colors(s = 0.5, v = 1)} gives very similar colors to
 \code{cm.colors()}.
 \code{ryg_colors()} is similar to \code{rainbow(start = 0, end = 2/6)}.
-The \code{xxx_colors()} (tidyverse name-compatible) and `xxx.colors()``
+The \code{xxx_colors()} (tidyverse name-compatible) and \code{xxx.colors()}
 (grDevices name-compatible) functions are synonyms.
 }
 \examples{

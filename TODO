@@ -1,5 +1,7 @@
 # SciViews To Do list
 
+* The vignette does not seem to be installed?!
+
 * file_head()
 
 * attrNames() or attr_names() like slotNames()

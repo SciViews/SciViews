@@ -9,7 +9,7 @@
 \alias{panel_cor}
 \alias{panel.cor}
 \alias{panel_smooth}
-\title{More panel plots.}
+\title{More panel plots}
 \usage{
 panel_reg(x, y, col = par("col"), bg = par("bg"), pch = par("pch"),
   cex = par("cex"), lwd = par("lwd"), line.reg = lm, line.col = "red",
@@ -99,7 +99,7 @@ coefficients.}
 
 \item{col.smooth}{Color to be used by lines for drawing the smooths.}
 
-\item{span}{Smoothing parameter f for \code{\link[=lowess]{lowess()}}, see there.}
+\item{span}{Smoothing parameter \code{f} for \code{\link[=lowess]{lowess()}}, see there.}
 
 \item{iter}{Number of robustness iterations for \code{\link[=lowess]{lowess()}}.}
 }
@@ -108,10 +108,7 @@ These functions return nothing and are used for their side effect of
 plotting in panels of composite plots.
 }
 \description{
-Several panel plots that can be used with functions like \code{\link[=coplot]{coplot()}} and
-[pairs))].
-
-[pairs))]: R:pairs))
+Several panel plots that can be used with \code{\link[=coplot]{coplot()}} and \code{\link[=pairs]{pairs()}}.
 }
 \details{
 Theses functions should be used outside of the diagonal in

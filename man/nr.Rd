@@ -6,8 +6,8 @@
 \alias{nc}
 \alias{ROWS}
 \alias{COLS}
-\title{Convenience functions for rows or columns manipulations.}
-\format{An object of class \code{numeric} of length 1.}
+\title{Convenience functions for rows or columns manipulations}
+\format{An object of class \code{integer} of length 1.}
 \usage{
 nr(x)
 
@@ -21,23 +21,28 @@ COLS
 \item{x}{Any object.}
 }
 \description{
-\code{nr()} and \code{nc()} are synonyms of the ugly \code{NROW()} or \code{NCOL()} that still
-provide a result, even if \code{dim} attribute of the object is not set, on the
-contrary to \code{nrow()}or \code{ncol()}. \code{ROWS} and \code{COLS} are constants that makes
-call to \code{apply()} more expressive.
+\code{nr()} and \code{nc()} are synonyms of the ugly \code{NROW()} or \code{NCOL()}
+that get the number of row and columns in a matrix or data frame, but also in
+a vector (they return a value even if the \code{dim} attribute of the object is
+not set, on the contrary to \code{nrow()}or \code{ncol()}).
+
+\code{ROWS} and \code{COLS} are constants that makes call to \code{apply()} more expressive.
+\code{ROWS = 1L} and \code{COLS = 2L}.
 }
 \examples{
 mm <- matrix(1:6, nrow = 3)
 nr(mm)
 nc(mm)
+
 vv <- 1:6
 nr(vv)
 nc(vv)
+
 # ROWS and COLS constants used with apply()
 apply(mm, ROWS, mean) # Idem apply(mm, 1, mean)
 apply(mm, COLS, mean) # Idem apply(mm, 2, mean)
 }
 \seealso{
-\code{\link[=NROW]{NROW()}}
+\code{\link[=nrow]{nrow()}}
 }
 \keyword{datasets}

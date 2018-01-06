@@ -14,7 +14,7 @@
 \alias{print.summary.Correlation}
 \alias{plot.Correlation}
 \alias{lines.Correlation}
-\title{Correlation matrices.}
+\title{Correlation matrices}
 \usage{
 correlation(x, ...)
 
@@ -51,24 +51,24 @@ as.correlation(x)
 }
 \arguments{
 \item{x}{A numeric vector, matrix or data frame (or any object for
-\code{is.Correlation()}, \code{as.Correlation()}.}
+\code{is.Correlation()} or \code{as.Correlation()}).}
 
 \item{...}{Further arguments passed to functions.}
 
 \item{formula}{A formula with no response variable, referring only to numeric
 variables.}
 
-\item{data}{An optional data frame (or similar: see \code{\link[=model.frame]{model.frame()}})
-containing the variables in the formula \code{formula}. By default the variables
+\item{data}{An optional data frame (or similar, see \code{\link[=model.frame]{model.frame()}})
+containing the variables in the formula. By default the variables
 are taken from \code{environment(formula)}.}
 
 \item{subset}{An optional vector used to select rows (observations) of the
 data matrix \code{x}.}
 
 \item{na.action}{A function which indicates what should happen when the data
-contain \code{NA}s. The default is set by the \code{na.action =} setting of \code{options()}
-and \code{na.fail()} is used if that is not set. The 'factory-fresh' default is
-\code{na.omit()}.}
+contain \code{NA}s. The default is set by the \code{na.action} setting of \code{options()}
+and \code{\link[=na.fail]{na.fail()}} is used if that is not set. The 'factory-fresh' default is
+\code{\link[=na.omit]{na.omit()}}.}
 
 \item{y}{\code{NULL} (default), or a vector, matrix or data frame with compatible
 dimensions to \code{x} for \code{Correlation()}. The default is equivalent to \code{x = y},
@@ -102,7 +102,7 @@ negative equivalents are automatically computed for the graph. Do not include
 \item{palette}{A function that can produce a palette of colors.}
 
 \item{col}{Color of the ellipse. If \code{NULL} (default), the colors will be
-computed using \code{cutpoints =} and \code{palette =}.}
+computed using \code{cutpoints} and \code{palette}.}
 
 \item{numbers}{Do we print correlation values in the center of the ellipses?}
 
@@ -115,7 +115,7 @@ of one.}
 
 \item{cex}{The expansion factor for text.}
 
-\item{choices}{The items to select}
+\item{choices}{The items to select.}
 
 \item{lty}{The line type to draw.}
 
@@ -123,24 +123,24 @@ of one.}
 
 \item{pos}{The position relative to arrows.}
 
-\item{labels}{The label to draw nead arrows.}
+\item{labels}{The label to draw near the arrows.}
 }
 \value{
-\code{Correlation()} and \code{as.Correlation()`` create a 'Correlation' object, while}is.Correlation()`` tests for it.
+\code{Correlation()} and \code{as.Correlation()} create a 'Correlation'
+object, while \code{is.Correlation()} tests for it.
 
 There are \code{print()} and \code{summary()} methods for the 'Correlation' object
-that differ in the symbolic encoding of the correlations in \code{summary()},
-using5 symnum()], which makes large correlation matrices more readable.
+that differ in the symbolic encoding of the correlations,
+(using \code{\link[=symnum]{symnum()}} for \code{summary()}), which makes large correlation matrices
+more readable.
 
-The method \code{plot()} returns nothing, but it draws ellipses on a graph that
-represent the correlation matrix visually. This is essentially the
-\code{\link[=plotcorr]{plotcorr()}} function from package \strong{ellipse}, with slightly different
-default arguments and with default \code{cutpoints} equivalent to those used in
-the \code{summary()} method.
+The \code{plot()} method draws ellipses on a graph to represent the correlation
+matrix visually. This is essentially the \code{\link[=plotcorr]{plotcorr()}} function from package
+\strong{ellipse}, with slightly different default arguments and with default
+\code{cutpoints} equivalent to those used in the \code{summary()} method.
 }
 \description{
-Compute the correlation matrix between two variables, or more (between all
-columns of a matrix or data frame).
+Compute the correlation matrix between all columns of a matrix or data frame.
 }
 \examples{
 # This is a simple correlation coefficient
@@ -166,11 +166,11 @@ mtcars.cor2["mpg", "cyl"] # Extract a correlation from the correlation matrix
 }
 \seealso{
 \code{\link[=cov]{cov()}}, \code{\link[=cov2cor]{cov2cor()}}, \code{\link[=cov.wt]{cov.wt()}}, \code{\link[=symnum]{symnum()}}, \code{\link[=plotcorr]{plotcorr()}} and look
-at \code{\link[=panel_cor]{panel_cor()}}
+also at \code{\link[=panel_cor]{panel_cor()}}
 }
 \author{
 Philippe Grosjean \href{mailto:phgrosjean@sciviews.org}{phgrosjean@sciviews.org}, wrapping code in package
-ellipse, function \code{\link[=plotcorr]{plotcorr()}} for the \code{plot.Correlation()} method.
+\strong{ellipse}, function \code{\link[=plotcorr]{plotcorr()}} for the \code{plot.Correlation()} method.
 }
 \concept{
 correlation matrix and plot

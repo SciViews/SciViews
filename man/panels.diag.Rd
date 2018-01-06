@@ -10,7 +10,7 @@
 \alias{panel.hist}
 \alias{panel_qqnorm}
 \alias{panel.qqnorm}
-\title{More univariate panel plots.}
+\title{More univariate panel plots}
 \usage{
 panel_boxplot(x, col = par("col"), box.col = "cornsilk", ...)
 
@@ -57,7 +57,7 @@ items, like \code{\link[=density]{density()}}, depending on the context.}
 \item{line.lwd}{The width of the line.}
 
 \item{breaks}{The number of breaks, the name of a break algorithm, a vector
-of breakpoints, or any other acceptable value for \code{breaks =} argument of
+of breakpoints, or any other acceptable value for \code{breaks} argument of
 \code{\link[=hist]{hist()}}.}
 
 \item{hist.col}{The filling color for the histograms.}
@@ -97,19 +97,23 @@ Several panel plots that can be used with \code{\link[=pairs]{pairs()}}.
 \details{
 Panel functions \code{\link[=panel_boxplot]{panel_boxplot()}}, \code{\link[=panel_density]{panel_density()}}, \code{\link[=panel_hist]{panel_hist()}}
 and \code{\link[=panel_qqnorm]{panel_qqnorm()}} should be used only to plot univariate data on the
-diagonals of pair plots (or scatterplot matrix).
+diagonals of \code{\link[=pairs]{pairs()}} plots (or scatterplot matrix).
 }
 \examples{
 # Example of scatterplot matrices with custom plots on the diagonal
+
 # Boxplots
 pairs(trees, panel = panel_smooth, diag.panel = panel_boxplot)
 pairs(trees, diag.panel = panel_boxplot, box.col = "gray")
+
 # Densities
 pairs(trees, panel = panel_smooth, diag.panel = panel_density)
 pairs(trees, diag.panel = panel_density, line.col = "red", adjust = 0.5)
+
 # Histograms
 pairs(trees, panel = panel_smooth, diag.panel = panel_hist)
 pairs(trees, diag.panel = panel_hist, hist.col = "gray", breaks = "Scott")
+
 # QQ-plots against Normal theoretical distribution
 pairs(trees, panel = panel_smooth, diag.panel = panel_qqnorm)
 pairs(trees, diag.panel = panel_qqnorm, qqline.col = 2, qq.cex = .5, qq.pch = 3)

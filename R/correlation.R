@@ -1,21 +1,20 @@
-#' Correlation matrices.
+#' Correlation matrices
 #'
-#' Compute the correlation matrix between two variables, or more (between all
-#' columns of a matrix or data frame).
+#' Compute the correlation matrix between all columns of a matrix or data frame.
 #'
 #' @param x A numeric vector, matrix or data frame (or any object for
-#' `is.Correlation()`, `as.Correlation()`.
+#' `is.Correlation()` or `as.Correlation()`).
 #' @param formula A formula with no response variable, referring only to numeric
 #' variables.
-#' @param data An optional data frame (or similar: see [model.frame()])
-#' containing the variables in the formula `formula`. By default the variables
+#' @param data An optional data frame (or similar, see [model.frame()])
+#' containing the variables in the formula. By default the variables
 #' are taken from `environment(formula)`.
 #' @param subset An optional vector used to select rows (observations) of the
 #' data matrix `x`.
 #' @param na.action A function which indicates what should happen when the data
-#' contain `NA`s. The default is set by the `na.action =` setting of `options()`
-#' and `na.fail()` is used if that is not set. The 'factory-fresh' default is
-#' `na.omit()`.
+#' contain `NA`s. The default is set by the `na.action` setting of `options()`
+#' and [na.fail()] is used if that is not set. The 'factory-fresh' default is
+#' [na.omit()].
 #' @param method A character string indicating which correlation coefficient is
 #' to be computed. One of `"pearson"` (default), `"kendall"`, or `"spearman"`,
 #' can be abbreviated.
@@ -38,36 +37,36 @@
 #' @param outline Do we draw the outline of the ellipse?
 #' @param palette A function that can produce a palette of colors.
 #' @param col Color of the ellipse. If `NULL` (default), the colors will be
-#' computed using `cutpoints =` and `palette =`.
+#' computed using `cutpoints` and `palette`.
 #' @param numbers Do we print correlation values in the center of the ellipses?
 #' @param type Do we plot a complete matrix, or only lower or upper triangle?
 #' @param diag Do we plot items on the diagonal? They have always a correlation
 #' of one.
 #' @param cex.lab The expansion factor for labels.
 #' @param cex The expansion factor for text.
-#' @param choices The items to select
+#' @param choices The items to select.
 #' @param lty The line type to draw.
 #' @param ar.length The length of the arrow head.
 #' @param pos The position relative to arrows.
-#' @param labels The label to draw nead arrows.
+#' @param labels The label to draw near the arrows.
 #' @param ... Further arguments passed to functions.
-#' @return `Correlation()` and `as.Correlation()`` create a 'Correlation'
-#' object, while `is.Correlation()`` tests for it.
+#' @return `Correlation()` and `as.Correlation()` create a 'Correlation'
+#' object, while `is.Correlation()` tests for it.
 #'
 #' There are `print()` and `summary()` methods for the 'Correlation' object
-#' that differ in the symbolic encoding of the correlations in `summary()`,
-#' using5 symnum()], which makes large correlation matrices more readable.
+#' that differ in the symbolic encoding of the correlations,
+#' (using [symnum()] for `summary()`), which makes large correlation matrices
+#' more readable.
 #'
-#' The method `plot()` returns nothing, but it draws ellipses on a graph that
-#' represent the correlation matrix visually. This is essentially the
-#' [plotcorr()] function from package **ellipse**, with slightly different
-#' default arguments and with default `cutpoints` equivalent to those used in
-#' the `summary()` method.
+#' The `plot()` method draws ellipses on a graph to represent the correlation
+#' matrix visually. This is essentially the [plotcorr()] function from package
+#' **ellipse**, with slightly different default arguments and with default
+#' `cutpoints` equivalent to those used in the `summary()` method.
 #' @author Philippe Grosjean <phgrosjean@sciviews.org>, wrapping code in package
-#' ellipse, function [plotcorr()] for the `plot.Correlation()` method.
+#' **ellipse**, function [plotcorr()] for the `plot.Correlation()` method.
 #' @export
 #' @seealso [cov()], [cov2cor()], [cov.wt()], [symnum()], [plotcorr()] and look
-#' at [panel_cor()]
+#' also at [panel_cor()]
 #' @keywords distribution
 #' @concept correlation matrix and plot
 #' @examples

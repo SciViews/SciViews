@@ -2,19 +2,21 @@
 % Please edit documentation in R/misc.R
 \name{timing}
 \alias{timing}
-\title{Timing of R expressions.}
+\title{Timing of R expressions}
 \usage{
 timing(expr, gc.first = TRUE)
 }
 \arguments{
 \item{expr}{Valid \R expression to be timed. If missing, \code{\link[=proc.time]{proc.time()}} is
-used instead.}
+used instead and the function returns the time the currently runnig \R
+process has already taken.}
 
 \item{gc.first}{Logical - should a garbage collection be performed immediately
 before the timing? Default is \code{TRUE}.}
 }
 \description{
-Similar to \code{system.time()} but returns a more convenient 'difftime' object.
+Similar to \code{system.time()} but returns a more convenient 'difftime' object
+with the overall timing (details are stored in the \code{details} attribute).
 }
 \examples{
 test <- timing(Sys.sleep(0.5))
@@ -22,5 +24,5 @@ test
 attr(test, "details")
 }
 \seealso{
-\code{\link[=system.time]{system.time()}}
+\code{\link[=system.time]{system.time()}}, \code{\link[=proc.time]{proc.time()}}
 }

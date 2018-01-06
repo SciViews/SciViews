@@ -1,7 +1,8 @@
-#' Enumerate items in an object.
+#' Enumerate items in an object
 #'
-#' `enum()` is creating a vector of integers to enumarate items in an object. It
-#' is particularly useful in the `for(i in enum(object))` construct.
+#' `enum()` creates a vector of integers from 1 to length of the object (it
+#' enumerates items in the object), except if the object is empty. It is
+#' particularly useful in the `for(i in enum(object))` construct.
 #'
 #' @param x Any object.
 #' @note The pattern `for(i in 1:length(object))` is often found, but it fails
@@ -19,23 +20,29 @@
 #' for (i in enum(letters5)) cat("letter", i, "=", letters5[i], "\n")
 enum <- function(x) seq_along(x)
 
-#' Convenience functions for rows or columns manipulations.
+
+#' Convenience functions for rows or columns manipulations
 #'
-#' `nr()` and `nc()` are synonyms of the ugly `NROW()` or `NCOL()` that still
-#' provide a result, even if `dim` attribute of the object is not set, on the
-#' contrary to `nrow()`or `ncol()`. `ROWS` and `COLS` are constants that makes
-#' call to `apply()` more expressive.
+#' @description `nr()` and `nc()` are synonyms of the ugly `NROW()` or `NCOL()`
+#' that get the number of row and columns in a matrix or data frame, but also in
+#' a vector (they return a value even if the `dim` attribute of the object is
+#' not set, on the contrary to `nrow()`or `ncol()`).
+#'
+#' `ROWS` and `COLS` are constants that makes call to `apply()` more expressive.
+#' `ROWS = 1L` and `COLS = 2L`.
 #'
 #' @param x Any object.
 #' @export
-#' @seealso [NROW()]
+#' @seealso [nrow()]
 #' @examples
 #' mm <- matrix(1:6, nrow = 3)
 #' nr(mm)
 #' nc(mm)
+#'
 #' vv <- 1:6
 #' nr(vv)
 #' nc(vv)
+#'
 #' # ROWS and COLS constants used with apply()
 #' apply(mm, ROWS, mean) # Idem apply(mm, 1, mean)
 #' apply(mm, COLS, mean) # Idem apply(mm, 2, mean)
@@ -47,22 +54,25 @@ nc <- NCOL
 
 #' @export
 #' @rdname nr
-ROWS <- 1
+ROWS <- 1L
 
 #' @export
 #' @rdname nr
-COLS <- 2
+COLS <- 2L
 
-#' Timing of R expressions.
+
+#' Timing of R expressions
 #'
-#' Similar to `system.time()` but returns a more convenient 'difftime' object.
+#' Similar to `system.time()` but returns a more convenient 'difftime' object
+#' with the overall timing (details are stored in the `details` attribute).
 #'
 #' @param expr Valid \R expression to be timed. If missing, [proc.time()] is
-#' used instead.
+#' used instead and the function returns the time the currently runnig \R
+#' process has already taken.
 #' @param gc.first Logical - should a garbage collection be performed immediately
 #' before the timing? Default is `TRUE`.
 #' @export
-#' @seealso [system.time()]
+#' @seealso [system.time()], [proc.time()]
 #' @examples
 #' test <- timing(Sys.sleep(0.5))
 #' test

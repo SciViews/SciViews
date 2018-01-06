@@ -1,4 +1,4 @@
-#' More univariate panel plots.
+#' More univariate panel plots
 #'
 #' Several panel plots that can be used with [pairs()].
 #'
@@ -11,7 +11,7 @@
 #' @param line.col The color of the line.
 #' @param line.lwd The width of the line.
 #' @param breaks The number of breaks, the name of a break algorithm, a vector
-#' of breakpoints, or any other acceptable value for `breaks =` argument of
+#' of breakpoints, or any other acceptable value for `breaks` argument of
 #' [hist()].
 #' @param hist.col The filling color for the histograms.
 #' @param hist.border The border color for the histograms.
@@ -33,7 +33,7 @@
 #' plotting in panels of composite plots.
 #' @details Panel functions [panel_boxplot()], [panel_density()], [panel_hist()]
 #' and [panel_qqnorm()] should be used only to plot univariate data on the
-#' diagonals of pair plots (or scatterplot matrix).
+#' diagonals of [pairs()] plots (or scatterplot matrix).
 #' @author Philippe Grosjean <phgrosjean@sciviews.org>, but code inspired from
 #' `spm()` in package **car**.
 #' @export
@@ -43,15 +43,19 @@
 #' @concept panel plots
 #' @examples
 #' # Example of scatterplot matrices with custom plots on the diagonal
+#'
 #' # Boxplots
 #' pairs(trees, panel = panel_smooth, diag.panel = panel_boxplot)
 #' pairs(trees, diag.panel = panel_boxplot, box.col = "gray")
+#'
 #' # Densities
 #' pairs(trees, panel = panel_smooth, diag.panel = panel_density)
 #' pairs(trees, diag.panel = panel_density, line.col = "red", adjust = 0.5)
+#'
 #' # Histograms
 #' pairs(trees, panel = panel_smooth, diag.panel = panel_hist)
 #' pairs(trees, diag.panel = panel_hist, hist.col = "gray", breaks = "Scott")
+#'
 #' # QQ-plots against Normal theoretical distribution
 #' pairs(trees, panel = panel_smooth, diag.panel = panel_qqnorm)
 #' pairs(trees, diag.panel = panel_qqnorm, qqline.col = 2, qq.cex = .5, qq.pch = 3)

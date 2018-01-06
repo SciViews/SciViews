@@ -1,16 +1,16 @@
-#' Various color palettes.
+#' Various color palettes
 #'
-#' Create vectors of `n` contiguous colors.
+#' Create vectors of `n` colors.
 #'
 #' @param n The number of colors (>= 1) to be in the palette.
-#' @param alpha The alpha transparency, a number in \[0, 1\], see argument
-#' `alpha =` in [hsv()].
+#' @param alpha The alpha transparency, a number in `[0, 1]`, see argument
+#' `alpha` in [hsv()].
 #' @param s The 'saturation' to be used to complete the HSV color descriptions.
 #' @param v The 'value' to use for the HSV color descriptions.
 #' @details `cwm_colors(s = 0.5, v = 1)` gives very similar colors to
 #' `cm.colors()`.
 #' `ryg_colors()` is similar to `rainbow(start = 0, end = 2/6)`.
-#' The `xxx_colors()` (tidyverse name-compatible) and `xxx.colors()``
+#' The `xxx_colors()` (tidyverse name-compatible) and `xxx.colors()`
 #' (grDevices name-compatible) functions are synonyms.
 #' @export
 #' @name colors
