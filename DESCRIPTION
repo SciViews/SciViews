@@ -2,8 +2,12 @@ Package: SciViews
 Type: Package
 Version: 0.9-14
 Date: 2018-01-05
-Title: SciViews - Main package
-Description: Functions to install SciViews additions to R, and more tools.
+Title: Streamline Data Process and Visualization with the SciViews::R Dialect
+Description: The SciViews::R dialect provides a set of functions that
+  streamlines data input, process, analysis and visualization especially, but
+  not exclusively, for beginneRs or occasional useRs. It mixes base R and
+  tidyverse, plus another set of CRAN packages towards an easy and coherent user
+  interface.
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org"))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
@@ -11,7 +15,9 @@ Depends: R (>= 2.6.0)
 Imports: ellipse, grDevices, graphics, stats
 Suggests: MASS, covr, knitr, testthat
 Enhances: base
+Encoding: UTF-8
 ByteCompile: yes
+LazyData: true
 License: GPL-2
 URL: https://github.com/SciViews/SciViews, http://www.sciviews.org/SciViews-R
 BugReports: https://github.com/SciViews/SciViews/issues
