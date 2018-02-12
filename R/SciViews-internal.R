@@ -38,6 +38,29 @@
   }
 }
 
+.getTemp <- function(x, default = NULL, mode = "any", item = NULL) {
+  if (is.null(item)) Mode <- mode else Mode <- "any"
+
+  t_env <- .TempEnv_()
+  if  (exists(x, envir = t_env, mode = Mode, inherits = FALSE)) {
+    dat <- get(x, envir = t_env, mode = Mode, inherits = FALSE)
+    if (is.null(item)) {
+      return(dat)
+    } else {
+      item <- as.character(item)[1]
+      if (inherits(dat, "list") && item %in% names(dat)) {
+        dat <- dat[[item]]
+        if (mode != "any" && mode(dat) != mode) dat <- default
+        return(dat)
+      } else {
+        return(default)
+      }
+    }
+  } else {# Variable not found, return the default value
+    default
+  }
+}
+
 # A copy of the unexported stats:::.check_vars_numeric
 .check_vars_numeric <- function(mf) {
   mt <- attr(mf, "terms")
