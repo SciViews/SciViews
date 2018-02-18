@@ -178,3 +178,17 @@ packages_versions <- function(pkgs = NULL, strip.last = 0, filter = TRUE) {
 
   invisible()
 }
+
+# Functions we need to import:
+# is.null -> is_null
+# inherits -> `%is%`
+# env(), child_env() and new_environment() are too slow in rlang but should replace new.env()
+# is_function <- is.function
+# is_primitive <- is.primitive
+# do_call <- do.call # Note: rlang uses invoke(), but 100x slower!
+# as_chr <- as.character # Note that as_character() and as_string() do something else in rlang!
+# wrapr::qc() is quoting-concatenating function, see qc(a, b, c)!
+#is_chr <- is.character
+#is_env <- is.environment
+#stop_if_not <- stopifnot
+#capture_output <- capture.output

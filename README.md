@@ -60,4 +60,7 @@ For further instructions, please, refer to these help pages.
 
 ## Note to developers
 
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+
 This package used to be developed on R-Forge in the past. However, the latest [R-Forge version](https://r-forge.r-project.org/projects/sciviews/) was moved to this Github repository on 2018-01-05 (SVN version 569). **Please, do not use R-Forge anymore for SciViews development, use this Github repository instead.**
