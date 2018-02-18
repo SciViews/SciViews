@@ -1,5 +1,11 @@
 # SciViews News
 
+## SciViews version 1.0-0
+
+* `SciViews::R` is the instruction to use to load all required packages to
+  install a complete SciViews::R dialect (R base + tidyverse + ...).
+
+
 ## SciViews version 0.9-14
 
 * Better definition of `lg()`, `lb()` and `ln1p()`.

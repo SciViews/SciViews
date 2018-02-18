@@ -1,7 +1,7 @@
 Package: SciViews
 Type: Package
-Version: 0.9-14
-Date: 2018-01-05
+Version: 1.0-0
+Date: 2018-02-12
 Title: Streamline Data Process and Visualization with the SciViews::R Dialect
 Description: The SciViews::R dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
@@ -12,7 +12,7 @@ Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org"))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends: R (>= 2.6.0)
-Imports: ellipse, grDevices, graphics, stats
+Imports: ellipse, grDevices, graphics, stats, svMisc, tidyverse, cli, crayon, rstudioapi
 Suggests: MASS, covr, knitr, testthat
 Enhances: base
 Encoding: UTF-8

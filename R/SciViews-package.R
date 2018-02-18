@@ -6,6 +6,8 @@
 #'
 #' @section Important functions:
 #'
+#'- [SciViews::R()] for loading the SciViews::R packages,
+#'
 #' - [pcomp()] for a PCA analysis (unifying various methods),
 #'
 #' - [correlation()] to calculate and plot a correlation matrix,
@@ -31,4 +33,10 @@
 #' @import graphics
 #' @importFrom grDevices colorRampPalette chull hsv rainbow
 #' @importFrom ellipse ellipse plotcorr
+#' @import cli
+#' @import crayon
+#' @import rstudioapi
+#'
+#' @import svMisc
+#' @import tidyverse
 NULL

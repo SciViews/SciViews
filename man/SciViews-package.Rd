@@ -12,6 +12,7 @@ and tidyverse packages.
 \section{Important functions}{
 
 \itemize{
+\item \code{\link[SciViews:R]{SciViews::R()}} for loading the SciViews::R packages,
 \item \code{\link[=pcomp]{pcomp()}} for a PCA analysis (unifying various methods),
 \item \code{\link[=correlation]{correlation()}} to calculate and plot a correlation matrix,
 \item \code{\link[=panel_reg]{panel_reg()}} and others to plot panels in \code{pairs} or \code{coplot} graphs,
