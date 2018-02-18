@@ -1,5 +1,10 @@
 # SciViews News
 
+## SciViews version 1.0-1
+
+* **flow** is now part of the packages automatically loaded by `SciViews::R`.
+
+
 ## SciViews version 1.0-0
 
 * `SciViews::R` is the instruction to use to load all required packages to

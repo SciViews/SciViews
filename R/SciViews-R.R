@@ -22,7 +22,7 @@
 #' SciViews::R
 #' }
 R <- structure(function(..., silent = FALSE) {
-  pkgs <- c('MASS', 'tidyverse', 'svMisc', 'SciViews')
+  pkgs <- c('MASS', 'tidyverse', 'svMisc', 'flow', 'SciViews')
 
   # TODO: deal with further arguments to configure specialized sub-systems
 

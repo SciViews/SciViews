@@ -37,6 +37,7 @@
 #' @import crayon
 #' @import rstudioapi
 #'
-#' @import svMisc
 #' @import tidyverse
+#' @import svMisc
+#' @import flow
 NULL

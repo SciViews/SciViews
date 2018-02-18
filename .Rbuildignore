@@ -3,6 +3,7 @@
 .git
 .git/*
 README.md
+CONDUCT.md
 NEWS.md
 FAQ.md
 Makefile
