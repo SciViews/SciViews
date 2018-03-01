@@ -1,8 +1,9 @@
 # SciViews News
 
-## SciViews version 1.0-1
+## SciViews version 1.0.1
 
-* **flow** is now part of the packages automatically loaded by `SciViews::R`.
+* **flow**, **chart**, and **data** are now part of the packages automatically
+  loaded by `SciViews::R`.
 
 
 ## SciViews version 1.0-0
