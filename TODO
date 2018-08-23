@@ -1,5 +1,9 @@
 # SciViews To Do list
 
+* SciViews::R: no fancy characters?
+
+* na.omit() -> na_omit() and co + complete_cases().
+
 * Plot functions issue warnings for unknown arguments
 
 * The vignette does not seem to be installed?!
