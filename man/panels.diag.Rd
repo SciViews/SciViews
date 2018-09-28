@@ -30,11 +30,13 @@ panel.hist(x, breaks = "Sturges", hist.col = "cornsilk",
 
 panel_qqnorm(x, pch = par("pch"), col = par("col"), bg = par("bg"),
   cex = par("cex"), lwd = par("lwd"), qq.pch = pch, qq.col = col,
-  qq.bg = bg, qq.cex = cex, qqline.col = qq.col, qqline.lwd = lwd, ...)
+  qq.bg = bg, qq.cex = cex, qqline.col = qq.col, qqline.lwd = lwd,
+  ...)
 
 panel.qqnorm(x, pch = par("pch"), col = par("col"), bg = par("bg"),
   cex = par("cex"), lwd = par("lwd"), qq.pch = pch, qq.col = col,
-  qq.bg = bg, qq.cex = cex, qqline.col = qq.col, qqline.lwd = lwd, ...)
+  qq.bg = bg, qq.cex = cex, qqline.col = qq.col, qqline.lwd = lwd,
+  ...)
 }
 \arguments{
 \item{x}{A numeric vector.}
@@ -125,7 +127,5 @@ pairs(trees, diag.panel = panel_qqnorm, qqline.col = 2, qq.cex = .5, qq.pch = 3)
 Philippe Grosjean \href{mailto:phgrosjean@sciviews.org}{phgrosjean@sciviews.org}, but code inspired from
 \code{spm()} in package \strong{car}.
 }
-\concept{
-panel plots
-}
+\concept{panel plots}
 \keyword{aplot}

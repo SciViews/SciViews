@@ -90,6 +90,16 @@ timing <- function(expr, gc.first = TRUE) {
   res
 }
 
+#' Insert semicolon.
+#'
+#' Call this function as an addin to insert \code{:} at the cursor position.
+#' This addin can be assigned to the `:` key in order to get rid of a bug in
+#' RStudio server under chromium, which sometimes inserts `/` in place of `:`.
+#'
+#' @export
+insertSemicolonAddin <- function() {
+  rstudioapi::insertText(":")
+}
 
 # To do later... ----------------------------------------------------------
 

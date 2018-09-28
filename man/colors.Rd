@@ -60,7 +60,5 @@ par(opar)
 \seealso{
 \code{\link[=cm.colors]{cm.colors()}}, \code{\link[=colorRampPalette]{colorRampPalette()}}
 }
-\concept{
-color palettes
-}
+\concept{color palettes}
 \keyword{color}

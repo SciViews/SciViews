@@ -56,8 +56,6 @@ E^4                     # Similar to exp(4), but different calculation!
 \seealso{
 \code{\link[=log]{log()}}
 }
-\concept{
-logarithms and exponentials
-}
+\concept{logarithms and exponentials}
 \keyword{datasets}
 \keyword{math}

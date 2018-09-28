@@ -12,31 +12,33 @@
 \title{More panel plots}
 \usage{
 panel_reg(x, y, col = par("col"), bg = par("bg"), pch = par("pch"),
-  cex = par("cex"), lwd = par("lwd"), line.reg = lm, line.col = "red",
-  line.lwd = lwd, untf = TRUE, ...)
+  cex = par("cex"), lwd = par("lwd"), line.reg = lm,
+  line.col = "red", line.lwd = lwd, untf = TRUE, ...)
 
 panel.reg(x, y, col = par("col"), bg = par("bg"), pch = par("pch"),
-  cex = par("cex"), lwd = par("lwd"), line.reg = lm, line.col = "red",
-  line.lwd = lwd, untf = TRUE, ...)
+  cex = par("cex"), lwd = par("lwd"), line.reg = lm,
+  line.col = "red", line.lwd = lwd, untf = TRUE, ...)
 
-panel_ellipse(x, y, col = par("col"), bg = par("bg"), pch = par("pch"),
-  cex = par("cex"), el.level = 0.7, el.col = "cornsilk",
-  el.border = "red", major = TRUE, ...)
+panel_ellipse(x, y, col = par("col"), bg = par("bg"),
+  pch = par("pch"), cex = par("cex"), el.level = 0.7,
+  el.col = "cornsilk", el.border = "red", major = TRUE, ...)
 
-panel.ellipse(x, y, col = par("col"), bg = par("bg"), pch = par("pch"),
-  cex = par("cex"), el.level = 0.7, el.col = "cornsilk",
-  el.border = "red", major = TRUE, ...)
+panel.ellipse(x, y, col = par("col"), bg = par("bg"),
+  pch = par("pch"), cex = par("cex"), el.level = 0.7,
+  el.col = "cornsilk", el.border = "red", major = TRUE, ...)
 
 panel_cor(x, y, use = "everything", method = c("pearson", "kendall",
-  "spearman"), alternative = c("two.sided", "less", "greater"), digits = 2,
-  prefix = "", cex = par("cex"), cor.cex = cex, stars.col = "red", ...)
+  "spearman"), alternative = c("two.sided", "less", "greater"),
+  digits = 2, prefix = "", cex = par("cex"), cor.cex = cex,
+  stars.col = "red", ...)
 
 panel.cor(x, y, use = "everything", method = c("pearson", "kendall",
-  "spearman"), alternative = c("two.sided", "less", "greater"), digits = 2,
-  prefix = "", cex = par("cex"), cor.cex = cex, stars.col = "red", ...)
+  "spearman"), alternative = c("two.sided", "less", "greater"),
+  digits = 2, prefix = "", cex = par("cex"), cor.cex = cex,
+  stars.col = "red", ...)
 
-panel_smooth(x, y, col = par("col"), bg = NA, pch = par("pch"), cex = 1,
-  col.smooth = "red", span = 2/3, iter = 3, ...)
+panel_smooth(x, y, col = par("col"), bg = NA, pch = par("pch"),
+  cex = 1, col.smooth = "red", span = 2/3, iter = 3, ...)
 }
 \arguments{
 \item{x}{A numeric vector.}
@@ -152,7 +154,5 @@ coplot(Petal.Length ~ Sepal.Length | Species, data = iris,
 Philippe Grosjean \href{mailto:phgrosjean@sciviews.org}{phgrosjean@sciviews.org}, but code inspired from
 \code{\link[=panel.smooth]{panel.smooth()}} in \strong{graphics} and \code{panel.car()} in package \strong{car}.
 }
-\concept{
-panel plots
-}
+\concept{panel plots}
 \keyword{aplot}

@@ -9,16 +9,19 @@
 \usage{
 vectorplot(x, ...)
 
-\method{vectorplot}{default}(x, y, col = par("col"), circle.col = "gray",
-  ar.length = 0.1, pos = NULL, cex = par("cex"), labels = NULL, ...)
+\method{vectorplot}{default}(x, y, col = par("col"),
+  circle.col = "gray", ar.length = 0.1, pos = NULL,
+  cex = par("cex"), labels = NULL, ...)
 
 \method{vectorplot}{loadings}(x, choices = 1L:2L, col = par("col"),
-  circle.col = "gray", ar.length = 0.1, pos = NULL, cex = par("cex"),
-  labels = rownames(x), main = deparse(substitute(x)), ...)
+  circle.col = "gray", ar.length = 0.1, pos = NULL,
+  cex = par("cex"), labels = rownames(x),
+  main = deparse(substitute(x)), ...)
 
 \method{vectorplot}{Correlation}(x, choices = 1L:2L, col = par("col"),
-  circle.col = "gray", ar.length = 0.1, pos = NULL, cex = par("cex"),
-  labels = rownames(x), main = deparse(substitute(x)), ...)
+  circle.col = "gray", ar.length = 0.1, pos = NULL,
+  cex = par("cex"), labels = rownames(x),
+  main = deparse(substitute(x)), ...)
 }
 \arguments{
 \item{x}{An object that has a \code{\link[=vectorplot]{vectorplot()}} method, like 'loadings'
@@ -65,7 +68,5 @@ vectorplot(Correlation(iris.pca))
 \seealso{
 \code{\link[=pcomp]{pcomp()}}, \code{\link[=loadings]{loadings()}}, \code{\link[=Correlation]{Correlation()}}
 }
-\concept{
-Vector and circular plot
-}
+\concept{Vector and circular plot}
 \keyword{aplot}
