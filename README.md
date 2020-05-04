@@ -1,11 +1,11 @@
 # SciViews - Main package
 
-[![Linux & OSX Build Status](https://travis-ci.org/SciViews/SciViews.svg )](https://travis-ci.org/SciViews/SciViews)
-[![Win Build Status](https://ci.appveyor.com/api/projects/status/github/SciViews/SciViews?branch=master&svg=true)](http://ci.appveyor.com/project/phgrosjean/SciViews)
+[![Linux & OSX Build Status](https://travis-ci.com/SciViews/SciViews.svg )](https://travis-ci.com/SciViews/SciViews)
+[![Win Build Status](https://ci.appveyor.com/api/projects/status/github/SciViews/SciViews?branch=master&svg=true)](https://ci.appveyor.com/project/phgrosjean/SciViews)
 [![Coverage Status](https://img.shields.io/codecov/c/github/SciViews/SciViews/master.svg)
 ](https://codecov.io/github/SciViews/SciViews?branch=master)
-[![CRAN Status](http://www.r-pkg.org/badges/version/SciViews)](http://cran.r-project.org/package=SciViews)
-[![License](https://img.shields.io/badge/license-GPL-blue.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![CRAN Status](https://www.r-pkg.org/badges/version/SciViews)](https://cran.r-project.org/package=SciViews)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 
 
 ## Installation
