@@ -7,7 +7,11 @@
 \alias{ROWS}
 \alias{COLS}
 \title{Convenience functions for rows or columns manipulations}
-\format{An object of class \code{integer} of length 1.}
+\format{
+An object of class \code{integer} of length 1.
+
+An object of class \code{integer} of length 1.
+}
 \usage{
 nr(x)
 

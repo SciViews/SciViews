@@ -1,4 +1,4 @@
-.onLoad <- function(lib, pkg) { # nocov start
+.onLoad <- function(lib, pkg) {# nocov start
   # If corresponding options are not defined yet, specify them to FALSE
   # by default, but make them explicitly available in options()
   if (!length(getOption("warnAssignWithEqualSign")))
@@ -17,7 +17,7 @@
 
 .packageName <- "SciViews" # nocov
 
-# Code borrowed from svMisc, to avoid a dependency!
+# Code copied from svMisc, to avoid a dependency!
 .TempEnv_ <- function() {
   srch <- search()
   pos <-  match("SciViews:TempEnv", srch)
@@ -30,7 +30,7 @@
 	pos.to.env(pos)
 }
 
-.assignTemp <- function(x, value, replace.existing = TRUE) {
+.assign_temp <- function(x, value, replace.existing = TRUE) {
   TempEnv <- .TempEnv_()
   if (isTRUE(replace.existing) || !exists(x, envir = TempEnv, mode = "any",
     inherits = FALSE)) {
@@ -38,7 +38,7 @@
   }
 }
 
-.getTemp <- function(x, default = NULL, mode = "any", item = NULL) {
+.get_temp <- function(x, default = NULL, mode = "any", item = NULL) {
   if (is.null(item)) Mode <- mode else Mode <- "any"
 
   t_env <- .TempEnv_()

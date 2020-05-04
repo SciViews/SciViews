@@ -1,27 +1,45 @@
 Package: SciViews
 Type: Package
-Version: 1.1.0
-Date: 2018-08-17
-Title: Streamline Data Process and Visualization with the SciViews::R Dialect
-Description: The SciViews::R dialect provides a set of functions that
+Version: 1.1.1
+Date: 2020-05-04
+Title: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dialect
+Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
-  not exclusively, for beginneRs or occasional useRs. It mixes base R and
+  not exclusively, for beginners or occasional users. It mixes base R and
   tidyverse, plus another set of CRAN packages towards an easy and coherent user
   interface.
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
-  email = "phgrosjean@sciviews.org"))
+  email = "phgrosjean@sciviews.org",
+  comment = c(ORCID = "0000-0002-2694-9471")))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends: R (>= 2.6.0)
-Imports: ellipse, grDevices, graphics, stats, svMisc, data.io, flow, chart, tidyverse, cli, crayon, rstudioapi
-Suggests: MASS, covr, knitr, testthat
+Imports: ellipse,
+         grDevices,
+         graphics,
+         stats,
+         svMisc,
+         data.io,
+         flow,
+         chart,
+         tidyverse,
+         cli,
+         crayon,
+         rstudioapi
+Suggests: 
+    MASS,
+    covr,
+    knitr,
+    testthat,
+    spelling
 Remotes: SciViews/data.io, SciViews/flow, SciViews/chart, SciViews/svMisc
 Enhances: base
-Encoding: UTF-8
 ByteCompile: yes
-LazyData: true
+LazyData: yes
 License: GPL-2
-URL: https://github.com/SciViews/SciViews, http://www.sciviews.org/SciViews-R
+URL: https://github.com/SciViews/SciViews, http://www.sciviews.org/SciViews/
 BugReports: https://github.com/SciViews/SciViews/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0
+RoxygenNote: 7.1.0
 VignetteBuilder: knitr
+Encoding: UTF-8
+Language: en-US

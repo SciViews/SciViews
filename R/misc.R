@@ -67,7 +67,7 @@ COLS <- 2L
 #' with the overall timing (details are stored in the `details` attribute).
 #'
 #' @param expr Valid \R expression to be timed. If missing, [proc.time()] is
-#' used instead and the function returns the time the currently runnig \R
+#' used instead and the function returns the time the currently running \R
 #' process has already taken.
 #' @param gc.first Logical - should a garbage collection be performed immediately
 #' before the timing? Default is `TRUE`.

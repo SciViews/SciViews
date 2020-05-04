@@ -2,26 +2,46 @@
 % Please edit documentation in R/SciViews-package.R
 \docType{package}
 \name{SciViews-package}
+\alias{SciViews}
 \alias{SciViews-package}
-\title{SciViews - Main package}
+\title{SciViews: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dialect}
 \description{
-The SciViews package provides various functions to install the \code{SciViews::R}
-dialect. It also provides additional function to supplement base, recommended
-and tidyverse packages.
+The 'SciViews::R' dialect provides a set of functions that
+  streamlines data input, process, analysis and visualization especially, but
+  not exclusively, for beginners or occasional users. It mixes base R and
+  tidyverse, plus another set of CRAN packages towards an easy and coherent user
+  interface.
+}
+\details{
+The \code{Sciviews::R} dialect is base R + tidyverse + a series of additional SciViews packages like 'data.io', 'flow' or 'chart'.
 }
 \section{Important functions}{
 
 \itemize{
-\item \code{\link[SciViews:R]{SciViews::R()}} for loading the SciViews::R packages,
+\item \code{\link[SciViews:R]{SciViews::R()}} for loading the `SciViews::R`` packages,
 \item \code{\link[=pcomp]{pcomp()}} for a PCA analysis (unifying various methods),
 \item \code{\link[=correlation]{correlation()}} to calculate and plot a correlation matrix,
 \item \code{\link[=panel_reg]{panel_reg()}} and others to plot panels in \code{pairs} or \code{coplot} graphs,
 \item \code{\link[=panel_boxplot]{panel_boxplot()}} and others for univariate panels in \code{pairs} plots.
 \item \code{\link[=rwb_colors]{rwb_colors()}} and others to generate color palettes.
 \item \code{\link[=enum]{enum()}} to enumerate items in a vector,
-\item \code{\link[=timing]{timing()}} to determine the time riquired to run an R expression,
-\item \code{\link[=nr]{nr()}} and co as convenient shorthands to columns and rows,
+\item \code{\link[=timing]{timing()}} to determine the time required to run an R expression,
+\item \code{\link[=nr]{nr()}} and co as convenient shorthand to columns and rows,
 \item \code{\link[=ln]{ln()}} and others for natural logarithm.
 }
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/SciViews/SciViews}
+  \item \url{http://www.sciviews.org/SciViews/}
+  \item Report bugs at \url{https://github.com/SciViews/SciViews/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Philippe Grosjean \email{phgrosjean@sciviews.org} (\href{https://orcid.org/0000-0002-2694-9471}{ORCID})
+
+}
+\keyword{internal}

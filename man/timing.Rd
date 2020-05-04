@@ -8,7 +8,7 @@ timing(expr, gc.first = TRUE)
 }
 \arguments{
 \item{expr}{Valid \R expression to be timed. If missing, \code{\link[=proc.time]{proc.time()}} is
-used instead and the function returns the time the currently runnig \R
+used instead and the function returns the time the currently running \R
 process has already taken.}
 
 \item{gc.first}{Logical - should a garbage collection be performed immediately

@@ -1,4 +1,4 @@
-citHeader("To cite SciViews-R in publications use:")
+citHeader("To cite SciViews-R in publications, please use:")
 
 citEntry(entry="Manual",
          title = "SciViews-R",
@@ -6,13 +6,13 @@ citEntry(entry="Manual",
          organization = "UMONS",
          address      = "MONS, Belgium",
          year         = version$year,
-         url          = "http://www.sciviews.org/SciViews-R",
+         url          = "https://www.sciviews.org/SciViews-R",
 
          textVersion =
          paste("Grosjean, Ph. (", version$year, "). ",
                "SciViews-R. ",
                "UMONS, Mons, Belgium. ",
-               "URL http://www.sciviews.org/SciViews-R.",
+               "URL https://www.sciviews.org/SciViews-R.",
                sep = "")
          )
 

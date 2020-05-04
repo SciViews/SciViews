@@ -1,12 +1,9 @@
-#' SciViews - Main package
-#'
-#' The SciViews package provides various functions to install the `SciViews::R`
-#' dialect. It also provides additional function to supplement base, recommended
-#' and tidyverse packages.
-#'
+#' @details
+#' The `Sciviews::R` dialect is base R + tidyverse + a series of additional SciViews packages like 'data.io', 'flow' or 'chart'.
+
 #' @section Important functions:
 #'
-#'- [SciViews::R()] for loading the SciViews::R packages,
+#'- [SciViews::R()] for loading the `SciViews::R`` packages,
 #'
 #' - [pcomp()] for a PCA analysis (unifying various methods),
 #'
@@ -20,15 +17,15 @@
 #'
 #' - [enum()] to enumerate items in a vector,
 #'
-#' - [timing()] to determine the time riquired to run an R expression,
+#' - [timing()] to determine the time required to run an R expression,
 #'
-#' - [nr()] and co as convenient shorthands to columns and rows,
+#' - [nr()] and co as convenient shorthand to columns and rows,
 #'
 #' - [ln()] and others for natural logarithm.
 #'
-#' @docType package
-#' @name SciViews-package
-#'
+#' @keywords internal
+"_PACKAGE"
+
 #' @import stats
 #' @import graphics
 #' @importFrom grDevices colorRampPalette chull hsv rainbow
@@ -40,4 +37,8 @@
 #' @import tidyverse
 #' @import svMisc
 #' @import flow
+# The following block is used by usethis to automatically manage
+# roxygen namespace tags. Modify with care!
+## usethis namespace: start
+## usethis namespace: end
 NULL

@@ -1,157 +1,101 @@
-# SciViews News
+# SciViews 1.1.1
 
-## SciViews version 1.1.0
+- `panel_smooth()` is reworked to avoid a bug in the documentation. It still calls `graphics::panel.smooth()` internally.
 
-* **flow**, **chart**, and **data.io** are now part of the packages automatically
-  loaded by `SciViews::R`.
+- A 'pkgdown' web site is added.
 
+# SciViews 1.1.0
 
-## SciViews version 1.0-0
+- 'flow', 'chart', and 'data.io' are now part of the packages automatically loaded by `SciViews::R`.
 
-* `SciViews::R` is the instruction to use to load all required packages to
-  install a complete SciViews::R dialect (R base + tidyverse + ...).
+# SciViews 1.0-0
 
+- `SciViews::R` is the instruction to use to load all required packages to install a complete SciViews::R dialect (R base + tidyverse + ...).
 
-## SciViews version 0.9-14
+# SciViews 0.9-14
 
-* Better definition of `lg()`, `lb()` and `ln1p()`.
+- Better definition of `lg()`, `lb()` and `ln1p()`.
 
+# SciViews 0.9-13
 
-## SciViews version 0.9-13
+- 'correlation' objects are now 'Correlation' to avoid clash with 'correlation' objects from 'nlme' package.
 
-* 'correlation' objects are now 'Correlation' to avoid clash with 'correlation'
-  objects from **nlme** package.
+- Doc rewritten in Roxygen2 and R Markdown (keeping only pca vignette). More strict `importFrom()` in particular from 'ellipse' package.
 
-* Doc rewritten in Roxygen2 and R Markdown (keeping only pca vignette). More
-  strict `importFrom()` in particular from **ellipse** package.
+- Elimination of files.R, character.R & graphics.R (experimental code that never reached CRAN).
 
-* Elimination of files.R, character.R & graphics.R (experimental code that never
-  reached CRAN).
+- Code rewritten to match tidyverse style guide. Functions that are not snake case like `rwb.colors()` or `panel.hist()` now are seconded by they equivalent `rwb_colors()` or `panel_hist()`.
 
-* Code reritten to comply with tidyverse style guide. Functions that are not
-  snake case like `rwb.colors()` or `panel.hist()` now are seconded by they
-  equivalent `rwb_colors()` or `panel_hist()`.
+# SciViews 0.9-12
 
+- Switch from R-Forge to Github https://github.com/SciViews/SciViews. CI added.
 
-## SciViews version 0.9-12
+# SciViews 0.9-12
 
-* Switch from R-Forge to Github https://github.com/SciViews/SciViews. CI added.
+- `p()` is renamed `p0()` to avoid a clash with `p()` in the 'ascii' package.
 
+- `rx` objects are renamed `regex` and `perl` objects are renamed `pcre`.
 
-## SciViews version 0.9-12
+- `fileSymlink()` is renamed `fileSymLink()` for correct camel case support.
 
-* `p()` is renamed `p0()` to avoid a clash with `p()` in the ascii package.
+# SciViews 0.9-11
 
-* `rx` objects are renamed `regex` and `perl` objects are renamed `pcre`.
+- `path` object is renamed `filePath` to avoid a clash with a path object in 'grid' package. Related function `path()`, `is.path()`, `as.path()` are renamed accordingly `filePath()`, `is.filePath()` and `as.filePath()`. The `print()` method is also adapted.
 
-* `fileSymlink()` is renamed `fileSymLink()` for correct camel case support.
+- `warnAssignWithEqualSign`, `warnPartialMatchArgs`, `warnPartialMatchAttr` and `warnPartialMatchDollar` in `options()` are now initialized to `FALSE` if they are not defined yet there.
 
+# SciViews 0.9-10
 
-## SciViews version 0.9-11
+- Import from `data.table` is eliminated. For now, `@:=` is the same as `@<-`.
 
-* `path` object is renamed `filePath` to avoid a clash with a path object in
-  grid package. Related function `path()`, `is.path()`, `as.path()` are renamed
-  accordingly `filePath()`, `is.filePath()` and `as.filePath()`. The `print()`
-  method is also adapted.
-  
-* `warnAssignWithEqualSign`, `warnPartialMatchArgs`, `warnPartialMatchAttr` and
-  `warnPartialMatchDollar` in `options()` are now initialized to `FALSE` if they
-  are not defined yet there.
+- Temporary objects are now saved in `SciViews:TempEnv` instead of `TempEnv`.
 
+# SciViews 0.9-9
 
-## SciViews version 0.9-10
+- Improvements to activate warnings regarding possible R traps: if `warnPartialMatchArgs`, `warnPartialMatchAttr`, or `warnPartialMatchDollar` options are not defined yet, they are set to `TRUE` when the packages loads.
 
-* Import from `data.table` is eliminated. For now, `@:=` is the same as `@<-`.
+- For a similar purpose, we would like to avoid using `=` in place of `<-` for assignation. So, the `=` function is redefined to display a warning when it is used and when `warnAssignWithEqualSign` option is set to `TRUE` (by default). The warning message also suggests it may be `==` erroneously written `=`.
 
-* Temporary objects are now saved in `SciViews:TempEnv` instead of `TempEnv`.
+- Many functions are added with more coherent names for graphics.
 
+# SciViews 0.9-8
 
-## SciViews version 0.9-9
+- Several changes in character.R.
 
-* Improvements to activate warnings regarding possible R traps: if
-  `warnPartialMatchArgs`, `warnPartialMatchAttr`, or `warnPartialMatchDollar`
-  options are not defined yet, they are set to `TRUE` when the packages loads.
-  
-* For a similar purpose, we would like to avoid using `=` in place of `<-` for
-  assignation. So, the `=` function is redefined to display a warning when it
-  is used and when `warnAssignWithEqualSign` option is set to `TRUE` (by
-  default). The warning message also suggests it may be `==` erroneously written
-  `=`.
+- Added the `rwg.colors()` function.
 
-* Many functions are added with more coherent names for graphics.
+# SciViews 0.9-7
 
+- Small corrections in man pages.
 
-## SciViews version 0.9-8
+- Partial argument matching for `all(.names)` in `names()`. Fixed.
 
-* Several changes in character.R.
+# SciViews 0.9-6
 
-* Added the `rwg.colors()` function.
+- Added further (misc) functions.
 
+- New syntax using `x@attr` for attributes, plus `:=` for replacement by reference inspired from `data.table` package, which SciViews now imports too.
 
-## SciViews version 0.9-7
+# SciViews 0.9-5
 
-* Small corrections in man pages.
+- Added functions to homogenize function names for strings and files manipulations.
 
-* Partial argument matching for `all(.names)` in `names()`. Fixed.
+# SciViews 0.9-4
 
+- The gamma argument in `hsv()` function disappears in R 2.14.0. As a consequence, the same gamma argument is dropped from `rwb.colors()`, `ryg.colors()` and `cwm.colors()`.
 
-## SciViews version 0.9-6
+# SciViews 0.9-3
 
-* Added further (misc) functions.
+- A bug in `svd.pca()` subfunction of `pcomp.default()` was corrected.
 
-* New syntax using `x@attr` for attributes, plus `:=` for replacement by
-  reference inspired from `data.table` package, which Sciviews now imports too.
+# SciViews 0.9-2
 
+- Slight style refactoring of R code and man pages.
 
-## SciViews version 0.9-5
+# SciViews 0.9-1
 
-* Added functions to homogenize function names for strings and files
-  manipulations.
-  
+- Added `lb()` function as a synonym of `log2()`.
 
-## SciViews version 0.9-4
+# SciViews 0.9-0
 
-* The gamma argument in `hsv()` function disappears in R 2.14.0. As a
-  consequence, the same gamma argument is dropped from `rwb.colors()`,
-  `ryg.colors()` and `cwm.colors()`.
-
-
-## SciViews version 0.9-3
-
-* A bug in `svd.pca()` subfunction of `pcomp.default()` was corrected.
-
-
-## SciViews version 0.9-2
-
-* Slight style refactoring of R code and man pages.
-
-
-## SciViews version 0.9-1
-
-* Added `lb()` function as a synonym of `log2()`.
-
-
-## SciViews version 0.9-0
-
-This is the first version on R-forge. There used to be a SciViews **bundle**
-that contained `svMisc`, `svSocket`, `svGUI`, ..., but bundles are obsolete now.
-The new `SciViews` package plays a similar role as the bundle, i.e., it is a
-convenient way to install all SciViews-R packages with one instruction:
-
-```
-install.packages("SciViews", dependencies = TRUE).
-```
-
-It now plays also other roles:
-
-1. to load all SciViews requirements with a single instruction:
-    
-    ```
-    library(SciViews)
-    ```
-
-2. To make sure to reconfigure the socket server properly (that is, with the
-same configuration as latest one),
-
-3. To provides a series of R functions that ease learning of R through the use
-of the R reference toolbox in Komodo Edit.
+- This is the first version on R-forge. There used to be a SciViews **bundle** that contained 'svMisc', 'svSocket', 'svGUI', ..., but bundles are obsolete now. The new 'SciViews' package plays a similar role as the bundle.

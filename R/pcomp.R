@@ -73,7 +73,7 @@
 #' @param type The type of screeplot (`"barplot"` or `"lines"`) or pairs plot
 #' (`"loadings"` or `"correlations"`).
 #' @param ar.col Color of arrows.
-#' @param ar.cex Expansion factor for terxt on arrows.
+#' @param ar.cex Expansion factor for text on arrows.
 #' @param newdata New individuals with observations for the same variables as
 #' those used for calculating the PCA. You can then plot these additional
 #' individuals in the scores plot.

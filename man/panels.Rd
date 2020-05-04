@@ -11,34 +11,104 @@
 \alias{panel_smooth}
 \title{More panel plots}
 \usage{
-panel_reg(x, y, col = par("col"), bg = par("bg"), pch = par("pch"),
-  cex = par("cex"), lwd = par("lwd"), line.reg = lm,
-  line.col = "red", line.lwd = lwd, untf = TRUE, ...)
+panel_reg(
+  x,
+  y,
+  col = par("col"),
+  bg = par("bg"),
+  pch = par("pch"),
+  cex = par("cex"),
+  lwd = par("lwd"),
+  line.reg = lm,
+  line.col = "red",
+  line.lwd = lwd,
+  untf = TRUE,
+  ...
+)
 
-panel.reg(x, y, col = par("col"), bg = par("bg"), pch = par("pch"),
-  cex = par("cex"), lwd = par("lwd"), line.reg = lm,
-  line.col = "red", line.lwd = lwd, untf = TRUE, ...)
+panel.reg(
+  x,
+  y,
+  col = par("col"),
+  bg = par("bg"),
+  pch = par("pch"),
+  cex = par("cex"),
+  lwd = par("lwd"),
+  line.reg = lm,
+  line.col = "red",
+  line.lwd = lwd,
+  untf = TRUE,
+  ...
+)
 
-panel_ellipse(x, y, col = par("col"), bg = par("bg"),
-  pch = par("pch"), cex = par("cex"), el.level = 0.7,
-  el.col = "cornsilk", el.border = "red", major = TRUE, ...)
+panel_ellipse(
+  x,
+  y,
+  col = par("col"),
+  bg = par("bg"),
+  pch = par("pch"),
+  cex = par("cex"),
+  el.level = 0.7,
+  el.col = "cornsilk",
+  el.border = "red",
+  major = TRUE,
+  ...
+)
 
-panel.ellipse(x, y, col = par("col"), bg = par("bg"),
-  pch = par("pch"), cex = par("cex"), el.level = 0.7,
-  el.col = "cornsilk", el.border = "red", major = TRUE, ...)
+panel.ellipse(
+  x,
+  y,
+  col = par("col"),
+  bg = par("bg"),
+  pch = par("pch"),
+  cex = par("cex"),
+  el.level = 0.7,
+  el.col = "cornsilk",
+  el.border = "red",
+  major = TRUE,
+  ...
+)
 
-panel_cor(x, y, use = "everything", method = c("pearson", "kendall",
-  "spearman"), alternative = c("two.sided", "less", "greater"),
-  digits = 2, prefix = "", cex = par("cex"), cor.cex = cex,
-  stars.col = "red", ...)
+panel_cor(
+  x,
+  y,
+  use = "everything",
+  method = c("pearson", "kendall", "spearman"),
+  alternative = c("two.sided", "less", "greater"),
+  digits = 2,
+  prefix = "",
+  cex = par("cex"),
+  cor.cex = cex,
+  stars.col = "red",
+  ...
+)
 
-panel.cor(x, y, use = "everything", method = c("pearson", "kendall",
-  "spearman"), alternative = c("two.sided", "less", "greater"),
-  digits = 2, prefix = "", cex = par("cex"), cor.cex = cex,
-  stars.col = "red", ...)
+panel.cor(
+  x,
+  y,
+  use = "everything",
+  method = c("pearson", "kendall", "spearman"),
+  alternative = c("two.sided", "less", "greater"),
+  digits = 2,
+  prefix = "",
+  cex = par("cex"),
+  cor.cex = cex,
+  stars.col = "red",
+  ...
+)
 
-panel_smooth(x, y, col = par("col"), bg = NA, pch = par("pch"),
-  cex = 1, col.smooth = "red", span = 2/3, iter = 3, ...)
+panel_smooth(
+  x,
+  y,
+  col = par("col"),
+  bg = NA,
+  pch = par("pch"),
+  cex = 1,
+  col.smooth = 2,
+  span = 2/3,
+  iter = 3,
+  ...
+)
 }
 \arguments{
 \item{x}{A numeric vector.}

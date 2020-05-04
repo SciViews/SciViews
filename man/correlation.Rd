@@ -20,11 +20,15 @@ correlation(x, ...)
 
 Correlation(x, ...)
 
-\method{correlation}{formula}(formula, data = NULL, subset, na.action,
-  ...)
+\method{correlation}{formula}(formula, data = NULL, subset, na.action, ...)
 
-\method{correlation}{default}(x, y = NULL, use = "everything",
-  method = c("pearson", "kendall", "spearman"), ...)
+\method{correlation}{default}(
+  x,
+  y = NULL,
+  use = "everything",
+  method = c("pearson", "kendall", "spearman"),
+  ...
+)
 
 is.Correlation(x)
 
@@ -36,20 +40,42 @@ as.correlation(x)
 
 \method{print}{Correlation}(x, digits = 3, cutoff = 0, ...)
 
-\method{summary}{Correlation}(object, cutpoints = c(0.3, 0.6, 0.8, 0.9,
-  0.95), symbols = c(" ", ".", ",", "+", "*", "B"), ...)
+\method{summary}{Correlation}(
+  object,
+  cutpoints = c(0.3, 0.6, 0.8, 0.9, 0.95),
+  symbols = c(" ", ".", ",", "+", "*", "B"),
+  ...
+)
 
 \method{print}{summary.Correlation}(x, ...)
 
-\method{plot}{Correlation}(x, y = NULL, outline = TRUE,
-  cutpoints = c(0.3, 0.6, 0.8, 0.9, 0.95), palette = rwb.colors,
-  col = NULL, numbers = TRUE, digits = 2, type = c("full", "lower",
-  "upper"), diag = (type == "full"), cex.lab = par("cex.lab"),
-  cex = 0.75 * par("cex"), ...)
+\method{plot}{Correlation}(
+  x,
+  y = NULL,
+  outline = TRUE,
+  cutpoints = c(0.3, 0.6, 0.8, 0.9, 0.95),
+  palette = rwb.colors,
+  col = NULL,
+  numbers = TRUE,
+  digits = 2,
+  type = c("full", "lower", "upper"),
+  diag = (type == "full"),
+  cex.lab = par("cex.lab"),
+  cex = 0.75 * par("cex"),
+  ...
+)
 
-\method{lines}{Correlation}(x, choices = 1L:2L, col = par("col"),
-  lty = 2, ar.length = 0.1, pos = NULL, cex = par("cex"),
-  labels = rownames(x), ...)
+\method{lines}{Correlation}(
+  x,
+  choices = 1L:2L,
+  col = par("col"),
+  lty = 2,
+  ar.length = 0.1,
+  pos = NULL,
+  cex = par("cex"),
+  labels = rownames(x),
+  ...
+)
 }
 \arguments{
 \item{x}{A numeric vector, matrix or data frame (or any object for

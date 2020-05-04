@@ -16,27 +16,79 @@ panel_boxplot(x, col = par("col"), box.col = "cornsilk", ...)
 
 panel.boxplot(x, col = par("col"), box.col = "cornsilk", ...)
 
-panel_density(x, adjust = 1, rug = TRUE, col = par("col"),
-  lwd = par("lwd"), line.col = col, line.lwd = lwd, ...)
+panel_density(
+  x,
+  adjust = 1,
+  rug = TRUE,
+  col = par("col"),
+  lwd = par("lwd"),
+  line.col = col,
+  line.lwd = lwd,
+  ...
+)
 
-panel.density(x, adjust = 1, rug = TRUE, col = par("col"),
-  lwd = par("lwd"), line.col = col, line.lwd = lwd, ...)
+panel.density(
+  x,
+  adjust = 1,
+  rug = TRUE,
+  col = par("col"),
+  lwd = par("lwd"),
+  line.col = col,
+  line.lwd = lwd,
+  ...
+)
 
-panel_hist(x, breaks = "Sturges", hist.col = "cornsilk",
-  hist.border = NULL, hist.density = NULL, hist.angle = 45, ...)
+panel_hist(
+  x,
+  breaks = "Sturges",
+  hist.col = "cornsilk",
+  hist.border = NULL,
+  hist.density = NULL,
+  hist.angle = 45,
+  ...
+)
 
-panel.hist(x, breaks = "Sturges", hist.col = "cornsilk",
-  hist.border = NULL, hist.density = NULL, hist.angle = 45, ...)
+panel.hist(
+  x,
+  breaks = "Sturges",
+  hist.col = "cornsilk",
+  hist.border = NULL,
+  hist.density = NULL,
+  hist.angle = 45,
+  ...
+)
 
-panel_qqnorm(x, pch = par("pch"), col = par("col"), bg = par("bg"),
-  cex = par("cex"), lwd = par("lwd"), qq.pch = pch, qq.col = col,
-  qq.bg = bg, qq.cex = cex, qqline.col = qq.col, qqline.lwd = lwd,
-  ...)
+panel_qqnorm(
+  x,
+  pch = par("pch"),
+  col = par("col"),
+  bg = par("bg"),
+  cex = par("cex"),
+  lwd = par("lwd"),
+  qq.pch = pch,
+  qq.col = col,
+  qq.bg = bg,
+  qq.cex = cex,
+  qqline.col = qq.col,
+  qqline.lwd = lwd,
+  ...
+)
 
-panel.qqnorm(x, pch = par("pch"), col = par("col"), bg = par("bg"),
-  cex = par("cex"), lwd = par("lwd"), qq.pch = pch, qq.col = col,
-  qq.bg = bg, qq.cex = cex, qqline.col = qq.col, qqline.lwd = lwd,
-  ...)
+panel.qqnorm(
+  x,
+  pch = par("pch"),
+  col = par("col"),
+  bg = par("bg"),
+  cex = par("cex"),
+  lwd = par("lwd"),
+  qq.pch = pch,
+  qq.col = col,
+  qq.bg = bg,
+  qq.cex = cex,
+  qqline.col = qq.col,
+  qqline.lwd = lwd,
+  ...
+)
 }
 \arguments{
 \item{x}{A numeric vector.}

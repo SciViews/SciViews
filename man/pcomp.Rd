@@ -22,48 +22,99 @@
 \usage{
 pcomp(x, ...)
 
-\method{pcomp}{formula}(formula, data = NULL, subset, na.action,
-  method = c("svd", "eigen"), ...)
+\method{pcomp}{formula}(formula, data = NULL, subset, na.action, method = c("svd", "eigen"), ...)
 
-\method{pcomp}{default}(x, method = c("svd", "eigen"), scores = TRUE,
-  center = TRUE, scale = TRUE, tol = NULL, covmat = NULL,
-  subset = rep(TRUE, nrow(as.matrix(x))), ...)
+\method{pcomp}{default}(
+  x,
+  method = c("svd", "eigen"),
+  scores = TRUE,
+  center = TRUE,
+  scale = TRUE,
+  tol = NULL,
+  covmat = NULL,
+  subset = rep(TRUE, nrow(as.matrix(x))),
+  ...
+)
 
 \method{print}{pcomp}(x, ...)
 
 \method{summary}{pcomp}(object, loadings = TRUE, cutoff = 0.1, ...)
 
-\method{print}{summary.pcomp}(x, digits = 3,
-  loadings = x$print.loadings, cutoff = x$cutoff, ...)
+\method{print}{summary.pcomp}(x, digits = 3, loadings = x$print.loadings, cutoff = x$cutoff, ...)
 
-\method{plot}{pcomp}(x, which = c("screeplot", "loadings",
-  "correlations", "scores"), choices = 1L:2L, col = par("col"),
-  bar.col = "gray", circle.col = "gray", ar.length = 0.1,
-  pos = NULL, labels = NULL, cex = par("cex"),
-  main = paste(deparse(substitute(x)), which, sep = " - "), xlab, ylab,
-  ...)
+\method{plot}{pcomp}(
+  x,
+  which = c("screeplot", "loadings", "correlations", "scores"),
+  choices = 1L:2L,
+  col = par("col"),
+  bar.col = "gray",
+  circle.col = "gray",
+  ar.length = 0.1,
+  pos = NULL,
+  labels = NULL,
+  cex = par("cex"),
+  main = paste(deparse(substitute(x)), which, sep = " - "),
+  xlab,
+  ylab,
+  ...
+)
 
-\method{screeplot}{pcomp}(x, npcs = min(10, length(x$sdev)),
-  type = c("barplot", "lines"), col = "cornsilk",
-  main = deparse(substitute(x)), ...)
+\method{screeplot}{pcomp}(
+  x,
+  npcs = min(10, length(x$sdev)),
+  type = c("barplot", "lines"),
+  col = "cornsilk",
+  main = deparse(substitute(x)),
+  ...
+)
 
-\method{points}{pcomp}(x, choices = 1L:2L, type = "p",
-  pch = par("pch"), col = par("col"), bg = par("bg"),
-  cex = par("cex"), ...)
+\method{points}{pcomp}(
+  x,
+  choices = 1L:2L,
+  type = "p",
+  pch = par("pch"),
+  col = par("col"),
+  bg = par("bg"),
+  cex = par("cex"),
+  ...
+)
 
-\method{lines}{pcomp}(x, choices = 1L:2L, groups, type = c("p", "e"),
-  col = par("col"), border = par("fg"), level = 0.9, ...)
+\method{lines}{pcomp}(
+  x,
+  choices = 1L:2L,
+  groups,
+  type = c("p", "e"),
+  col = par("col"),
+  border = par("fg"),
+  level = 0.9,
+  ...
+)
 
-\method{text}{pcomp}(x, choices = 1L:2L, labels = NULL,
-  col = par("col"), cex = par("cex"), pos = NULL, ...)
+\method{text}{pcomp}(
+  x,
+  choices = 1L:2L,
+  labels = NULL,
+  col = par("col"),
+  cex = par("cex"),
+  pos = NULL,
+  ...
+)
 
-\method{biplot}{pcomp}(x, choices = 1L:2L, scale = 1,
-  pc.biplot = FALSE, ...)
+\method{biplot}{pcomp}(x, choices = 1L:2L, scale = 1, pc.biplot = FALSE, ...)
 
-\method{pairs}{pcomp}(x, choices = 1L:3L, type = c("loadings",
-  "correlations"), col = par("col"), circle.col = "gray",
-  ar.col = par("col"), ar.length = 0.05, pos = NULL,
-  ar.cex = par("cex"), cex = par("cex"), ...)
+\method{pairs}{pcomp}(
+  x,
+  choices = 1L:3L,
+  type = c("loadings", "correlations"),
+  col = par("col"),
+  circle.col = "gray",
+  ar.col = par("col"),
+  ar.length = 0.05,
+  pos = NULL,
+  ar.cex = par("cex"),
+  cex = par("cex"),
+  ...
+)
 
 \method{predict}{pcomp}(object, newdata, dim = length(object$sdev), ...)
 
@@ -116,7 +167,7 @@ equal the number of columns of \code{x} can be supplied. The value is passed to
 below which components should be omitted. (Components are omitted if their
 standard deviations are less than or equal to \code{tol} times the standard
 deviation of the first component.) With the default null setting, no
-components are omitted. Other settings for \code{tol =} could be \code{tol = 0} or
+components are omitted. Other settings for \verb{tol =} could be \code{tol = 0} or
 \code{tol = sqrt(.Machine$double.eps)}, which would omit essentially constant
 components.}
 
@@ -181,7 +232,7 @@ correlation plots.}
 
 \item{ar.col}{Color of arrows.}
 
-\item{ar.cex}{Expansion factor for terxt on arrows.}
+\item{ar.cex}{Expansion factor for text on arrows.}
 
 \item{newdata}{New individuals with observations for the same variables as
 those used for calculating the PCA. You can then plot these additional

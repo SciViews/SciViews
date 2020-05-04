@@ -156,4 +156,7 @@ panel.cor <- panel_cor # Backward compatibility
 
 #' @export
 #' @rdname panels
-panel_smooth <- panel.smooth
+panel_smooth <- function(x, y, col = par("col"), bg = NA, pch = par("pch"),
+cex = 1, col.smooth = 2, span = 2/3, iter = 3, ...)
+  panel.smooth(x, y, col = col, bg = bg, pch = pch, cex = cex,
+    col.smooth = col.smooth, span = span, iter = iter, ...)

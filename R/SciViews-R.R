@@ -12,7 +12,7 @@
 #' @note Use `SciViews::R` instruction in the beginning of an R script, or in
 #' the setup or first chunk of an R Markdown/Notebook to ensure the SciViews::R
 #' dialect is correctly installed. The report indicating attached packages and
-#' conflicts is largely inspired by the corresponfing `tidyverse` code,
+#' conflicts is largely inspired by the corresponding `tidyverse` code,
 #' written by Hadley Wickham.
 #' @seealso [package()], [Install()]
 #' @keywords utilities
@@ -22,7 +22,8 @@
 #' SciViews::R
 #' }
 R <- structure(function(..., silent = FALSE) {
-  pkgs <- c('MASS', 'lattice', 'tidyverse', 'svMisc', 'data.io', 'flow', 'chart', 'SciViews')
+  pkgs <- c('MASS', 'lattice', 'tidyverse', 'svMisc', 'data.io', 'flow',
+    'chart', 'SciViews')
 
   # TODO: deal with further arguments to configure specialized sub-systems
 
@@ -59,9 +60,9 @@ silent_library <- function(pkg) {
 
   if (inherits(res, "try-error")) {
     # Record the package for easier Install()
-    to_install <- .getTemp('.packages_to_install', default = character(0))
+    to_install <- .get_temp('.packages_to_install', default = character(0))
     to_install <- unique(c(pkg, to_install))
-    .assignTemp('.packages_to_install', to_install, replace.existing = TRUE)
+    .assign_temp('.packages_to_install', to_install, replace.existing = TRUE)
     stop("problem while loading package '", pkg,
       "'; run `Install()` to make sure it is corrently installed!",
       call. = FALSE)
@@ -71,13 +72,11 @@ silent_library <- function(pkg) {
 # This is an unexported function from tidyverse
 text_col <- function(x) {
   # If RStudio not available, messages already printed in black
-  if (!rstudioapi::isAvailable()) {
+  if (!rstudioapi::isAvailable())
     return(x)
-  }
 
-  if (!rstudioapi::hasFun("getThemeInfo")) {
+  if (!rstudioapi::hasFun("getThemeInfo"))
     return(x)
-  }
 
   theme <- rstudioapi::getThemeInfo()
 

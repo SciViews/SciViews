@@ -1,4 +1,4 @@
-#' Logarithms and exponentials
+#' Logarithmic and exponential functions
 #'
 #' @description  `ln()` computes natural logarithm, `lg()` computes base 10 logarithm, and
 #' `lb()` computes binary (base 2) logarithm.
@@ -10,15 +10,15 @@
 #'
 #' @param x A numeric or complex vector.
 #' @details Those functions are synonyms of `log()`, `log10()`, `log2()`,
-#' `log1p()` for those who prefer the shorter notation. BeginneRs sometimes
+#' `log1p()` for those who prefer the shorter notation. Beginners sometimes
 #' make confusion between `log()` and `log10()`. Using `ln()` for natural
 #' logarithms instead of `log()` eliminates this confusion. `E` is provided for
-#' convenience as `exp(1)`, although the use of `exp()` is usually familar
+#' convenience as `exp(1)`, although the use of `exp()` is usually familiar
 #' enough to everyone.
 #' @export
 #' @seealso [log()]
 #' @keywords math
-#' @concept logarithms and exponentials
+#' @concept logarithm and exponential
 #' @examples
 #' ln(exp(3))              # Same as log(exp(3))
 #' lg(10^3)                # Same as log10(10^3)

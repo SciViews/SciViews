@@ -8,8 +8,10 @@
 \alias{ln1p}
 \alias{lg1p}
 \alias{E}
-\title{Logarithms and exponentials}
-\format{An object of class \code{numeric} of length 1.}
+\title{Logarithmic and exponential functions}
+\format{
+An object of class \code{numeric} of length 1.
+}
 \usage{
 ln(x)
 
@@ -31,16 +33,16 @@ E
 \code{lb()} computes binary (base 2) logarithm.
 
 \code{ln1p()} and \code{lg1p()} computes \code{ln(x + 1)} and \code{lg(x + 1)} accurately also
-for \code{|x| << 1}.
+for \verb{|x| << 1}.
 
 \code{E} is the Euler constant and is equal to \code{exp(1)}.
 }
 \details{
 Those functions are synonyms of \code{log()}, \code{log10()}, \code{log2()},
-\code{log1p()} for those who prefer the shorter notation. BeginneRs sometimes
+\code{log1p()} for those who prefer the shorter notation. Beginners sometimes
 make confusion between \code{log()} and \code{log10()}. Using \code{ln()} for natural
 logarithms instead of \code{log()} eliminates this confusion. \code{E} is provided for
-convenience as \code{exp(1)}, although the use of \code{exp()} is usually familar
+convenience as \code{exp(1)}, although the use of \code{exp()} is usually familiar
 enough to everyone.
 }
 \examples{
@@ -56,6 +58,6 @@ E^4                     # Similar to exp(4), but different calculation!
 \seealso{
 \code{\link[=log]{log()}}
 }
-\concept{logarithms and exponentials}
+\concept{logarithm and exponential}
 \keyword{datasets}
 \keyword{math}

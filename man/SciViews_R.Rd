@@ -26,7 +26,7 @@ fully functional \code{SciViews::R} dialect environment.
 Use \code{SciViews::R} instruction in the beginning of an R script, or in
 the setup or first chunk of an R Markdown/Notebook to ensure the SciViews::R
 dialect is correctly installed. The report indicating attached packages and
-conflicts is largely inspired by the corresponfing \code{tidyverse} code,
+conflicts is largely inspired by the corresponding \code{tidyverse} code,
 written by Hadley Wickham.
 }
 \examples{
