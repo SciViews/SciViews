@@ -30,8 +30,8 @@
 #' @import graphics
 #' @importFrom grDevices colorRampPalette chull hsv rainbow
 #' @importFrom ellipse ellipse plotcorr
-#' @import cli
-#' @import crayon
+#' @importFrom crayon num_colors num_ansi_colors white black red blue green bold col_align col_nchar
+#' @importFrom cli rule symbol
 #' @import rstudioapi
 #'
 #' @import tidyverse

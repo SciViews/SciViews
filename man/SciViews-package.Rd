@@ -18,7 +18,7 @@ The \code{Sciviews::R} dialect is base R + tidyverse + a series of additional Sc
 \section{Important functions}{
 
 \itemize{
-\item \code{\link[SciViews:R]{SciViews::R()}} for loading the `SciViews::R`` packages,
+\item \code{\link[=R]{R()}} for loading the `SciViews::R`` packages,
 \item \code{\link[=pcomp]{pcomp()}} for a PCA analysis (unifying various methods),
 \item \code{\link[=correlation]{correlation()}} to calculate and plot a correlation matrix,
 \item \code{\link[=panel_reg]{panel_reg()}} and others to plot panels in \code{pairs} or \code{coplot} graphs,
@@ -35,7 +35,7 @@ The \code{Sciviews::R} dialect is base R + tidyverse + a series of additional Sc
 Useful links:
 \itemize{
   \item \url{https://github.com/SciViews/SciViews}
-  \item \url{http://www.sciviews.org/SciViews/}
+  \item \url{https://www.sciviews.org/SciViews/}
   \item Report bugs at \url{https://github.com/SciViews/SciViews/issues}
 }
 

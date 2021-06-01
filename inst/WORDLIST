@@ -3,6 +3,7 @@ addin
 ade
 appveyor
 Biologiques
+cli
 des
 devtools
 difftime
@@ -23,6 +24,7 @@ pcomp
 phgrosjean
 pkgdown
 princomp
+rmarkdown
 Roxygen
 RStudio
 sciviews

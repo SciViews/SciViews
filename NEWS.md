@@ -1,3 +1,9 @@
+# SciViews 1.1.2
+
+- Restrict {cli} and {crayon} imports to avoid a conflict with `num_ansi_colors()` that is defined in both packages when called from `ansi::num_colors()`.
+
+- {rmarkdown} dependency added to suggests field for the vignettes.
+
 # SciViews 1.1.1
 
 - `panel_smooth()` is reworked to avoid a bug in the documentation. It still calls `graphics::panel.smooth()` internally.
