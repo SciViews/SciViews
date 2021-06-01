@@ -78,9 +78,15 @@ designed to represent variables in principal components space for PCAs." />
   gtag('config', 'UA-462421-8');
 </script>-->
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <!-- preloader start -->
@@ -122,12 +128,6 @@ designed to represent variables in principal components space for PCAs." />
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/SciViews.html">Get started</a>
 </li>
 <li>
@@ -150,14 +150,14 @@ designed to represent variables in principal components space for PCAs." />
 </li>
         <li>
   <a href="https://github.com/SciViews/SciViews/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
       
       <div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.1</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.2</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -182,48 +182,48 @@ designed to represent variables in principal components space for PCAs." />
 designed to represent variables in principal components space for PCAs.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>vectorplot</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>vectorplot</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>vectorplot</span>(
-  <span class='no'>x</span>,
-  <span class='no'>y</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>circle.col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>,
-  <span class='kw'>ar.length</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-  <span class='kw'>pos</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>vectorplot</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  circle.col <span class='op'>=</span> <span class='st'>"gray"</span>,
+  ar.length <span class='op'>=</span> <span class='fl'>0.1</span>,
+  pos <span class='op'>=</span> <span class='cn'>NULL</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  labels <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for loadings</span>
-<span class='fu'>vectorplot</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fl'>1L</span>:<span class='fl'>2L</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>circle.col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>,
-  <span class='kw'>ar.length</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-  <span class='kw'>pos</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>x</span>),
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='no'>x</span>)),
-  <span class='no'>...</span>
-)
+<span class='fu'>vectorplot</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  choices <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>:</span><span class='fl'>2L</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  circle.col <span class='op'>=</span> <span class='st'>"gray"</span>,
+  ar.length <span class='op'>=</span> <span class='fl'>0.1</span>,
+  pos <span class='op'>=</span> <span class='cn'>NULL</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+  main <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for Correlation</span>
-<span class='fu'>vectorplot</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fl'>1L</span>:<span class='fl'>2L</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>circle.col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>,
-  <span class='kw'>ar.length</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-  <span class='kw'>pos</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>x</span>),
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='no'>x</span>)),
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>vectorplot</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  choices <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>:</span><span class='fl'>2L</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  circle.col <span class='op'>=</span> <span class='st'>"gray"</span>,
+  ar.length <span class='op'>=</span> <span class='fl'>0.1</span>,
+  pos <span class='op'>=</span> <span class='cn'>NULL</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+  main <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -286,11 +286,15 @@ their side-effect of drawing a vector plot.</p>
     <div class='dont-index'><p><code><a href='pcomp.html'>pcomp()</a></code>, <code><a href='https://rdrr.io/r/stats/loadings.html'>loadings()</a></code>, <code><a href='correlation.html'>Correlation()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Create a PCA and plot loadings and correlations</span>
-<span class='no'>iris.pca</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='pcomp.html'>pcomp</a></span>(<span class='no'>iris</span>[, -<span class='fl'>5</span>])
-<span class='fu'>vectorplot</span>(<span class='fu'><a href='https://rdrr.io/r/stats/loadings.html'>loadings</a></span>(<span class='no'>iris.pca</span>))</div><div class='img'><img src='vectorplot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>vectorplot</span>(<span class='fu'><a href='correlation.html'>Correlation</a></span>(<span class='no'>iris.pca</span>))</div><div class='img'><img src='vectorplot-2.png' alt='' width='700' height='433' /></div><div class='input'># Note: on screen devices, change aspect ratio of the graph by resizing
-# the window to reveal cropped labels...
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># Create a PCA and plot loadings and correlations</span></span>
+<span class='r-in'><span class='va'>iris.pca</span> <span class='op'>&lt;-</span> <span class='fu'><a href='pcomp.html'>pcomp</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>, <span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>vectorplot</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/loadings.html'>loadings</a></span><span class='op'>(</span><span class='va'>iris.pca</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='vectorplot-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'>vectorplot</span><span class='op'>(</span><span class='fu'><a href='correlation.html'>Correlation</a></span><span class='op'>(</span><span class='va'>iris.pca</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='vectorplot-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='co'># Note: on screen devices, change aspect ratio of the graph by resizing</span></span>
+<span class='r-in'><span class='co'># the window to reveal cropped labels...</span></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -434,6 +438,8 @@ their side-effect of drawing a vector plot.</p>
 
   
 
+
+  
 
   </body>
 </html>

@@ -77,9 +77,15 @@
   gtag('config', 'UA-462421-8');
 </script>-->
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <!-- preloader start -->
@@ -121,12 +127,6 @@
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/SciViews.html">Get started</a>
 </li>
 <li>
@@ -149,14 +149,14 @@
 </li>
         <li>
   <a href="https://github.com/SciViews/SciViews/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
       
       <div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.1</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.2</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -180,104 +180,104 @@
     <p>Several panel plots that can be used with <code><a href='https://rdrr.io/r/graphics/coplot.html'>coplot()</a></code> and <code><a href='https://rdrr.io/r/graphics/pairs.html'>pairs()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>panel_reg</span>(
-  <span class='no'>x</span>,
-  <span class='no'>y</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"bg"</span>),
-  <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"pch"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"lwd"</span>),
-  <span class='kw'>line.reg</span> <span class='kw'>=</span> <span class='no'>lm</span>,
-  <span class='kw'>line.col</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-  <span class='kw'>line.lwd</span> <span class='kw'>=</span> <span class='no'>lwd</span>,
-  <span class='kw'>untf</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>panel_reg</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  bg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"bg"</span><span class='op'>)</span>,
+  pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"pch"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  lwd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"lwd"</span><span class='op'>)</span>,
+  line.reg <span class='op'>=</span> <span class='va'>lm</span>,
+  line.col <span class='op'>=</span> <span class='st'>"red"</span>,
+  line.lwd <span class='op'>=</span> <span class='va'>lwd</span>,
+  untf <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel.reg</span>(
-  <span class='no'>x</span>,
-  <span class='no'>y</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"bg"</span>),
-  <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"pch"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"lwd"</span>),
-  <span class='kw'>line.reg</span> <span class='kw'>=</span> <span class='no'>lm</span>,
-  <span class='kw'>line.col</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-  <span class='kw'>line.lwd</span> <span class='kw'>=</span> <span class='no'>lwd</span>,
-  <span class='kw'>untf</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel.reg</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  bg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"bg"</span><span class='op'>)</span>,
+  pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"pch"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  lwd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"lwd"</span><span class='op'>)</span>,
+  line.reg <span class='op'>=</span> <span class='va'>lm</span>,
+  line.col <span class='op'>=</span> <span class='st'>"red"</span>,
+  line.lwd <span class='op'>=</span> <span class='va'>lwd</span>,
+  untf <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel_ellipse</span>(
-  <span class='no'>x</span>,
-  <span class='no'>y</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"bg"</span>),
-  <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"pch"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>el.level</span> <span class='kw'>=</span> <span class='fl'>0.7</span>,
-  <span class='kw'>el.col</span> <span class='kw'>=</span> <span class='st'>"cornsilk"</span>,
-  <span class='kw'>el.border</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-  <span class='kw'>major</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel_ellipse</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  bg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"bg"</span><span class='op'>)</span>,
+  pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"pch"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  el.level <span class='op'>=</span> <span class='fl'>0.7</span>,
+  el.col <span class='op'>=</span> <span class='st'>"cornsilk"</span>,
+  el.border <span class='op'>=</span> <span class='st'>"red"</span>,
+  major <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel.ellipse</span>(
-  <span class='no'>x</span>,
-  <span class='no'>y</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"bg"</span>),
-  <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"pch"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>el.level</span> <span class='kw'>=</span> <span class='fl'>0.7</span>,
-  <span class='kw'>el.col</span> <span class='kw'>=</span> <span class='st'>"cornsilk"</span>,
-  <span class='kw'>el.border</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-  <span class='kw'>major</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel.ellipse</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  bg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"bg"</span><span class='op'>)</span>,
+  pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"pch"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  el.level <span class='op'>=</span> <span class='fl'>0.7</span>,
+  el.col <span class='op'>=</span> <span class='st'>"cornsilk"</span>,
+  el.border <span class='op'>=</span> <span class='st'>"red"</span>,
+  major <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel_cor</span>(
-  <span class='no'>x</span>,
-  <span class='no'>y</span>,
-  <span class='kw'>use</span> <span class='kw'>=</span> <span class='st'>"everything"</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"pearson"</span>, <span class='st'>"kendall"</span>, <span class='st'>"spearman"</span>),
-  <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"two.sided"</span>, <span class='st'>"less"</span>, <span class='st'>"greater"</span>),
-  <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>cor.cex</span> <span class='kw'>=</span> <span class='no'>cex</span>,
-  <span class='kw'>stars.col</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel_cor</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  use <span class='op'>=</span> <span class='st'>"everything"</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pearson"</span>, <span class='st'>"kendall"</span>, <span class='st'>"spearman"</span><span class='op'>)</span>,
+  alternative <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"two.sided"</span>, <span class='st'>"less"</span>, <span class='st'>"greater"</span><span class='op'>)</span>,
+  digits <span class='op'>=</span> <span class='fl'>2</span>,
+  prefix <span class='op'>=</span> <span class='st'>""</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  cor.cex <span class='op'>=</span> <span class='va'>cex</span>,
+  stars.col <span class='op'>=</span> <span class='st'>"red"</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel.cor</span>(
-  <span class='no'>x</span>,
-  <span class='no'>y</span>,
-  <span class='kw'>use</span> <span class='kw'>=</span> <span class='st'>"everything"</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"pearson"</span>, <span class='st'>"kendall"</span>, <span class='st'>"spearman"</span>),
-  <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"two.sided"</span>, <span class='st'>"less"</span>, <span class='st'>"greater"</span>),
-  <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>cor.cex</span> <span class='kw'>=</span> <span class='no'>cex</span>,
-  <span class='kw'>stars.col</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel.cor</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  use <span class='op'>=</span> <span class='st'>"everything"</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pearson"</span>, <span class='st'>"kendall"</span>, <span class='st'>"spearman"</span><span class='op'>)</span>,
+  alternative <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"two.sided"</span>, <span class='st'>"less"</span>, <span class='st'>"greater"</span><span class='op'>)</span>,
+  digits <span class='op'>=</span> <span class='fl'>2</span>,
+  prefix <span class='op'>=</span> <span class='st'>""</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  cor.cex <span class='op'>=</span> <span class='va'>cex</span>,
+  stars.col <span class='op'>=</span> <span class='st'>"red"</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel_smooth</span>(
-  <span class='no'>x</span>,
-  <span class='no'>y</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"pch"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>col.smooth</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>span</span> <span class='kw'>=</span> <span class='fl'>2</span>/<span class='fl'>3</span>,
-  <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>panel_smooth</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  bg <span class='op'>=</span> <span class='cn'>NA</span>,
+  pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"pch"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fl'>1</span>,
+  col.smooth <span class='op'>=</span> <span class='fl'>2</span>,
+  span <span class='op'>=</span> <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span>,
+  iter <span class='op'>=</span> <span class='fl'>3</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -412,29 +412,353 @@ plotting in panels of composite plots.</p>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/graphics/coplot.html'>coplot()</a></code>, <code><a href='https://rdrr.io/r/graphics/pairs.html'>pairs()</a></code>, <code><a href='https://rdrr.io/r/graphics/panel.smooth.html'>panel.smooth()</a></code>, <code><a href='https://rdrr.io/r/stats/lm.html'>lm()</a></code>, <code>ellipse()</code>,
 <code><a href='https://rdrr.io/r/stats/cor.html'>cor()</a></code> and <code><a href='https://rdrr.io/r/stats/cor.test.html'>cor.test()</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Philippe Grosjean <a href='mailto:phgrosjean@sciviews.org'>phgrosjean@sciviews.org</a>, but code inspired from
+<code><a href='https://rdrr.io/r/graphics/panel.smooth.html'>panel.smooth()</a></code> in <strong>graphics</strong> and <code>panel.car()</code> in package <strong>car</strong>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Smooth lines in lower graphs and straight lines in upper graphs</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>lower.panel</span> <span class='kw'>=</span> <span class='no'>panel_smooth</span>, <span class='kw'>upper.panel</span> <span class='kw'>=</span> <span class='no'>panel_reg</span>)</div><div class='img'><img src='panels-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Robust regression lines</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>MASS</span>)  <span class='co'># For rlm()</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>panel</span> <span class='kw'>=</span> <span class='no'>panel_reg</span>, <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='no'>panel_boxplot</span>,
-  <span class='kw'>reg.line</span> <span class='kw'>=</span> <span class='no'>rlm</span>, <span class='kw'>line.col</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>line.lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "reg.line" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.lwd" is not a graphical parameter</span></div><div class='img'><img src='panels-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># A Double log graph</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>lower.panel</span> <span class='kw'>=</span> <span class='no'>panel_smooth</span>, <span class='kw'>upper.panel</span> <span class='kw'>=</span> <span class='no'>panel_reg</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='st'>"xy"</span>)</div><div class='img'><img src='panels-3.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Graph suitables to explore correlations (take care there are potentially</span>
-<span class='co'># many simultaneous tests done here... So, you loose much power in the whole</span>
-<span class='co'># analysis... use it just as an indication!)</span>
-<span class='co'># Pearson's r</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>lower.panel</span> <span class='kw'>=</span> <span class='no'>panel_ellipse</span>, <span class='kw'>upper.panel</span> <span class='kw'>=</span> <span class='no'>panel_cor</span>)</div><div class='img'><img src='panels-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Spearman's rho (ellipse and straight lines not suitable here!)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>lower.panel</span> <span class='kw'>=</span> <span class='no'>panel_smooth</span>, <span class='kw'>upper.panel</span> <span class='kw'>=</span> <span class='no'>panel_cor</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"spearman"</span>, <span class='kw'>span</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Cannot compute exact p-value with ties</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Cannot compute exact p-value with ties</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Cannot compute exact p-value with ties</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='img'><img src='panels-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Several groups (visualize how bad it is to consider the whole set at once!)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>iris</span>[, -<span class='fl'>5</span>], <span class='kw'>lower.panel</span> <span class='kw'>=</span> <span class='no'>panel_smooth</span>, <span class='kw'>upper.panel</span> <span class='kw'>=</span> <span class='no'>panel_cor</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"kendall"</span>, <span class='kw'>span</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"red3"</span>, <span class='st'>"blue3"</span>, <span class='st'>"green3"</span>)[<span class='no'>iris</span>$<span class='no'>Species</span>])</div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "method" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "span" is not a graphical parameter</span></div><div class='img'><img src='panels-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Now analyze correlation for one species only</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>iris</span>[<span class='no'>iris</span>$<span class='no'>Species</span> <span class='kw'>==</span> <span class='st'>"virginica"</span>, -<span class='fl'>5</span>], <span class='kw'>lower.panel</span> <span class='kw'>=</span> <span class='no'>panel_ellipse</span>,
-  <span class='kw'>upper.panel</span> <span class='kw'>=</span> <span class='no'>panel_cor</span>)</div><div class='img'><img src='panels-7.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># A coplot with custom panes</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/coplot.html'>coplot</a></span>(<span class='no'>Petal.Length</span> ~ <span class='no'>Sepal.Length</span> <span class='kw'>|</span> <span class='no'>Species</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>,
-  <span class='kw'>panel</span> <span class='kw'>=</span> <span class='no'>panel_ellipse</span>)</div><div class='img'><img src='panels-8.png' alt='' width='700' height='433' /></div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># Smooth lines in lower graphs and straight lines in upper graphs</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, lower.panel <span class='op'>=</span> <span class='va'>panel_smooth</span>, upper.panel <span class='op'>=</span> <span class='va'>panel_reg</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='panels-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='co'># Robust regression lines</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://www.stats.ox.ac.uk/pub/MASS4/'>MASS</a></span><span class='op'>)</span>  <span class='co'># For rlm()</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, panel <span class='op'>=</span> <span class='va'>panel_reg</span>, diag.panel <span class='op'>=</span> <span class='va'>panel_boxplot</span>,</span>
+<span class='r-in'>  reg.line <span class='op'>=</span> <span class='va'>rlm</span>, line.col <span class='op'>=</span> <span class='st'>"blue"</span>, line.lwd <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"reg.line" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.lwd" is not a graphical parameter</span>
+<span class='r-plt'><img src='panels-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='co'># A Double log graph</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, lower.panel <span class='op'>=</span> <span class='va'>panel_smooth</span>, upper.panel <span class='op'>=</span> <span class='va'>panel_reg</span>, log <span class='op'>=</span> <span class='st'>"xy"</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='panels-3.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Graph suitables to explore correlations (take care there are potentially</span></span>
+<span class='r-in'><span class='co'># many simultaneous tests done here... So, you loose much power in the whole</span></span>
+<span class='r-in'><span class='co'># analysis... use it just as an indication!)</span></span>
+<span class='r-in'><span class='co'># Pearson's r</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, lower.panel <span class='op'>=</span> <span class='va'>panel_ellipse</span>, upper.panel <span class='op'>=</span> <span class='va'>panel_cor</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='panels-4.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='co'># Spearman's rho (ellipse and straight lines not suitable here!)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, lower.panel <span class='op'>=</span> <span class='va'>panel_smooth</span>, upper.panel <span class='op'>=</span> <span class='va'>panel_cor</span>,</span>
+<span class='r-in'>  method <span class='op'>=</span> <span class='st'>"spearman"</span>, span <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Cannot compute exact p-value with ties</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Cannot compute exact p-value with ties</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Cannot compute exact p-value with ties</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-plt'><img src='panels-5.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='co'># Several groups (visualize how bad it is to consider the whole set at once!)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>, <span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>, lower.panel <span class='op'>=</span> <span class='va'>panel_smooth</span>, upper.panel <span class='op'>=</span> <span class='va'>panel_cor</span>,</span>
+<span class='r-in'>  method <span class='op'>=</span> <span class='st'>"kendall"</span>, span <span class='op'>=</span> <span class='fl'>1</span>,</span>
+<span class='r-in'>  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"red3"</span>, <span class='st'>"blue3"</span>, <span class='st'>"green3"</span><span class='op'>)</span><span class='op'>[</span><span class='va'>iris</span><span class='op'>$</span><span class='va'>Species</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"method" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"span" is not a graphical parameter</span>
+<span class='r-plt'><img src='panels-6.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='co'># Now analyze correlation for one species only</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span><span class='va'>iris</span><span class='op'>$</span><span class='va'>Species</span> <span class='op'>==</span> <span class='st'>"virginica"</span>, <span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span>, lower.panel <span class='op'>=</span> <span class='va'>panel_ellipse</span>,</span>
+<span class='r-in'>  upper.panel <span class='op'>=</span> <span class='va'>panel_cor</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='panels-7.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># A coplot with custom panes</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/coplot.html'>coplot</a></span><span class='op'>(</span><span class='va'>Petal.Length</span> <span class='op'>~</span> <span class='va'>Sepal.Length</span> <span class='op'>|</span> <span class='va'>Species</span>, data <span class='op'>=</span> <span class='va'>iris</span>,</span>
+<span class='r-in'>  panel <span class='op'>=</span> <span class='va'>panel_ellipse</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='panels-8.png' alt='' width='700' height='433' /></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -578,6 +902,8 @@ plotting in panels of composite plots.</p>
 
   
 
+
+  
 
   </body>
 </html>

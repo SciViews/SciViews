@@ -77,9 +77,15 @@
   gtag('config', 'UA-462421-8');
 </script>-->
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <!-- preloader start -->
@@ -121,12 +127,6 @@
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/SciViews.html">Get started</a>
 </li>
 <li>
@@ -149,14 +149,14 @@
 </li>
         <li>
   <a href="https://github.com/SciViews/SciViews/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
       
       <div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.1</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.2</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -180,73 +180,73 @@
     <p>Compute the correlation matrix between all columns of a matrix or data frame.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>correlation</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>correlation</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>Correlation</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+<span class='fu'>Correlation</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for formula</span>
-<span class='fu'>correlation</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>subset</span>, <span class='no'>na.action</span>, <span class='no'>...</span>)
+<span class='fu'>correlation</span><span class='op'>(</span><span class='va'>formula</span>, data <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>subset</span>, <span class='va'>na.action</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>correlation</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>use</span> <span class='kw'>=</span> <span class='st'>"everything"</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"pearson"</span>, <span class='st'>"kendall"</span>, <span class='st'>"spearman"</span>),
-  <span class='no'>...</span>
-)
+<span class='fu'>correlation</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  y <span class='op'>=</span> <span class='cn'>NULL</span>,
+  use <span class='op'>=</span> <span class='st'>"everything"</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pearson"</span>, <span class='st'>"kendall"</span>, <span class='st'>"spearman"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>is.Correlation</span>(<span class='no'>x</span>)
+<span class='fu'>is.Correlation</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>is.correlation</span>(<span class='no'>x</span>)
+<span class='fu'>is.correlation</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>as.Correlation</span>(<span class='no'>x</span>)
+<span class='fu'>as.Correlation</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>as.correlation</span>(<span class='no'>x</span>)
-
-<span class='co'># S3 method for Correlation</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='no'>...</span>)
+<span class='fu'>as.correlation</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
 <span class='co'># S3 method for Correlation</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(
-  <span class='no'>object</span>,
-  <span class='kw'>cutpoints</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.3</span>, <span class='fl'>0.6</span>, <span class='fl'>0.8</span>, <span class='fl'>0.9</span>, <span class='fl'>0.95</span>),
-  <span class='kw'>symbols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>" "</span>, <span class='st'>"."</span>, <span class='st'>","</span>, <span class='st'>"+"</span>, <span class='st'>"*"</span>, <span class='st'>"B"</span>),
-  <span class='no'>...</span>
-)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span>, digits <span class='op'>=</span> <span class='fl'>3</span>, cutoff <span class='op'>=</span> <span class='fl'>0</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S3 method for Correlation</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  cutpoints <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.3</span>, <span class='fl'>0.6</span>, <span class='fl'>0.8</span>, <span class='fl'>0.9</span>, <span class='fl'>0.95</span><span class='op'>)</span>,
+  symbols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>" "</span>, <span class='st'>"."</span>, <span class='st'>","</span>, <span class='st'>"+"</span>, <span class='st'>"*"</span>, <span class='st'>"B"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for summary.Correlation</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for Correlation</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(
-  <span class='no'>x</span>,
-  <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>outline</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>cutpoints</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.3</span>, <span class='fl'>0.6</span>, <span class='fl'>0.8</span>, <span class='fl'>0.9</span>, <span class='fl'>0.95</span>),
-  <span class='kw'>palette</span> <span class='kw'>=</span> <span class='no'>rwb.colors</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>numbers</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"lower"</span>, <span class='st'>"upper"</span>),
-  <span class='kw'>diag</span> <span class='kw'>=</span> (<span class='no'>type</span> <span class='kw'>==</span> <span class='st'>"full"</span>),
-  <span class='kw'>cex.lab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex.lab"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.75</span> * <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='no'>...</span>
-)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  y <span class='op'>=</span> <span class='cn'>NULL</span>,
+  outline <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  cutpoints <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.3</span>, <span class='fl'>0.6</span>, <span class='fl'>0.8</span>, <span class='fl'>0.9</span>, <span class='fl'>0.95</span><span class='op'>)</span>,
+  palette <span class='op'>=</span> <span class='va'>rwb.colors</span>,
+  col <span class='op'>=</span> <span class='cn'>NULL</span>,
+  numbers <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  digits <span class='op'>=</span> <span class='fl'>2</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"full"</span>, <span class='st'>"lower"</span>, <span class='st'>"upper"</span><span class='op'>)</span>,
+  diag <span class='op'>=</span> <span class='op'>(</span><span class='va'>type</span> <span class='op'>==</span> <span class='st'>"full"</span><span class='op'>)</span>,
+  cex.lab <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex.lab"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fl'>0.75</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for Correlation</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span>(
-  <span class='no'>x</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fl'>1L</span>:<span class='fl'>2L</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>ar.length</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-  <span class='kw'>pos</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>x</span>),
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  choices <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>:</span><span class='fl'>2L</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  lty <span class='op'>=</span> <span class='fl'>2</span>,
+  ar.length <span class='op'>=</span> <span class='fl'>0.1</span>,
+  pos <span class='op'>=</span> <span class='cn'>NULL</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -269,7 +269,7 @@ variables.</p></td>
       <th>data</th>
       <td><p>An optional data frame (or similar, see <code><a href='https://rdrr.io/r/stats/model.frame.html'>model.frame()</a></code>)
 containing the variables in the formula. By default the variables
-are taken from <code><a href='https://rdrr.io/r/base/environment.html'>environment(formula)</a></code>.</p></td>
+are taken from <code>environment(formula)</code>.</p></td>
     </tr>
     <tr>
       <th>subset</th>
@@ -390,7 +390,7 @@ object, while <code>is.Correlation()</code> tests for it.</p>
 that differ in the symbolic encoding of the correlations,
 (using <code><a href='https://rdrr.io/r/stats/symnum.html'>symnum()</a></code> for <code><a href='https://rdrr.io/r/base/summary.html'>summary()</a></code>), which makes large correlation matrices
 more readable.</p>
-<p>The <code><a href='https://rdrr.io/r/base/plot.html'>plot()</a></code> method draws ellipses on a graph to represent the correlation
+<p>The <code><a href='https://rdrr.io/r/graphics/plot.default.html'>plot()</a></code> method draws ellipses on a graph to represent the correlation
 matrix visually. This is essentially the <code>plotcorr()</code> function from package
 <strong>ellipse</strong>, with slightly different default arguments and with default
 <code>cutpoints</code> equivalent to those used in the <code><a href='https://rdrr.io/r/base/summary.html'>summary()</a></code> method.</p>
@@ -398,97 +398,121 @@ matrix visually. This is essentially the <code>plotcorr()</code> function from p
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/stats/cor.html'>cov()</a></code>, <code><a href='https://rdrr.io/r/stats/cor.html'>cov2cor()</a></code>, <code><a href='https://rdrr.io/r/stats/cov.wt.html'>cov.wt()</a></code>, <code><a href='https://rdrr.io/r/stats/symnum.html'>symnum()</a></code>, <code>plotcorr()</code> and look
 also at <code><a href='panels.html'>panel_cor()</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Philippe Grosjean <a href='mailto:phgrosjean@sciviews.org'>phgrosjean@sciviews.org</a>, wrapping code in package
+<strong>ellipse</strong>, function <code>plotcorr()</code> for the <code>plot.Correlation()</code> method.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># This is a simple correlation coefficient</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10</span>), <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='fl'>10</span>))</div><div class='output co'>#&gt; [1] -0.4933597</div><div class='input'><span class='fu'>Correlation</span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10</span>), <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='fl'>10</span>))</div><div class='output co'>#&gt; Matrix of Pearson's product-moment correlation:
-#&gt; (calculation uses everything)
-#&gt;   x      y     
-#&gt; x  1.000 -0.305
-#&gt; y -0.305  1.000</div><div class='input'>
-<span class='co'># 'Correlation' objects allow better inspection of the correlation matrices</span>
-<span class='co'># than the output of default R cor() function</span>
-(<span class='no'>longley.cor</span> <span class='kw'>&lt;-</span> <span class='fu'>Correlation</span>(<span class='no'>longley</span>))</div><div class='output co'>#&gt; Matrix of Pearson's product-moment correlation:
-#&gt; (calculation uses everything)
-#&gt;              GNP.deflator GNP    Unemployed Armed.Forces Population Year  
-#&gt; GNP.deflator  1.000        0.992  0.621      0.465        0.979      0.991
-#&gt; GNP           0.992        1.000  0.604      0.446        0.991      0.995
-#&gt; Unemployed    0.621        0.604  1.000     -0.177        0.687      0.668
-#&gt; Armed.Forces  0.465        0.446 -0.177      1.000        0.364      0.417
-#&gt; Population    0.979        0.991  0.687      0.364        1.000      0.994
-#&gt; Year          0.991        0.995  0.668      0.417        0.994      1.000
-#&gt; Employed      0.971        0.984  0.502      0.457        0.960      0.971
-#&gt;              Employed
-#&gt; GNP.deflator  0.971  
-#&gt; GNP           0.984  
-#&gt; Unemployed    0.502  
-#&gt; Armed.Forces  0.457  
-#&gt; Population    0.960  
-#&gt; Year          0.971  
-#&gt; Employed      1.000  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>longley.cor</span>) <span class='co'># Synthetic view of the correlation matrix</span></div><div class='output co'>#&gt; Matrix of Pearson's product-moment correlation:
-#&gt; (calculation uses everything)
-#&gt;              GNP. GNP U A P Y E
-#&gt; GNP.deflator 1                 
-#&gt; GNP          B    1            
-#&gt; Unemployed   ,    ,   1        
-#&gt; Armed.Forces .    .     1      
-#&gt; Population   B    B   , . 1    
-#&gt; Year         B    B   , . B 1  
-#&gt; Employed     B    B   . . B B 1
-#&gt; attr(,"legend")
-#&gt; [1] 0 ‘ ’ 0.3 ‘.’ 0.6 ‘,’ 0.8 ‘+’ 0.9 ‘*’ 0.95 ‘B’ 1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>longley.cor</span>)    <span class='co'># Graphical representation</span></div><div class='img'><img src='correlation-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Use of the formula interface</span>
-(<span class='no'>mtcars.cor</span> <span class='kw'>&lt;-</span> <span class='fu'>Correlation</span>(~ <span class='no'>mpg</span> + <span class='no'>cyl</span> + <span class='no'>disp</span> + <span class='no'>hp</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"spearman"</span>, <span class='kw'>na.action</span> <span class='kw'>=</span> <span class='st'>"na.omit"</span>))</div><div class='output co'>#&gt; Matrix of Spearman's rank correlation rho:
-#&gt; (missing values are managed with na.omit)
-#&gt;      mpg    cyl    disp   hp    
-#&gt; mpg   1.000 -0.911 -0.909 -0.895
-#&gt; cyl  -0.911  1.000  0.928  0.902
-#&gt; disp -0.909  0.928  1.000  0.851
-#&gt; hp   -0.895  0.902  0.851  1.000</div><div class='input'>
-<span class='no'>mtcars.cor2</span> <span class='kw'>&lt;-</span> <span class='fu'>Correlation</span>(<span class='no'>mtcars</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"spearman"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>mtcars.cor2</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>0.6</span>)</div><div class='output co'>#&gt; Matrix of Spearman's rank correlation rho:
-#&gt; (calculation uses everything)
-#&gt;      mpg    cyl    disp   hp     drat   wt     qsec   vs     am     gear  
-#&gt; mpg   1.000 -0.911 -0.909 -0.895  0.651 -0.886         0.707              
-#&gt; cyl  -0.911  1.000  0.928  0.902 -0.679  0.858        -0.814              
-#&gt; disp -0.909  0.928  1.000  0.851 -0.684  0.898        -0.724 -0.624       
-#&gt; hp   -0.895  0.902  0.851  1.000         0.775 -0.667 -0.752              
-#&gt; drat  0.651 -0.679 -0.684         1.000 -0.750                0.687  0.745
-#&gt; wt   -0.886  0.858  0.898  0.775 -0.750  1.000               -0.738 -0.676
-#&gt; qsec                      -0.667                1.000  0.792              
-#&gt; vs    0.707 -0.814 -0.724 -0.752                0.792  1.000              
-#&gt; am                 -0.624         0.687 -0.738                1.000  0.808
-#&gt; gear                              0.745 -0.676                0.808  1.000
-#&gt; carb -0.657                0.733               -0.659 -0.634              
-#&gt;      carb  
-#&gt; mpg  -0.657
-#&gt; cyl        
-#&gt; disp       
-#&gt; hp    0.733
-#&gt; drat       
-#&gt; wt         
-#&gt; qsec -0.659
-#&gt; vs   -0.634
-#&gt; am         
-#&gt; gear       
-#&gt; carb  1.000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mtcars.cor2</span>)</div><div class='output co'>#&gt; Matrix of Spearman's rank correlation rho:
-#&gt; (calculation uses everything)
-#&gt;      m cy ds h dr w q v a g cr
-#&gt; mpg  1                        
-#&gt; cyl  * 1                      
-#&gt; disp * *  1                   
-#&gt; hp   + *  +  1                
-#&gt; drat , ,  ,  . 1              
-#&gt; wt   + +  +  , ,  1           
-#&gt; qsec . .  .  ,      1         
-#&gt; vs   , +  ,  , .  . , 1       
-#&gt; am   . .  ,  . ,  ,     1     
-#&gt; gear . .  .  . ,  ,     + 1   
-#&gt; carb , .  .  ,    . , ,     1 
-#&gt; attr(,"legend")
-#&gt; [1] 0 ‘ ’ 0.3 ‘.’ 0.6 ‘,’ 0.8 ‘+’ 0.9 ‘*’ 0.95 ‘B’ 1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>mtcars.cor2</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"lower"</span>)</div><div class='img'><img src='correlation-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='no'>mtcars.cor2</span>[<span class='st'>"mpg"</span>, <span class='st'>"cyl"</span>] <span class='co'># Extract a correlation from the correlation matrix</span></div><div class='output co'>#&gt; [1] -0.9108013</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># This is a simple correlation coefficient</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] -0.4933597</span>
+<span class='r-in'><span class='fu'>Correlation</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Matrix of Pearson's product-moment correlation:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> (calculation uses everything)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   x      y     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> x  1.000 -0.305</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> y -0.305  1.000</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># 'Correlation' objects allow better inspection of the correlation matrices</span></span>
+<span class='r-in'><span class='co'># than the output of default R cor() function</span></span>
+<span class='r-in'><span class='op'>(</span><span class='va'>longley.cor</span> <span class='op'>&lt;-</span> <span class='fu'>Correlation</span><span class='op'>(</span><span class='va'>longley</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Matrix of Pearson's product-moment correlation:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> (calculation uses everything)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>              GNP.deflator GNP    Unemployed Armed.Forces Population Year  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GNP.deflator  1.000        0.992  0.621      0.465        0.979      0.991</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GNP           0.992        1.000  0.604      0.446        0.991      0.995</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Unemployed    0.621        0.604  1.000     -0.177        0.687      0.668</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Armed.Forces  0.465        0.446 -0.177      1.000        0.364      0.417</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Population    0.979        0.991  0.687      0.364        1.000      0.994</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Year          0.991        0.995  0.668      0.417        0.994      1.000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Employed      0.971        0.984  0.502      0.457        0.960      0.971</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>              Employed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GNP.deflator  0.971  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GNP           0.984  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Unemployed    0.502  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Armed.Forces  0.457  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Population    0.960  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Year          0.971  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Employed      1.000  </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>longley.cor</span><span class='op'>)</span> <span class='co'># Synthetic view of the correlation matrix</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Matrix of Pearson's product-moment correlation:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> (calculation uses everything)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>              GNP. GNP U A P Y E</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GNP.deflator 1                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GNP          B    1            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Unemployed   ,    ,   1        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Armed.Forces .    .     1      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Population   B    B   , . 1    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Year         B    B   , . B 1  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Employed     B    B   . . B B 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> attr(,"legend")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 0 ‘ ’ 0.3 ‘.’ 0.6 ‘,’ 0.8 ‘+’ 0.9 ‘*’ 0.95 ‘B’ 1</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>longley.cor</span><span class='op'>)</span>    <span class='co'># Graphical representation</span></span>
+<span class='r-plt'><img src='correlation-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Use of the formula interface</span></span>
+<span class='r-in'><span class='op'>(</span><span class='va'>mtcars.cor</span> <span class='op'>&lt;-</span> <span class='fu'>Correlation</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>mpg</span> <span class='op'>+</span> <span class='va'>cyl</span> <span class='op'>+</span> <span class='va'>disp</span> <span class='op'>+</span> <span class='va'>hp</span>, data <span class='op'>=</span> <span class='va'>mtcars</span>,</span>
+<span class='r-in'>  method <span class='op'>=</span> <span class='st'>"spearman"</span>, na.action <span class='op'>=</span> <span class='st'>"na.omit"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Matrix of Spearman's rank correlation rho:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> (missing values are managed with na.omit)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      mpg    cyl    disp   hp    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> mpg   1.000 -0.911 -0.909 -0.895</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> cyl  -0.911  1.000  0.928  0.902</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> disp -0.909  0.928  1.000  0.851</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hp   -0.895  0.902  0.851  1.000</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>mtcars.cor2</span> <span class='op'>&lt;-</span> <span class='fu'>Correlation</span><span class='op'>(</span><span class='va'>mtcars</span>, method <span class='op'>=</span> <span class='st'>"spearman"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>mtcars.cor2</span>, cutoff <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Matrix of Spearman's rank correlation rho:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> (calculation uses everything)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      mpg    cyl    disp   hp     drat   wt     qsec   vs     am     gear  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> mpg   1.000 -0.911 -0.909 -0.895  0.651 -0.886         0.707              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> cyl  -0.911  1.000  0.928  0.902 -0.679  0.858        -0.814              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> disp -0.909  0.928  1.000  0.851 -0.684  0.898        -0.724 -0.624       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hp   -0.895  0.902  0.851  1.000         0.775 -0.667 -0.752              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> drat  0.651 -0.679 -0.684         1.000 -0.750                0.687  0.745</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> wt   -0.886  0.858  0.898  0.775 -0.750  1.000               -0.738 -0.676</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> qsec                      -0.667                1.000  0.792              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> vs    0.707 -0.814 -0.724 -0.752                0.792  1.000              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> am                 -0.624         0.687 -0.738                1.000  0.808</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> gear                              0.745 -0.676                0.808  1.000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> carb -0.657                0.733               -0.659 -0.634              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      carb  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> mpg  -0.657</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> cyl        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> disp       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hp    0.733</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> drat       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> wt         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> qsec -0.659</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> vs   -0.634</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> am         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> gear       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> carb  1.000</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mtcars.cor2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Matrix of Spearman's rank correlation rho:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> (calculation uses everything)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      m cy ds h dr w q v a g cr</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> mpg  1                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> cyl  * 1                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> disp * *  1                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hp   + *  +  1                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> drat , ,  ,  . 1              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> wt   + +  +  , ,  1           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> qsec . .  .  ,      1         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> vs   , +  ,  , .  . , 1       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> am   . .  ,  . ,  ,     1     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> gear . .  .  . ,  ,     + 1   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> carb , .  .  ,    . , ,     1 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> attr(,"legend")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 0 ‘ ’ 0.3 ‘.’ 0.6 ‘,’ 0.8 ‘+’ 0.9 ‘*’ 0.95 ‘B’ 1</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars.cor2</span>, type <span class='op'>=</span> <span class='st'>"lower"</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='correlation-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>mtcars.cor2</span><span class='op'>[</span><span class='st'>"mpg"</span>, <span class='st'>"cyl"</span><span class='op'>]</span> <span class='co'># Extract a correlation from the correlation matrix</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] -0.9108013</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -632,6 +656,8 @@ also at <code><a href='panels.html'>panel_cor()</a></code></p></div>
 
   
 
+
+  
 
   </body>
 </html>

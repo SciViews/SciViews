@@ -75,9 +75,15 @@
   gtag('config', 'UA-462421-8');
 </script>-->
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-title-body">
       <header>
       <!-- preloader start -->
@@ -119,12 +125,6 @@
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="articles/SciViews.html">Get started</a>
 </li>
 <li>
@@ -147,14 +147,14 @@
 </li>
         <li>
   <a href="https://github.com/SciViews/SciViews/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
       
       <div class="navbar-title">
-        <a class="navbar-brand" href="index.html"><p class = "h2">SciViews <small>v1.1.1</small></p></a>
+        <a class="navbar-brand" href="index.html"><p class = "h2">SciViews <small>v1.1.2</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -176,17 +176,17 @@
 
 <ul>
 <li><p><code><a href="reference/SciViews_R.html">SciViews::R</a></code>: no fancy characters?</p></li>
-<li><p><code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> -&gt; <code>na_omit()</code> and co + <code>complete_cases()</code>.</p></li>
+<li><p><code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit()</a></code> -&gt; <code>na_omit()</code> and co + <code>complete_cases()</code>.</p></li>
 <li><p>Plot functions issue warnings for unknown arguments</p></li>
 <li><p><code>file_head()</code></p></li>
 <li><p><code>attrNames()</code> or <code>attr_names()</code> like <code>slotNames()</code></p></li>
-<li><p><code>unscale()</code> to revert the effect of <code><a href="https://rdrr.io/r/base/scale.html">scale()</a></code>?</p></li>
+<li><p><code>unscale()</code> to revert the effect of <code><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale()</a></code>?</p></li>
 <li><p><code>is.wholenumber()</code></p></li>
-<li><p>other<code>xxx.</code> functions for those using <code>na.rm = FALSE</code> like <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code>, <code><a href="https://rdrr.io/r/stats/cor.html">var()</a></code>, <code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code>, <code><a href="https://rdrr.io/r/stats/fivenum.html">fivenum()</a></code>, …</p></li>
-<li><p>Refine <code>panel.xxx()</code> functions to avoid warning in case we provide non-par arguments to <code><a href="https://rdrr.io/r/graphics/pairs.html">pairs()</a></code> and design a better mechanism to define default (colors, line type and weight, etc.).</p></li>
-<li><p>For PCA, look at ade4 (dudi.pca =&gt; c(“pca”, “dudi”), ellipse, area), FactoMineR (PCA), rrcov (Pca), pcaMethods (PcaRes), psych, nFactors, vegan, rda = special case of pca =&gt; c(“rda”, “cca”)), pcaPP, chemometrics (cross-validation), BiodiversityR (broken-stick = PCAsignificance + variable importance = ordiequilibriumCircle) and labdsv packages =&gt; how to sort all this and make something coherent with our pcomp object and methods? See also zoonek znd <a href="http://www.statmethods.net/advstats/factor.html" class="uri">http://www.statmethods.net/advstats/factor.html</a>.</p></li>
+<li><p>other<code>xxx.</code> functions for those using <code>na.rm = FALSE</code> like <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html" class="external-link">median()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd()</a></code>, <code><a href="https://rdrr.io/r/stats/cor.html" class="external-link">var()</a></code>, <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile()</a></code>, <code><a href="https://rdrr.io/r/stats/fivenum.html" class="external-link">fivenum()</a></code>, …</p></li>
+<li><p>Refine <code>panel.xxx()</code> functions to avoid warning in case we provide non-par arguments to <code><a href="https://rdrr.io/r/graphics/pairs.html" class="external-link">pairs()</a></code> and design a better mechanism to define default (colors, line type and weight, etc.).</p></li>
+<li><p>For PCA, look at ade4 (dudi.pca =&gt; c(“pca”, “dudi”), ellipse, area), FactoMineR (PCA), rrcov (Pca), pcaMethods (PcaRes), psych, nFactors, vegan, rda = special case of pca =&gt; c(“rda”, “cca”)), pcaPP, chemometrics (cross-validation), BiodiversityR (broken-stick = PCAsignificance + variable importance = ordiequilibriumCircle) and labdsv packages =&gt; how to sort all this and make something coherent with our pcomp object and methods? See also zoonek znd <a href="http://www.statmethods.net/advstats/factor.html" class="external-link uri">http://www.statmethods.net/advstats/factor.html</a>.</p></li>
 <li><p>For correspondance analysis, see ‘ca’ package.</p></li>
-<li><p>Analyze this: <a href="http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/" class="uri">http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/</a></p></li>
+<li><p>Analyze this: <a href="http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/" class="external-link uri">http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/</a></p></li>
 <li><p>Translation of this package.</p></li>
 </ul>
 </div>
@@ -337,6 +337,8 @@
 
   
 
+
+  
 
   </body>
 </html>

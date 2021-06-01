@@ -77,9 +77,15 @@
   gtag('config', 'UA-462421-8');
 </script>-->
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <!-- preloader start -->
@@ -121,12 +127,6 @@
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/SciViews.html">Get started</a>
 </li>
 <li>
@@ -149,14 +149,14 @@
 </li>
         <li>
   <a href="https://github.com/SciViews/SciViews/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
       
       <div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.1</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.2</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -180,21 +180,21 @@
     <p>Create vectors of <code>n</code> colors.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>rwb_colors</span>(<span class='no'>n</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>rwb_colors</span><span class='op'>(</span><span class='va'>n</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, s <span class='op'>=</span> <span class='fl'>0.9</span>, v <span class='op'>=</span> <span class='fl'>0.9</span><span class='op'>)</span>
 
-<span class='fu'>rwb.colors</span>(<span class='no'>n</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
+<span class='fu'>rwb.colors</span><span class='op'>(</span><span class='va'>n</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, s <span class='op'>=</span> <span class='fl'>0.9</span>, v <span class='op'>=</span> <span class='fl'>0.9</span><span class='op'>)</span>
 
-<span class='fu'>rwg_colors</span>(<span class='no'>n</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
+<span class='fu'>rwg_colors</span><span class='op'>(</span><span class='va'>n</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, s <span class='op'>=</span> <span class='fl'>0.9</span>, v <span class='op'>=</span> <span class='fl'>0.9</span><span class='op'>)</span>
 
-<span class='fu'>rwg.colors</span>(<span class='no'>n</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
+<span class='fu'>rwg.colors</span><span class='op'>(</span><span class='va'>n</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, s <span class='op'>=</span> <span class='fl'>0.9</span>, v <span class='op'>=</span> <span class='fl'>0.9</span><span class='op'>)</span>
 
-<span class='fu'>ryg_colors</span>(<span class='no'>n</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
+<span class='fu'>ryg_colors</span><span class='op'>(</span><span class='va'>n</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, s <span class='op'>=</span> <span class='fl'>0.9</span>, v <span class='op'>=</span> <span class='fl'>0.9</span><span class='op'>)</span>
 
-<span class='fu'>ryg.colors</span>(<span class='no'>n</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
+<span class='fu'>ryg.colors</span><span class='op'>(</span><span class='va'>n</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, s <span class='op'>=</span> <span class='fl'>0.9</span>, v <span class='op'>=</span> <span class='fl'>0.9</span><span class='op'>)</span>
 
-<span class='fu'>cwm_colors</span>(<span class='no'>n</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
+<span class='fu'>cwm_colors</span><span class='op'>(</span><span class='va'>n</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, s <span class='op'>=</span> <span class='fl'>0.9</span>, v <span class='op'>=</span> <span class='fl'>0.9</span><span class='op'>)</span>
 
-<span class='fu'>cwm.colors</span>(<span class='no'>n</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)</pre>
+<span class='fu'>cwm.colors</span><span class='op'>(</span><span class='va'>n</span>, alpha <span class='op'>=</span> <span class='fl'>1</span>, s <span class='op'>=</span> <span class='fl'>0.9</span>, v <span class='op'>=</span> <span class='fl'>0.9</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -222,7 +222,7 @@
 
     <p><code>cwm_colors(s = 0.5, v = 1)</code> gives very similar colors to
 <code><a href='https://rdrr.io/r/grDevices/palettes.html'>cm.colors()</a></code>.
-<code>ryg_colors()</code> is similar to <code><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow(start = 0, end = 2/6)</a></code>.
+<code>ryg_colors()</code> is similar to <code>rainbow(start = 0, end = 2/6)</code>.
 The <code>xxx_colors()</code> (tidyverse name-compatible) and <code>xxx.colors()</code>
 (grDevices name-compatible) functions are synonyms.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -230,12 +230,15 @@ The <code>xxx_colors()</code> (tidyverse name-compatible) and <code>xxx.colors()
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/grDevices/palettes.html'>cm.colors()</a></code>, <code><a href='https://rdrr.io/r/grDevices/colorRamp.html'>colorRampPalette()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Draw color wheels with various palettes</span>
-<span class='no'>opar</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>, <span class='fl'>11</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>cwm.colors</span>(<span class='fl'>11</span>), <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Cyan - white - magenta"</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>, <span class='fl'>11</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>rwb.colors</span>(<span class='fl'>11</span>), <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Red - white - blue"</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>, <span class='fl'>11</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>rwg.colors</span>(<span class='fl'>11</span>), <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Red - white - green"</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>, <span class='fl'>11</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>ryg.colors</span>(<span class='fl'>11</span>), <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Red - yellow - green"</span>)</div><div class='img'><img src='colors-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='no'>opar</span>)</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># Draw color wheels with various palettes</span></span>
+<span class='r-in'><span class='va'>opar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>11</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='fu'>cwm.colors</span><span class='op'>(</span><span class='fl'>11</span><span class='op'>)</span>, main <span class='op'>=</span> <span class='st'>"Cyan - white - magenta"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>11</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='fu'>rwb.colors</span><span class='op'>(</span><span class='fl'>11</span><span class='op'>)</span>, main <span class='op'>=</span> <span class='st'>"Red - white - blue"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>11</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='fu'>rwg.colors</span><span class='op'>(</span><span class='fl'>11</span><span class='op'>)</span>, main <span class='op'>=</span> <span class='st'>"Red - white - green"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>11</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='fu'>ryg.colors</span><span class='op'>(</span><span class='fl'>11</span><span class='op'>)</span>, main <span class='op'>=</span> <span class='st'>"Red - yellow - green"</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='colors-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='va'>opar</span><span class='op'>)</span></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -379,6 +382,8 @@ The <code>xxx_colors()</code> (tidyverse name-compatible) and <code>xxx.colors()
 
   
 
+
+  
 
   </body>
 </html>

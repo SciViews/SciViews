@@ -77,9 +77,15 @@
   gtag('config', 'UA-462421-8');
 </script>-->
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <!-- preloader start -->
@@ -121,12 +127,6 @@
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/SciViews.html">Get started</a>
 </li>
 <li>
@@ -149,14 +149,14 @@
 </li>
         <li>
   <a href="https://github.com/SciViews/SciViews/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
       
       <div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.1</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.2</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -180,83 +180,83 @@
     <p>Several panel plots that can be used with <code><a href='https://rdrr.io/r/graphics/pairs.html'>pairs()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>panel_boxplot</span>(<span class='no'>x</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>), <span class='kw'>box.col</span> <span class='kw'>=</span> <span class='st'>"cornsilk"</span>, <span class='no'>...</span>)
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>panel_boxplot</span><span class='op'>(</span><span class='va'>x</span>, col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>, box.col <span class='op'>=</span> <span class='st'>"cornsilk"</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>panel.boxplot</span>(<span class='no'>x</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>), <span class='kw'>box.col</span> <span class='kw'>=</span> <span class='st'>"cornsilk"</span>, <span class='no'>...</span>)
+<span class='fu'>panel.boxplot</span><span class='op'>(</span><span class='va'>x</span>, col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>, box.col <span class='op'>=</span> <span class='st'>"cornsilk"</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>panel_density</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>rug</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"lwd"</span>),
-  <span class='kw'>line.col</span> <span class='kw'>=</span> <span class='no'>col</span>,
-  <span class='kw'>line.lwd</span> <span class='kw'>=</span> <span class='no'>lwd</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel_density</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  adjust <span class='op'>=</span> <span class='fl'>1</span>,
+  rug <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  lwd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"lwd"</span><span class='op'>)</span>,
+  line.col <span class='op'>=</span> <span class='va'>col</span>,
+  line.lwd <span class='op'>=</span> <span class='va'>lwd</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel.density</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>rug</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"lwd"</span>),
-  <span class='kw'>line.col</span> <span class='kw'>=</span> <span class='no'>col</span>,
-  <span class='kw'>line.lwd</span> <span class='kw'>=</span> <span class='no'>lwd</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel.density</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  adjust <span class='op'>=</span> <span class='fl'>1</span>,
+  rug <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  lwd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"lwd"</span><span class='op'>)</span>,
+  line.col <span class='op'>=</span> <span class='va'>col</span>,
+  line.lwd <span class='op'>=</span> <span class='va'>lwd</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel_hist</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='st'>"Sturges"</span>,
-  <span class='kw'>hist.col</span> <span class='kw'>=</span> <span class='st'>"cornsilk"</span>,
-  <span class='kw'>hist.border</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>hist.density</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>hist.angle</span> <span class='kw'>=</span> <span class='fl'>45</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel_hist</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  breaks <span class='op'>=</span> <span class='st'>"Sturges"</span>,
+  hist.col <span class='op'>=</span> <span class='st'>"cornsilk"</span>,
+  hist.border <span class='op'>=</span> <span class='cn'>NULL</span>,
+  hist.density <span class='op'>=</span> <span class='cn'>NULL</span>,
+  hist.angle <span class='op'>=</span> <span class='fl'>45</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel.hist</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='st'>"Sturges"</span>,
-  <span class='kw'>hist.col</span> <span class='kw'>=</span> <span class='st'>"cornsilk"</span>,
-  <span class='kw'>hist.border</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>hist.density</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>hist.angle</span> <span class='kw'>=</span> <span class='fl'>45</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel.hist</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  breaks <span class='op'>=</span> <span class='st'>"Sturges"</span>,
+  hist.col <span class='op'>=</span> <span class='st'>"cornsilk"</span>,
+  hist.border <span class='op'>=</span> <span class='cn'>NULL</span>,
+  hist.density <span class='op'>=</span> <span class='cn'>NULL</span>,
+  hist.angle <span class='op'>=</span> <span class='fl'>45</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel_qqnorm</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"pch"</span>),
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"bg"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"lwd"</span>),
-  <span class='kw'>qq.pch</span> <span class='kw'>=</span> <span class='no'>pch</span>,
-  <span class='kw'>qq.col</span> <span class='kw'>=</span> <span class='no'>col</span>,
-  <span class='kw'>qq.bg</span> <span class='kw'>=</span> <span class='no'>bg</span>,
-  <span class='kw'>qq.cex</span> <span class='kw'>=</span> <span class='no'>cex</span>,
-  <span class='kw'>qqline.col</span> <span class='kw'>=</span> <span class='no'>qq.col</span>,
-  <span class='kw'>qqline.lwd</span> <span class='kw'>=</span> <span class='no'>lwd</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>panel_qqnorm</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"pch"</span><span class='op'>)</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  bg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"bg"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  lwd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"lwd"</span><span class='op'>)</span>,
+  qq.pch <span class='op'>=</span> <span class='va'>pch</span>,
+  qq.col <span class='op'>=</span> <span class='va'>col</span>,
+  qq.bg <span class='op'>=</span> <span class='va'>bg</span>,
+  qq.cex <span class='op'>=</span> <span class='va'>cex</span>,
+  qqline.col <span class='op'>=</span> <span class='va'>qq.col</span>,
+  qqline.lwd <span class='op'>=</span> <span class='va'>lwd</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>panel.qqnorm</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"pch"</span>),
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"bg"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"lwd"</span>),
-  <span class='kw'>qq.pch</span> <span class='kw'>=</span> <span class='no'>pch</span>,
-  <span class='kw'>qq.col</span> <span class='kw'>=</span> <span class='no'>col</span>,
-  <span class='kw'>qq.bg</span> <span class='kw'>=</span> <span class='no'>bg</span>,
-  <span class='kw'>qq.cex</span> <span class='kw'>=</span> <span class='no'>cex</span>,
-  <span class='kw'>qqline.col</span> <span class='kw'>=</span> <span class='no'>qq.col</span>,
-  <span class='kw'>qqline.lwd</span> <span class='kw'>=</span> <span class='no'>lwd</span>,
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>panel.qqnorm</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"pch"</span><span class='op'>)</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  bg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"bg"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  lwd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"lwd"</span><span class='op'>)</span>,
+  qq.pch <span class='op'>=</span> <span class='va'>pch</span>,
+  qq.col <span class='op'>=</span> <span class='va'>col</span>,
+  qq.bg <span class='op'>=</span> <span class='va'>bg</span>,
+  qq.cex <span class='op'>=</span> <span class='va'>cex</span>,
+  qqline.col <span class='op'>=</span> <span class='va'>qq.col</span>,
+  qqline.lwd <span class='op'>=</span> <span class='va'>lwd</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -371,18 +371,350 @@ diagonals of <code><a href='https://rdrr.io/r/graphics/pairs.html'>pairs()</a></
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/graphics/pairs.html'>pairs()</a></code>, <code><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot()</a></code>, <code><a href='https://rdrr.io/r/graphics/hist.html'>hist()</a></code>, <code><a href='https://rdrr.io/r/stats/density.html'>density()</a></code>, <code><a href='https://rdrr.io/r/stats/qqnorm.html'>qqnorm()</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Philippe Grosjean <a href='mailto:phgrosjean@sciviews.org'>phgrosjean@sciviews.org</a>, but code inspired from
+<code>spm()</code> in package <strong>car</strong>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Example of scatterplot matrices with custom plots on the diagonal</span>
-
-<span class='co'># Boxplots</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>panel</span> <span class='kw'>=</span> <span class='no'>panel_smooth</span>, <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='no'>panel_boxplot</span>)</div><div class='img'><img src='panels.diag-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='no'>panel_boxplot</span>, <span class='kw'>box.col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "box.col" is not a graphical parameter</span></div><div class='img'><img src='panels.diag-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Densities</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>panel</span> <span class='kw'>=</span> <span class='no'>panel_smooth</span>, <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='no'>panel_density</span>)</div><div class='img'><img src='panels.diag-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='no'>panel_density</span>, <span class='kw'>line.col</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "line.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "adjust" is not a graphical parameter</span></div><div class='img'><img src='panels.diag-4.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Histograms</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>panel</span> <span class='kw'>=</span> <span class='no'>panel_smooth</span>, <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='no'>panel_hist</span>)</div><div class='img'><img src='panels.diag-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='no'>panel_hist</span>, <span class='kw'>hist.col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='st'>"Scott"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "hist.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "breaks" is not a graphical parameter</span></div><div class='img'><img src='panels.diag-6.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># QQ-plots against Normal theoretical distribution</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>panel</span> <span class='kw'>=</span> <span class='no'>panel_smooth</span>, <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='no'>panel_qqnorm</span>)</div><div class='img'><img src='panels.diag-7.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>trees</span>, <span class='kw'>diag.panel</span> <span class='kw'>=</span> <span class='no'>panel_qqnorm</span>, <span class='kw'>qqline.col</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>qq.cex</span> <span class='kw'>=</span> <span class='fl'>.5</span>, <span class='kw'>qq.pch</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qqline.col" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.cex" is not a graphical parameter</span></div><div class='output co'>#&gt; <span class='warning'>Warning: "qq.pch" is not a graphical parameter</span></div><div class='img'><img src='panels.diag-8.png' alt='' width='700' height='433' /></div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># Example of scatterplot matrices with custom plots on the diagonal</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Boxplots</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, panel <span class='op'>=</span> <span class='va'>panel_smooth</span>, diag.panel <span class='op'>=</span> <span class='va'>panel_boxplot</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='panels.diag-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, diag.panel <span class='op'>=</span> <span class='va'>panel_boxplot</span>, box.col <span class='op'>=</span> <span class='st'>"gray"</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"box.col" is not a graphical parameter</span>
+<span class='r-plt'><img src='panels.diag-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Densities</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, panel <span class='op'>=</span> <span class='va'>panel_smooth</span>, diag.panel <span class='op'>=</span> <span class='va'>panel_density</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='panels.diag-3.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, diag.panel <span class='op'>=</span> <span class='va'>panel_density</span>, line.col <span class='op'>=</span> <span class='st'>"red"</span>, adjust <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"line.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"adjust" is not a graphical parameter</span>
+<span class='r-plt'><img src='panels.diag-4.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Histograms</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, panel <span class='op'>=</span> <span class='va'>panel_smooth</span>, diag.panel <span class='op'>=</span> <span class='va'>panel_hist</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='panels.diag-5.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, diag.panel <span class='op'>=</span> <span class='va'>panel_hist</span>, hist.col <span class='op'>=</span> <span class='st'>"gray"</span>, breaks <span class='op'>=</span> <span class='st'>"Scott"</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"hist.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"breaks" is not a graphical parameter</span>
+<span class='r-plt'><img src='panels.diag-6.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># QQ-plots against Normal theoretical distribution</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, panel <span class='op'>=</span> <span class='va'>panel_smooth</span>, diag.panel <span class='op'>=</span> <span class='va'>panel_qqnorm</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='panels.diag-7.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>trees</span>, diag.panel <span class='op'>=</span> <span class='va'>panel_qqnorm</span>, qqline.col <span class='op'>=</span> <span class='fl'>2</span>, qq.cex <span class='op'>=</span> <span class='fl'>.5</span>, qq.pch <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qqline.col" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.cex" is not a graphical parameter</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>"qq.pch" is not a graphical parameter</span>
+<span class='r-plt'><img src='panels.diag-8.png' alt='' width='700' height='433' /></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -526,6 +858,8 @@ diagonals of <code><a href='https://rdrr.io/r/graphics/pairs.html'>pairs()</a></
 
   
 
+
+  
 
   </body>
 </html>

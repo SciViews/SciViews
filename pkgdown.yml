@@ -1,10 +1,10 @@
 pandoc: 2.7.3
-pkgdown: 1.5.1.9000
-pkgdown_sha: c181e5c9ac09b28974a97f5e32deddc36690fcf2
+pkgdown: 1.6.1.9001
+pkgdown_sha: b7b462438bc6252d40e9e5f223b0c56bf938f6d7
 articles:
   SciViews: SciViews.html
   pca: pca.html
-last_built: 2020-05-04T18:55Z
+last_built: 2021-06-01T07:39Z
 urls:
   reference: https://www.sciviews.org/SciViews/reference
   article: https://www.sciviews.org/SciViews/articles

@@ -78,9 +78,15 @@ return a pcomp object." />
   gtag('config', 'UA-462421-8');
 </script>-->
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <!-- preloader start -->
@@ -122,12 +128,6 @@ return a pcomp object." />
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/SciViews.html">Get started</a>
 </li>
 <li>
@@ -150,14 +150,14 @@ return a pcomp object." />
 </li>
         <li>
   <a href="https://github.com/SciViews/SciViews/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
       
       <div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.1</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class = "h2">SciViews <small>v1.1.2</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -182,124 +182,124 @@ return a pcomp object." />
 return a <code>pcomp</code> object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>pcomp</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>pcomp</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for formula</span>
-<span class='fu'>pcomp</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>subset</span>, <span class='no'>na.action</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"svd"</span>, <span class='st'>"eigen"</span>), <span class='no'>...</span>)
+<span class='fu'>pcomp</span><span class='op'>(</span><span class='va'>formula</span>, data <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>subset</span>, <span class='va'>na.action</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"svd"</span>, <span class='st'>"eigen"</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>pcomp</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"svd"</span>, <span class='st'>"eigen"</span>),
-  <span class='kw'>scores</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>tol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>covmat</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>subset</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span>(<span class='no'>x</span>))),
-  <span class='no'>...</span>
-)
+<span class='fu'>pcomp</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"svd"</span>, <span class='st'>"eigen"</span><span class='op'>)</span>,
+  scores <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  center <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  scale <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  tol <span class='op'>=</span> <span class='cn'>NULL</span>,
+  covmat <span class='op'>=</span> <span class='cn'>NULL</span>,
+  subset <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='kw'>loadings</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>object</span>, loadings <span class='op'>=</span> <span class='cn'>TRUE</span>, cutoff <span class='op'>=</span> <span class='fl'>0.1</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for summary.pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>loadings</span> <span class='kw'>=</span> <span class='no'>x</span>$<span class='no'>print.loadings</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='no'>x</span>$<span class='no'>cutoff</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span>, digits <span class='op'>=</span> <span class='fl'>3</span>, loadings <span class='op'>=</span> <span class='va'>x</span><span class='op'>$</span><span class='va'>print.loadings</span>, cutoff <span class='op'>=</span> <span class='va'>x</span><span class='op'>$</span><span class='va'>cutoff</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(
-  <span class='no'>x</span>,
-  <span class='kw'>which</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"screeplot"</span>, <span class='st'>"loadings"</span>, <span class='st'>"correlations"</span>, <span class='st'>"scores"</span>),
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fl'>1L</span>:<span class='fl'>2L</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>bar.col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>,
-  <span class='kw'>circle.col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>,
-  <span class='kw'>ar.length</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-  <span class='kw'>pos</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='no'>x</span>)), <span class='no'>which</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>" - "</span>),
-  <span class='no'>xlab</span>,
-  <span class='no'>ylab</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  which <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"screeplot"</span>, <span class='st'>"loadings"</span>, <span class='st'>"correlations"</span>, <span class='st'>"scores"</span><span class='op'>)</span>,
+  choices <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>:</span><span class='fl'>2L</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  bar.col <span class='op'>=</span> <span class='st'>"gray"</span>,
+  circle.col <span class='op'>=</span> <span class='st'>"gray"</span>,
+  ar.length <span class='op'>=</span> <span class='fl'>0.1</span>,
+  pos <span class='op'>=</span> <span class='cn'>NULL</span>,
+  labels <span class='op'>=</span> <span class='cn'>NULL</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  main <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>, <span class='va'>which</span>, sep <span class='op'>=</span> <span class='st'>" - "</span><span class='op'>)</span>,
+  <span class='va'>xlab</span>,
+  <span class='va'>ylab</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/screeplot.html'>screeplot</a></span>(
-  <span class='no'>x</span>,
-  <span class='kw'>npcs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>$<span class='no'>sdev</span>)),
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"barplot"</span>, <span class='st'>"lines"</span>),
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"cornsilk"</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='no'>x</span>)),
-  <span class='no'>...</span>
-)
+<span class='fu'><a href='https://rdrr.io/r/stats/screeplot.html'>screeplot</a></span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  npcs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>$</span><span class='va'>sdev</span><span class='op'>)</span><span class='op'>)</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"barplot"</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
+  col <span class='op'>=</span> <span class='st'>"cornsilk"</span>,
+  main <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span>(
-  <span class='no'>x</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fl'>1L</span>:<span class='fl'>2L</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"p"</span>,
-  <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"pch"</span>),
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"bg"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='no'>...</span>
-)
+<span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  choices <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>:</span><span class='fl'>2L</span>,
+  type <span class='op'>=</span> <span class='st'>"p"</span>,
+  pch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"pch"</span><span class='op'>)</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  bg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"bg"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span>(
-  <span class='no'>x</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fl'>1L</span>:<span class='fl'>2L</span>,
-  <span class='no'>groups</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"p"</span>, <span class='st'>"e"</span>),
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>border</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"fg"</span>),
-  <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.9</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  choices <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>:</span><span class='fl'>2L</span>,
+  <span class='va'>groups</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"p"</span>, <span class='st'>"e"</span><span class='op'>)</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  border <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"fg"</span><span class='op'>)</span>,
+  level <span class='op'>=</span> <span class='fl'>0.9</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span>(
-  <span class='no'>x</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fl'>1L</span>:<span class='fl'>2L</span>,
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>pos</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  choices <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>:</span><span class='fl'>2L</span>,
+  labels <span class='op'>=</span> <span class='cn'>NULL</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  pos <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span>(<span class='no'>x</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fl'>1L</span>:<span class='fl'>2L</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>pc.biplot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>x</span>, choices <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>:</span><span class='fl'>2L</span>, scale <span class='op'>=</span> <span class='fl'>1</span>, pc.biplot <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(
-  <span class='no'>x</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fl'>1L</span>:<span class='fl'>3L</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"loadings"</span>, <span class='st'>"correlations"</span>),
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>circle.col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>,
-  <span class='kw'>ar.col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"col"</span>),
-  <span class='kw'>ar.length</span> <span class='kw'>=</span> <span class='fl'>0.05</span>,
-  <span class='kw'>pos</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ar.cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='st'>"cex"</span>),
-  <span class='no'>...</span>
-)
+<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  choices <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>:</span><span class='fl'>3L</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"loadings"</span>, <span class='st'>"correlations"</span><span class='op'>)</span>,
+  col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  circle.col <span class='op'>=</span> <span class='st'>"gray"</span>,
+  ar.col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"col"</span><span class='op'>)</span>,
+  ar.length <span class='op'>=</span> <span class='fl'>0.05</span>,
+  pos <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ar.cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"cex"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>object</span>, <span class='no'>newdata</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>object</span>$<span class='no'>sdev</span>), <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>newdata</span>, dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>$</span><span class='va'>sdev</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'><a href='correlation.html'>correlation</a></span>(<span class='no'>x</span>, <span class='no'>newvars</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>$<span class='no'>sdev</span>), <span class='no'>...</span>)
+<span class='fu'><a href='correlation.html'>correlation</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>newvars</span>, dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>$</span><span class='va'>sdev</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>scores</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+<span class='fu'>scores</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for pcomp</span>
-<span class='fu'>scores</span>(<span class='no'>x</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>$<span class='no'>sdev</span>), <span class='no'>...</span>)</pre>
+<span class='fu'>scores</span><span class='op'>(</span><span class='va'>x</span>, labels <span class='op'>=</span> <span class='cn'>NULL</span>, dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>$</span><span class='va'>sdev</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -322,7 +322,7 @@ variables.</p></td>
       <th>data</th>
       <td><p>An optional data frame (or similar, see <code><a href='https://rdrr.io/r/stats/model.frame.html'>model.frame()</a></code>)
 containing the variables in the formula. By default the variables
-are taken from <code><a href='https://rdrr.io/r/base/environment.html'>environment(formula)</a></code>.</p></td>
+are taken from <code>environment(formula)</code>.</p></td>
     </tr>
     <tr>
       <th>subset</th>
@@ -375,7 +375,7 @@ components.</p></td>
     <tr>
       <th>covmat</th>
       <td><p>A covariance matrix, or a covariance list as returned by
-<code><a href='https://rdrr.io/r/stats/cov.wt.html'>cov.wt()</a></code> (and <code>cov.mve()</code> or <code>cov.mcd()</code> from package <strong>MASS</strong>). If
+<code><a href='https://rdrr.io/r/stats/cov.wt.html'>cov.wt()</a></code> (and <code><a href='https://rdrr.io/pkg/MASS/man/cov.rob.html'>cov.mve()</a></code> or <code><a href='https://rdrr.io/pkg/MASS/man/cov.rob.html'>cov.mcd()</a></code> from package <strong>MASS</strong>). If
 supplied, this is used rather than the covariance matrix of <code>x</code>.</p></td>
     </tr>
     <tr>
@@ -509,7 +509,7 @@ then plot these additional variables in the correlation plot.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/r/base/c.html'>c("pcomp", "pca", "princomp")</a></code> object.</p>
+    <p>A <code>c("pcomp", "pca", "princomp")</code> object.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>pcomp()</code> is a generic function with <code>"formula"</code> and <code>"default"</code>
@@ -529,70 +529,95 @@ builds of <span style="R">R</span>.</p>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/stats/prcomp.html'>prcomp()</a></code>, <code><a href='https://rdrr.io/r/stats/princomp.html'>princomp()</a></code>, <code><a href='https://rdrr.io/r/stats/loadings.html'>loadings()</a></code>, <code><a href='vectorplot.html'>vectorplot()</a></code>,
 <code><a href='correlation.html'>Correlation()</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Philippe Grosjean <a href='mailto:phgrosjean@sciviews.org'>phgrosjean@sciviews.org</a>, but the core code is
+indeed in package <strong>stats</strong>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Let's analyze mtcars without the Mercedes data (rows 8:14)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>mtcars</span>)
-<span class='no'>cars.pca</span> <span class='kw'>&lt;-</span> <span class='fu'>pcomp</span>(~ <span class='no'>mpg</span> + <span class='no'>cyl</span> + <span class='no'>disp</span> + <span class='no'>hp</span> + <span class='no'>drat</span> + <span class='no'>wt</span> + <span class='no'>qsec</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>subset</span> <span class='kw'>=</span> -(<span class='fl'>8</span>:<span class='fl'>14</span>))
-<span class='no'>cars.pca</span></div><div class='output co'>#&gt; Call:
-#&gt; pcomp(formula = ~mpg + cyl + disp + hp + drat + wt + qsec, data = mtcars, 
-#&gt;     subset = -(8:14))
-#&gt; 
-#&gt; Variances:
-#&gt;        PC1        PC2        PC3        PC4        PC5        PC6        PC7 
-#&gt; 5.13759552 1.21698212 0.28325478 0.15620899 0.12409321 0.05604916 0.02581622 
-#&gt; 
-#&gt;  7  variables and  25 observations.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>cars.pca</span>)</div><div class='output co'>#&gt; Importance of components (eigenvalues):
-#&gt;                          PC1   PC2    PC3    PC4    PC5     PC6     PC7
-#&gt; Variance               5.138 1.217 0.2833 0.1562 0.1241 0.05605 0.02582
-#&gt; Proportion of Variance 0.734 0.174 0.0405 0.0223 0.0177 0.00801 0.00369
-#&gt; Cumulative Proportion  0.734 0.908 0.9483 0.9706 0.9883 0.99631 1.00000
-#&gt; 
-#&gt; Loadings (eigenvectors, rotation matrix):
-#&gt;      PC1    PC2    PC3    PC4    PC5    PC6    PC7   
-#&gt; mpg  -0.415        -0.107  0.754 -0.353  0.318  0.144
-#&gt; cyl   0.425        -0.165  0.447  0.289 -0.485  0.521
-#&gt; disp  0.423 -0.110  0.234  0.465  0.103        -0.726
-#&gt; hp    0.385  0.349  0.106        -0.817 -0.203       
-#&gt; drat -0.320  0.505  0.736         0.208 -0.222       
-#&gt; wt    0.400 -0.262  0.499                0.590  0.416
-#&gt; qsec -0.240 -0.733  0.323        -0.267 -0.475       </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/screeplot.html'>screeplot</a></span>(<span class='no'>cars.pca</span>)</div><div class='img'><img src='pcomp-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Loadings are extracted and plotted this way:</span>
-(<span class='no'>cars.ldg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/loadings.html'>loadings</a></span>(<span class='no'>cars.pca</span>))</div><div class='output co'>#&gt; 
-#&gt; Loadings:
-#&gt;      PC1    PC2    PC3    PC4    PC5    PC6    PC7   
-#&gt; mpg  -0.415        -0.107  0.754 -0.353  0.318  0.144
-#&gt; cyl   0.425        -0.165  0.447  0.289 -0.485  0.521
-#&gt; disp  0.423 -0.110  0.234  0.465  0.103        -0.726
-#&gt; hp    0.385  0.349  0.106        -0.817 -0.203       
-#&gt; drat -0.320  0.505  0.736         0.208 -0.222       
-#&gt; wt    0.400 -0.262  0.499                0.590  0.416
-#&gt; qsec -0.240 -0.733  0.323        -0.267 -0.475       
-#&gt; 
-#&gt;                  PC1   PC2   PC3   PC4   PC5   PC6   PC7
-#&gt; SS loadings    1.000 1.000 1.000 1.000 1.000 1.000 1.000
-#&gt; Proportion Var 0.143 0.143 0.143 0.143 0.143 0.143 0.143
-#&gt; Cumulative Var 0.143 0.286 0.429 0.571 0.714 0.857 1.000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cars.pca</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"loadings"</span>) <span class='co'># Equivalent to vectorplot(cars.ldg)</span></div><div class='img'><img src='pcomp-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Similarly, correlations of variables with PCs are extracted and plotted:</span>
-(<span class='no'>cars.cor</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='correlation.html'>Correlation</a></span>(<span class='no'>cars.pca</span>))</div><div class='output co'>#&gt; Matrix of PCA variables and components correlation:
-#&gt;      PC1    PC2    PC3    PC4    PC5    PC6    PC7   
-#&gt; mpg  -0.940  0.055 -0.057  0.298 -0.124  0.075  0.023
-#&gt; cyl   0.963  0.062 -0.088  0.177  0.102 -0.115  0.084
-#&gt; disp  0.960 -0.122  0.124  0.184  0.036 -0.003 -0.117
-#&gt; hp    0.873  0.385  0.056 -0.039 -0.288 -0.048  0.005
-#&gt; drat -0.726  0.557  0.392  0.030  0.073 -0.053  0.009
-#&gt; wt    0.906 -0.289  0.266 -0.006  0.004  0.140  0.067
-#&gt; qsec -0.544 -0.808  0.172  0.010 -0.094 -0.112  0.010</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cars.pca</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"correlations"</span>) <span class='co'># Equivalent to vectorplot(cars.cor)</span></div><div class='input'><span class='co'># One can add supplementary variables on this graph</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span>(<span class='fu'><a href='correlation.html'>Correlation</a></span>(<span class='no'>cars.pca</span>,
-  <span class='kw'>newvars</span> <span class='kw'>=</span> <span class='no'>mtcars</span>[-(<span class='fl'>8</span>:<span class='fl'>14</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"vs"</span>, <span class='st'>"am"</span>, <span class='st'>"gear"</span>, <span class='st'>"carb"</span>)]))</div><div class='img'><img src='pcomp-3.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Plot the scores:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cars.pca</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"scores"</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.8</span>) <span class='co'># Similar to plot(scores(x)[, 1:2])</span></div><div class='output co'>#&gt; <span class='warning'>Warning: NAs introduced by coercion</span></div><div class='input'><span class='co'># Add supplementary individuals to this plot (labels), also points() or lines()</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>cars.pca</span>, <span class='kw'>newdata</span> <span class='kw'>=</span> <span class='no'>mtcars</span>[<span class='fl'>8</span>:<span class='fl'>14</span>, ]),
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>mtcars</span>[<span class='fl'>8</span>:<span class='fl'>14</span>, ]), <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.8</span>)</div><div class='img'><img src='pcomp-4.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Pairs plot for 3 PCs</span>
-<span class='no'>iris.pca</span> <span class='kw'>&lt;-</span> <span class='fu'>pcomp</span>(<span class='no'>iris</span>[, -<span class='fl'>5</span>])
-<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>iris.pca</span>, <span class='kw'>col</span> <span class='kw'>=</span> (<span class='fl'>2</span>:<span class='fl'>4</span>)[<span class='no'>iris</span>$<span class='no'>Species</span>])</div><div class='img'><img src='pcomp-5.png' alt='' width='700' height='433' /></div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># Let's analyze mtcars without the Mercedes data (rows 8:14)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>cars.pca</span> <span class='op'>&lt;-</span> <span class='fu'>pcomp</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>mpg</span> <span class='op'>+</span> <span class='va'>cyl</span> <span class='op'>+</span> <span class='va'>disp</span> <span class='op'>+</span> <span class='va'>hp</span> <span class='op'>+</span> <span class='va'>drat</span> <span class='op'>+</span> <span class='va'>wt</span> <span class='op'>+</span> <span class='va'>qsec</span>,</span>
+<span class='r-in'>  data <span class='op'>=</span> <span class='va'>mtcars</span>, subset <span class='op'>=</span> <span class='op'>-</span><span class='op'>(</span><span class='fl'>8</span><span class='op'>:</span><span class='fl'>14</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>cars.pca</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> pcomp(formula = ~mpg + cyl + disp + hp + drat + wt + qsec, data = mtcars, </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     subset = -(8:14))</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Variances:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        PC1        PC2        PC3        PC4        PC5        PC6        PC7 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5.13759552 1.21698212 0.28325478 0.15620899 0.12409321 0.05604916 0.02581622 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  7  variables and  25 observations.</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>cars.pca</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Importance of components (eigenvalues):</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          PC1   PC2    PC3    PC4    PC5     PC6     PC7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Variance               5.138 1.217 0.2833 0.1562 0.1241 0.05605 0.02582</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Proportion of Variance 0.734 0.174 0.0405 0.0223 0.0177 0.00801 0.00369</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cumulative Proportion  0.734 0.908 0.9483 0.9706 0.9883 0.99631 1.00000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Loadings (eigenvectors, rotation matrix):</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      PC1    PC2    PC3    PC4    PC5    PC6    PC7   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> mpg  -0.415        -0.107  0.754 -0.353  0.318  0.144</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> cyl   0.425        -0.165  0.447  0.289 -0.485  0.521</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> disp  0.423 -0.110  0.234  0.465  0.103        -0.726</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hp    0.385  0.349  0.106        -0.817 -0.203       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> drat -0.320  0.505  0.736         0.208 -0.222       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> wt    0.400 -0.262  0.499                0.590  0.416</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> qsec -0.240 -0.733  0.323        -0.267 -0.475       </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/stats/screeplot.html'>screeplot</a></span><span class='op'>(</span><span class='va'>cars.pca</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='pcomp-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Loadings are extracted and plotted this way:</span></span>
+<span class='r-in'><span class='op'>(</span><span class='va'>cars.ldg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/loadings.html'>loadings</a></span><span class='op'>(</span><span class='va'>cars.pca</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Loadings:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      PC1    PC2    PC3    PC4    PC5    PC6    PC7   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> mpg  -0.415        -0.107  0.754 -0.353  0.318  0.144</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> cyl   0.425        -0.165  0.447  0.289 -0.485  0.521</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> disp  0.423 -0.110  0.234  0.465  0.103        -0.726</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hp    0.385  0.349  0.106        -0.817 -0.203       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> drat -0.320  0.505  0.736         0.208 -0.222       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> wt    0.400 -0.262  0.499                0.590  0.416</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> qsec -0.240 -0.733  0.323        -0.267 -0.475       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                  PC1   PC2   PC3   PC4   PC5   PC6   PC7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SS loadings    1.000 1.000 1.000 1.000 1.000 1.000 1.000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Proportion Var 0.143 0.143 0.143 0.143 0.143 0.143 0.143</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cumulative Var 0.143 0.286 0.429 0.571 0.714 0.857 1.000</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cars.pca</span>, which <span class='op'>=</span> <span class='st'>"loadings"</span><span class='op'>)</span> <span class='co'># Equivalent to vectorplot(cars.ldg)</span></span>
+<span class='r-plt'><img src='pcomp-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Similarly, correlations of variables with PCs are extracted and plotted:</span></span>
+<span class='r-in'><span class='op'>(</span><span class='va'>cars.cor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='correlation.html'>Correlation</a></span><span class='op'>(</span><span class='va'>cars.pca</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Matrix of PCA variables and components correlation:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      PC1    PC2    PC3    PC4    PC5    PC6    PC7   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> mpg  -0.940  0.055 -0.057  0.298 -0.124  0.075  0.023</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> cyl   0.963  0.062 -0.088  0.177  0.102 -0.115  0.084</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> disp  0.960 -0.122  0.124  0.184  0.036 -0.003 -0.117</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hp    0.873  0.385  0.056 -0.039 -0.288 -0.048  0.005</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> drat -0.726  0.557  0.392  0.030  0.073 -0.053  0.009</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> wt    0.906 -0.289  0.266 -0.006  0.004  0.140  0.067</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> qsec -0.544 -0.808  0.172  0.010 -0.094 -0.112  0.010</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cars.pca</span>, which <span class='op'>=</span> <span class='st'>"correlations"</span><span class='op'>)</span> <span class='co'># Equivalent to vectorplot(cars.cor)</span></span>
+<span class='r-in'><span class='co'># One can add supplementary variables on this graph</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='correlation.html'>Correlation</a></span><span class='op'>(</span><span class='va'>cars.pca</span>,</span>
+<span class='r-in'>  newvars <span class='op'>=</span> <span class='va'>mtcars</span><span class='op'>[</span><span class='op'>-</span><span class='op'>(</span><span class='fl'>8</span><span class='op'>:</span><span class='fl'>14</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"vs"</span>, <span class='st'>"am"</span>, <span class='st'>"gear"</span>, <span class='st'>"carb"</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='pcomp-3.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Plot the scores:</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cars.pca</span>, which <span class='op'>=</span> <span class='st'>"scores"</span>, cex <span class='op'>=</span> <span class='fl'>0.8</span><span class='op'>)</span> <span class='co'># Similar to plot(scores(x)[, 1:2])</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>NAs introduced by coercion</span>
+<span class='r-in'><span class='co'># Add supplementary individuals to this plot (labels), also points() or lines()</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>cars.pca</span>, newdata <span class='op'>=</span> <span class='va'>mtcars</span><span class='op'>[</span><span class='fl'>8</span><span class='op'>:</span><span class='fl'>14</span>, <span class='op'>]</span><span class='op'>)</span>,</span>
+<span class='r-in'>  labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>[</span><span class='fl'>8</span><span class='op'>:</span><span class='fl'>14</span>, <span class='op'>]</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"gray"</span>, cex <span class='op'>=</span> <span class='fl'>0.8</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='pcomp-4.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Pairs plot for 3 PCs</span></span>
+<span class='r-in'><span class='va'>iris.pca</span> <span class='op'>&lt;-</span> <span class='fu'>pcomp</span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>, <span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>iris.pca</span>, col <span class='op'>=</span> <span class='op'>(</span><span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>[</span><span class='va'>iris</span><span class='op'>$</span><span class='va'>Species</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='pcomp-5.png' alt='' width='700' height='433' /></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -736,6 +761,8 @@ builds of <span style="R">R</span>.</p>
 
   
 
+
+  
 
   </body>
 </html>
