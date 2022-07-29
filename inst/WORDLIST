@@ -11,9 +11,11 @@ Données
 dplyr
 FactoMineR
 ggplot
-Github
+github
+GitHub
 grDevices
 Hadley
+https
 io
 labdsv
 loadings
@@ -30,6 +32,7 @@ RStudio
 sciviews
 sd
 subfunction
+svFlow
 svGUI
 svMisc
 svSocket

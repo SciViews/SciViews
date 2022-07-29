@@ -22,8 +22,8 @@
 #' SciViews::R
 #' }
 R <- structure(function(..., silent = FALSE) {
-  pkgs <- c('MASS', 'lattice', 'tidyverse', 'svMisc', 'data.io', 'flow',
-    'chart', 'SciViews')
+  pkgs <- c('MASS', 'lattice', 'tidyverse', 'svMisc', 'svFlow', 'data.io',
+    'chart', 'collapse', 'SciViews')
 
   # TODO: deal with further arguments to configure specialized sub-systems
 
@@ -175,7 +175,7 @@ packages_versions <- function(pkgs = NULL, strip.last = 0, filter = TRUE) {
 
   msg(paste(info, collapse = "\n"), startup = TRUE)
 
-  invisible()
+  invisible(NULL)
 }
 
 # Functions we need to import:

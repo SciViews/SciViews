@@ -1,7 +1,7 @@
 Package: SciViews
 Type: Package
-Version: 1.1.2
-Date: 2021-06-01
+Version: 1.2.0
+Date: 2022-07-28
 Title: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dialect
 Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
@@ -18,13 +18,14 @@ Imports: ellipse,
          graphics,
          stats,
          svMisc,
+         svFlow,
          data.io,
-         flow,
          chart,
          tidyverse,
          cli,
          crayon,
-         rstudioapi
+         rstudioapi,
+         collapse
 Suggests: 
     MASS,
     covr,
@@ -40,7 +41,7 @@ License: GPL-2
 URL: https://github.com/SciViews/SciViews, https://www.sciviews.org/SciViews/
 BugReports: https://github.com/SciViews/SciViews/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US
