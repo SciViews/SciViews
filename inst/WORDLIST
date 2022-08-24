@@ -9,6 +9,7 @@ devtools
 difftime
 Données
 dplyr
+dtplyr
 FactoMineR
 ggplot
 github
@@ -32,6 +33,7 @@ RStudio
 sciviews
 sd
 subfunction
+svBase
 svFlow
 svGUI
 svMisc
