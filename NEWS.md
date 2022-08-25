@@ -1,6 +1,6 @@
 # SciViews 1.3.0
 
--   The {svBase}, {data.table} and {dtplyr} packages are now included in the list of the SciViews::R packages. With {svBase} the preferred data frame object is now data.table, and since {dtplyr} is loaded, it is used for {dplyr} verbs by default.
+-   The {svBase}, {data.table}, {dtplyr} and {collapse} packages are now included in the list of the SciViews::R packages. With {svBase} the preferred data frame object is now data.table, and since {dtplyr} is loaded, it is used for {dplyr} verbs by default.
 
 # SciViews 1.2.0
 
