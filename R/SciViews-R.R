@@ -22,8 +22,8 @@
 #' SciViews::R
 #' }
 R <- structure(function(..., silent = FALSE) {
-  pkgs <- c('MASS', 'lattice', 'data.table', 'tidyverse', 'svMisc', 'svBase',
-    'dtplyr', 'svFlow', 'data.io', 'chart', 'collapse', 'SciViews')
+  pkgs <- c('MASS', 'lattice', 'data.table', 'tidyverse', 'dtplyr', 'collapse',
+    'svMisc', 'svBase', 'svFlow', 'data.io', 'chart', 'SciViews')
 
   # TODO: deal with further arguments to configure specialized sub-systems
 
