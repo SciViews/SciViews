@@ -1,9 +1,13 @@
 #' Configure \R for the SciViews::R dialect
 #'
-#' Load required packages like tidyverse, ggplot2, dplyr, svMisc, ... to get a
-#' fully functional `SciViews::R` dialect environment.
+#' Load required packages like data.table, collapse, ggplot2, dplyr, svMisc, ...
+#' to get a fully functional `SciViews::R` dialect environment.
 #'
 #' @param ... Further parameters to configure \R (not used yet).
+#' @param dtx Which dtx object to use be default? `"dtt"` or `"data.table"` for
+#'   data.table, `"dtf"` or `"data.frame"` for data.frame, `"dtbl"`, `"tibble"`
+#'   or `"tbl_df"` for tibble's tbl_df, the name of a function to use to convert
+#'   a data.frame object, or `NULL` (by default) to keep current settings.
 #' @param silent If `TRUE`, no report is printed about loaded packages and
 #' conflicts.
 #' @param x An object to print.
@@ -21,9 +25,8 @@
 #' \dontrun{
 #' SciViews::R
 #' }
-R <- structure(function(..., silent = FALSE) {
-  pkgs <- c('MASS', 'lattice', 'data.table', 'tidyverse', 'dtplyr', 'collapse',
-    'svMisc', 'svBase', 'svFlow', 'data.io', 'chart', 'SciViews')
+R <- structure(function(..., dtx = NULL, silent = FALSE) {
+  pkgs <- SciViews_packages(all = FALSE)
 
   # TODO: deal with further arguments to configure specialized sub-systems
 
@@ -31,14 +34,45 @@ R <- structure(function(..., silent = FALSE) {
   old_search_length <- length(search())
   lapply(pkgs, silent_library)
 
+  if (!is.null(dtx)) {# Change the default dtx object for {svBase}
+    dtx <- as.character(dtx)[1]
+    fun <- switch(dtx,
+      dtf = as_dtf,
+      data.frame = as_dtf,
+      dtt = as_dtt,
+      data.table = as_dtt,
+      dtbl = as_dtbl,
+      tibble = as_dtbl,
+      tbl_df = as_dtbl,
+      get0(dtx, mode = 'function')
+    )
+    if (is.null(fun))
+      stop("Function ", dtx, " not found")
+    options(SciViews.as_dtx = fun)
+  }
+  # Check which kind of object I got by using as_dtx() on a toy data.frame
+  test <- as_dtx(data.frame(x = 1))
+  if (is_dtt(test)) {
+    dtx_class <- "data.table"
+  } else if (is_dtbl(test)) {
+    dtx_class <- "tibble"
+  } else if (is_dtf(test)) {
+    dtx_class <- "data.frame"
+  } else {
+    dtx_class <- class(test)[1]
+  }
+
   if (!isTRUE(silent) && length(search()) > old_search_length) {
     packages_versions(strip.last = old_search_length)
 
-    x <- tidyverse_conflicts()
-    print(x) #msg(conflict_message(x), startup = TRUE)
+    x <- SciViews_conflicts(all = FALSE)
+    print(x)
+
+    # Message about the dtx object by default
+    cli::cat_rule("Default data frame object (dtx)", right = dtx_class)
   }
 
-  invisible(pkgs)
+    invisible(list(pkgs = pkgs, dtx_class = dtx_class))
 }, class = c("SciViews_R", "function"))
 
 #' @rdname SciViews_R
@@ -104,34 +138,6 @@ package_version <- function(x) {
 
   paste0(version, collapse = ".")
 }
-
-# TODO: use my own conflicts print message instead
-# This is a modified version of tidyverse::tidyverse_conflict_message()
-#conflict_message <- function(x) {
-#  if (length(x) == 0) return("")
-#
-#  header <- cli::rule(
-#    left = crayon::bold("Conflicts"),
-#    right = "use pkg::fun() to access fun directly"
-#  )
-#
-#  pkgs <- x %>% purrr::map(~ gsub("^package:", "", .))
-#  others <- pkgs %>% purrr::map(`[`, -1)
-#  other_calls <- purrr::map2_chr(
-#    others, names(others),
-#    ~ paste0(crayon::blue(.x), "::", .y, "()", collapse = ", ")
-#  )
-#
-#  winner <- pkgs %>% purrr::map_chr(1)
-#  funs <- format(paste0(crayon::blue(winner), "::", crayon::green(paste0(names(x), "()"))))
-#  bullets <- paste0(
-#    crayon::red(cli::symbol$cross), " ", funs,
-#    " masks ", other_calls,
-#    collapse = "\n"
-#  )
-#
-#  paste0(header, "\n", bullets)
-#}
 
 # This is a modified version of tidyverse::tidyverse_attach() keeping only
 # the information message about packages/versions loaded

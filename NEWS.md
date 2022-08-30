@@ -1,6 +1,16 @@
-# SciViews 1.2.0
+# SciViews 1.4.0
+
+-   {tidyverse} is not loaded any more, but a selected series of tidyverse packages useful for `SciViews::R`.
+
+-   `SciViews::R` has now an argument to set which is the default data frame object to use (data.frame, tibble, or data.table with `as_dtx=`). The default value is data.table. In all cases, a message is printed to clearly indicate which is the default.
+
+-   Startup messages with `SciViews::R` are now more complete regarding functions conflicts (it does not use `tidyverse_conflicts()` any more).
+
+# SciViews 1.3.0
 
 -   The {svBase}, {data.table}, {dtplyr} and {collapse} packages are now included in the list of the SciViews::R packages. With {svBase} the preferred data frame object is now data.table, and since {dtplyr} is loaded, it is used for {dplyr} verbs by default.
+
+# SciViews 1.2.0
 
 -   Change dependency to {svFlow} instead of {flow} after that package was renamed.
 

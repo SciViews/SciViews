@@ -6,10 +6,12 @@ Biologiques
 cli
 des
 devtools
+df
 difftime
 Données
 dplyr
 dtplyr
+dtx
 FactoMineR
 ggplot
 github
@@ -38,6 +40,9 @@ svFlow
 svGUI
 svMisc
 svSocket
+tbl
+tibble
+tibble's
 tidyverse
 untransform
 Wickham

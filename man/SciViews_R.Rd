@@ -6,12 +6,17 @@
 \alias{print.SciViews_R}
 \title{Configure \R for the SciViews::R dialect}
 \usage{
-R(..., silent = FALSE)
+R(..., dtx = NULL, silent = FALSE)
 
 \method{print}{SciViews_R}(x, ...)
 }
 \arguments{
 \item{...}{Further parameters to configure \R (not used yet).}
+
+\item{dtx}{Which dtx object to use be default? \code{"dtt"} or \code{"data.table"} for
+data.table, \code{"dtf"} or \code{"data.frame"} for data.frame, \code{"dtbl"}, \code{"tibble"}
+or \code{"tbl_df"} for tibble's tbl_df, the name of a function to use to convert
+a data.frame object, or \code{NULL} (by default) to keep current settings.}
 
 \item{silent}{If \code{TRUE}, no report is printed about loaded packages and
 conflicts.}
@@ -19,8 +24,8 @@ conflicts.}
 \item{x}{An object to print.}
 }
 \description{
-Load required packages like tidyverse, ggplot2, dplyr, svMisc, ... to get a
-fully functional \code{SciViews::R} dialect environment.
+Load required packages like data.table, collapse, ggplot2, dplyr, svMisc, ...
+to get a fully functional \code{SciViews::R} dialect environment.
 }
 \note{
 Use \code{SciViews::R} instruction in the beginning of an R script, or in
