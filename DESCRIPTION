@@ -61,7 +61,12 @@ Suggests:
     stringr,
     xml2,
     tidyverse
-Remotes: SciViews/data.io, SciViews/flow, SciViews/chart, SciViews/svMisc
+Remotes:
+    SciViews/data.io,
+    SciViews/chart,
+    SciViews/svFlow,
+    SciViews/svBase,
+    SciViews/svMisc
 Enhances: base
 ByteCompile: yes
 License: GPL-2
