@@ -50,7 +50,7 @@
       </button>
       <div class="navbar-brand-container">
        <div class="navbar-brand-logo">
-         <a class="navbar-brand" href="https://www.sciviews.org">
+         <a class="external-link navbar-brand" href="https://www.sciviews.org">
           <img src="logo_full.png" alt="SciViews"></a>
        </div>
        <div class="navbar-brand-package">
@@ -75,7 +75,7 @@
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -90,14 +90,14 @@
   <a href="news/index.html">Changelog</a>
 </li>
         <li>
-  <a href="https://github.com/SciViews/SciViews/">
+  <a href="https://github.com/SciViews/SciViews/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
 <div class="navbar-title">
-        <a class="navbar-brand" href="index.html"><p class="h2">SciViews <small>v1.1.2</small></p></a>
+        <a class="navbar-brand" href="index.html"><p class="h2">SciViews <small>v1.4.0</small></p></a>
       </div>
     </div>
 <!--/.nav-collapse -->
@@ -112,49 +112,46 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="sciviews" class="section level1">
+<div class="section level1">
 
 <!-- badges: start -->
-
-<blockquote>
-<p>‘SciViews’ mainly provides the <code><a href="reference/SciViews_R.html">SciViews::R</a></code> dialect through the function of the same name. It loads a series of tidyverse and Sciviews packages in order to supplement base R with functions to implement that dialect. See, for instance the books <a href="http://biodatascience-course.sciviews.org/sdd-umons/" class="external-link">Science des Données Biologiques I</a> and <a href="http://biodatascience-course.sciviews.org/sdd-umons2/" class="external-link">Science des Données Biologiques II</a> (in French) for extensive examples of the use of <code><a href="reference/SciViews_R.html">SciViews::R</a></code>.</p>
-</blockquote>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
-<p>The latest stable version of ‘SciViews’ can simply be installed from <a href="http://cran.r-project.org" class="external-link">CRAN</a>:</p>
+<!-- badges: end --><p>{SciViews} mainly provides the <code><a href="reference/SciViews_R.html">SciViews::R</a></code> dialect through the function of the same name. It loads a series of tidyverse and SciViews packages in order to supplement base R with functions to implement that dialect. See, for instance the books <a href="http://biodatascience-course.sciviews.org/sdd-umons/" class="external-link">Science des Données Biologiques I</a> and <a href="http://biodatascience-course.sciviews.org/sdd-umons2/" class="external-link">Science des Données Biologiques II</a> (in French) for extensive examples of the use of <code><a href="reference/SciViews_R.html">SciViews::R</a></code>.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>The latest stable version of {SciViews} can simply be installed from <a href="http://cran.r-project.org" class="external-link">CRAN</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"SciViews"</span><span class="op">)</span></code></pre></div>
-<p>You can also install the latest developement version. Make sure you have the ‘devtools’ R package installed:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"SciViews"</span><span class="op">)</span></span></code></pre></div>
+<p>You can also install the latest development version. Make sure you have the {remotes} R package installed:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
-<p>Use <code>install_github()</code> to install the ‘SciViews’ package from Github (source from <strong>master</strong> branch will be recompiled on your machine):</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span></code></pre></div>
+<p>Use <code>install_github()</code> to install the {SciViews} package from GitHub (source from <strong>master</strong> branch will be recompiled on your machine):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"SciViews/SciViews"</span><span class="op">)</span></code></pre></div>
-<p>R should install all required dependencies automatically, and then it should compile and install ‘SciViews’.</p>
-<p>Latest devel version of ‘SciViews’ (source + Windows binaires for the latest stable version of R at the time of compilation) is also available from <a href="https://ci.appveyor.com/project/phgrosjean/SciViews/build/artifacts" class="external-link">appveyor</a>.</p>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"SciViews/SciViews"</span><span class="op">)</span></span></code></pre></div>
+<p>R should install all required dependencies automatically, and then it should compile and install {SciViews}.</p>
+<p>Latest development version of ‘SciViews’ (source + Windows binaries for the latest stable version of R at the time of compilation) is also available from <a href="https://ci.appveyor.com/project/phgrosjean/SciViews/build/artifacts" class="external-link">appveyor</a>.</p>
 </div>
-<div id="further-explore-sciviews" class="section level2">
-<h2 class="hasAnchor">
-<a href="#further-explore-sciviews" class="anchor" aria-hidden="true"></a>Further explore ‘SciViews’</h2>
-<p>You can get further help about this package this way: Make the ‘SciViews’ package and all the other packages required by the <code><a href="reference/SciViews_R.html">SciViews::R</a></code> dialect available in your R session:</p>
+<div class="section level2">
+<h2 id="further-explore-sciviews">Further explore {SciViews}<a class="anchor" aria-label="anchor" href="#further-explore-sciviews"></a>
+</h2>
+<p>You can get further help about this package this way: Make the {SciViews} package and all the other packages required by the <code><a href="reference/SciViews_R.html">SciViews::R</a></code> dialect available in your R session:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">SciViews</span><span class="fu">::</span><span class="fu"><a href="reference/SciViews_R.html">R</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">SciViews</span><span class="fu">::</span><span class="fu"><a href="reference/SciViews_R.html">R</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Get help about this package:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span>help <span class="op">=</span> <span class="st">"SciViews"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/help.html" class="external-link">help</a></span><span class="op">(</span><span class="st">"SciViews-package"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"SciViews"</span><span class="op">)</span> <span class="co"># None is installed with install_github()</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span>help <span class="op">=</span> <span class="st">"SciViews"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/help.html" class="external-link">help</a></span><span class="op">(</span><span class="st">"SciViews-package"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"SciViews"</span><span class="op">)</span> <span class="co"># None is installed with install_github()</span></span></code></pre></div>
 <p>For further instructions, please, refer to these help pages at <a href="https://www.sciviews.org/SciViews/" class="uri">https://www.sciviews.org/SciViews/</a>.</p>
 </div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor" aria-hidden="true"></a>Code of Conduct</h2>
+<div class="section level2">
+<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
 <p>Please note that the ‘SciViews’ project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
-<div id="note-to-developers" class="section level2">
-<h2 class="hasAnchor">
-<a href="#note-to-developers" class="anchor" aria-hidden="true"></a>Note to developers</h2>
+<div class="section level2">
+<h2 id="note-to-developers">Note to developers<a class="anchor" aria-label="anchor" href="#note-to-developers"></a>
+</h2>
 <p>This package used to be developed on R-Forge in the past. However, the latest <a href="https://r-forge.r-project.org/projects/sciviews/" class="external-link">R-Forge version</a> was moved to this Github repository on 2018-01-05 (SVN version 569). <strong>Please, do not use R-Forge anymore for SciViews development, use this Github repository instead.</strong></p>
 </div>
 </div>
@@ -164,12 +161,9 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=SciViews">https://​cloud.r-project.org/​package=SciViews</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/SciViews/SciViews/">https://​github.com/​SciViews/​SciViews/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/SciViews/SciViews/issues">https://​github.com/​SciViews/​SciViews/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=SciViews" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/SciViews/SciViews/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/SciViews/SciViews/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -177,7 +171,7 @@
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a></small></li>
+<li><small><a href="https://www.r-project.org/Licenses/GPL-2" class="external-link">GPL-2</a></small></li>
 </ul>
 </div>
 
@@ -191,7 +185,7 @@
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html">Citing SciViews</a></li>
+<li><a href="authors.html#citation">Citing SciViews</a></li>
 </ul>
 </div>
 
@@ -199,21 +193,11 @@
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://phgrosjean.sciviews.org">Philippe Grosjean</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-2694-9471" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<a href="https://phgrosjean.sciviews.org" class="external-link">Philippe Grosjean</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-2694-9471" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://travis-ci.com/SciViews/SciViews" class="external-link"><img src="https://travis-ci.com/SciViews/SciViews.svg" alt="Linux Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/phgrosjean/SciViews" class="external-link"><img src="https://ci.appveyor.com/api/projects/status/github/SciViews/SciViews?branch=master&amp;svg=true" alt="Win Build Status"></a></li>
-<li><a href="https://codecov.io/github/SciViews/SciViews?branch=master" class="external-link"><img src="https://img.shields.io/codecov/c/github/SciViews/SciViews/master.svg" alt="Coverage Status"></a></li>
-<li><a href="https://cran.r-project.org/package=SciViews" class="external-link"><img src="https://www.r-pkg.org/badges/version/SciViews" alt="CRAN Status"></a></li>
-<li><a href="https://www.gnu.org/licenses/gpl-2.0.html" class="external-link"><img src="https://img.shields.io/badge/license-GPL-blue.svg" alt="License"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Life cycle stable"></a></li>
-</ul>
-</div>
+
 
   </div>
 </div>
@@ -230,19 +214,19 @@
                         <!-- social icon -->
                         <ul class="list-inline">
 <li class="list-inline-item">
-                                <a class="social-icon-outline" href="https://github.com/SciViews">
+                                <a class="external-link social-icon-outline" href="https://github.com/SciViews">
                                     <i class="ti-github"></i>
                                 </a>
                             </li>
 
                             <li class="list-inline-item">
-                                <a class="social-icon-outline" href="https://twitter.com/PhilGrosjean">
+                                <a class="external-link social-icon-outline" href="https://twitter.com/PhilGrosjean">
                                     <i class="ti-twitter-alt"></i>
                                 </a>
                             </li>
 
                             <li class="list-inline-item">
-                                <a class="social-icon-outline" href="https://www.linkedin.com/in/philippe-grosjean-5b6b29a2/">
+                                <a class="external-link social-icon-outline" href="https://www.linkedin.com/in/philippe-grosjean-5b6b29a2/">
                                     <i class="ti-linkedin"></i>
                                 </a>
                             </li>
@@ -255,23 +239,23 @@
                     <p class="h4 text-white mb-4">Related</p>
                     <ul class="footer-links">
 <li>
-                            <a href="http://econum.umons.ac.be">Our Lab</a>
+                            <a href="http://econum.umons.ac.be" class="external-link">Our Lab</a>
                         </li>
 
                         <li>
-                            <a href="https://web.umons.ac.be/fs/en/">Our Faculty</a>
+                            <a href="https://web.umons.ac.be/fs/en/" class="external-link">Our Faculty</a>
                         </li>
 
                         <li>
-                            <a href="https://web.umons.ac.be/complexys/en/">Complexys</a>
+                            <a href="https://web.umons.ac.be/complexys/en/" class="external-link">Complexys</a>
                         </li>
 
                         <li>
-                            <a href="https://web.umons.ac.be/infortech/en/">InforTech</a>
+                            <a href="https://web.umons.ac.be/infortech/en/" class="external-link">InforTech</a>
                         </li>
 
                         <li>
-                            <a href="https://web.umons.ac.be/en/">UMONS</a>
+                            <a href="https://web.umons.ac.be/en/" class="external-link">UMONS</a>
                         </li>
 
                     </ul>
@@ -281,23 +265,23 @@
                     <p class="h4 text-white mb-4">Quick Link</p>
                     <ul class="footer-links">
 <li>
-                            <a href="https://www.sciviews.org/software/svbox">SciViews Box</a>
+                            <a href="https://www.sciviews.org/software/svbox" class="external-link">SciViews Box</a>
                         </li>
 
                         <li>
-                            <a href="https://www.sciviews.org/software/sciviews-r">SciViews::R</a>
+                            <a href="https://www.sciviews.org/software/sciviews-r" class="external-link">SciViews::R</a>
                         </li>
 
                         <li>
-                            <a href="https://www.sciviews.org/software/zooimage">Zoo/PhytoImage</a>
+                            <a href="https://www.sciviews.org/software/zooimage" class="external-link">Zoo/PhytoImage</a>
                         </li>
 
                         <li>
-                            <a href="https://www.sciviews.org/blog">Blog</a>
+                            <a href="https://www.sciviews.org/blog" class="external-link">Blog</a>
                         </li>
 
                         <li>
-                            <a href="https://www.sciviews.org/about">About</a>
+                            <a href="https://www.sciviews.org/about" class="external-link">About</a>
                         </li>
 
                     </ul>
@@ -324,7 +308,7 @@
                 <div class="col-lg-6 col-md-7">
                     <ul class="list-inline text-center text-md-right">
 <li class="list-inline-item mx-lg-3 my-lg-0 mx-2 my-2">
-                            <a class="font-secondary text-white" href="https://creativecommons.org/licenses/by/4.0/">Site content under CC-BY 4.0 license</a>
+                            <a class="external-link font-secondary text-white" href="https://creativecommons.org/licenses/by/4.0/">Site content under CC-BY 4.0 license</a>
                         </li>
 
                     </ul>
