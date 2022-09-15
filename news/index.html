@@ -67,7 +67,7 @@
   </a>
 </li>
       </ul><div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.4.0</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.5.0</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -84,6 +84,12 @@
       <small>Source: <a href="https://github.com/SciViews/SciViews/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="1.5.0" id="sciviews-150">SciViews 1.5.0<a class="anchor" aria-label="anchor" href="#sciviews-150"></a></h2>
+<ul><li><p>Topics are now implemented in <code><a href="../reference/SciViews_R.html">SciViews::R</a></code>. One can specify, for instance, <code>SciViews::R("model")</code> to load more packages related to modeling with regressions. Current topics ore ‘infer’, ‘model’, ‘explore’, ‘ml’, ‘ts’ and ‘spatial’. It is possible to specify more than one topic.</p></li>
+<li><p>The new function <code>sciviews_packages_topics()</code> lists all packages required for each topic.</p></li>
+<li><p><code><a href="../reference/SciViews_R.html">SciViews::R</a></code> has now a new argument <code>lang=</code> to specify the default language to use. Hence, <code>SciViews::R(lang = "fr")</code> will set French as de default language used by functions like <code><a href="https://www.sciviews.org/data.io/reference/read.html" class="external-link">data.io::read()</a></code>, or for plot axes labels or title.</p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.4.0" id="sciviews-140">SciViews 1.4.0<a class="anchor" aria-label="anchor" href="#sciviews-140"></a></h2>
 <ul><li><p>{tidyverse} is not loaded any more, but a selected series of tidyverse packages useful for <code><a href="../reference/SciViews_R.html">SciViews::R</a></code>.</p></li>

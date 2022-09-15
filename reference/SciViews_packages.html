@@ -69,7 +69,7 @@ tidyverse::tidyverse_conflicts(), but adapted to the SciViews::R context."><meta
   </a>
 </li>
       </ul><div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.4.0</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.5.0</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -96,6 +96,8 @@ are inspired by <code><a href="https://tidyverse.tidyverse.org/reference/tidyver
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">SciViews_packages</span><span class="op">(</span><span class="va">...</span>, all <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">SciViews_packages_topics</span><span class="op">(</span>all <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">SciViews_conflicts</span><span class="op">(</span>all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SciViews_conflicts</span></span>
@@ -105,7 +107,8 @@ are inspired by <code><a href="https://tidyverse.tidyverse.org/reference/tidyver
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
-<dd><p>Further topics to consider in SciViews::R (not used yet).</p></dd>
+<dd><p>Further topics to consider in <code><a href="SciViews_R.html">SciViews::R</a></code>. Currently, <code>"infer"</code>,
+<code>"model"</code>, <code>"explore"</code>, <code>"ml"</code>, <code>"ts"</code> or <code>"spatial"</code>.</p></dd>
 
 
 <dt>all</dt>
@@ -132,13 +135,17 @@ attached to the search path (<code>FALSE</code>).</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">SciViews_packages</span><span class="op">(</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># List of packages attached to the search path with SciViews::R</span></span></span>
+<span class="r-in"><span><span class="fu">SciViews_packages</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SciViews</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "rlang"      "MASS"       "lattice"    "data.table" "ggplot2"   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "tibble"     "tidyr"      "dplyr"      "dtplyr"     "broom"     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11] "forcats"    "collapse"   "fs"         "svMisc"     "svBase"    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] "svFlow"     "data.io"    "chart"      "SciViews"  </span>
-<span class="r-in"><span><span class="co"># More complete list of packages</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="co"># More complete list of packages used by SciViews::R</span></span></span>
 <span class="r-in"><span><span class="fu">SciViews_packages</span><span class="op">(</span>all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SciViews</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "MASS"          "lattice"       "data.table"    "broom"        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "cli"           "crayon"        "dbplyr"        "dplyr"        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "dtplyr"        "forcats"       "googledrive"   "googlesheets4"</span>
@@ -150,6 +157,30 @@ attached to the search path (<code>FALSE</code>).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [33] "tidyverse"     "collapse"      "fs"            "svMisc"       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [37] "svBase"        "svFlow"        "data.io"       "chart"        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [41] "SciViews"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="co"># Even more packages, by adding also 'model' and 'ml' topics</span></span></span>
+<span class="r-in"><span><span class="fu">SciViews_packages</span><span class="op">(</span><span class="st">"model"</span>, <span class="st">"ml"</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SciViews</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "MASS"          "lattice"       "data.table"    "broom"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "cli"           "crayon"        "dbplyr"        "dplyr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "dtplyr"        "forcats"       "googledrive"   "googlesheets4"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "ggplot2"       "haven"         "hms"           "httr"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "jsonlite"      "lubridate"     "magrittr"      "modelr"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "pillar"        "purrr"         "readr"         "readxl"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "reprex"        "rlang"         "rstudioapi"    "rvest"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [29] "stringr"       "tibble"        "tidyr"         "xml2"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [33] "tidyverse"     "collapse"      "fs"            "svMisc"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "svBase"        "svFlow"        "data.io"       "chart"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] "SciViews"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $model</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "broom"   "MASS"    "modelit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "class"        "e1071"        "ipred"        "MASS"         "mlbench"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "mlearning"    "nnet"         "parsnip"      "randomForest" "recipes"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "ROCR"         "rpart"        "rsample"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># Conflicts</span></span></span>
 <span class="r-in"><span><span class="fu">SciViews_conflicts</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>

@@ -68,7 +68,7 @@ to get a fully functional SciViews::R dialect environment."><meta property="og:i
   </a>
 </li>
       </ul><div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.4.0</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.5.0</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -92,7 +92,7 @@ to get a fully functional <code>SciViews::R</code> dialect environment.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">R</span><span class="op">(</span><span class="va">...</span>, dtx <span class="op">=</span> <span class="cn">NULL</span>, silent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">R</span><span class="op">(</span><span class="va">...</span>, lang <span class="op">=</span> <span class="cn">NULL</span>, dtx <span class="op">=</span> <span class="cn">NULL</span>, silent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SciViews_R</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
@@ -101,14 +101,24 @@ to get a fully functional <code>SciViews::R</code> dialect environment.</p>
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
-<dd><p>Further parameters to configure <span style="R">R</span> (not used yet).</p></dd>
+<dd><p>Further topics to include to configure <span style="R">R</span> (load more packages).
+Currently, <code>"infer"</code>, <code>"model"</code>, <code>"explore"</code>, <code>"ml"</code>, <code>"ts"</code> or <code>"spatial"</code></p></dd>
+
+
+<dt>lang</dt>
+<dd><p>What is the default natural language to use, e.g., <code>"en"</code> or
+<code>"fr"</code>, with uppercase versions <code>"EN"</code> or <code>"FR"</code> convert even more strings,
+for instance, <code><a href="https://www.sciviews.org/data.io/reference/read.html" class="external-link">data.io::read()</a></code> does not convert factor levels in the
+corresponding language for supported data sets unless the uppercase version
+is specified. If <code>NULL</code> (by default), current configuration is not changed.</p></dd>
 
 
 <dt>dtx</dt>
-<dd><p>Which dtx object to use be default? <code>"dtt"</code> or <code>"data.table"</code> for
-data.table, <code>"dtf"</code> or <code>"data.frame"</code> for data.frame, <code>"dtbl"</code>, <code>"tibble"</code>
-or <code>"tbl_df"</code> for tibble's tbl_df, the name of a function to use to convert
-a data.frame object, or <code>NULL</code> (by default) to keep current settings.</p></dd>
+<dd><p>Which dtx object is to be used be default? <code>"dtt"</code> or
+<code>"data.table"</code> for data.table, <code>"dtf"</code> or <code>"data.frame"</code> for data.frame,
+<code>"dtbl"</code>, <code>"tibble"</code> or <code>"tbl_df"</code> for tibble's tbl_df, the name of a
+function to use to convert a data.frame object, or <code>NULL</code> (by default) to
+keep current settings.</p></dd>
 
 
 <dt>silent</dt>
