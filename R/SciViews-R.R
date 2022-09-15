@@ -18,7 +18,7 @@
 #' dialect is correctly installed. The report indicating attached packages and
 #' conflicts is largely inspired by the corresponding `tidyverse` code,
 #' written by Hadley Wickham.
-#' @seealso [package()], [Install()]
+#' @seealso [library()], [utils::install.packages()]
 #' @keywords utilities
 #' @concept packages loading
 #' @examples

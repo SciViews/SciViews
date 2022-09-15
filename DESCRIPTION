@@ -59,12 +59,12 @@ Suggests:
     reprex,
     rvest,
     stringr,
-    tidyverse
+    tidyverse,
     xml2
 Remotes:
     SciViews/chart,
     SciViews/data.io,
-     SciViews/svBase,
+    SciViews/svBase,
     SciViews/svFlow,
     SciViews/svMisc
 Enhances: base

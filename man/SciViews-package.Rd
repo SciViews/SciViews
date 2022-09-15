@@ -6,7 +6,9 @@
 \alias{SciViews-package}
 \title{SciViews: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dialect}
 \description{
-The 'SciViews::R' dialect provides a set of functions that streamlines data input, process, analysis and visualization especially, but not exclusively, for beginners or occasional users. It mixes base R and tidyverse, plus another set of CRAN packages towards an easy and coherent user interface.
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
+The 'SciViews::R' dialect provides a set of functions that streamlines data input, process, analysis and visualization especially, but not exclusively, for beginners or occasional users. It mixes base R and tidyverse, plus another set of CRAN packages for an easy and coherent use of R.
 }
 \details{
 The \code{Sciviews::R} dialect is base R + tidyverse + a series of additional SciViews packages like 'data.io', 'flow' or 'chart'.

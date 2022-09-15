@@ -40,7 +40,7 @@ SciViews::R
 }
 }
 \seealso{
-\code{\link[=package]{package()}}, \code{\link[=Install]{Install()}}
+\code{\link[=library]{library()}}, \code{\link[utils:install.packages]{utils::install.packages()}}
 }
 \concept{packages loading}
 \keyword{utilities}

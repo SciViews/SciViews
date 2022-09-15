@@ -35,7 +35,6 @@
 #' @importFrom cli cat_line rule symbol
 #' @importFrom rstudioapi getThemeInfo hasFun isAvailable
 #' @importFrom purrr compact imap keep map map_chr map2_chr set_names
-#'
 #' @importFrom svBase as_dtf as_dtt as_dtbl as_dtx is_dtf is_dtt is_dtbl
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!
