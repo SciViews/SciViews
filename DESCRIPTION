@@ -66,8 +66,7 @@ Remotes:
     SciViews/data.io,
      SciViews/svBase,
     SciViews/svFlow,
-    SciViews/svMisc,
-    SciViews/svPkgdown
+    SciViews/svMisc
 Enhances: base
 ByteCompile: yes
 License: GPL-2

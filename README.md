@@ -1,4 +1,4 @@
-# SciViews
+# SciViews- 'SciViews::R' dialect for data processing and visualization <a href='https://www.sciviews.org/SciViews'><img src="man/figures/logo.png" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -55,4 +55,3 @@ Please note that the 'SciViews' project is released with a [Contributor Code of 
 ## Note to developers
 
 This package used to be developed on R-Forge in the past. However, the latest [R-Forge version](https://r-forge.r-project.org/projects/sciviews/) was moved to this Github repository on 2018-01-05 (SVN version 569). **Please, do not use R-Forge anymore for SciViews development, use this Github repository instead.**
-
