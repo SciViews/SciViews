@@ -5,39 +5,39 @@ Title: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dia
 Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
   not exclusively, for beginners or occasional users. It mixes base R and
-  tidyverse, plus another set of CRAN packages towards an easy and coherent user
-  interface.
+  tidyverse, plus another set of CRAN packages for an easy and coherent use of R.
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org",
   comment = c(ORCID = "0000-0002-2694-9471")))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
-Depends: R (>= 2.6.0)
-Imports: ellipse,
-         grDevices,
-         graphics,
-         stats,
-         utils,
-         svMisc,
-         svBase,
-         svFlow,
-         data.io,
-         chart,
-         tibble,
-         ggplot2,
-         dplyr,
-         dtplyr,
-         forcats,
-         broom,
-         rlang,
-         fs,
-         cli,
-         crayon,
-         rstudioapi,
-         data.table,
-         collapse,
-         purrr
+Depends: R (>= 4.1.0)
+Imports:
+    cli,
+    crayon,
+    ellipse,
+    graphics,
+    grDevices,
+    purrr,
+    rstudioapi,
+    stats,
+    svBase,
+    utils
 Suggests: 
+    broom,
+    chart,
+    collapse,
+    data.io,
+    data.table,
+    dplyr,
+    dtplyr,
+    forcats,
+    fs,
+    ggplot2,
     MASS,
+    rlang,
+    svFlow,
+    svMisc,
+    tibble,
     covr,
     knitr,
     testthat,
@@ -59,14 +59,15 @@ Suggests:
     reprex,
     rvest,
     stringr,
-    xml2,
     tidyverse
+    xml2
 Remotes:
-    SciViews/data.io,
     SciViews/chart,
+    SciViews/data.io,
+     SciViews/svBase,
     SciViews/svFlow,
-    SciViews/svBase,
-    SciViews/svMisc
+    SciViews/svMisc,
+    SciViews/svPkgdown
 Enhances: base
 ByteCompile: yes
 License: GPL-2
