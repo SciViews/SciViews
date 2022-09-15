@@ -3,11 +3,18 @@
 #' Load required packages like data.table, collapse, ggplot2, dplyr, svMisc, ...
 #' to get a fully functional `SciViews::R` dialect environment.
 #'
-#' @param ... Further parameters to configure \R (not used yet).
-#' @param dtx Which dtx object to use be default? `"dtt"` or `"data.table"` for
-#'   data.table, `"dtf"` or `"data.frame"` for data.frame, `"dtbl"`, `"tibble"`
-#'   or `"tbl_df"` for tibble's tbl_df, the name of a function to use to convert
-#'   a data.frame object, or `NULL` (by default) to keep current settings.
+#' @param ... Further topics to include to configure \R (load more packages).
+#'   Currently, `"infer"`, `"model"`, `"explore"`, `"ml"`, `"ts"` or `"spatial"`
+#' @param lang What is the default natural language to use, e.g., `"en"` or
+#'   `"fr"`, with uppercase versions `"EN"` or `"FR"` convert even more strings,
+#'   for instance, [data.io::read()] does not convert factor levels in the
+#'   corresponding language for supported data sets unless the uppercase version
+#'   is specified. If `NULL` (by default), current configuration is not changed.
+#' @param dtx Which dtx object is to be used be default? `"dtt"` or
+#'   `"data.table"` for data.table, `"dtf"` or `"data.frame"` for data.frame,
+#'   `"dtbl"`, `"tibble"` or `"tbl_df"` for tibble's tbl_df, the name of a
+#'   function to use to convert a data.frame object, or `NULL` (by default) to
+#'   keep current settings.
 #' @param silent If `TRUE`, no report is printed about loaded packages and
 #' conflicts.
 #' @param x An object to print.
@@ -25,14 +32,25 @@
 #' \dontrun{
 #' SciViews::R
 #' }
-R <- structure(function(..., dtx = NULL, silent = FALSE) {
-  pkgs <- SciViews_packages(all = FALSE)
-
-  # TODO: deal with further arguments to configure specialized sub-systems
+R <- structure(function(..., lang = NULL, dtx = NULL, silent = FALSE) {
+  pkgs <- SciViews_packages(..., all = FALSE)
+  # Flatten the list, and eliminate duplicates
+  pkgs <- unique(unlist(pkgs))
 
   crayon::num_colors(TRUE)
   old_search_length <- length(search())
   lapply(pkgs, silent_library)
+
+  if (!is.null(lang)) {
+    if (length(lang) != 1 || !is.character(lang))
+      stop("You must provide a single character string for 'lang='.")
+    options(data.io_lang = lang)
+  }
+  # Message if default language set
+  cur_lang <- getOption("data.io_lang")
+  if (!is.null(cur_lang) && !isTRUE(silent))
+    cli::cat_bullet(cli::col_blue("Default language: "),
+      cli::style_bold(cur_lang), bullet = "tick", bullet_col = "green")
 
   if (!is.null(dtx)) {# Change the default dtx object for {svBase}
     dtx <- as.character(dtx)[1]
@@ -63,13 +81,17 @@ R <- structure(function(..., dtx = NULL, silent = FALSE) {
   }
 
   if (!isTRUE(silent) && length(search()) > old_search_length) {
+    # Message about the dtx object by default
+    cli::cat_bullet(cli::col_blue("Default data frame object (dtx): "),
+      cli::style_bold(dtx_class), bullet = "tick", bullet_col = "green")
+
     packages_versions(strip.last = old_search_length)
 
     x <- SciViews_conflicts(all = FALSE)
     print(x)
 
     # Message about the dtx object by default
-    cli::cat_rule("Default data frame object (dtx)", right = dtx_class)
+    #cli::cat_rule("Default data frame object (dtx)", right = dtx_class)
   }
 
     invisible(list(pkgs = pkgs, dtx_class = dtx_class))

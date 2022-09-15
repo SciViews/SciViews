@@ -32,7 +32,7 @@
 #' @importFrom grDevices colorRampPalette chull hsv rainbow
 #' @importFrom ellipse ellipse plotcorr
 #' @importFrom crayon num_colors num_ansi_colors white black red blue green bold col_align col_nchar
-#' @importFrom cli cat_line rule symbol
+#' @importFrom cli cat_bullet cat_line col_blue rule style_bold symbol
 #' @importFrom rstudioapi getThemeInfo hasFun isAvailable
 #' @importFrom purrr compact imap keep map map_chr map2_chr set_names
 #' @importFrom svBase as_dtf as_dtt as_dtbl as_dtx is_dtf is_dtt is_dtbl

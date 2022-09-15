@@ -1,6 +1,6 @@
 Package: SciViews
 Type: Package
-Version: 1.4.0
+Version: 1.5.0
 Title: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dialect
 Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but

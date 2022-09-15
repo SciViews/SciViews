@@ -6,17 +6,25 @@
 \alias{print.SciViews_R}
 \title{Configure \R for the SciViews::R dialect}
 \usage{
-R(..., dtx = NULL, silent = FALSE)
+R(..., lang = NULL, dtx = NULL, silent = FALSE)
 
 \method{print}{SciViews_R}(x, ...)
 }
 \arguments{
-\item{...}{Further parameters to configure \R (not used yet).}
+\item{...}{Further topics to include to configure \R (load more packages).
+Currently, \code{"infer"}, \code{"model"}, \code{"explore"}, \code{"ml"}, \code{"ts"} or \code{"spatial"}}
 
-\item{dtx}{Which dtx object to use be default? \code{"dtt"} or \code{"data.table"} for
-data.table, \code{"dtf"} or \code{"data.frame"} for data.frame, \code{"dtbl"}, \code{"tibble"}
-or \code{"tbl_df"} for tibble's tbl_df, the name of a function to use to convert
-a data.frame object, or \code{NULL} (by default) to keep current settings.}
+\item{lang}{What is the default natural language to use, e.g., \code{"en"} or
+\code{"fr"}, with uppercase versions \code{"EN"} or \code{"FR"} convert even more strings,
+for instance, \code{\link[data.io:read]{data.io::read()}} does not convert factor levels in the
+corresponding language for supported data sets unless the uppercase version
+is specified. If \code{NULL} (by default), current configuration is not changed.}
+
+\item{dtx}{Which dtx object is to be used be default? \code{"dtt"} or
+\code{"data.table"} for data.table, \code{"dtf"} or \code{"data.frame"} for data.frame,
+\code{"dtbl"}, \code{"tibble"} or \code{"tbl_df"} for tibble's tbl_df, the name of a
+function to use to convert a data.frame object, or \code{NULL} (by default) to
+keep current settings.}
 
 \item{silent}{If \code{TRUE}, no report is printed about loaded packages and
 conflicts.}

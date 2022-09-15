@@ -4,7 +4,8 @@
 #'   are inspired by [tidyverse::tidyverse_packages()] and
 #'   [tidyverse::tidyverse_conflicts()], but adapted to the SciViews::R context.
 #'
-#' @param ... Further topics to consider in SciViews::R (not used yet).
+#' @param ... Further topics to consider in `SciViews::R`. Currently, `"infer"`,
+#'   `"model"`, `"explore"`, `"ml"`, `"ts"` or `"spatial"`.
 #' @param all Should all packages be listed (`TRUE`) or only those that are
 #'   attached to the search path (`FALSE`).
 #' @param x A SciViews_conflicts object
@@ -16,27 +17,74 @@
 #' @export
 #'
 #' @examples
+#' # List of packages attached to the search path with SciViews::R
 #' SciViews_packages()
-#' # More complete list of packages
+#' # More complete list of packages used by SciViews::R
 #' SciViews_packages(all = TRUE)
+#' # Even more packages, by adding also 'model' and 'ml' topics
+#' SciViews_packages("model", "ml", all = TRUE)
 #' # Conflicts
 #' SciViews_conflicts()
 SciViews_packages <- function(..., all = FALSE) {
-  # TODO: deal with additional sections for more packages
   if (isTRUE(all)) {
-    pkgs <- c('MASS', 'lattice', 'data.table', 'broom', 'cli', 'crayon', 'dbplyr',
-      'dplyr', 'dtplyr', 'forcats', 'googledrive', 'googlesheets4', 'ggplot2',
-      'haven', 'hms', 'httr', 'jsonlite', 'lubridate', 'magrittr', 'modelr',
-      'pillar', 'purrr', 'readr', 'readxl', 'reprex', 'rlang', 'rstudioapi',
-      'rvest', 'stringr', 'tibble', 'tidyr', 'xml2', 'tidyverse', 'collapse',
-      'fs', 'svMisc', 'svBase', 'svFlow', 'data.io', 'chart', 'SciViews')
+    pkgs <- list(SciViews = c('MASS', 'lattice', 'data.table', 'broom', 'cli',
+      'crayon', 'dbplyr', 'dplyr', 'dtplyr', 'forcats', 'googledrive',
+      'googlesheets4', 'ggplot2', 'haven', 'hms', 'httr', 'jsonlite',
+      'lubridate', 'magrittr', 'modelr', 'pillar', 'purrr', 'readr', 'readxl',
+      'reprex', 'rlang', 'rstudioapi', 'rvest', 'stringr', 'tibble', 'tidyr',
+      'xml2', 'tidyverse', 'collapse', 'fs', 'svMisc', 'svBase', 'svFlow',
+      'data.io', 'chart', 'SciViews'))
   } else {# Just the list of packages to attach to the search path
-    pkgs <- c('rlang', 'MASS', 'lattice', 'data.table', 'ggplot2', 'tibble',
-      'tidyr', 'dplyr', 'dtplyr', 'broom', 'forcats', 'collapse', 'fs',
-      'svMisc', 'svBase', 'svFlow', 'data.io', 'chart', 'SciViews')
+    pkgs <- list(SciViews = c('rlang', 'MASS', 'lattice', 'data.table',
+      'ggplot2', 'tibble', 'tidyr', 'dplyr', 'dtplyr', 'broom', 'forcats',
+      'collapse', 'fs', 'svMisc', 'svBase', 'svFlow', 'data.io', 'chart',
+      'SciViews'))
+  }
+
+  # ... specifies the topics to use (= loading more packages)
+  topics <- unlist(lapply(list(...), as.character))
+  if (length(topics)) {
+    all_pkgs <- SciViews_packages_topics(all = all)
+    all_topics <- names(all_pkgs)
+    # Check that topics are in the list, or issue an error message
+    if (!all(topics %in% all_topics))
+      stop("Unknown topic, you must give one or more of ",
+        paste(all_topics, collapse = ", "))
+    # Select only packages in the specific topics
+    selected_pkgs <- all_pkgs[topics]
+    # Add this to the SciViews topic
+    pkgs <- c(pkgs, selected_pkgs)
   }
   pkgs
 }
+
+#' @export
+#' @rdname SciViews_packages
+SciViews_packages_topics <- function(all = FALSE) {
+  if (isTRUE(all)) {
+    pkgs <- list(
+      infer   = c("distributional", "mvtnorm", "SuppDits"),
+      model   = c("broom", "MASS", "modelit"),
+      explore = c("broom", "ca", "exploreit", "factoextra", "FactoMineR",
+        "vegan"),
+      ml      = c("class", "e1071", "ipred", "MASS", "mlbench", "mlearning",
+        "nnet", "parsnip", "randomForest", "recipes", "ROCR", "rpart", "rsample"),
+      ts      = c("boot", "pastecs"),
+      spatial = c("ggsn", "raster", "sf", "sp", "stars", "terra", "tmap")
+    )
+  } else {# Just the list of packages to attach to the search path
+    pkgs <- list(
+      infer   = c("distributional"),
+      model   = c("broom", "modelit"),
+      explore = c("broom", "exploreit"),
+      ml      = c("mlearning", "ROCR", "parsnip", "recipes", "rsample"),
+      ts      = c("pastecs"),
+      spatial = c("ggsn", "sf", "stars", "terra", "tmap")
+    )
+  }
+  pkgs
+}
+
 
 #' @export
 #' @rdname SciViews_packages
@@ -46,7 +94,8 @@ SciViews_conflicts <- function(all = TRUE) {
   envs <- purrr::set_names(envs)
   objs <- invert(lapply(envs, ls_env))
   conflicts <- purrr::keep(objs, ~length(.x) > 1)
-  tidy_names <- paste0("package:", SciViews_packages(all = all))
+  pkgs <- unique(unlist(SciViews_packages(all = all)))
+  tidy_names <- paste0("package:", pkgs)
   conflicts <- purrr::keep(conflicts, ~any(.x %in% tidy_names))
   conflict_funs <- purrr::imap(conflicts, confirm_conflict)
   conflict_funs <- purrr::compact(conflict_funs)

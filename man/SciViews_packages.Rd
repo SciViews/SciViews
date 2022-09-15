@@ -2,18 +2,22 @@
 % Please edit documentation in R/SciViews_packages.R
 \name{SciViews_packages}
 \alias{SciViews_packages}
+\alias{SciViews_packages_topics}
 \alias{SciViews_conflicts}
 \alias{print.SciViews_conflicts}
 \title{Give the list of SciViews::R packages and check for conflicts}
 \usage{
 SciViews_packages(..., all = FALSE)
 
+SciViews_packages_topics(all = FALSE)
+
 SciViews_conflicts(all = TRUE)
 
 \method{print}{SciViews_conflicts}(x, ..., startup = FALSE)
 }
 \arguments{
-\item{...}{Further topics to consider in SciViews::R (not used yet).}
+\item{...}{Further topics to consider in \code{SciViews::R}. Currently, \code{"infer"},
+\code{"model"}, \code{"explore"}, \code{"ml"}, \code{"ts"} or \code{"spatial"}.}
 
 \item{all}{Should all packages be listed (\code{TRUE}) or only those that are
 attached to the search path (\code{FALSE}).}
@@ -33,9 +37,12 @@ are inspired by \code{\link[tidyverse:tidyverse_packages]{tidyverse::tidyverse_p
 \code{\link[tidyverse:tidyverse_conflicts]{tidyverse::tidyverse_conflicts()}}, but adapted to the SciViews::R context.
 }
 \examples{
+# List of packages attached to the search path with SciViews::R
 SciViews_packages()
-# More complete list of packages
+# More complete list of packages used by SciViews::R
 SciViews_packages(all = TRUE)
+# Even more packages, by adding also 'model' and 'ml' topics
+SciViews_packages("model", "ml", all = TRUE)
 # Conflicts
 SciViews_conflicts()
 }
