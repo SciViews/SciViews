@@ -15,8 +15,11 @@
 #'   `"dtbl"`, `"tibble"` or `"tbl_df"` for tibble's tbl_df, the name of a
 #'   function to use to convert a data.frame object, or `NULL` (by default) to
 #'   keep current settings.
-#' @param silent If `TRUE`, no report is printed about loaded packages and
-#' conflicts.
+#' @param threads.percent The percentage of threads to use for {data.table} and
+#'   {collapse} parallel code (number of threads depend on how many are
+#'   available, and the value is rounded towards zero).
+#' @param silent If `TRUE` (by default), no report is printed about loaded
+#'   packages and conflicts.
 #' @param x An object to print.
 #' @export
 #' @name SciViews_R
@@ -32,7 +35,18 @@
 #' \dontrun{
 #' SciViews::R
 #' }
-R <- structure(function(..., lang = NULL, dtx = NULL, silent = FALSE) {
+R <- structure(function(..., lang = NULL, dtx = NULL, threads.percent = 75,
+silent = TRUE) {
+  # Configure the system to use a certain number of threads in data.table and
+  # collapse, and mask all functions in collapse
+  data.table::setDTthreads(percent = threads.percent)
+  nthreads <- data.table::getDTthreads()
+  options(collapse_nthreads = nthreads)
+  options(collapse_na.rm = TRUE) # Default value for na.rm collapse functions
+  # No, deal with it differently, because it does not work if {collapse} was
+  # already loaded previously without this option!
+  #options(collapse_mask = "all") # Mask functions from base like mean(), sd()
+
   pkgs <- SciViews_packages(..., all = FALSE)
   # Flatten the list, and eliminate duplicates
   pkgs <- unique(unlist(pkgs))

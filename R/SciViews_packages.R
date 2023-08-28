@@ -33,12 +33,12 @@ SciViews_packages <- function(..., all = FALSE) {
       'lubridate', 'magrittr', 'modelr', 'pillar', 'purrr', 'readr', 'readxl',
       'reprex', 'rlang', 'rstudioapi', 'rvest', 'stringr', 'tibble', 'tidyr',
       'xml2', 'tidyverse', 'collapse', 'fs', 'svMisc', 'svBase', 'svFlow',
-      'data.io', 'chart', 'SciViews'))
+      'data.io', 'chart', 'tabularise', 'SciViews'))
   } else {# Just the list of packages to attach to the search path
     pkgs <- list(SciViews = c('rlang', 'MASS', 'lattice', 'data.table',
       'ggplot2', 'tibble', 'tidyr', 'dplyr', 'dtplyr', 'broom', 'forcats',
       'collapse', 'fs', 'svMisc', 'svBase', 'svFlow', 'data.io', 'chart',
-      'SciViews'))
+      'tabularise', 'SciViews'))
   }
 
   # ... specifies the topics to use (= loading more packages)
@@ -63,7 +63,7 @@ SciViews_packages <- function(..., all = FALSE) {
 SciViews_packages_topics <- function(all = FALSE) {
   if (isTRUE(all)) {
     pkgs <- list(
-      infer   = c("distributional", "mvtnorm", "SuppDits"),
+      infer   = c("distributional", "mvtnorm", "SuppDits", "inferit"),
       model   = c("broom", "MASS", "modelit"),
       explore = c("broom", "ca", "exploreit", "factoextra", "FactoMineR",
         "vegan"),
@@ -74,7 +74,7 @@ SciViews_packages_topics <- function(all = FALSE) {
     )
   } else {# Just the list of packages to attach to the search path
     pkgs <- list(
-      infer   = c("distributional"),
+      infer   = c("distributional", "inferit"),
       model   = c("broom", "modelit"),
       explore = c("broom", "exploreit"),
       ml      = c("mlearning", "ROCR", "parsnip", "recipes", "rsample"),

@@ -1,6 +1,6 @@
 Package: SciViews
 Type: Package
-Version: 1.5.0
+Version: 1.6.0
 Title: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dialect
 Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
@@ -21,6 +21,7 @@ Imports:
     rstudioapi,
     stats,
     svBase,
+    tabularise,
     utils
 Suggests: 
     broom,
@@ -66,14 +67,15 @@ Remotes:
     SciViews/data.io,
     SciViews/svBase,
     SciViews/svFlow,
-    SciViews/svMisc
+    SciViews/svMisc,
+    SciViews/tabularise
 Enhances: base
 ByteCompile: yes
 License: GPL-2
 URL: https://github.com/SciViews/SciViews, https://www.sciviews.org/SciViews/
 BugReports: https://github.com/SciViews/SciViews/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US

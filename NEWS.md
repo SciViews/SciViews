@@ -1,10 +1,18 @@
+# SciViews 1.6.0
+
+-   Packages {tabularise} and {inferit} added.
+
+-   Default for `silent=` argument of SciViews::R is now `TRUE`
+
+-   The parameter `threads.percent=` argument is added to `SciViews::R`. It defines the percentage of threads that both {data.table} and {collapse} can use for their parallelized code.
+
 # SciViews 1.5.0
 
--   Topics are now implemented in `SciViews::R`. One can specify, for instance, `SciViews::R("model")` to load more packages related to modeling with regressions. Current topics ore 'infer', 'model', 'explore', 'ml', 'ts' and 'spatial'. It is possible to specify more than one topic.
+-   Topics are now implemented in `SciViews::R`. One can specify, for instance, `SciViews::R("model")` to load more packages related to modeling with regressions. Current topics are 'infer', 'model', 'explore', 'ml', 'ts' and 'spatial'. It is possible to specify more than one topic.
 
 -   The new function `sciviews_packages_topics()` lists all packages required for each topic.
 
--   `SciViews::R` has now a new argument `lang=` to specify the default language to use. Hence, `SciViews::R(lang = "fr")` will set French as de default language used by functions like `data.io::read()`, or for plot axes labels or title.
+-   `SciViews::R` has now a new argument `lang=` to specify the default language to use. Hence, `SciViews::R(lang = "fr")` will set French as the default language used by functions like `data.io::read()`, or for plot axes labels or title.
 
 # SciViews 1.4.0
 

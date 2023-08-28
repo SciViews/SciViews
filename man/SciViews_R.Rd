@@ -6,7 +6,7 @@
 \alias{print.SciViews_R}
 \title{Configure \R for the SciViews::R dialect}
 \usage{
-R(..., lang = NULL, dtx = NULL, silent = FALSE)
+R(..., lang = NULL, dtx = NULL, threads.percent = 75, silent = FALSE)
 
 \method{print}{SciViews_R}(x, ...)
 }
@@ -25,6 +25,10 @@ is specified. If \code{NULL} (by default), current configuration is not changed.
 \code{"dtbl"}, \code{"tibble"} or \code{"tbl_df"} for tibble's tbl_df, the name of a
 function to use to convert a data.frame object, or \code{NULL} (by default) to
 keep current settings.}
+
+\item{threads.percent}{The percentage of threads to use for {data.table} and
+{collapse} parallel code (number of threads depend on how many are
+available, and the value is rounded towards zero).}
 
 \item{silent}{If \code{TRUE}, no report is printed about loaded packages and
 conflicts.}

@@ -19,6 +19,7 @@ GitHub
 grDevices
 Hadley
 https
+inferit
 io
 labdsv
 loadings
@@ -40,6 +41,7 @@ svFlow
 svGUI
 svMisc
 svSocket
+tabularise
 tbl
 tibble
 tibble's
