@@ -1,10 +1,10 @@
-pandoc: 2.14.2
-pkgdown: 2.0.6
+pandoc: 2.19.2
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   SciViews: SciViews.html
   pca: pca.html
-last_built: 2022-09-15T15:06Z
+last_built: 2023-08-28T14:32Z
 urls:
   reference: https://www.sciviews.org/SciViews/reference
   article: https://www.sciviews.org/SciViews/articles

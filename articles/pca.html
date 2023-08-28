@@ -101,7 +101,7 @@
 </li>
       </ul>
 <div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.5.0</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.6.0</small></p></a>
       </div>
     </div>
 <!--/.nav-collapse -->
@@ -118,9 +118,10 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Principal Component Analysis</h1>
-                        <h4 data-toc-skip class="author">Philippe Grosjean</h4>
+                        <h4 data-toc-skip class="author">Philippe
+Grosjean</h4>
             
-            <h4 data-toc-skip class="date">2022-09-15</h4>
+            <h4 data-toc-skip class="date">2023-08-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/SciViews/SciViews/blob/HEAD/vignettes/pca.Rmd" class="external-link"><code>vignettes/pca.Rmd</code></a></small>
       <div class="hidden name"><code>pca.Rmd</code></div>
@@ -129,23 +130,98 @@
 
     
     
-<p>Principal Component Analysis, or PCA is a widely used method to explore linear associations among variables of large datasets. There is, unfortunately, no consistent implementation of this technique in R, which is even more a problem because the numerous additional R packages that provide enhanced versions of PCA, or additional tools, have no consistent interfaces. In the <strong>stats</strong> package, there are two implementations called <code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code> and <code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code> that both create S3 objects of the same name. There are a few methods available, like <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code>, <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>, <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>, <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> or <code><a href="https://rdrr.io/r/stats/biplot.html" class="external-link">biplot()</a></code>. The whole set is rather deceptive and produces less interesting plots than other (more specialized) software can do. For instance, there is nothing to plot the so-called “graph of the variables” in the French terminology and you have to program it yourself.</p>
-<p>Of course, there are several specialized R packages available that provide more powerful and/or more extended implementations, among others: <strong>ade4</strong>, <strong>FactoMineR</strong> and <strong>vegan</strong>. Each of these packages has a totally different approach: <strong>ade4</strong> creates a <code>c('pca', 'dudi')</code> S3 object and proposes nice graphs but has an interface that is completely inconsistent with usual R analyses (no optional formula interface, exotic names of arguments, non-standard handling of missing data, etc.). Object orientation and name of objects are obscure and do not facilitate first use of the PCA in <strong>ade4</strong>. A PCA is done, indeed, using the <code>dudi.pca()</code> function (or possibly, <code>nipals()</code>, but that creates a different <code>nipals</code> object). The same remarks can be made about the interface of functions in <strong>FactoMineR</strong>: they use strange arguments and do not respect the general organization of analyses in R (an object constructs the analysis, possibly defined using a formula; methods summarize or plot the results piece by piece). At least, name of function and object related to PCA are clear in <strong>FactoMineR</strong>: <code>PCA()</code>. There is also a non conventional handling of missing observations. But the function is powerful and allows for several investigations around the PCA. In <strong>vegan</strong>, there is no PCA function, but a redundancy analysis <code>rda()</code>, which reduces to a classical PCA when arguments <code>X =</code> and <code>Y =</code> are missing. It creates a <code>c('cca', 'rda')</code> S3 object which is not optimized at all for holding pure PCA data (many unnecessary items in it for a PCA). Finally, <strong>labdsv</strong> uses the default <code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code>, but it wraps it into a <code>pca</code> S3 object, in order to define additional plotting methods that are consistent with the other analyses and objects in that package. Note that both <code>pca</code> S3 objects in <strong>ade4</strong> and <strong>labdsv</strong> are completely different, and you are likely to get very bad results in case you load both packages and mix their respective methods!</p>
-<p>So, given that chaotic set of PCA functions in R, would it be possible to design an object with minimal code that reuses code in the stats package (<code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code> and <code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code>), provides a couple of additional methods to make decent variables and individuals plots (possibly with ellipses or convex hulls for subgroups) in a way that a whole analysis would be easy to perform and to read in R code? We have tried to do so in the present <strong>SciViews</strong> package.</p>
-<p>It would have been nice to name our object <code>pca</code>. But that <code>pca</code> S3 object could not be compatible with <strong>ade4</strong>’s <code>pca</code> object. So, we decided to give it a different name: <code>pcomp</code>.</p>
+<p>Principal Component Analysis, or PCA is a widely used method to
+explore linear associations among variables of large datasets. There is,
+unfortunately, no consistent implementation of this technique in R,
+which is even more a problem because the numerous additional R packages
+that provide enhanced versions of PCA, or additional tools, have no
+consistent interfaces. In the <strong>stats</strong> package, there are
+two implementations called <code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code> and
+<code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code> that both create S3 objects of the same name.
+There are a few methods available, like <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code>,
+<code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>, <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>, <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> or
+<code><a href="https://rdrr.io/r/stats/biplot.html" class="external-link">biplot()</a></code>. The whole set is rather deceptive and produces
+less interesting plots than other (more specialized) software can do.
+For instance, there is nothing to plot the so-called “graph of the
+variables” in the French terminology and you have to program it
+yourself.</p>
+<p>Of course, there are several specialized R packages available that
+provide more powerful and/or more extended implementations, among
+others: <strong>ade4</strong>, <strong>FactoMineR</strong> and
+<strong>vegan</strong>. Each of these packages has a totally different
+approach: <strong>ade4</strong> creates a <code>c('pca', 'dudi')</code>
+S3 object and proposes nice graphs but has an interface that is
+completely inconsistent with usual R analyses (no optional formula
+interface, exotic names of arguments, non-standard handling of missing
+data, etc.). Object orientation and name of objects are obscure and do
+not facilitate first use of the PCA in <strong>ade4</strong>. A PCA is
+done, indeed, using the <code>dudi.pca()</code> function (or possibly,
+<code>nipals()</code>, but that creates a different <code>nipals</code>
+object). The same remarks can be made about the interface of functions
+in <strong>FactoMineR</strong>: they use strange arguments and do not
+respect the general organization of analyses in R (an object constructs
+the analysis, possibly defined using a formula; methods summarize or
+plot the results piece by piece). At least, name of function and object
+related to PCA are clear in <strong>FactoMineR</strong>:
+<code>PCA()</code>. There is also a non conventional handling of missing
+observations. But the function is powerful and allows for several
+investigations around the PCA. In <strong>vegan</strong>, there is no
+PCA function, but a redundancy analysis <code>rda()</code>, which
+reduces to a classical PCA when arguments <code>X =</code> and
+<code>Y =</code> are missing. It creates a <code>c('cca', 'rda')</code>
+S3 object which is not optimized at all for holding pure PCA data (many
+unnecessary items in it for a PCA). Finally, <strong>labdsv</strong>
+uses the default <code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code>, but it wraps it into a
+<code>pca</code> S3 object, in order to define additional plotting
+methods that are consistent with the other analyses and objects in that
+package. Note that both <code>pca</code> S3 objects in
+<strong>ade4</strong> and <strong>labdsv</strong> are completely
+different, and you are likely to get very bad results in case you load
+both packages and mix their respective methods!</p>
+<p>So, given that chaotic set of PCA functions in R, would it be
+possible to design an object with minimal code that reuses code in the
+stats package (<code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code> and <code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code>),
+provides a couple of additional methods to make decent variables and
+individuals plots (possibly with ellipses or convex hulls for subgroups)
+in a way that a whole analysis would be easy to perform and to read in R
+code? We have tried to do so in the present <strong>SciViews</strong>
+package.</p>
+<p>It would have been nice to name our object <code>pca</code>. But that
+<code>pca</code> S3 object could not be compatible with
+<strong>ade4</strong>’s <code>pca</code> object. So, we decided to give
+it a different name: <code>pcomp</code>.</p>
 <div class="section level2">
 <h2 id="the-pcomp-object">The <code>pcomp</code> object<a class="anchor" aria-label="anchor" href="#the-pcomp-object"></a>
 </h2>
-<p>The <code>pcomp</code> S3 object, inherits from <code>pca</code> and <code>princomp</code>. It returns a list with components:</p>
+<p>The <code>pcomp</code> S3 object, inherits from <code>pca</code> and
+<code>princomp</code>. It returns a list with components:</p>
 <ul>
-<li><p><code>loadings</code>: (also required for <strong>labdsv</strong>’s <code>pca</code> object). This is <code>$rotation</code> in <code>prcomp</code>, and a <code>loadings</code> object in <code>princomp</code>,</p></li>
-<li><p><code>scores</code>: (also required for <strong>labdsv</strong>’s <code>pca</code> object). Note for scores in <code>princomp</code>, components are <code>Comp.1</code>, <code>Comp.2</code>, etc., in <code>prcomp</code>, they are named <code>PC1</code>, <code>PC2</code>, …, as well as in <code>pca</code>). So, we keep <code>PC1</code>, <code>PC2</code>, … This is <code>$x</code> in <code>prcomp</code>. For <code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code>, the argument <code>scores = TRUE</code> (by default) must be used to get these.</p></li>
-<li><p><code>sdev</code>: (also required for **labdsv*’s <code>pca</code> object). <code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code> uses names (to rename into <code>PC1</code>, <code>PC2</code>, …), while <code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code> does not,</p></li>
-<li><p><code>totdev</code>: the total deviance, as required to be compliant with <strong>labdsv</strong>’s <code>pca</code> object.</p></li>
+<li><p><code>loadings</code>: (also required for
+<strong>labdsv</strong>’s <code>pca</code> object). This is
+<code>$rotation</code> in <code>prcomp</code>, and a
+<code>loadings</code> object in <code>princomp</code>,</p></li>
+<li><p><code>scores</code>: (also required for <strong>labdsv</strong>’s
+<code>pca</code> object). Note for scores in <code>princomp</code>,
+components are <code>Comp.1</code>, <code>Comp.2</code>, etc., in
+<code>prcomp</code>, they are named <code>PC1</code>, <code>PC2</code>,
+…, as well as in <code>pca</code>). So, we keep <code>PC1</code>,
+<code>PC2</code>, … This is <code>$x</code> in <code>prcomp</code>. For
+<code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code>, the argument <code>scores = TRUE</code> (by
+default) must be used to get these.</p></li>
+<li><p><code>sdev</code>: (also required for **labdsv*’s
+<code>pca</code> object). <code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code> uses names (to rename
+into <code>PC1</code>, <code>PC2</code>, …), while <code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code>
+does not,</p></li>
+<li><p><code>totdev</code>: the total deviance, as required to be
+compliant with <strong>labdsv</strong>’s <code>pca</code>
+object.</p></li>
 <li><p><code>n.obs</code>: the number of observations,</p></li>
 <li><p><code>center</code>: (use 0 for all, if not centered),</p></li>
 <li><p><code>scale</code>: (use 1 for all, if not scaled),</p></li>
-<li><p><code>method</code>: currently only either <code>svd</code> (and the computation is the same as <code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code>), or <code>eigen</code> (and the computation is the same as <code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code>),</p></li>
+<li><p><code>method</code>: currently only either <code>svd</code> (and
+the computation is the same as <code><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp()</a></code>), or
+<code>eigen</code> (and the computation is the same as
+<code><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp()</a></code>),</p></li>
 <li><p><code>call</code>: the matched call,</p></li>
 <li><p><code>na.action</code>: if relevant.</p></li>
 </ul>

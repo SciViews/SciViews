@@ -68,7 +68,7 @@ to get a fully functional SciViews::R dialect environment."><meta property="og:i
   </a>
 </li>
       </ul><div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.5.0</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.6.0</small></p></a>
       </div>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -92,7 +92,7 @@ to get a fully functional <code>SciViews::R</code> dialect environment.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">R</span><span class="op">(</span><span class="va">...</span>, lang <span class="op">=</span> <span class="cn">NULL</span>, dtx <span class="op">=</span> <span class="cn">NULL</span>, silent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">R</span><span class="op">(</span><span class="va">...</span>, lang <span class="op">=</span> <span class="cn">NULL</span>, dtx <span class="op">=</span> <span class="cn">NULL</span>, threads.percent <span class="op">=</span> <span class="fl">75</span>, silent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SciViews_R</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
@@ -119,6 +119,12 @@ is specified. If <code>NULL</code> (by default), current configuration is not ch
 <code>"dtbl"</code>, <code>"tibble"</code> or <code>"tbl_df"</code> for tibble's tbl_df, the name of a
 function to use to convert a data.frame object, or <code>NULL</code> (by default) to
 keep current settings.</p></dd>
+
+
+<dt>threads.percent</dt>
+<dd><p>The percentage of threads to use for data.table and
+collapse parallel code (number of threads depend on how many are
+available, and the value is rounded towards zero).</p></dd>
 
 
 <dt>silent</dt>

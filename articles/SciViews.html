@@ -101,7 +101,7 @@
 </li>
       </ul>
 <div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.5.0</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.6.0</small></p></a>
       </div>
     </div>
 <!--/.nav-collapse -->
@@ -117,10 +117,12 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Data Processing and Visualization with the SciViews::R Dialect</h1>
-                        <h4 data-toc-skip class="author">Philippe Grosjean</h4>
+      <h1 data-toc-skip>Data Processing and Visualization with the
+SciViews::R Dialect</h1>
+                        <h4 data-toc-skip class="author">Philippe
+Grosjean</h4>
             
-            <h4 data-toc-skip class="date">2022-09-15</h4>
+            <h4 data-toc-skip class="date">2023-08-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/SciViews/SciViews/blob/HEAD/vignettes/SciViews.Rmd" class="external-link"><code>vignettes/SciViews.Rmd</code></a></small>
       <div class="hidden name"><code>SciViews.Rmd</code></div>
@@ -129,37 +131,17 @@
 
     
     
-<p>The <code><a href="../reference/SciViews_R.html">SciViews::R</a></code> dialect is base R + <a href="https://www.tidyverse.org" class="external-link">tidyverse</a> + a series of SciViews packages like <a href="https://www.sciviews.org/data.io/" class="external-link">data.io</a>, <a href="https://www.sciviews.org/svFlow/" class="external-link">svFlow</a>, or <a href="https://www.sciviews.org/chart/" class="external-link">chart</a> that makes a coherent and straightforward environment for data processing and visualization. In order to load all required packages, just use:</p>
+<p>The <code><a href="../reference/SciViews_R.html">SciViews::R</a></code> dialect is base R + <a href="https://www.tidyverse.org" class="external-link">tidyverse</a> + a series of SciViews
+packages like <a href="https://www.sciviews.org/data.io/" class="external-link">data.io</a>,
+<a href="https://www.sciviews.org/svFlow/" class="external-link">svFlow</a>, or <a href="https://www.sciviews.org/chart/" class="external-link">chart</a> that makes a coherent
+and straightforward environment for data processing and visualization.
+In order to load all required packages, just use:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">SciViews</span><span class="fu">::</span><span class="fu"><a href="../reference/SciViews_R.html">R</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Registered S3 methods overwritten by 'svBase':</span></span>
 <span><span class="co">#&gt;   method           from      </span></span>
 <span><span class="co">#&gt;   print.data.frame base      </span></span>
-<span><span class="co">#&gt;   print.data.table data.table</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">Default data frame object (dtx): </span><span style="font-weight: bold;">data.table</span></span></span>
-<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ───────────────────────────────────── SciViews::R 1.5.0 ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">SciViews  </span> 1.5.0        <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dtplyr    </span> 1.2.2   </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">chart     </span> 1.4.0        <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr     </span> 1.0.10  </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">data.io   </span> 1.4.1        <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr     </span> 1.2.1   </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">svFlow    </span> 1.2.1        <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble    </span> 3.1.8   </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">svBase    </span> 1.2.1        <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2   </span> 3.3.6   </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">svMisc    </span> 1.3.0        <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">data.table</span> 1.14.2  </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">fs        </span> 1.5.2        <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lattice   </span> 0.20.45 </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">collapse  </span> 1.8.8        <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">MASS      </span> 7.3.58.<span style="color: #BB0000;">1</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats   </span> 0.5.2        <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">rlang     </span> 1.0.5   </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">broom     </span> 1.0.1</span></span>
-<span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ─────────────────────────────────────────── SciViews_conflicts() ──</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">data.table</span>::<span style="color: #00BB00;">:=()</span> masks <span style="color: #0000BB;">rlang</span>:::=()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">svFlow</span>::<span style="color: #00BB00;">!!()</span>     masks <span style="color: #0000BB;">rlang</span>::!!()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">svMisc</span>::<span style="color: #00BB00;">?()</span>      masks <span style="color: #0000BB;">utils</span>::?()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">between()</span> masks <span style="color: #0000BB;">data.table</span>::between()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">collapse</span>::<span style="color: #00BB00;">D()</span>    masks <span style="color: #0000BB;">stats</span>::D()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>  masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">first()</span>   masks <span style="color: #0000BB;">data.table</span>::first()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>     masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">last()</span>    masks <span style="color: #0000BB;">data.table</span>::last()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">select()</span>  masks <span style="color: #0000BB;">MASS</span>::select()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">data.io</span>::<span style="color: #00BB00;">write()</span> masks <span style="color: #0000BB;">base</span>::write()</span></span></code></pre></div>
+<span><span class="co">#&gt;   print.data.table data.table</span></span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
