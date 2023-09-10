@@ -85,7 +85,8 @@
 
 <div id="sciviews-to-do-list" class="section level1">
 
-<ul><li><p><code><a href="reference/SciViews_R.html">SciViews::R</a></code>: no fancy characters?</p></li>
+<ul><li><p>For language translation, use something like <code>options(SciViews.lang = "fr")</code> instead of <code>options(data.io.lang = "fr")</code> in all SciViews packages.</p></li>
+<li><p><code><a href="reference/SciViews_R.html">SciViews::R</a></code>: no fancy characters?</p></li>
 <li><p><code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit()</a></code> -&gt; <code>na_omit()</code> and co + <code>complete_cases()</code>.</p></li>
 <li><p>Plot functions issue warnings for unknown arguments</p></li>
 <li><p><code>file_head()</code></p></li>
@@ -95,7 +96,7 @@
 <li><p>other<code>xxx.</code> functions for those using <code>na.rm = FALSE</code> like <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html" class="external-link">median()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd()</a></code>, <code><a href="https://rdrr.io/r/stats/cor.html" class="external-link">var()</a></code>, <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile()</a></code>, <code><a href="https://rdrr.io/r/stats/fivenum.html" class="external-link">fivenum()</a></code>, …</p></li>
 <li><p>Refine <code>panel.xxx()</code> functions to avoid warning in case we provide non-par arguments to <code><a href="https://rdrr.io/r/graphics/pairs.html" class="external-link">pairs()</a></code> and design a better mechanism to define default (colors, line type and weight, etc.).</p></li>
 <li><p>For PCA, look at ade4 (dudi.pca =&gt; c(“pca”, “dudi”), ellipse, area), FactoMineR (PCA), rrcov (Pca), pcaMethods (PcaRes), psych, nFactors, vegan, rda = special case of pca =&gt; c(“rda”, “cca”)), pcaPP, chemometrics (cross-validation), BiodiversityR (broken-stick = PCAsignificance + variable importance = ordiequilibriumCircle) and labdsv packages =&gt; how to sort all this and make something coherent with our pcomp object and methods? See also zoonek znd <a href="http://www.statmethods.net/advstats/factor.html" class="external-link uri">http://www.statmethods.net/advstats/factor.html</a>.</p></li>
-<li><p>For correspondance analysis, see ‘ca’ package.</p></li>
+<li><p>For correspondence analysis, see ‘ca’ package.</p></li>
 <li><p>Analyze this: <a href="http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/" class="external-link uri">http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/</a></p></li>
 <li><p>Translation of this package.</p></li>
 </ul></div>
