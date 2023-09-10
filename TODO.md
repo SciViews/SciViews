@@ -1,5 +1,7 @@
 # SciViews To Do list
 
+- For language translation, use something like `options(SciViews.lang = "fr")` instead of `options(data.io.lang = "fr")` in all SciViews packages.
+
 - `SciViews::R`: no fancy characters?
 
 - `na.omit()` -> `na_omit()` and co + `complete_cases()`.
@@ -20,7 +22,7 @@
 
 - For PCA, look at ade4 (dudi.pca => c("pca", "dudi"), ellipse, area), FactoMineR (PCA), rrcov (Pca), pcaMethods (PcaRes), psych, nFactors, vegan, rda = special case of pca => c("rda", "cca")), pcaPP, chemometrics (cross-validation), BiodiversityR (broken-stick = PCAsignificance + variable importance = ordiequilibriumCircle) and labdsv packages => how to sort all this and make something coherent with our pcomp object and methods? See also zoonek znd http://www.statmethods.net/advstats/factor.html.
 
-- For correspondance analysis, see 'ca' package.
+- For correspondence analysis, see 'ca' package.
 
 - Analyze this: http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/
 

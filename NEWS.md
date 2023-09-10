@@ -2,7 +2,7 @@
 
 -   Packages {tabularise} and {inferit} added.
 
--   Default for `silent=` argument of SciViews::R is now `TRUE`
+-   Default for `silent=` argument of `SciViews::R` is now `TRUE`
 
 -   The parameter `threads.percent=` argument is added to `SciViews::R`. It defines the percentage of threads that both {data.table} and {collapse} can use for their parallelized code.
 

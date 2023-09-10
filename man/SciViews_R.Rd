@@ -6,7 +6,7 @@
 \alias{print.SciViews_R}
 \title{Configure \R for the SciViews::R dialect}
 \usage{
-R(..., lang = NULL, dtx = NULL, threads.percent = 75, silent = FALSE)
+R(..., lang = NULL, dtx = NULL, threads.percent = 75, silent = TRUE)
 
 \method{print}{SciViews_R}(x, ...)
 }
@@ -30,8 +30,8 @@ keep current settings.}
 {collapse} parallel code (number of threads depend on how many are
 available, and the value is rounded towards zero).}
 
-\item{silent}{If \code{TRUE}, no report is printed about loaded packages and
-conflicts.}
+\item{silent}{If \code{TRUE} (by default), no report is printed about loaded
+packages and conflicts.}
 
 \item{x}{An object to print.}
 }

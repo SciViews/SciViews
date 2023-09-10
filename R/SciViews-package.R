@@ -1,5 +1,5 @@
 #' @details
-#' The `Sciviews::R` dialect is base R + tidyverse + a series of additional SciViews packages like 'data.io', 'flow' or 'chart'.
+#' The `SciViews::R` dialect is base R + tidyverse + a series of additional SciViews packages like 'data.io', 'flow' or 'chart'.
 
 #' @section Important functions:
 #'
