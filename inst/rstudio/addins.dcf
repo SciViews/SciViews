@@ -1,4 +1,0 @@
-Name: Insert :
-Description: Inserts `:` at the cursor position.
-Binding: insertSemicolonAddin
-Interactive: false

@@ -6,6 +6,8 @@
 
 -   The parameter `threads.percent=` argument is added to `SciViews::R`. It defines the percentage of threads that both {data.table} and {collapse} can use for their parallelized code.
 
+- An old addin to insert : is removed.
+
 # SciViews 1.5.0
 
 -   Topics are now implemented in `SciViews::R`. One can specify, for instance, `SciViews::R("model")` to load more packages related to modeling with regressions. Current topics are 'infer', 'model', 'explore', 'ml', 'ts' and 'spatial'. It is possible to specify more than one topic.
