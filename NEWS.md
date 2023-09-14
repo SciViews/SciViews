@@ -1,3 +1,7 @@
+# SciViews 1.6.1
+
+- An old addin to insert : is removed.
+
 # SciViews 1.6.0
 
 -   Packages {tabularise} and {inferit} added.
@@ -5,8 +9,6 @@
 -   Default for `silent=` argument of `SciViews::R` is now `TRUE`
 
 -   The parameter `threads.percent=` argument is added to `SciViews::R`. It defines the percentage of threads that both {data.table} and {collapse} can use for their parallelized code.
-
-- An old addin to insert : is removed.
 
 # SciViews 1.5.0
 
