@@ -1,8 +1,10 @@
 ’s
 addin
 ade
+api
 appveyor
 Biologiques
+chatbot
 cli
 des
 devtools
@@ -18,12 +20,15 @@ github
 GitHub
 grDevices
 Hadley
+http
 https
 inferit
 io
 labdsv
+LLM
 loadings
 nlme
+ollama
 ORCID
 pca
 pcomp

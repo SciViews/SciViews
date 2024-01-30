@@ -28,7 +28,7 @@
 
 #' @import stats
 #' @import graphics
-#' @importFrom utils packageVersion stack
+#' @importFrom utils help packageVersion stack
 #' @importFrom grDevices colorRampPalette chull hsv rainbow
 #' @importFrom ellipse ellipse plotcorr
 #' @importFrom crayon num_colors num_ansi_colors white black red blue green bold col_align col_nchar

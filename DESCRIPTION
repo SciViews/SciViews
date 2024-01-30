@@ -1,6 +1,6 @@
 Package: SciViews
 Type: Package
-Version: 1.6.1
+Version: 1.7.0
 Title: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dialect
 Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
@@ -17,7 +17,9 @@ Imports:
     ellipse,
     graphics,
     grDevices,
+    httr2,
     purrr,
+    roxygen2,
     rstudioapi,
     stats,
     svBase,

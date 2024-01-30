@@ -1,3 +1,7 @@
+# SciViews 1.7.0
+
+- A chatbot is added with the `ask()` function that displays a help page with the results.
+
 # SciViews 1.6.1
 
 - An old addin to insert : is removed.
