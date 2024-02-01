@@ -112,7 +112,7 @@ ask <- function(question, context = NULL,
     markdown_on(old_mkdown)
 
     # Extract examples
-    examples <- gsub("Output:\n\n```[Rr]\n", "Output:\n\n```\n", examples)
+    examples <- gsub("Output:\n\n```[Rr]\n", "Output:\n\n```\n", answer)
     examples <- strsplit(answer, "```", fixed = TRUE)[[1]]
     examples <- examples[grepl("^[Rr]\n", examples)]
     examples <- sub("^[Rr]\n", "", examples)
