@@ -26,8 +26,8 @@ is specified. If \code{NULL} (by default), current configuration is not changed.
 function to use to convert a data.frame object, or \code{NULL} (by default) to
 keep current settings.}
 
-\item{threads.percent}{The percentage of threads to use for {data.table} and
-{collapse} parallel code (number of threads depend on how many are
+\item{threads.percent}{The percentage of threads to use for \{data.table\} and
+\{collapse\} parallel code (number of threads depend on how many are
 available, and the value is rounded towards zero).}
 
 \item{silent}{If \code{TRUE} (by default), no report is printed about loaded
