@@ -8,11 +8,12 @@ tidyverse::tidyverse_conflicts(), but adapted to the SciViews::R context."><meta
   gtag('js', new Date());
 
   gtag('config', 'UA-462421-8');
-</script>--></head><body data-spy="scroll" data-target="#toc">
+</script>--></head><body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <div class="container template-reference-topic">
-      <header><!-- preloader start --><div class="preloader">
+    <!-- preloader start -->
+<div class="preloader">
   <img src="../preloader.gif" alt="loading..."></div>
 <!-- preloader end -->
 
@@ -43,28 +44,24 @@ tidyverse::tidyverse_conflicts(), but adapted to the SciViews::R context."><meta
           <input type="text" class="form-control-global search-form-input" name="q" id="q" placeholder="Search..." required><input type="hidden" name="sitesearch" value="https://www.sciviews.org"></div>
       </form>
       <!-- end svPkgdown global site search with Google -->
-      <ul class="nav navbar-nav navbar-right"><li>
-  <a href="../articles/SciViews.html">Get started</a>
+      <ul class="nav navbar-nav navbar-right"><li class="nav-item">
+  <a class="nav-link" href="../articles/SciViews.html">Get started</a>
 </li>
-<li>
-  <a href="../reference/index.html">Reference</a>
+<li class="active nav-item">
+  <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/pca.html">Principal Component Analysis</a>
-    </li>
-  </ul></li>
-<li>
-  <a href="../news/index.html">Changelog</a>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/pca.html">Principal Component Analysis</a>
+  </div>
 </li>
-        <li>
-  <a href="https://github.com/SciViews/SciViews/" class="external-link">
-    <span class="fab fa-github fa-lg"></span>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
+        <li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/SciViews/SciViews/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -77,23 +74,22 @@ tidyverse::tidyverse_conflicts(), but adapted to the SciViews::R context."><meta
   </div>
 </div><!--/.navbar -->
 
-      
-
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header">
-    <h1>Give the list of SciViews::R packages and check for conflicts</h1>
-    <small class="dont-index">Source: <a href="https://github.com/SciViews/SciViews/blob/HEAD/R/SciViews_packages.R" class="external-link"><code>R/SciViews_packages.R</code></a></small>
-    <div class="hidden name"><code>SciViews_packages.Rd</code></div>
+    <div class="container template-reference-topic">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="page-header">
+      <img src="../logo.png" class="logo" alt=""><h1>Give the list of SciViews::R packages and check for conflicts</h1>
+      <small class="dont-index">Source: <a href="https://github.com/SciViews/SciViews/blob/HEAD/R/SciViews_packages.R" class="external-link"><code>R/SciViews_packages.R</code></a></small>
+      <div class="d-none name"><code>SciViews_packages.Rd</code></div>
     </div>
 
-    <div class="ref-description">
+    <div class="ref-description section level2">
     <p>List required packages or conflicting functions. These functions
 are inspired by <code><a href="https://tidyverse.tidyverse.org/reference/tidyverse_packages.html" class="external-link">tidyverse::tidyverse_packages()</a></code> and
 <code><a href="https://tidyverse.tidyverse.org/reference/tidyverse_conflicts.html" class="external-link">tidyverse::tidyverse_conflicts()</a></code>, but adapted to the SciViews::R context.</p>
     </div>
 
-    <div id="ref-usage">
+    <div class="section level2">
+    <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">SciViews_packages</span><span class="op">(</span><span class="va">...</span>, all <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">SciViews_packages_topics</span><span class="op">(</span>all <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -104,8 +100,8 @@ are inspired by <code><a href="https://tidyverse.tidyverse.org/reference/tidyver
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, startup <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
-    <div id="arguments">
-    <h2>Arguments</h2>
+    <div class="section level2">
+    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>...</dt>
 <dd><p>Further topics to consider in <code><a href="SciViews_R.html">SciViews::R</a></code>. Currently, <code>"infer"</code>,
 <code>"model"</code>, <code>"explore"</code>, <code>"ml"</code>, <code>"ts"</code> or <code>"spatial"</code>.</p></dd>
@@ -124,8 +120,8 @@ attached to the search path (<code>FALSE</code>).</p></dd>
 <dd><p>Should the message be printed at startup?</p></dd>
 
 </dl></div>
-    <div id="value">
-    <h2>Value</h2>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
 <p>A list of packages for <code>SciViews_packages()</code>, or a
@@ -133,8 +129,8 @@ attached to the search path (<code>FALSE</code>).</p></dd>
 <code>SciViews_conflicts()</code>.</p>
     </div>
 
-    <div id="ref-examples">
-    <h2>Examples</h2>
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># List of packages attached to the search path with SciViews::R</span></span></span>
 <span class="r-in"><span><span class="fu">SciViews_packages</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $SciViews</span>
@@ -186,14 +182,11 @@ attached to the search path (<code>FALSE</code>).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
-    </nav></div>
-</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
-      <footer><!-- footer --><!--<footer class="bg-secondary">--><div class="bg-secondary full-width">
+    <footer><!-- footer --><!--<footer class="bg-secondary">--><div class="bg-secondary full-width">
     <div class="py-100 border-bottom" style="border-color: #454547 !important">
         <div class="container">
             <div class="row">
@@ -306,10 +299,9 @@ attached to the search path (<code>FALSE</code>).</p></dd>
 <!--</footer>-->
 <!-- /footer -->
 
-      </footer></div>
+    </footer></div>
 
   
-
 
   
 

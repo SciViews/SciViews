@@ -31,9 +31,6 @@
     <loc>https://www.sciviews.org/SciViews/news/index.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/SciViews/reference/SciViews-package.html</loc>
-  </url>
-  <url>
     <loc>https://www.sciviews.org/SciViews/reference/SciViews_R.html</loc>
   </url>
   <url>
@@ -65,6 +62,9 @@
   </url>
   <url>
     <loc>https://www.sciviews.org/SciViews/reference/pcomp.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/SciViews/reference/tabularise-package.html</loc>
   </url>
   <url>
     <loc>https://www.sciviews.org/SciViews/reference/timing.html</loc>
