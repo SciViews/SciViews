@@ -1,5 +1,7 @@
-#' @details
-#' The `SciViews::R` dialect is base R + tidyverse + a series of additional SciViews packages like 'data.io', 'flow' or 'chart'.
+#' 'SciViews::R' Dialect for Data Processing and Visualization
+#'
+#' The `SciViews::R` dialect is base R + tidyverse + a series of additional
+#' SciViews packages like data.io, svBase, svFlow, tabularise or chart.
 
 #' @section Important functions:
 #'
@@ -23,9 +25,10 @@
 #'
 #' - [ln()] and others for natural logarithm.
 #'
-#' @keywords internal
-"_PACKAGE"
+#' @docType package
+#' @name tabularise-package
 
+## usethis namespace: start
 #' @import stats
 #' @import graphics
 #' @importFrom utils packageVersion stack
@@ -37,8 +40,5 @@
 #' @importFrom purrr compact imap keep map map_chr map2_chr set_names
 #' @importFrom svBase as_dtf as_dtt as_dtbl as_dtx is_dtf is_dtt is_dtbl
 #' @import tabularise
-# The following block is used by usethis to automatically manage
-# roxygen namespace tags. Modify with care!
-## usethis namespace: start
 ## usethis namespace: end
 NULL

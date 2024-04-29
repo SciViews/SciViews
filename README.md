@@ -1,8 +1,8 @@
-# SciViews- 'SciViews::R' dialect for data processing and visualization <a href='https://www.sciviews.org/SciViews'><img src="man/figures/logo.png" align="right" height="139"/></a>
+# 'SciViews::R' Dialect for Data Processing and Visualization <a href='https://www.sciviews.org/SciViews'><img src='man/figures/logo.png' align='right' height='139'/></a>
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml) [![Coverage Status](https://img.shields.io/codecov/c/github/SciViews/SciViews/master.svg)](https://codecov.io/github/SciViews/SciViews?branch=master) [![CRAN Status](https://www.r-pkg.org/badges/version/SciViews)](https://cran.r-project.org/package=SciViews) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Life cycle stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![R-CMD-check](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/SciViews/SciViews/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/SciViews?branch=main) [![CRAN Status](https://www.r-pkg.org/badges/version/SciViews)](https://cran.r-project.org/package=SciViews) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Life cycle stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 
 <!-- badges: end -->
 
@@ -10,7 +10,14 @@
 
 ## Installation
 
-The latest stable version of {SciViews} can simply be installed from [CRAN](http://cran.r-project.org):
+{SciViews} is available from CRAN, but it is an old version. You should install it from the [SciViews R-Universe](https://sciviews.r-universe.dev). To install this package and its dependencies, run the following command in R:
+
+```{r, eval=FALSE}
+install.packages('SciViews', repos = c('https://sciviews.r-universe.dev',
+  'https://cloud.r-project.org'))
+```
+
+An older version of {SciViews} can be installed from [CRAN](http://cran.r-project.org):
 
 ``` r
 install.packages("SciViews")

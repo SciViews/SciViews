@@ -2,18 +2,19 @@
 title: "Principal Component Analysis"
 author: "Philippe Grosjean"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
 vignette: >
   %\VignetteIndexEntry{Principal Component Analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
 Principal Component Analysis, or PCA is a widely used method to explore linear associations among variables of large datasets. There is, unfortunately, no consistent implementation of this technique in R, which is even more a problem because the numerous additional R packages that provide enhanced versions of PCA, or additional tools, have no consistent interfaces. In the **stats** package, there are two implementations called `princomp()` and `prcomp()` that both create S3 objects of the same name. There are a few methods available, like `print()`, `summary()`, `plot()`, `predict()` or `biplot()`. The whole set is rather deceptive and produces less interesting plots than other (more specialized) software can do. For instance, there is nothing to plot the so-called "graph of the variables" in the French terminology and you have to program it yourself.

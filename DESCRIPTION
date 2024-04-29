@@ -1,7 +1,7 @@
 Package: SciViews
 Type: Package
 Version: 1.6.1
-Title: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dialect
+Title: 'SciViews::R' Dialect for Data Processing and Visualization 
 Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
   not exclusively, for beginners or occasional users. It mixes base R and
@@ -10,7 +10,7 @@ Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org",
   comment = c(ORCID = "0000-0002-2694-9471")))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
-Depends: R (>= 4.1.0)
+Depends: R (>= 4.2.0)
 Imports:
     cli,
     crayon,
@@ -39,11 +39,6 @@ Suggests:
     svFlow,
     svMisc,
     tibble,
-    covr,
-    knitr,
-    testthat,
-    spelling,
-    rmarkdown,
     dbplyr,
     googledrive,
     googlesheets4,
@@ -61,7 +56,11 @@ Suggests:
     rvest,
     stringr,
     tidyverse,
-    xml2
+    xml2,
+    knitr,
+    rmarkdown,
+    spelling,
+    testthat (>= 3.0.0)
 Remotes:
     SciViews/chart,
     SciViews/data.io,
@@ -70,12 +69,13 @@ Remotes:
     SciViews/svMisc,
     SciViews/tabularise
 Enhances: base
-ByteCompile: yes
 License: GPL-2
 URL: https://github.com/SciViews/SciViews, https://www.sciviews.org/SciViews/
 BugReports: https://github.com/SciViews/SciViews/issues
+ByteCompile: yes
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Config/testthat/edition: 3
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US

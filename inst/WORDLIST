@@ -4,6 +4,8 @@ ade
 appveyor
 Biologiques
 cli
+CMD
+Codecov
 des
 devtools
 df
