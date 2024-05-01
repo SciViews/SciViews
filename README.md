@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/SciViews/SciViews/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/SciViews?branch=main) [![CRAN Status](https://www.r-pkg.org/badges/version/SciViews)](https://cran.r-project.org/package=SciViews) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Life cycle stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R-CMD-check](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/SciViews/SciViews/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/SciViews?branch=main) [![CRAN Status](https://www.r-pkg.org/badges/version/SciViews)](https://cran.r-project.org/package=SciViews) [![r-universe status](https://sciviews.r-universe.dev/badges/SciViews)](https://sciviews.r-universe.dev/SciViews) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Life cycle stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 
 <!-- badges: end -->
 
@@ -29,7 +29,7 @@ You can also install the latest development version. Make sure you have the {rem
 install.packages("remotes")
 ```
 
-Use `install_github()` to install the {SciViews} package from GitHub (source from **master** branch will be recompiled on your machine):
+Use `install_github()` to install the {SciViews} package from GitHub (source from **main** branch will be recompiled on your machine):
 
 ``` r
 remotes::install_github("SciViews/SciViews")
@@ -57,7 +57,7 @@ For further instructions, please, refer to these help pages at <https://www.sciv
 
 ## Code of Conduct
 
-Please note that the 'SciViews' project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the {SciViews} package is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 ## Note to developers
 

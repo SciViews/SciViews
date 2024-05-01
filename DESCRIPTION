@@ -1,7 +1,7 @@
 Package: SciViews
 Type: Package
 Version: 1.6.1
-Title: 'SciViews::R' Dialect for Data Processing and Visualization 
+Title: 'SciViews::R' Dialect for Data Processing and Visualization
 Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
   not exclusively, for beginners or occasional users. It mixes base R and
@@ -10,56 +10,58 @@ Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org",
   comment = c(ORCID = "0000-0002-2694-9471")))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
-Depends: R (>= 4.2.0)
+Depends:
+    R (>= 4.2.0)
 Imports:
-    cli,
-    crayon,
-    ellipse,
-    graphics,
-    grDevices,
-    purrr,
-    rstudioapi,
-    stats,
-    svBase,
-    tabularise,
+    cli (>= 3.6.1),
+    crayon (>= 1.5.2),
+    ellipse (>= 0.4.5),
+    graphics (>= 4.2.0),
+    grDevices (>= 4.2.0),
+    purrr (>= 1.0.1),
+    rstudioapi (>= 0.14),
+    stats (>= 4.2.0),
+    svBase (>= 1.4.0),
+    tabularise (>= 0.5.0),
     utils
 Suggests: 
-    broom,
-    chart,
-    collapse,
-    data.io,
-    data.table,
-    dplyr,
-    dtplyr,
-    forcats,
-    fs,
-    ggplot2,
-    MASS,
-    rlang,
-    svFlow,
-    svMisc,
-    tibble,
-    dbplyr,
-    googledrive,
-    googlesheets4,
-    haven,
-    hms,
-    httr,
-    jsonlite,
-    lubridate,
-    magrittr,
-    modelr,
-    pillar,
-    readr,
-    readxl,
-    reprex,
-    rvest,
-    stringr,
-    tidyverse,
-    xml2,
-    knitr,
-    rmarkdown,
-    spelling,
+    broom (>= 1.0.4),
+    chart (>= 1.5.0),
+    collapse (>= 2.0.12),
+    data.io (>= 1.5.0),
+    data.table (>= 1.15.4),
+    dbplyr (>= 2.3.2),
+    dplyr (>= 1.1.4),
+    dtplyr (>= 1.3.1),
+    forcats (>= 1.0.0),
+    fs (>= 1.6.1),
+    ggplot2 (>= 3.4.2),
+    googledrive (>= 2.1.0),
+    googlesheets4 (>= 1.1.0),
+    haven (>= 2.5.2),
+    hms (>= 1.1.3),
+    httr (>= 1.4.5),
+    jsonlite (>= 1.8.4),
+    lubridate (>= 1.9.2),
+    magrittr (>= 2.0.3),
+    MASS (>= 7.3.58.3),
+    modelr (>= 0.1.11),
+    pillar (>= 1.9.0) ,
+    readr (>= 2.1.4),
+    readxl (>= 1.4.2),
+    reprex (>= 2.0.2),
+    rlang (>= 1.1.1),
+    rvest (>= 1.0.3),
+    stringr(>= 1.5.0),
+    svFlow (>= 1.2.0),
+    svMisc (>= 1.4.0),
+    tibble (>= 3.2.1),
+    tidyr (>= 1.3.0),
+    tidyverse (>= 2.0.0),
+    xml2 (>= 1.3.3),
+    knitr (>= 1.42),
+    rmarkdown (>= 2.21),
+    spelling (>= 2.2.1),
     testthat (>= 3.0.0)
 Remotes:
     SciViews/chart,
@@ -72,10 +74,10 @@ Enhances: base
 License: GPL-2
 URL: https://github.com/SciViews/SciViews, https://www.sciviews.org/SciViews/
 BugReports: https://github.com/SciViews/SciViews/issues
-ByteCompile: yes
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Config/testthat/edition: 3
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US
+ByteCompile: yes
+Config/testthat/edition: 3

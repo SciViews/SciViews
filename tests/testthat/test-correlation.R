@@ -1,4 +1,4 @@
-test_that("correlation produces correct results", {
+test_that("correlation() produces Correlation objects", {
   corr <- correlation(1:10, 1:10)
   expect_s3_class(corr, "matrix")
   expect_s3_class(corr, "Correlation")
