@@ -12,7 +12,7 @@
 
 {SciViews} is available from CRAN, but it is an old version. You should install it from the [SciViews R-Universe](https://sciviews.r-universe.dev). To install this package and its dependencies, run the following command in R:
 
-```{r, eval=FALSE}
+``` r
 install.packages('SciViews', repos = c('https://sciviews.r-universe.dev',
   'https://cloud.r-project.org'))
 ```

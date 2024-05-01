@@ -26,7 +26,7 @@
 #' - [ln()] and others for natural logarithm.
 #'
 #' @docType package
-#' @name tabularise-package
+#' @name SciViews-package
 
 ## usethis namespace: start
 #' @import stats
