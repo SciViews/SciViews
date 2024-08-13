@@ -11,10 +11,14 @@
 ai_ask(
   question,
   context = NULL,
-  max_tokens = getOption("SciViews.chatbot.max_tokens", 1000),
+  max_tokens = getOption("SciViews.chatbot.max_tokens",
+    Sys.getenv("SCIVIEWS_CHATBOT_MAX_TOKENS", 1000L)),
   lang = getOption("data.io_lang", "en"),
-  url = getOption("SciViews.chatbot.url", "http://localhost:11434/api/chat"),
-  model = getOption("SciViews.chatbot.model", "codestral:latest"),
+  url = getOption("SciViews.chatbot.url", Sys.getenv("SCIVIEWS_CHATBOT_URL",
+    "http://localhost:11434/api/chat")),
+  model = getOption("SciViews.chatbot.model", Sys.getenv("SCIVIEWS_CHATBOT_MODEL",
+    "codestral:latest")),
+  api_key = Sys.getenv("CONNECT_API_KEY", ""),
   verbose = FALSE
 )
 
@@ -56,6 +60,9 @@ Make sure you complies to its license
 (see https://mistral.ai/news/mistral-ai-non-production-license-mnpl/), or
 switch to another model that better suits your requirements.}
 
+\item{api_key}{The API key to use for connecting to the chatbot server
+(optional, see your server administrator).}
+
 \item{verbose}{Should more information be printed? \code{FALSE} by default.}
 
 \item{term}{The term to describe.}
@@ -78,7 +85,7 @@ displaying the chatbot help page with the question, answer and examples
 The question is sent to the chatbot server, and the answer is returned. The
 default chatbot server is ollama running locally, and the default model is
 codestral:latest. It was also tested with mistral:7b-instruct-v0.2-q6_K for
-an evan smaller model.
+an even smaller model.
 }
 \examples{
 \dontrun{
@@ -88,7 +95,7 @@ an evan smaller model.
 ai_ask("Who are you?")
 ai_ask("What is a chatbot?")
 ai_ask("Qui es-tu ?")
-ai_ask("Quest-ce que R ?")
+ai_ask("Qu'est-ce que R ?")
 ai_ask("Qu'est-ce que RStudio ?")
 ai_ask("What is GitHub?")
 ai_ask("Qu'est-ce que le R Markdown ?")
@@ -103,7 +110,7 @@ ai_ask("Va te faire voir !")
 ai_ask("Comment filtrer un data frame en R?")
 ai_ask("Write R code to filter a data frame.")
 ai_ask("Que fait AIC()? Donne un exemple.")
-ai_ask("Qu'est ce que l'hétéroscédasticité et comment la détecter dans une ANOVA à un facteur ?")
+ai_ask("Qu'est ce que l'hétéroscédasticite et comment la détecter dans une ANOVA à un facteur ?")
 ai_ask("How to determine which model is better using an ANOVA for nested linear models?")
 
 # Explain terms

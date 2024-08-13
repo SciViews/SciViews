@@ -3,7 +3,7 @@
 #' The question is sent to the chatbot server, and the answer is returned. The
 #' default chatbot server is ollama running locally, and the default model is
 #' codestral:latest. It was also tested with mistral:7b-instruct-v0.2-q6_K for
-#' an evan smaller model.
+#' an even smaller model.
 #'
 #' @param question A character string with the question to ask.
 #' @param context An R object used as context (usually a data frame). This is
@@ -18,6 +18,8 @@
 #'   Make sure you complies to its license
 #'   (see https://mistral.ai/news/mistral-ai-non-production-license-mnpl/), or
 #'   switch to another model that better suits your requirements.
+#' @param api_key The API key to use for connecting to the chatbot server
+#'   (optional, see your server administrator).
 #' @param verbose Should more information be printed? `FALSE` by default.
 #'
 #' @return
@@ -48,7 +50,7 @@
 #' ai_ask("Comment filtrer un data frame en R?")
 #' ai_ask("Write R code to filter a data frame.")
 #' ai_ask("Que fait AIC()? Donne un exemple.")
-#' ai_ask("Qu'est ce que l'hétéroscédasticité et comment la détecter dans une ANOVA à un facteur ?")
+#' ai_ask("Qu'est ce que l'hétéroscédasticite et comment la détecter dans une ANOVA à un facteur ?")
 #' ai_ask("How to determine which model is better using an ANOVA for nested linear models?")
 #'
 #' # Explain terms
@@ -98,16 +100,20 @@
 #'   ]-", lang = "fr")
 #' }
 ai_ask <- function(question, context = NULL,
-    max_tokens = getOption("SciViews.chatbot.max_tokens", 1000),
+    max_tokens = getOption("SciViews.chatbot.max_tokens",
+      Sys.getenv("SCIVIEWS_CHATBOT_MAX_TOKENS", 1000L)),
     lang = getOption("data.io_lang", "en"),
     url = getOption("SciViews.chatbot.url",
-      "http://localhost:11434/api/chat"), # Default is using Ollama locally
+      Sys.getenv("SCIVIEWS_CHATBOT_URL",
+        "http://localhost:11434/api/chat")), # Default is using Ollama locally
     model = getOption("SciViews.chatbot.model",
-      "codestral:latest"), # Default is using Codestral
+      Sys.getenv("SCIVIEWS_CHATBOT_MODEL",
+      "codestral:latest")), # Default is using Codestral
       #"mistral:7b-instruct-v0.2-q6_K"), # For Mistral 7B
+    api_key = Sys.getenv("CONNECT_API_KEY", ""),
     verbose = FALSE) {
 
-  # We use three pages and alternate between these pages...
+  # We use three help pages and alternate between these pages...
   max_page <- 3L
   last_page <- getOption("SciViews.chatbot.page", max_page)
   page <- last_page + 1L
@@ -138,8 +144,16 @@ ai_ask <- function(question, context = NULL,
     if (tolower(lang) == "fr")
       question <- paste(question, "R\u00e9pond en fran\u00e7ais", sep = "\n")
 
-    request <- httr2::request(url) |>
-      httr2::req_headers("Accept" = "application/json") |>
+    # Allow connecting with API key (for Posit Connect)
+    if (api_key != "") {
+      request <- httr2::request(url) |>
+        httr2::req_headers("Accept" = "application/json",
+                           "Authorization" = paste("Key", api_key))
+    } else {# No API key
+      request <- httr2::request(url) |>
+        httr2::req_headers("Accept" = "application/json")
+    }
+    request <- request |>
       httr2::req_body_json(list(
         model = model,
         messages = list(
@@ -178,7 +192,7 @@ ai_ask <- function(question, context = NULL,
       message("Answer:")
       print(body)
     }
-    # Use Roxygen2 to transfor Markdown tags to Rd tags
+    # Use Roxygen2 to transform Markdown tags to Rd tags
     markdown_on <- getNamespace("roxygen2")$markdown_on
     old_mkdown <- markdown_on()
     markdown_on(TRUE)
@@ -323,7 +337,7 @@ ai_explain_error <- function(code = NULL, error = NULL,
     error <- paste(error, collapse = '\n')
     if (is.null(code)) {
       if (lang == "fr") {
-        ai_ask(paste("Explique ce message d'erreur renvoyé par R:\n\n\\bold{",
+        ai_ask(paste("Explique ce message d'erreur renvoy\u00e9 par R:\n\n\\bold{",
           error, "}"), lang = lang, ...)
       } else {# Use English by default
         ai_ask(paste("Explain this error message returned by R:\n\n\\bold{",
@@ -333,7 +347,7 @@ ai_explain_error <- function(code = NULL, error = NULL,
       # TODO: allow for more different languages
       if (lang == "fr") {
         ai_ask(paste("Explique ce message d'erreur de R :\n\n\\bold{", error,
-          "} lorsque j'exécute ce code:\\code{", code, "}"),
+          "} lorsque j'ex\u00e9cute ce code:\\code{", code, "}"),
           lang = lang, ...)
       } else {# Use English by default
         ai_ask(paste("Explain this error message in R:\n\n\\bold{", error,
