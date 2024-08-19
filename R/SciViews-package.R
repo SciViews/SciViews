@@ -25,8 +25,8 @@
 #'
 #' - [ln()] and others for natural logarithm.
 #'
-#' @docType package
 #' @name SciViews-package
+"_PACKAGE"
 
 ## usethis namespace: start
 #' @import stats
