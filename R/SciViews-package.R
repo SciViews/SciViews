@@ -1,5 +1,7 @@
-#' @details
-#' The `SciViews::R` dialect is base R + tidyverse + a series of additional SciViews packages like 'data.io', 'flow' or 'chart'.
+#' 'SciViews::R' Dialect for Data Processing and Visualization
+#'
+#' The `SciViews::R` dialect is base R + tidyverse + a series of additional
+#' SciViews packages like data.io, svBase, svFlow, tabularise or chart.
 
 #' @section Important functions:
 #'
@@ -23,9 +25,10 @@
 #'
 #' - [ln()] and others for natural logarithm.
 #'
-#' @keywords internal
-"_PACKAGE"
+#' @docType package
+#' @name SciViews-package
 
+## usethis namespace: start
 #' @import stats
 #' @import graphics
 #' @importFrom utils getFromNamespace help packageVersion stack

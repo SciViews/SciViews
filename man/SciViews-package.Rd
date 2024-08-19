@@ -2,16 +2,11 @@
 % Please edit documentation in R/SciViews-package.R
 \docType{package}
 \name{SciViews-package}
-\alias{SciViews}
 \alias{SciViews-package}
-\title{SciViews: 'SciViews' - Data Processing and Visualization with the 'SciViews::R' Dialect}
+\title{'SciViews::R' Dialect for Data Processing and Visualization}
 \description{
-\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
-
-The 'SciViews::R' dialect provides a set of functions that streamlines data input, process, analysis and visualization especially, but not exclusively, for beginners or occasional users. It mixes base R and tidyverse, plus another set of CRAN packages for an easy and coherent use of R.
-}
-\details{
-The \code{SciViews::R} dialect is base R + tidyverse + a series of additional SciViews packages like 'data.io', 'flow' or 'chart'.
+The \code{SciViews::R} dialect is base R + tidyverse + a series of additional
+SciViews packages like data.io, svBase, svFlow, tabularise or chart.
 }
 \section{Important functions}{
 
@@ -29,17 +24,3 @@ The \code{SciViews::R} dialect is base R + tidyverse + a series of additional Sc
 }
 }
 
-\seealso{
-Useful links:
-\itemize{
-  \item \url{https://github.com/SciViews/SciViews}
-  \item \url{https://www.sciviews.org/SciViews/}
-  \item Report bugs at \url{https://github.com/SciViews/SciViews/issues}
-}
-
-}
-\author{
-\strong{Maintainer}: Philippe Grosjean \email{phgrosjean@sciviews.org} (\href{https://orcid.org/0000-0002-2694-9471}{ORCID})
-
-}
-\keyword{internal}
