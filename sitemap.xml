@@ -1,75 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.sciviews.org/SciViews/404.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/TODO.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/articles/SciViews.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/articles/pca.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/SciViews-package.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/SciViews_R.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/SciViews_packages.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/colors.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/correlation.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/enum.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/ln.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/nr.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/panels.diag.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/panels.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/pcomp.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/timing.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/SciViews/reference/vectorplot.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://www.sciviews.org/SciViews/404.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/LICENSE.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/TODO.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/articles/SciViews.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/articles/index.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/articles/pca.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/authors.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/index.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/news/index.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/SciViews-package.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/SciViews_R.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/SciViews_packages.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/ai_ask.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/chatbot1.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/chatbot2.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/chatbot3.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/colors.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/correlation.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/enum.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/index.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/ln.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/nr.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/panels.diag.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/panels.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/pcomp.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/timing.html</loc></url>
+<url><loc>https://www.sciviews.org/SciViews/reference/vectorplot.html</loc></url>
 </urlset>
+
