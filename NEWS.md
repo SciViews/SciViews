@@ -1,3 +1,7 @@
+# SciViews 1.7.0
+
+- A chatbot is added with the `ai_ask()` function that displays a help page with the results from a question, `ai_explain_term()` to explain terminology, `ai_explain_function()` to create a simplified help page for an R function, `ai_explain_code()` to explain how a (short piece of) code works and `ai_explain_error()` which details error message given the code and the error it generates. Credentials are handled through API keys.
+
 # SciViews 1.6.1
 
 - An old addin to insert : is removed.

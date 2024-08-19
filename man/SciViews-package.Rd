@@ -2,6 +2,7 @@
 % Please edit documentation in R/SciViews-package.R
 \docType{package}
 \name{SciViews-package}
+\alias{SciViews}
 \alias{SciViews-package}
 \title{'SciViews::R' Dialect for Data Processing and Visualization}
 \description{
@@ -24,3 +25,16 @@ SciViews packages like data.io, svBase, svFlow, tabularise or chart.
 }
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/SciViews/SciViews}
+  \item \url{https://www.sciviews.org/SciViews/}
+  \item Report bugs at \url{https://github.com/SciViews/SciViews/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Philippe Grosjean \email{phgrosjean@sciviews.org} (\href{https://orcid.org/0000-0002-2694-9471}{ORCID})
+
+}
