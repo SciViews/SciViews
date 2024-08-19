@@ -23,7 +23,9 @@ Imports:
     stats (>= 4.2.0),
     svBase (>= 1.4.0),
     tabularise (>= 0.5.0),
-    utils
+    utils,
+    httr2,
+    roxygen2
 Suggests: 
     broom (>= 1.0.4),
     chart (>= 1.5.0),
