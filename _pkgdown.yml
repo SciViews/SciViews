@@ -7,13 +7,21 @@ development:
 
 template:
   package: svPkgdown
-  bootstrap: 5
+  bootstrap: 3
+  bootswatch: spacelab
   params:
-    bootswatch: spacelab
     mathjax: true
+  bslib:
+    pkgdown-nav-height: 80px
+    code_font: {google: "JetBrains Mono"}
 
 toc:
   depth: 3
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [search, github]
 
 home:
   strip_header: true
