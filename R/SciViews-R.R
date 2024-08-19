@@ -15,8 +15,8 @@
 #'   `"dtbl"`, `"tibble"` or `"tbl_df"` for tibble's tbl_df, the name of a
 #'   function to use to convert a data.frame object, or `NULL` (by default) to
 #'   keep current settings.
-#' @param threads.percent The percentage of threads to use for {data.table} and
-#'   {collapse} parallel code (number of threads depend on how many are
+#' @param threads.percent The percentage of threads to use for \{data.table\} and
+#'   \{collapse\} parallel code (number of threads depend on how many are
 #'   available, and the value is rounded towards zero).
 #' @param silent If `TRUE` (by default), no report is printed about loaded
 #'   packages and conflicts.

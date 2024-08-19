@@ -1,22 +1,23 @@
 ---
-title: "Data Processing and Visualization with the SciViews::R Dialect"
+title: "'SciViews::R' Dialect for Data Processing and Visualization"
 author: "Philippe Grosjean"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
+    fig_caption: yes
 vignette: >
-  %\VignetteIndexEntry{Data Processing and Visualization with the SciViews::R Dialect}
+  %\VignetteIndexEntry{'SciViews::R' Dialect for Data Processing and Visualization}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
-The `SciViews::R` dialect is base R + [tidyverse](https://www.tidyverse.org) + a series of SciViews packages like [data.io](https://www.sciviews.org/data.io/), [svFlow](https://www.sciviews.org/svFlow/), or [chart](https://www.sciviews.org/chart/) that makes a coherent and straightforward environment for data processing and visualization. In order to load all required packages, just use:
+The SciViews::R dialect is base R + [tidyverse](https://www.tidyverse.org) + a series of SciViews packages like [data.io](https://www.sciviews.org/data.io/), [svFlow](https://www.sciviews.org/svFlow/), or [chart](https://www.sciviews.org/chart/) that makes a coherent and straightforward environment for data processing and visualization. In order to load all required packages, just use:
 
 ```{r}
 SciViews::R()
