@@ -20,6 +20,8 @@ dtplyr
 dtx
 FactoMineR
 ggplot
+ggsn
+ggspatial
 github
 GitHub
 grDevices
@@ -45,6 +47,7 @@ Roxygen
 RStudio
 sciviews
 sd
+sp
 subfunction
 svBase
 svFlow
@@ -53,6 +56,7 @@ svMisc
 svSocket
 tabularise
 tbl
+terra
 tibble
 tibble's
 tidyverse

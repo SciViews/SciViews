@@ -1,6 +1,6 @@
 # SciViews 1.8.0
 
--   The {ggsn} package is archived on CRAN, so, we remove it from the "spatial" topic and replace it by the {ggspatial} package that also provides a north arrow and a scale bar for ggplot2 plots. The {sp} and {raster} packages are not in the list of required packages anymore, as they are supposed to be superseeded by {sf} and {terra}, respectively.
+-   The {ggsn} package is archived on CRAN, so, we remove it from the "spatial" topic and replace it by the {ggspatial} package that also provides a north arrow and a scale bar for ggplot2 plots. The {sp} and {raster} packages are not in the list of required packages anymore, as they are supposed to be superseded by {sf} and {terra}, respectively.
 
 # SciViews 1.7.0
 
