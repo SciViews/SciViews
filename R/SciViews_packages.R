@@ -70,7 +70,11 @@ SciViews_packages_topics <- function(all = FALSE) {
       ml      = c("class", "e1071", "ipred", "MASS", "mlbench", "mlearning",
         "nnet", "parsnip", "randomForest", "recipes", "ROCR", "rpart", "rsample"),
       ts      = c("boot", "pastecs"),
-      spatial = c("ggsn", "raster", "sf", "sp", "stars", "terra", "tmap")
+      # Note: maptools, rgdal, rgeos retired in 2023. sf should replace sp and
+      # terra should replace raster. ggsn is archived and ggspatial provides
+      # some of its functionnalities, see: https://r-spatial.org/book/sp-raster.html
+      # So, we eliminate sp and raster from the list and replace ggsn by ggspatial
+      spatial = c("ggspatial", "sf", "stars", "terra", "tmap")
     )
   } else {# Just the list of packages to attach to the search path
     pkgs <- list(
@@ -79,7 +83,7 @@ SciViews_packages_topics <- function(all = FALSE) {
       explore = c("broom", "exploreit"),
       ml      = c("mlearning", "ROCR", "parsnip", "recipes", "rsample"),
       ts      = c("pastecs"),
-      spatial = c("ggsn", "sf", "stars", "terra", "tmap")
+      spatial = c("ggspatial", "sf", "stars", "terra", "tmap")
     )
   }
   pkgs

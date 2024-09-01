@@ -1,10 +1,14 @@
+# SciViews 1.8.0
+
+-   The {ggsn} package is archived on CRAN, so, we remove it from the "spatial" topic and replace it by the {ggspatial} package that also provides a north arrow and a scale bar for ggplot2 plots. The {sp} and {raster} packages are not in the list of required packages anymore, as they are supposed to be superseeded by {sf} and {terra}, respectively.
+
 # SciViews 1.7.0
 
-- A chatbot is added with the `ai_ask()` function that displays a help page with the results from a question, `ai_explain_term()` to explain terminology, `ai_explain_function()` to create a simplified help page for an R function, `ai_explain_code()` to explain how a (short piece of) code works and `ai_explain_error()` which details error message given the code and the error it generates. Credentials are handled through API keys.
+-   A chatbot is added with the `ai_ask()` function that displays a help page with the results from a question, `ai_explain_term()` to explain terminology, `ai_explain_function()` to create a simplified help page for an R function, `ai_explain_code()` to explain how a (short piece of) code works and `ai_explain_error()` which details error message given the code and the error it generates. Credentials are handled through API keys.
 
 # SciViews 1.6.1
 
-- An old addin to insert : is removed.
+-   An old addin to insert : is removed.
 
 # SciViews 1.6.0
 
