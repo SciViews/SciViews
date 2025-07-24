@@ -4,7 +4,7 @@
 #'
 #' @param n The number of colors (>= 1) to be in the palette.
 #' @param alpha The alpha transparency, a number in `[0, 1]`, see argument
-#' `alpha` in [hsv()].
+#' `alpha` in [grDevices::hsv()].
 #' @param s The 'saturation' to be used to complete the HSV color descriptions.
 #' @param v The 'value' to use for the HSV color descriptions.
 #' @details `cwm_colors(s = 0.5, v = 1)` gives very similar colors to
@@ -14,7 +14,7 @@
 #' (grDevices name-compatible) functions are synonyms.
 #' @export
 #' @name colors
-#' @seealso [cm.colors()], [colorRampPalette()]
+#' @seealso [grDevices::cm.colors()], [grDevices::colorRampPalette()]
 #' @keywords color
 #' @concept color palettes
 #' @examples

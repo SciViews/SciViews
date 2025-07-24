@@ -133,7 +133,7 @@ formula one might specify \code{scale}, \code{tol} or \code{covmat}.}
 \item{formula}{A formula with no response variable, referring only to numeric
 variables.}
 
-\item{data}{An optional data frame (or similar, see \code{\link[=model.frame]{model.frame()}})
+\item{data}{An optional data frame (or similar, see \code{\link[stats:model.frame]{stats::model.frame()}})
 containing the variables in the formula. By default the variables
 are taken from \code{environment(formula)}.}
 
@@ -142,11 +142,11 @@ data matrix \code{x}.}
 
 \item{na.action}{A function which indicates what should happen when the data
 contain \code{NA}s. The default is set by the \code{na.action} setting of
-\code{\link[=options]{options()}}, and is \code{\link[=na.fail]{na.fail()}} if that is  not set. The 'factory-fresh'
-default is \code{\link[=na.omit]{na.omit()}}.}
+\code{\link[=options]{options()}}, and is \code{\link[stats:na.fail]{stats::na.fail()}} if that is  not set. The 'factory-fresh'
+default is \code{\link[stats:na.fail]{stats::na.omit()}}.}
 
-\item{method}{Either \code{"svd"} (using \code{\link[=prcomp]{prcomp()}}), \code{"eigen"} (using
-\code{\link[=princomp]{princomp()}}), or an abbreviation.}
+\item{method}{Either \code{"svd"} (using \code{\link[stats:prcomp]{stats::prcomp()}}), \code{"eigen"} (using
+\code{\link[stats:princomp]{stats::princomp()}}), or an abbreviation.}
 
 \item{scores}{A logical value indicating whether the score on each principal
 component should be calculated.}
@@ -172,8 +172,9 @@ components are omitted. Other settings for \verb{tol =} could be \code{tol = 0} 
 components.}
 
 \item{covmat}{A covariance matrix, or a covariance list as returned by
-\code{\link[=cov.wt]{cov.wt()}} (and \code{\link[=cov.mve]{cov.mve()}} or \code{\link[=cov.mcd]{cov.mcd()}} from package \strong{MASS}). If
-supplied, this is used rather than the covariance matrix of \code{x}.}
+\code{\link[stats:cov.wt]{stats::cov.wt()}} (and \code{\link[MASS:cov.rob]{MASS::cov.mve()}} or \code{\link[MASS:cov.rob]{MASS::cov.mcd()}} from package
+\strong{MASS}). If supplied, this is used rather than the covariance matrix of
+\code{x}.}
 
 \item{object}{A 'pcomp' object.}
 
@@ -228,7 +229,7 @@ correlation plots.}
 
 \item{level}{The probability level to use to draw the ellipse.}
 
-\item{pc.biplot}{Do we create a Gabriel's biplot (see \code{\link[=biplot]{biplot()}})?}
+\item{pc.biplot}{Do we create a Gabriel's biplot (see \code{\link[stats:biplot]{stats::biplot()}})?}
 
 \item{ar.col}{Color of arrows.}
 
@@ -253,15 +254,16 @@ return a \code{pcomp} object.
 }
 \details{
 \code{pcomp()} is a generic function with \code{"formula"} and \code{"default"}
-methods. It is essentially a wrapper around \code{\link[=prcomp]{prcomp()}} and \code{\link[=princomp]{princomp()}} to
-provide a coherent interface and object for both methods.
+methods. It is essentially a wrapper around \code{\link[stats:prcomp]{stats::prcomp()}} and
+\code{\link[stats:princomp]{stats::princomp()}} to provide a coherent interface and object for both
+methods.
 
 A 'pcomp' object is created. It inherits from 'pca' (as in \strong{labdsv}
 package, but not compatible with the version of 'pca' in \strong{ade4}) and of
 'princomp'.
 
-For more information on algorithms, refer to \code{\link[=prcomp]{prcomp()}} for
-\code{method = "svd"} or \code{\link[=princomp]{princomp()}} for \code{method = "eigen"}.
+For more information on algorithms, refer to \code{\link[stats:prcomp]{stats::prcomp()}} for
+\code{method = "svd"} or \code{\link[stats:princomp]{stats::princomp()}} for \code{method = "eigen"}.
 }
 \note{
 The signs of the columns for the loadings and scores are arbitrary. So,
@@ -299,8 +301,8 @@ iris.pca <- pcomp(iris[, -5])
 pairs(iris.pca, col = (2:4)[iris$Species])
 }
 \seealso{
-\code{\link[=prcomp]{prcomp()}}, \code{\link[=princomp]{princomp()}}, \code{\link[=loadings]{loadings()}}, \code{\link[=vectorplot]{vectorplot()}},
-\code{\link[=Correlation]{Correlation()}}
+\code{\link[stats:prcomp]{stats::prcomp()}}, \code{\link[stats:princomp]{stats::princomp()}}, \code{\link[stats:loadings]{stats::loadings()}},
+\code{\link[=vectorplot]{vectorplot()}}, \code{\link[=Correlation]{Correlation()}}
 }
 \author{
 Philippe Grosjean \href{mailto:phgrosjean@sciviews.org}{phgrosjean@sciviews.org}, but the core code is

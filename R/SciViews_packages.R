@@ -11,9 +11,9 @@
 #' @param x A SciViews_conflicts object
 #' @param startup Should the message be printed at startup?
 #'
-#' @return A list of packages for [SciViews_packages()], or a
+#' @return A list of packages for [SciViews::SciViews_packages()], or a
 #'   **SciViews_conflicted** object with a [print()] method for
-#'   [SciViews_conflicts()].
+#'   [SciViews::SciViews_conflicts()].
 #' @export
 #'
 #' @examples
@@ -27,7 +27,7 @@
 #' SciViews_conflicts()
 SciViews_packages <- function(..., all = FALSE) {
   if (isTRUE(all)) {
-    pkgs <- list(SciViews = c('MASS', 'lattice', 'data.table', 'broom', 'cli',
+    pkgs <- list(SciViews = c('MASS', 'lattice', 'data.trame', 'broom', 'cli',
       'crayon', 'dbplyr', 'dplyr', 'dtplyr', 'forcats', 'googledrive',
       'googlesheets4', 'ggplot2', 'haven', 'hms', 'httr', 'jsonlite',
       'lubridate', 'magrittr', 'modelr', 'pillar', 'purrr', 'readr', 'readxl',
@@ -35,7 +35,7 @@ SciViews_packages <- function(..., all = FALSE) {
       'xml2', 'tidyverse', 'collapse', 'fs', 'svMisc', 'svBase', 'svFlow',
       'data.io', 'chart', 'tabularise', 'SciViews'))
   } else {# Just the list of packages to attach to the search path
-    pkgs <- list(SciViews = c('rlang', 'MASS', 'lattice', 'data.table',
+    pkgs <- list(SciViews = c('rlang', 'MASS', 'lattice', 'data.trame',
       'ggplot2', 'tibble', 'tidyr', 'dplyr', 'dtplyr', 'broom', 'forcats',
       'collapse', 'fs', 'svMisc', 'svBase', 'svFlow', 'data.io', 'chart',
       'tabularise', 'SciViews'))

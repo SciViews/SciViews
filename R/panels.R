@@ -1,6 +1,6 @@
 #' More panel plots
 #'
-#' Several panel plots that can be used with [coplot()] and [pairs()].
+#' Several panel plots that can be used with [graphics::coplot()] and [graphics::pairs()].
 #'
 #' @param x A numeric vector.
 #' @param y A numeric vector of same length as `x`.
@@ -10,7 +10,7 @@
 #' @param cex The expansion factor used for the points.
 #' @param lwd The line width.
 #' @param line.reg A function that calculates coefficients of a straight line,
-#' for instance, [lm()], or [rlm()] for robust linear regression.
+#' for instance, [stats::lm()], or [MASS::rlm()] for robust linear regression.
 #' @param line.col The color of the line.
 #' @param line.lwd The width of the line.
 #' @param untf Logical asking whether to untransform the straight line in case
@@ -23,11 +23,11 @@
 #' @param major If `TRUE`, the standardized major axis is also drawn.
 #' @param use One of `"everything"`, `"all.obs"`, `"complete.obs"`,
 #' `"na.or.complete"`, or `"pairwise.complete.obs"` (can be abbreviated).
-#' Defines how the [cor()] function behaves with missing observations.
+#' Defines how the [stats::cor()] function behaves with missing observations.
 #' @param method One of the three correlation coefficients `"pearson"`
 #' (default), `"kendall"`, or `"spearman"`. Can be abbreviated.
 #' @param alternative The alternative hypothesis in correlation test, see
-#' [cor.test()].
+#' [stats::cor.test()].
 #' @param digits  The number of decimal digits to print when the correlation
 #' coefficient is printed in the graph.
 #' @param prefix A prefix (character string) to use before the correlation
@@ -37,19 +37,19 @@
 #' @param stars.col The color used for significance stars (with: *** p < 0.001,
 #' ** p < 0.1, * p < 0.05, . p < 0.1.
 #' @param col.smooth Color to be used by lines for drawing the smooths.
-#' @param span Smoothing parameter `f` for [lowess()], see there.
-#' @param iter Number of robustness iterations for [lowess()].
+#' @param span Smoothing parameter `f` for [stats::lowess()], see there.
+#' @param iter Number of robustness iterations for [stats::lowess()].
 #' @param ... Further arguments to plot functions.
 #' @return These functions return nothing and are used for their side effect of
 #' plotting in panels of composite plots.
 #' @details Theses functions should be used outside of the diagonal in
-#' [pairs()], or with [coplot()], as they are bivariate plots.
+#' [graphics::pairs()], or with [graphics::coplot()], as they are bivariate plots.
 #' @author Philippe Grosjean <phgrosjean@sciviews.org>, but code inspired from
-#' [panel.smooth()] in **graphics** and `panel.car()` in package **car**.
+#' [graphics::panel.smooth()] in **graphics** and `panel.car()` in package **car**.
 #' @export
 #' @name panels
-#' @seealso [coplot()], [pairs()], [panel.smooth()], [lm()], [ellipse()],
-#' [cor()] and [cor.test()]
+#' @seealso [graphics::coplot()], [graphics::pairs()], [graphics::panel.smooth()], [stats::lm()], [ellipse::ellipse()],
+#' [stats::cor()] and [stats::cor.test()]
 #' @keywords aplot
 #' @concept panel plots
 #' @examples

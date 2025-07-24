@@ -86,7 +86,7 @@ as.correlation(x)
 \item{formula}{A formula with no response variable, referring only to numeric
 variables.}
 
-\item{data}{An optional data frame (or similar, see \code{\link[=model.frame]{model.frame()}})
+\item{data}{An optional data frame (or similar, see \code{\link[stats:model.frame]{stats::model.frame()}})
 containing the variables in the formula. By default the variables
 are taken from \code{environment(formula)}.}
 
@@ -95,8 +95,8 @@ data matrix \code{x}.}
 
 \item{na.action}{A function which indicates what should happen when the data
 contain \code{NA}s. The default is set by the \code{na.action} setting of \code{options()}
-and \code{\link[=na.fail]{na.fail()}} is used if that is not set. The 'factory-fresh' default is
-\code{\link[=na.omit]{na.omit()}}.}
+and \code{\link[stats:na.fail]{stats::na.fail()}} is used if that is not set. The 'factory-fresh'
+default is \code{\link[stats:na.fail]{stats::na.omit()}}.}
 
 \item{y}{\code{NULL} (default), or a vector, matrix or data frame with compatible
 dimensions to \code{x} for \code{Correlation()}. The default is equivalent to \code{x = y},
@@ -159,13 +159,13 @@ object, while \code{is.Correlation()} tests for it.
 
 There are \code{print()} and \code{summary()} methods for the 'Correlation' object
 that differ in the symbolic encoding of the correlations,
-(using \code{\link[=symnum]{symnum()}} for \code{summary()}), which makes large correlation matrices
-more readable.
+(using \code{\link[stats:symnum]{stats::symnum()}} for \code{summary()}), which makes large correlation
+matrices more readable.
 
 The \code{plot()} method draws ellipses on a graph to represent the correlation
-matrix visually. This is essentially the \code{\link[=plotcorr]{plotcorr()}} function from package
-\strong{ellipse}, with slightly different default arguments and with default
-\code{cutpoints} equivalent to those used in the \code{summary()} method.
+matrix visually. This is essentially the \code{\link[ellipse:plotcorr]{ellipse::plotcorr()}} function, with
+slightly different default arguments and with default \code{cutpoints} equivalent
+to those used in the \code{summary()} method.
 }
 \description{
 Compute the correlation matrix between all columns of a matrix or data frame.
@@ -193,12 +193,12 @@ plot(mtcars.cor2, type = "lower")
 mtcars.cor2["mpg", "cyl"] # Extract a correlation from the correlation matrix
 }
 \seealso{
-\code{\link[=cov]{cov()}}, \code{\link[=cov2cor]{cov2cor()}}, \code{\link[=cov.wt]{cov.wt()}}, \code{\link[=symnum]{symnum()}}, \code{\link[=plotcorr]{plotcorr()}} and look
+\code{\link[stats:cor]{stats::cov()}}, \code{\link[stats:cor]{stats::cov2cor()}}, \code{\link[stats:cov.wt]{stats::cov.wt()}}, \code{\link[stats:symnum]{stats::symnum()}}, \code{\link[ellipse:plotcorr]{ellipse::plotcorr()}} and look
 also at \code{\link[=panel_cor]{panel_cor()}}
 }
 \author{
 Philippe Grosjean \href{mailto:phgrosjean@sciviews.org}{phgrosjean@sciviews.org}, wrapping code in package
-\strong{ellipse}, function \code{\link[=plotcorr]{plotcorr()}} for the \code{plot.Correlation()} method.
+\strong{ellipse}, function \code{\link[ellipse:plotcorr]{ellipse::plotcorr()}} for the \code{plot.Correlation()} method.
 }
 \concept{correlation matrix and plot}
 \keyword{distribution}

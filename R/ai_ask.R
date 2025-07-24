@@ -176,8 +176,7 @@ ai_ask <- function(question, context = NULL,
     # Perform the request
     res <- try(httr2::req_perform(request), silent = TRUE)
     if (inherits(res, 'try-error')) {
-      stop("Error while performing the request to the chatbot server: ", res,
-        " Check connexion parameters and verify the chatbot server is running.")
+      stop(gettextf("Error while performing the request to the chatbot server: %s. Check connexion parameters and verify the chatbot server is running.", res))
     }
     .assign_temp(".SciViews.chatbot_last_result", res)
     if (isTRUE(verbose)) {
@@ -233,7 +232,7 @@ ai_ask <- function(question, context = NULL,
 #' @export
 #' @rdname ai_ask
 #' @param term The term to describe.
-#' @param ... Further arguments passed to [ai_ask()].
+#' @param ... Further arguments passed to [SciViews::ai_ask()].
 ai_explain_term <- function(term, lang = getOption("data.io_lang", "en"), ...) {
   if (!is.character(term) || length(term) != 1)
     stop("term must be a single character string")
@@ -268,8 +267,7 @@ ai_explain_function <- function(fun, package = NULL,
       stop("package must be a single character string")
     res <- try(is.function(getFromNamespace(fun, package)), silent = TRUE)
     if (inherits(res, 'try-error') || !isTRUE(res))
-      stop("The function ", fun, " is not available in the package ", package,
-        " in your current R installation.")
+      stop(gettextf("The function %s is not available in the package %s in your current R installation.", fun, package))
     # TODO: allow for more different languages
     if (lang == "fr") {
       ai_ask(paste("Explique la fonction", fun, "du package", package),
@@ -281,8 +279,7 @@ ai_explain_function <- function(fun, package = NULL,
 
   } else {# package not provided
     if (is.null(get0(fun, mode = 'function')))
-      stop("The function ", fun, " is not available in your R process. ",
-        "Either specify the package it comes from or load it first.")
+      stop(gettextf("The function %s is not available in your R process. Either specify the package it comes from or load it first.", fun))
     # TODO: allow for more different languages
     if (lang == "fr") {
       ai_ask(paste("Explique la fonction", fun),

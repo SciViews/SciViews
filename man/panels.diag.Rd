@@ -98,9 +98,9 @@ panel.qqnorm(
 \item{box.col}{The filling color of the boxplots.}
 
 \item{...}{Further arguments to plot functions, or functions that construct
-items, like \code{\link[=density]{density()}}, depending on the context.}
+items, like \code{\link[stats:density]{stats::density()}}, depending on the context.}
 
-\item{adjust}{The bandwidth adjustment factor, see \code{\link[=density]{density()}}.}
+\item{adjust}{The bandwidth adjustment factor, see \code{\link[stats:density]{stats::density()}}.}
 
 \item{rug}{Do we add a rug representation (1-d plot) of the points too?}
 
@@ -112,7 +112,7 @@ items, like \code{\link[=density]{density()}}, depending on the context.}
 
 \item{breaks}{The number of breaks, the name of a break algorithm, a vector
 of breakpoints, or any other acceptable value for \code{breaks} argument of
-\code{\link[=hist]{hist()}}.}
+\code{\link[graphics:hist]{graphics::hist()}}.}
 
 \item{hist.col}{The filling color for the histograms.}
 
@@ -146,12 +146,13 @@ These functions return nothing and are used for their side effect of
 plotting in panels of composite plots.
 }
 \description{
-Several panel plots that can be used with \code{\link[=pairs]{pairs()}}.
+Several panel plots that can be used with \code{\link[graphics:pairs]{graphics::pairs()}}.
 }
 \details{
-Panel functions \code{\link[=panel_boxplot]{panel_boxplot()}}, \code{\link[=panel_density]{panel_density()}}, \code{\link[=panel_hist]{panel_hist()}}
-and \code{\link[=panel_qqnorm]{panel_qqnorm()}} should be used only to plot univariate data on the
-diagonals of \code{\link[=pairs]{pairs()}} plots (or scatterplot matrix).
+Panel functions \code{\link[=panel_boxplot]{panel_boxplot()}},
+\code{\link[=panel_density]{panel_density()}}, \code{\link[=panel_hist]{panel_hist()}} and
+\code{\link[=panel_qqnorm]{panel_qqnorm()}} should be used only to plot univariate data on the
+diagonals of \code{\link[graphics:pairs]{graphics::pairs()}} plots (or scatterplot matrix).
 }
 \examples{
 # Example of scatterplot matrices with custom plots on the diagonal
@@ -173,7 +174,7 @@ pairs(trees, panel = panel_smooth, diag.panel = panel_qqnorm)
 pairs(trees, diag.panel = panel_qqnorm, qqline.col = 2, qq.cex = .5, qq.pch = 3)
 }
 \seealso{
-\code{\link[=pairs]{pairs()}}, \code{\link[=boxplot]{boxplot()}}, \code{\link[=hist]{hist()}}, \code{\link[=density]{density()}}, \code{\link[=qqnorm]{qqnorm()}}
+\code{\link[graphics:pairs]{graphics::pairs()}}, \code{\link[graphics:boxplot]{graphics::boxplot()}}, \code{\link[graphics:hist]{graphics::hist()}}, \code{\link[stats:density]{stats::density()}}, \code{\link[stats:qqnorm]{stats::qqnorm()}}
 }
 \author{
 Philippe Grosjean \href{mailto:phgrosjean@sciviews.org}{phgrosjean@sciviews.org}, but code inspired from

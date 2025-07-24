@@ -1,18 +1,18 @@
 #' More univariate panel plots
 #'
-#' Several panel plots that can be used with [pairs()].
+#' Several panel plots that can be used with [graphics::pairs()].
 #'
 #' @param x A numeric vector.
 #' @param col The color of the points.
 #' @param box.col The filling color of the boxplots.
-#' @param adjust The bandwidth adjustment factor, see [density()].
+#' @param adjust The bandwidth adjustment factor, see [stats::density()].
 #' @param rug Do we add a rug representation (1-d plot) of the points too?
 #' @param lwd The line width.
 #' @param line.col The color of the line.
 #' @param line.lwd The width of the line.
 #' @param breaks The number of breaks, the name of a break algorithm, a vector
 #' of breakpoints, or any other acceptable value for `breaks` argument of
-#' [hist()].
+#' [graphics::hist()].
 #' @param hist.col The filling color for the histograms.
 #' @param hist.border The border color for the histograms.
 #' @param hist.density The density for filling lines in the histograms.
@@ -28,17 +28,18 @@
 #' @param qqline.col The color for the QQ-plot lines.
 #' @param qqline.lwd The width for the QQ-plot lines.
 #' @param ... Further arguments to plot functions, or functions that construct
-#' items, like [density()], depending on the context.
+#' items, like [stats::density()], depending on the context.
 #' @return These functions return nothing and are used for their side effect of
 #' plotting in panels of composite plots.
-#' @details Panel functions [panel_boxplot()], [panel_density()], [panel_hist()]
-#' and [panel_qqnorm()] should be used only to plot univariate data on the
-#' diagonals of [pairs()] plots (or scatterplot matrix).
+#' @details Panel functions [SciViews::panel_boxplot()],
+#' [SciViews::panel_density()], [SciViews::panel_hist()] and
+#' [SciViews::panel_qqnorm()] should be used only to plot univariate data on the
+#' diagonals of [graphics::pairs()] plots (or scatterplot matrix).
 #' @author Philippe Grosjean <phgrosjean@sciviews.org>, but code inspired from
 #' `spm()` in package **car**.
 #' @export
 #' @name panels.diag
-#' @seealso [pairs()], [boxplot()], [hist()], [density()], [qqnorm()]
+#' @seealso [graphics::pairs()], [graphics::boxplot()], [graphics::hist()], [stats::density()], [stats::qqnorm()]
 #' @keywords aplot
 #' @concept panel plots
 #' @examples

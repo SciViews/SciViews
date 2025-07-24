@@ -1,19 +1,41 @@
 .onLoad <- function(lib, pkg) {# nocov start
+  run_on_load()
+
   # If corresponding options are not defined yet, specify them to FALSE
   # by default, but make them explicitly available in options()
-  if (!length(getOption("warnAssignWithEqualSign")))
-    options(warnAssignWithEqualSign = FALSE)
-  if (!length(getOption("warnPartialMatchArgs")))
-    options(warnPartialMatchArgs = FALSE)
-  if (!length(getOption("warnPartialMatchAttr")))
-    options(warnPartialMatchAttr = FALSE)
-  if (!length(getOption("warnPartialMatchDollar")))
-    options(warnPartialMatchDollar = FALSE)
+  #if (!length(getOption("warnAssignWithEqualSign")))
+  #  options(warnAssignWithEqualSign = FALSE)
+  #if (!length(getOption("warnPartialMatchArgs")))
+  #  options(warnPartialMatchArgs = FALSE)
+  #if (!length(getOption("warnPartialMatchAttr")))
+  #  options(warnPartialMatchAttr = FALSE)
+  #if (!length(getOption("warnPartialMatchDollar")))
+  #  options(warnPartialMatchDollar = FALSE)
 } # nocov end
 
 #.onUnload <- function(libpath) {
 #  # Do nothing for now
 #}
+
+# Use the richer error message of rlang
+on_load(local_use_cli())
+
+# No, because warning() and stop() use .Internal()
+# Change default call. = FALSE for warning() and stop()
+#.change_arg <- function(fun, name, value) {
+#  forml <- formals(fun)
+#  forml[[name]] <- value
+#  formals(fun) <- forml
+#  fun
+#}
+#warning <- .change_arg(base::warning, 'call.', FALSE)
+#stop <- .change_arg(base::stop, 'call.', FALSE)
+warning <- function(..., call. = FALSE, immediate. = FALSE, noBreaks. = FALSE,
+    domain = NULL)
+  base::warning(..., call. = call., immediate. = immediate.,
+    noBreaks. = noBreaks., domain = domain)
+stop <- function(..., call. = FALSE, domain = NULL)
+  base::stop(..., call. = call., domain = domain)
 
 .packageName <- "SciViews" # nocov
 

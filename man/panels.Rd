@@ -126,7 +126,7 @@ panel_smooth(
 \item{lwd}{The line width.}
 
 \item{line.reg}{A function that calculates coefficients of a straight line,
-for instance, \code{\link[=lm]{lm()}}, or \code{\link[=rlm]{rlm()}} for robust linear regression.}
+for instance, \code{\link[stats:lm]{stats::lm()}}, or \code{\link[MASS:rlm]{MASS::rlm()}} for robust linear regression.}
 
 \item{line.col}{The color of the line.}
 
@@ -149,13 +149,13 @@ standardized major axis.}
 
 \item{use}{One of \code{"everything"}, \code{"all.obs"}, \code{"complete.obs"},
 \code{"na.or.complete"}, or \code{"pairwise.complete.obs"} (can be abbreviated).
-Defines how the \code{\link[=cor]{cor()}} function behaves with missing observations.}
+Defines how the \code{\link[stats:cor]{stats::cor()}} function behaves with missing observations.}
 
 \item{method}{One of the three correlation coefficients \code{"pearson"}
 (default), \code{"kendall"}, or \code{"spearman"}. Can be abbreviated.}
 
 \item{alternative}{The alternative hypothesis in correlation test, see
-\code{\link[=cor.test]{cor.test()}}.}
+\code{\link[stats:cor.test]{stats::cor.test()}}.}
 
 \item{digits}{The number of decimal digits to print when the correlation
 coefficient is printed in the graph.}
@@ -171,20 +171,20 @@ coefficients.}
 
 \item{col.smooth}{Color to be used by lines for drawing the smooths.}
 
-\item{span}{Smoothing parameter \code{f} for \code{\link[=lowess]{lowess()}}, see there.}
+\item{span}{Smoothing parameter \code{f} for \code{\link[stats:lowess]{stats::lowess()}}, see there.}
 
-\item{iter}{Number of robustness iterations for \code{\link[=lowess]{lowess()}}.}
+\item{iter}{Number of robustness iterations for \code{\link[stats:lowess]{stats::lowess()}}.}
 }
 \value{
 These functions return nothing and are used for their side effect of
 plotting in panels of composite plots.
 }
 \description{
-Several panel plots that can be used with \code{\link[=coplot]{coplot()}} and \code{\link[=pairs]{pairs()}}.
+Several panel plots that can be used with \code{\link[graphics:coplot]{graphics::coplot()}} and \code{\link[graphics:pairs]{graphics::pairs()}}.
 }
 \details{
 Theses functions should be used outside of the diagonal in
-\code{\link[=pairs]{pairs()}}, or with \code{\link[=coplot]{coplot()}}, as they are bivariate plots.
+\code{\link[graphics:pairs]{graphics::pairs()}}, or with \code{\link[graphics:coplot]{graphics::coplot()}}, as they are bivariate plots.
 }
 \examples{
 # Smooth lines in lower graphs and straight lines in upper graphs
@@ -217,12 +217,12 @@ coplot(Petal.Length ~ Sepal.Length | Species, data = iris,
   panel = panel_ellipse)
 }
 \seealso{
-\code{\link[=coplot]{coplot()}}, \code{\link[=pairs]{pairs()}}, \code{\link[=panel.smooth]{panel.smooth()}}, \code{\link[=lm]{lm()}}, \code{\link[=ellipse]{ellipse()}},
-\code{\link[=cor]{cor()}} and \code{\link[=cor.test]{cor.test()}}
+\code{\link[graphics:coplot]{graphics::coplot()}}, \code{\link[graphics:pairs]{graphics::pairs()}}, \code{\link[graphics:panel.smooth]{graphics::panel.smooth()}}, \code{\link[stats:lm]{stats::lm()}}, \code{\link[ellipse:ellipse]{ellipse::ellipse()}},
+\code{\link[stats:cor]{stats::cor()}} and \code{\link[stats:cor.test]{stats::cor.test()}}
 }
 \author{
 Philippe Grosjean \href{mailto:phgrosjean@sciviews.org}{phgrosjean@sciviews.org}, but code inspired from
-\code{\link[=panel.smooth]{panel.smooth()}} in \strong{graphics} and \code{panel.car()} in package \strong{car}.
+\code{\link[graphics:panel.smooth]{graphics::panel.smooth()}} in \strong{graphics} and \code{panel.car()} in package \strong{car}.
 }
 \concept{panel plots}
 \keyword{aplot}

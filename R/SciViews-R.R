@@ -20,6 +20,10 @@
 #'   available, and the value is rounded towards zero).
 #' @param silent If `TRUE` (by default), no report is printed about loaded
 #'   packages and conflicts.
+#' @param warn If `TRUE` (by default), warnings are issued when there is a
+#' partial matching of function argument, of an attribute, or of `$`
+#' (corresponding to the R options `warnPartialMatchArgs`,
+#' `warnPartialMatchAttr` and `warnPartialMatchDollar` set to `TRUE`).
 #' @param x An object to print.
 #' @export
 #' @name SciViews_R
@@ -36,7 +40,7 @@
 #' SciViews::R
 #' }
 R <- structure(function(..., lang = NULL, dtx = NULL, threads.percent = 75,
-silent = TRUE) {
+silent = TRUE, warn = TRUE) {
   # Configure the system to use a certain number of threads in data.table and
   # collapse, and mask all functions in collapse
   data.table::setDTthreads(percent = threads.percent)
@@ -53,7 +57,15 @@ silent = TRUE) {
 
   crayon::num_colors(TRUE)
   old_search_length <- length(search())
-  lapply(pkgs, silent_library)
+  loaded <- sapply(pkgs, silent_library)
+  failed_pkgs <- pkgs[!loaded]
+  if (length(failed_pkgs) == 1L) {
+    stop(gettextf("problem while loading the package '%s';\n\tRun `Install()` to make sure everything is correctly installed!",
+      failed_pkgs))
+  } else if (length(failed_pkgs) > 1L) {
+    stop(gettextf("problem while loading the following packages: '%s';\n\tRun `Install()` to make sure everything is correctly installed!",
+      paste(failed_pkgs, collapse = "', '")))
+  }
 
   if (!is.null(lang)) {
     if (length(lang) != 1 || !is.character(lang))
@@ -69,6 +81,8 @@ silent = TRUE) {
   if (!is.null(dtx)) {# Change the default dtx object for {svBase}
     dtx <- as.character(dtx)[1]
     fun <- switch(dtx,
+      dtrm = as_dtrm,
+      data.trame = as_dtrm,
       dtf = as_dtf,
       data.frame = as_dtf,
       dtt = as_dtt,
@@ -79,12 +93,14 @@ silent = TRUE) {
       get0(dtx, mode = 'function')
     )
     if (is.null(fun))
-      stop("Function ", dtx, " not found")
+      stop(gettextf("Function %s not found", dtx))
     options(SciViews.as_dtx = fun)
   }
   # Check which kind of object I got by using as_dtx() on a toy data.frame
   test <- as_dtx(data.frame(x = 1))
-  if (is_dtt(test)) {
+  if (is_dtrm(test)) {
+    dtx_class <- "data.trame"
+  } else if (is_dtt(test)) {
     dtx_class <- "data.table"
   } else if (is_dtbl(test)) {
     dtx_class <- "tibble"
@@ -108,6 +124,10 @@ silent = TRUE) {
     #cli::cat_rule("Default data frame object (dtx)", right = dtx_class)
   }
 
+  if (isTRUE(warn))
+    options(warnPartialMatchArgs = TRUE, warnPartialMatchAttr = TRUE,
+      warnPartialMatchDollar = TRUE)
+
     invisible(list(pkgs = pkgs, dtx_class = dtx_class))
 }, class = c("SciViews_R", "function"))
 
@@ -118,25 +138,35 @@ print.SciViews_R <- function(x, ...) {
   invisible(x)
 }
 
-# Silently load packages and issue an error if not loaded
-# TODO: use the Install() mechanism...
+# Silently load packages and return info if the package was loaded
+# Note: currently, accepts only one pkg at a time
 silent_library <- function(pkg) {
-  res <- try(
-    suppressPackageStartupMessages(
-      library(pkg, character.only = TRUE, warn.conflicts = FALSE)
-    ),
-    silent = TRUE
-  )
+  ex <- switch(pkg,
+    ggplot2 = "aes_",
+    tibble  = c("data_frame_", "lst_", "tibble_"),
+    dplyr   = c("add_count_", "add_tally_", "arrange_", "count_", "distinct_",
+      "do_", "filter_", "funs_", "group_by_", "group_indices_", "mutate_",
+      "mutate_each_", "rename_", "rename_vars_", "select_", "select_vars_",
+      "slice_", "summarise_", "summarise_each_", "summarize_",
+      "summarize_each_", "tally_", "transmute_"),
+    tidyr    = c("complete_", "crossing_", "drop_na_", "expand_", "extract_",
+      "fill_", "gather_", "nest_", "nesting_", "separate_", "separate_rows_",
+      "spread_", "unite_", "unnest_"),
+    NULL)
+
+  res <- try(suppressPackageStartupMessages(
+    library(pkg, character.only = TRUE, warn.conflicts = FALSE,
+      exclude = ex)), silent = TRUE)
 
   if (inherits(res, "try-error")) {
     # Record the package for easier Install()
     to_install <- .get_temp('.packages_to_install', default = character(0))
     to_install <- unique(c(pkg, to_install))
     .assign_temp('.packages_to_install', to_install, replace.existing = TRUE)
-    stop("problem while loading package '", pkg,
-      "'; run `Install()` to make sure it is corrently installed!",
-      call. = FALSE)
+    #warning("unable to load package '", pkg, "'; is it correctly installed?")
+    return(invisible(FALSE))
   }
+  invisible(TRUE)
 }
 
 # This is an unexported function from tidyverse

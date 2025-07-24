@@ -1,3 +1,17 @@
+# SciViews 1.9.0
+
+-   `SciViews::R` now tries loading all required packages (it does not stop any more at the first failure). Consequently, `Install()` is more useful by installing all required packages at once, instead of one by one.
+
+-   The {data.table} package is now replaced by {data.trame} and the **data.trame** object is the default data frame in SciViews::R.
+
+-   New option `warn=` in SciViews::R. If `TRUE` (by default), it activates the options `warnPartialMatchArgs`, `warnPartialMatchAttr`, and `warnPartialMatchDollar`.
+
+-   All the deprecated functions that end with an underscore in {dplyr} and {tidyr} are not made public (clash with our own functions in {svBase}.)
+
+# SciViews 1.8.1
+
+-   Update links to man pages to include packages.
+
 # SciViews 1.8.0
 
 -   The {ggsn} package is archived on CRAN, so, we remove it from the "spatial" topic and replace it by the {ggspatial} package that also provides a north arrow and a scale bar for ggplot2 plots. The {sp} and {raster} packages are not in the list of required packages anymore, as they are supposed to be superseded by {sf} and {terra}, respectively.

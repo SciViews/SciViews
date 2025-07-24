@@ -3,8 +3,8 @@
 #'  Plots vectors with 0 < norms < 1 inside a circle. These plots are mainly
 #'  designed to represent variables in principal components space for PCAs.
 #'
-#' @param x An object that has a [vectorplot()] method, like 'loadings'
-#' or 'correlation', or a numeric vector with 0 < values < 1.
+#' @param x An object that has a [SciViews::vectorplot()] method, like
+#' 'loadings' or 'correlation', or a numeric vector with 0 < values < 1.
 #' @param y A numeric vector with 0 < values < 1 of same length as `x.
 #' @param choices A vector of two integers indicating the axes to plot.
 #' @param col Color of the arrows and labels.
@@ -20,7 +20,7 @@
 #' @return The object 'x' is returned invisibly. These functions are called for
 #' their side-effect of drawing a vector plot.
 #' @export
-#' @seealso [pcomp()], [loadings()], [Correlation()]
+#' @seealso [SciViews::pcomp()], [stats::loadings()], [SciViews::Correlation()]
 #' @keywords aplot
 #' @concept Vector and circular plot
 #' @examples

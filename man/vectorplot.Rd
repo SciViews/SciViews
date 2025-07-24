@@ -48,8 +48,8 @@ vectorplot(x, ...)
 )
 }
 \arguments{
-\item{x}{An object that has a \code{\link[=vectorplot]{vectorplot()}} method, like 'loadings'
-or 'correlation', or a numeric vector with 0 < values < 1.}
+\item{x}{An object that has a \code{\link[=vectorplot]{vectorplot()}} method, like
+'loadings' or 'correlation', or a numeric vector with 0 < values < 1.}
 
 \item{...}{Further arguments passed to plot functions.}
 
@@ -90,7 +90,7 @@ vectorplot(Correlation(iris.pca))
 # the window to reveal cropped labels...
 }
 \seealso{
-\code{\link[=pcomp]{pcomp()}}, \code{\link[=loadings]{loadings()}}, \code{\link[=Correlation]{Correlation()}}
+\code{\link[=pcomp]{pcomp()}}, \code{\link[stats:loadings]{stats::loadings()}}, \code{\link[=Correlation]{Correlation()}}
 }
 \concept{Vector and circular plot}
 \keyword{aplot}

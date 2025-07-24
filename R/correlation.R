@@ -6,15 +6,15 @@
 #' `is.Correlation()` or `as.Correlation()`).
 #' @param formula A formula with no response variable, referring only to numeric
 #' variables.
-#' @param data An optional data frame (or similar, see [model.frame()])
+#' @param data An optional data frame (or similar, see [stats::model.frame()])
 #' containing the variables in the formula. By default the variables
 #' are taken from `environment(formula)`.
 #' @param subset An optional vector used to select rows (observations) of the
 #' data matrix `x`.
 #' @param na.action A function which indicates what should happen when the data
 #' contain `NA`s. The default is set by the `na.action` setting of `options()`
-#' and [na.fail()] is used if that is not set. The 'factory-fresh' default is
-#' [na.omit()].
+#' and [stats::na.fail()] is used if that is not set. The 'factory-fresh'
+#' default is [stats::na.omit()].
 #' @param method A character string indicating which correlation coefficient is
 #' to be computed. One of `"pearson"` (default), `"kendall"`, or `"spearman"`,
 #' can be abbreviated.
@@ -55,18 +55,18 @@
 #'
 #' There are `print()` and `summary()` methods for the 'Correlation' object
 #' that differ in the symbolic encoding of the correlations,
-#' (using [symnum()] for `summary()`), which makes large correlation matrices
-#' more readable.
+#' (using [stats::symnum()] for `summary()`), which makes large correlation
+#' matrices more readable.
 #'
 #' The `plot()` method draws ellipses on a graph to represent the correlation
-#' matrix visually. This is essentially the [plotcorr()] function from package
-#' **ellipse**, with slightly different default arguments and with default
-#' `cutpoints` equivalent to those used in the `summary()` method.
+#' matrix visually. This is essentially the [ellipse::plotcorr()] function, with
+#' slightly different default arguments and with default `cutpoints` equivalent
+#' to those used in the `summary()` method.
 #' @author Philippe Grosjean <phgrosjean@sciviews.org>, wrapping code in package
-#' **ellipse**, function [plotcorr()] for the `plot.Correlation()` method.
+#' **ellipse**, function [ellipse::plotcorr()] for the `plot.Correlation()` method.
 #' @export
-#' @seealso [cov()], [cov2cor()], [cov.wt()], [symnum()], [plotcorr()] and look
-#' also at [panel_cor()]
+#' @seealso [stats::cov()], [stats::cov2cor()], [stats::cov.wt()], [stats::symnum()], [ellipse::plotcorr()] and look
+#' also at [SciViews::panel_cor()]
 #' @keywords distribution
 #' @concept correlation matrix and plot
 #' @examples

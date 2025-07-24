@@ -32,7 +32,7 @@ cwm.colors(n, alpha = 1, s = 0.9, v = 0.9)
 \item{n}{The number of colors (>= 1) to be in the palette.}
 
 \item{alpha}{The alpha transparency, a number in \verb{[0, 1]}, see argument
-\code{alpha} in \code{\link[=hsv]{hsv()}}.}
+\code{alpha} in \code{\link[grDevices:hsv]{grDevices::hsv()}}.}
 
 \item{s}{The 'saturation' to be used to complete the HSV color descriptions.}
 
@@ -58,7 +58,7 @@ pie(rep(1, 11), col = ryg.colors(11), main = "Red - yellow - green")
 par(opar)
 }
 \seealso{
-\code{\link[=cm.colors]{cm.colors()}}, \code{\link[=colorRampPalette]{colorRampPalette()}}
+\code{\link[grDevices:palettes]{grDevices::cm.colors()}}, \code{\link[grDevices:colorRamp]{grDevices::colorRampPalette()}}
 }
 \concept{color palettes}
 \keyword{color}

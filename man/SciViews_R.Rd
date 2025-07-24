@@ -6,7 +6,14 @@
 \alias{print.SciViews_R}
 \title{Configure \R for the SciViews::R dialect}
 \usage{
-R(..., lang = NULL, dtx = NULL, threads.percent = 75, silent = TRUE)
+R(
+  ...,
+  lang = NULL,
+  dtx = NULL,
+  threads.percent = 75,
+  silent = TRUE,
+  warn = TRUE
+)
 
 \method{print}{SciViews_R}(x, ...)
 }
@@ -32,6 +39,11 @@ available, and the value is rounded towards zero).}
 
 \item{silent}{If \code{TRUE} (by default), no report is printed about loaded
 packages and conflicts.}
+
+\item{warn}{If \code{TRUE} (by default), warnings are issued when there is a
+partial matching of function argument, of an attribute, or of \code{$}
+(corresponding to the R options \code{warnPartialMatchArgs},
+\code{warnPartialMatchAttr} and \code{warnPartialMatchDollar} set to \code{TRUE}).}
 
 \item{x}{An object to print.}
 }
