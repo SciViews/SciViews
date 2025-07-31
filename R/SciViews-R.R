@@ -24,6 +24,9 @@
 #' partial matching of function argument, of an attribute, or of `$`
 #' (corresponding to the R options `warnPartialMatchArgs`,
 #' `warnPartialMatchAttr` and `warnPartialMatchDollar` set to `TRUE`).
+#' @param global_entrace Should the [rlang::global_entrace()] be activated for
+#'   certain classes of condition messages? By default, for `"error"`. Specify
+#'   `NULL` if you do not want to use this feature.
 #' @param x An object to print.
 #' @export
 #' @name SciViews_R
@@ -40,7 +43,11 @@
 #' SciViews::R
 #' }
 R <- structure(function(..., lang = NULL, dtx = NULL, threads.percent = 75,
-silent = TRUE, warn = TRUE) {
+silent = TRUE, warn = TRUE, global_entrace = "error") {
+
+  if (!is.null(global_entrace) && length(global_entrace))
+    global_entrace(class = global_entrace)
+
   # Configure the system to use a certain number of threads in data.table and
   # collapse, and mask all functions in collapse
   data.table::setDTthreads(percent = threads.percent)

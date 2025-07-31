@@ -12,7 +12,8 @@ R(
   dtx = NULL,
   threads.percent = 75,
   silent = TRUE,
-  warn = TRUE
+  warn = TRUE,
+  global_entrace = "error"
 )
 
 \method{print}{SciViews_R}(x, ...)
@@ -44,6 +45,10 @@ packages and conflicts.}
 partial matching of function argument, of an attribute, or of \code{$}
 (corresponding to the R options \code{warnPartialMatchArgs},
 \code{warnPartialMatchAttr} and \code{warnPartialMatchDollar} set to \code{TRUE}).}
+
+\item{global_entrace}{Should the \code{\link[rlang:global_entrace]{rlang::global_entrace()}} be activated for
+certain classes of condition messages? By default, for \code{"error"}. Specify
+\code{NULL} if you do not want to use this feature.}
 
 \item{x}{An object to print.}
 }

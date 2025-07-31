@@ -1,5 +1,7 @@
 # SciViews 1.9.0
 
+-   A `global_entrace=` argument is added to `SciViews::R` in ordre to use the {rlang} condition messages (by default, only for error messages).
+
 -   `SciViews::R` now tries loading all required packages (it does not stop any more at the first failure). Consequently, `Install()` is more useful by installing all required packages at once, instead of one by one.
 
 -   The {data.table} package is now replaced by {data.trame} and the **data.trame** object is the default data frame in SciViews::R.
