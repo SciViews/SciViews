@@ -86,7 +86,8 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.9.0" id="sciviews-190">SciViews 1.9.0<a class="anchor" aria-label="anchor" href="#sciviews-190"></a></h2>
-<ul><li><p><code><a href="../reference/SciViews_R.html">SciViews::R</a></code> now tries loading all required packages (it does not stop any more at the first failure). Consequently, <code>Install()</code> is more useful by installing all required packages at once, instead of one by one.</p></li>
+<ul><li><p>A <code>global_entrace=</code> argument is added to <code><a href="../reference/SciViews_R.html">SciViews::R</a></code> in ordre to use the {rlang} condition messages (by default, only for error messages).</p></li>
+<li><p><code><a href="../reference/SciViews_R.html">SciViews::R</a></code> now tries loading all required packages (it does not stop any more at the first failure). Consequently, <code>Install()</code> is more useful by installing all required packages at once, instead of one by one.</p></li>
 <li><p>The {data.table} package is now replaced by {data.trame} and the <strong>data.trame</strong> object is the default data frame in SciViews::R.</p></li>
 <li><p>New option <code>warn=</code> in SciViews::R. If <code>TRUE</code> (by default), it activates the options <code>warnPartialMatchArgs</code>, <code>warnPartialMatchAttr</code>, and <code>warnPartialMatchDollar</code>.</p></li>
 <li><p>All the deprecated functions that end with an underscore in {dplyr} and {tidyr} are not made public (clash with our own functions in {svBase}.)</p></li>
