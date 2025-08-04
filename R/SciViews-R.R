@@ -45,8 +45,14 @@
 R <- structure(function(..., lang = NULL, dtx = NULL, threads.percent = 75,
 silent = TRUE, warn = TRUE, global_entrace = "error") {
 
-  if (!is.null(global_entrace) && length(global_entrace))
-    global_entrace(class = global_entrace)
+  if (!is.null(global_entrace) && length(global_entrace)) {
+    # Avoid calling twice global_entrace() with the same argument
+    current_entrace <- .get_temp(".current_global_entrace", default = "")
+    if (!identical(global_entrace, current_entrace)) {
+      global_entrace(class = global_entrace)
+      .assign_temp(".current_global_entrace", global_entrace)
+    }
+  }
 
   # Configure the system to use a certain number of threads in data.table and
   # collapse, and mask all functions in collapse

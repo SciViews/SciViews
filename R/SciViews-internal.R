@@ -1,5 +1,5 @@
 .onLoad <- function(lib, pkg) {# nocov start
-  run_on_load()
+  #run_on_load()
 
   # If corresponding options are not defined yet, specify them to FALSE
   # by default, but make them explicitly available in options()
@@ -18,7 +18,7 @@
 #}
 
 # Use the richer error message of rlang
-on_load(local_use_cli())
+#on_load(local_use_cli()) # No, not for now
 
 # No, because warning() and stop() use .Internal()
 # Change default call. = FALSE for warning() and stop()
