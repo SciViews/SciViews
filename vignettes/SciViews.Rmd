@@ -1,5 +1,5 @@
 ---
-title: "'SciViews::R' - Dialect for Data Processing and Visualization"
+title: "'SciViews::R' - Data Processing and Visualization R Dialect"
 author: "Philippe Grosjean"
 date: "`r Sys.Date()`"
 output:
@@ -8,7 +8,7 @@ output:
     toc_depth: 3
     fig_caption: yes
 vignette: >
-  %\VignetteIndexEntry{'SciViews::R' - Dialect for Data Processing and Visualization}
+  %\VignetteIndexEntry{'SciViews::R' - Data Processing and Visualization R Dialect}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,5 +20,5 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 The SciViews::R dialect is base R + [tidyverse](https://www.tidyverse.org) + a series of SciViews packages like [data.io](https://www.sciviews.org/data.io/), [svFlow](https://www.sciviews.org/svFlow/), or [chart](https://www.sciviews.org/chart/) that makes a coherent and straightforward environment for data processing and visualization. In order to load all required packages, just use:
 
 ```{r}
-SciViews::R()
+SciViews::R(silent = FALSE)
 ```

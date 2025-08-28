@@ -1,4 +1,4 @@
-#' 'SciViews::R' - Dialect for Data Processing and Visualization
+#' 'SciViews::R' - Data Processing and Visualization R Dialect
 #'
 #' The `SciViews::R` dialect is base R + tidyverse + a series of additional
 #' SciViews packages like data.io, svBase, svFlow, tabularise or chart.
