@@ -5,15 +5,15 @@
 
 #' @section Important functions:
 #'
-#'- [SciViews::R()] for loading the `SciViews::R`` packages,
+#' - [SciViews::R()] for loading the `SciViews::R`` packages,
 #'
 #' - [SciViews::pcomp()] for a PCA analysis (unifying various methods),
 #'
 #' - [SciViews::correlation()] to calculate and plot a correlation matrix,
 #'
-#'- [SciViews::panel_reg()] and others to plot panels in `pairs` or `coplot` graphs,
+#' - [SciViews::panel_reg()] and others to plot panels in `pairs` or `coplot` graphs,
 #'
-#'- [SciViews::panel_boxplot()] and others for univariate panels in `pairs` plots.
+#' - [SciViews::panel_boxplot()] and others for univariate panels in `pairs` plots.
 #'
 #' - [SciViews::rwb_colors()] and others to generate color palettes.
 #'
@@ -32,7 +32,7 @@
 ## usethis namespace: start
 #' @import stats
 #' @import graphics
-#' @importFrom utils getFromNamespace help packageVersion stack
+#' @importFrom utils packageVersion stack
 #' @importFrom grDevices colorRampPalette chull hsv rainbow
 #' @importFrom ellipse ellipse plotcorr
 #' @importFrom crayon num_colors num_ansi_colors white black red blue green bold col_align col_nchar
@@ -43,7 +43,5 @@
 #' @importFrom svBase as_dtf as_dtt as_dtbl as_dtrm as_dtx is_dtf is_dtt is_dtbl is_dtrm
 #' @importFrom data.trame data.trame
 #' @import tabularise
-#' @importFrom httr2 req_body_json req_headers req_perform request resp_body_json
-#' @importFrom roxygen2 roxy_tag tag_markdown
 ## usethis namespace: end
 NULL

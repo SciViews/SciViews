@@ -2,5 +2,5 @@
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 
 ## -----------------------------------------------------------------------------
-SciViews::R()
+SciViews::R(silent = FALSE)
 

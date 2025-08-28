@@ -1,5 +1,7 @@
 # SciViews 1.9.0
 
+-   `ai_ask()` and co moved to the new helpai package.
+
 -   Option 'data.io_lang' is now renamed 'SciViews_lang'. 
 
 -   Packages svFast and svTidy added to the list of installed packages with SciViews::R.

@@ -4,7 +4,7 @@
 \name{SciViews-package}
 \alias{SciViews}
 \alias{SciViews-package}
-\title{'SciViews::R' - Dialect for Data Processing and Visualization}
+\title{'SciViews::R' - Data Processing and Visualization R Dialect}
 \description{
 The \code{SciViews::R} dialect is base R + tidyverse + a series of additional
 SciViews packages like data.io, svBase, svFlow, tabularise or chart.
@@ -30,6 +30,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/SciViews/SciViews}
   \item \url{https://www.sciviews.org/SciViews/}
+  \item \url{https://sciviews.r-universe.dev/SciViews}
   \item Report bugs at \url{https://github.com/SciViews/SciViews/issues}
 }
 
