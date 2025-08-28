@@ -1,9 +1,12 @@
-# 'SciViews::R' Dialect for Data Processing and Visualization <a href='https://www.sciviews.org/SciViews'><img src='man/figures/logo.png' align='right' height='139'/></a>
+# 'SciViews::R' - Dialect for Data Processing and Visualization <a href='https://www.sciviews.org/SciViews'><img src='man/figures/logo.png' align='right' height='139'/></a>
 
 <!-- badges: start -->
-
-[![R-CMD-check](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/SciViews/SciViews/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/SciViews?branch=main) [![CRAN Status](https://www.r-pkg.org/badges/version/SciViews)](https://cran.r-project.org/package=SciViews) [![r-universe status](https://sciviews.r-universe.dev/badges/SciViews)](https://sciviews.r-universe.dev/SciViews) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Life cycle stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-
+[![R-CMD-check](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/SciViews/actions/workflows/R-CMD-check.yaml)
+[![codecov](https://codecov.io/gh/SciViews/SciViews/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/SciViews?branch=main)
+[![CRAN Status](https://www.r-pkg.org/badges/version/SciViews)](https://cran.r-project.org/package=SciViews)
+[![r-universe status](https://sciviews.r-universe.dev/badges/SciViews)](https://sciviews.r-universe.dev/SciViews)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![Life cycle stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 {SciViews} mainly provides the `SciViews::R` dialect through the function of the same name. It loads a series of tidyverse and SciViews packages in order to supplement base R with functions to implement that dialect. See, for instance the books [Science des Données Biologiques I](http://biodatascience-course.sciviews.org/sdd-umons/) and [Science des Données Biologiques II](http://biodatascience-course.sciviews.org/sdd-umons2/) (in French) for extensive examples of the use of `SciViews::R`.

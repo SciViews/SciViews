@@ -4,7 +4,7 @@
 \name{SciViews-package}
 \alias{SciViews}
 \alias{SciViews-package}
-\title{'SciViews::R' Dialect for Data Processing and Visualization}
+\title{'SciViews::R' - Dialect for Data Processing and Visualization}
 \description{
 The \code{SciViews::R} dialect is base R + tidyverse + a series of additional
 SciViews packages like data.io, svBase, svFlow, tabularise or chart.

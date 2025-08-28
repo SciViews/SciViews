@@ -13,7 +13,7 @@ ai_ask(
   context = NULL,
   max_tokens = getOption("SciViews.chatbot.max_tokens",
     Sys.getenv("SCIVIEWS_CHATBOT_MAX_TOKENS", 1000L)),
-  lang = getOption("data.io_lang", "en"),
+  lang = getOption("SciViews_lang", "en"),
   url = getOption("SciViews.chatbot.url", Sys.getenv("SCIVIEWS_CHATBOT_URL",
     "http://localhost:11434/api/chat")),
   model = getOption("SciViews.chatbot.model", Sys.getenv("SCIVIEWS_CHATBOT_MODEL",
@@ -22,21 +22,21 @@ ai_ask(
   verbose = FALSE
 )
 
-ai_explain_term(term, lang = getOption("data.io_lang", "en"), ...)
+ai_explain_term(term, lang = getOption("SciViews_lang", "en"), ...)
 
 ai_explain_function(
   fun,
   package = NULL,
-  lang = getOption("data.io_lang", "en"),
+  lang = getOption("SciViews_lang", "en"),
   ...
 )
 
-ai_explain_code(code, lang = getOption("data.io_lang", "en"), ...)
+ai_explain_code(code, lang = getOption("SciViews_lang", "en"), ...)
 
 ai_explain_error(
   code = NULL,
   error = NULL,
-  lang = getOption("data.io_lang", "en"),
+  lang = getOption("SciViews_lang", "en"),
   ...
 )
 }

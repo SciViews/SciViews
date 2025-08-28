@@ -1,7 +1,5 @@
 # SciViews To Do list
 
-- For language translation, use something like `options(SciViews.lang = "fr")` instead of `options(data.io.lang = "fr")` in all SciViews packages.
-
 - `SciViews::R`: no fancy characters?
 
 - `na.omit()` -> `na_omit()` and co + `complete_cases()`.

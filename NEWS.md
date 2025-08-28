@@ -1,5 +1,9 @@
 # SciViews 1.9.0
 
+-   Option 'data.io_lang' is now renamed 'SciViews_lang'. 
+
+-   Packages svFast and svTidy added to the list of installed packages with SciViews::R.
+
 -   A `global_entrace=` argument is added to `SciViews::R` in order to use the {rlang} condition messages (by default, only for error messages).
 
 -   `SciViews::R` now tries loading all required packages (it does not stop any more at the first failure). Consequently, `Install()` is more useful by installing all required packages at once, instead of one by one.

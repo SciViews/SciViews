@@ -102,7 +102,7 @@
 ai_ask <- function(question, context = NULL,
     max_tokens = getOption("SciViews.chatbot.max_tokens",
       Sys.getenv("SCIVIEWS_CHATBOT_MAX_TOKENS", 1000L)),
-    lang = getOption("data.io_lang", "en"),
+    lang = getOption("SciViews_lang", "en"),
     url = getOption("SciViews.chatbot.url",
       Sys.getenv("SCIVIEWS_CHATBOT_URL",
         "http://localhost:11434/api/chat")), # Default is using Ollama locally
@@ -233,7 +233,7 @@ ai_ask <- function(question, context = NULL,
 #' @rdname ai_ask
 #' @param term The term to describe.
 #' @param ... Further arguments passed to [SciViews::ai_ask()].
-ai_explain_term <- function(term, lang = getOption("data.io_lang", "en"), ...) {
+ai_explain_term <- function(term, lang = getOption("SciViews_lang", "en"), ...) {
   if (!is.character(term) || length(term) != 1)
     stop("term must be a single character string")
   # TODO: allow for more different languages
@@ -251,7 +251,7 @@ ai_explain_term <- function(term, lang = getOption("data.io_lang", "en"), ...) {
 #' @param fun The R function to explain.
 #' @param package The R package that provides the function.
 ai_explain_function <- function(fun, package = NULL,
-    lang = getOption("data.io_lang", "en"), ...) {
+    lang = getOption("SciViews_lang", "en"), ...) {
   if (!is.character(fun) || length(fun) != 1)
     stop("fun must be a single character string with the name of an R function")
 
@@ -294,7 +294,7 @@ ai_explain_function <- function(fun, package = NULL,
 #' @export
 #' @rdname ai_ask
 #' @param code A small chunk of R code to explain.
-ai_explain_code <- function(code, lang = getOption("data.io_lang", "en"), ...) {
+ai_explain_code <- function(code, lang = getOption("SciViews_lang", "en"), ...) {
   if (!is.character(code))
     stop("code must be a character string")
   code <- paste(code, collapse = '\n')
@@ -312,7 +312,7 @@ ai_explain_code <- function(code, lang = getOption("data.io_lang", "en"), ...) {
 #' @rdname ai_ask
 #' @param error The error message that R returns.
 ai_explain_error <- function(code = NULL, error = NULL,
-    lang = getOption("data.io_lang", "en"), ...) {
+    lang = getOption("SciViews_lang", "en"), ...) {
   if (!is.null(code)) {
     if (!is.character(code))
       stop("code must be a character string")

@@ -83,10 +83,10 @@ silent = TRUE, warn = TRUE, global_entrace = "error") {
   if (!is.null(lang)) {
     if (length(lang) != 1 || !is.character(lang))
       stop("You must provide a single character string for 'lang='.")
-    options(data.io_lang = lang)
+    options(SciViews_lang = lang)
   }
   # Message if default language set
-  cur_lang <- getOption("data.io_lang")
+  cur_lang <- getOption("SciViews_lang")
   if (!is.null(cur_lang) && !isTRUE(silent))
     cli::cat_bullet(cli::col_blue("Default language: "),
       cli::style_bold(cur_lang), bullet = "tick", bullet_col = "green")

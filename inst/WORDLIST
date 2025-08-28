@@ -31,6 +31,7 @@ https
 inferit
 io
 labdsv
+lang
 LLM
 loadings
 mnpl
@@ -51,10 +52,12 @@ sd
 sp
 subfunction
 svBase
+svFast
 svFlow
 svGUI
 svMisc
 svSocket
+svTidy
 tabularise
 tbl
 terra

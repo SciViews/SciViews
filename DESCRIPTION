@@ -56,8 +56,10 @@ Suggests:
     reprex (>= 2.0.2),
     rvest (>= 1.0.3),
     stringr(>= 1.5.0),
+    svFast (>= 0.1.0),
     svFlow (>= 1.2.0),
     svMisc (>= 1.4.0),
+    svTidy (>= 0.1.0),
     tibble (>= 3.2.1),
     tidyr (>= 1.3.0),
     tidyverse (>= 2.0.0),
@@ -71,8 +73,10 @@ Remotes:
     SciViews/data.io,
     SciViews/data.trame,
     SciViews/svBase,
+    SciViews/svFast,
     SciViews/svFlow,
     SciViews/svMisc,
+    SciViews/svTidy,
     SciViews/tabularise
 Enhances: base
 License: GPL-2
