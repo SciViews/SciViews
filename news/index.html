@@ -86,7 +86,8 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.9.0" id="sciviews-190">SciViews 1.9.0<a class="anchor" aria-label="anchor" href="#sciviews-190"></a></h2>
-<ul><li><p>Option ‘data.io_lang’ is now renamed ‘SciViews_lang’.</p></li>
+<ul><li><p><code>ai_ask()</code> and co moved to the new helpai package.</p></li>
+<li><p>Option ‘data.io_lang’ is now renamed ‘SciViews_lang’.</p></li>
 <li><p>Packages svFast and svTidy added to the list of installed packages with SciViews::R.</p></li>
 <li><p>A <code>global_entrace=</code> argument is added to <code><a href="../reference/SciViews_R.html">SciViews::R</a></code> in order to use the {rlang} condition messages (by default, only for error messages).</p></li>
 <li><p><code><a href="../reference/SciViews_R.html">SciViews::R</a></code> now tries loading all required packages (it does not stop any more at the first failure). Consequently, <code>Install()</code> is more useful by installing all required packages at once, instead of one by one.</p></li>
@@ -104,7 +105,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.7.0" id="sciviews-170">SciViews 1.7.0<a class="anchor" aria-label="anchor" href="#sciviews-170"></a></h2>
-<ul><li>A chatbot is added with the <code><a href="../reference/ai_ask.html">ai_ask()</a></code> function that displays a help page with the results from a question, <code><a href="../reference/ai_ask.html">ai_explain_term()</a></code> to explain terminology, <code><a href="../reference/ai_ask.html">ai_explain_function()</a></code> to create a simplified help page for an R function, <code><a href="../reference/ai_ask.html">ai_explain_code()</a></code> to explain how a (short piece of) code works and <code><a href="../reference/ai_ask.html">ai_explain_error()</a></code> which details error message given the code and the error it generates. Credentials are handled through API keys.</li>
+<ul><li>A chatbot is added with the <code>ai_ask()</code> function that displays a help page with the results from a question, <code>ai_explain_term()</code> to explain terminology, <code>ai_explain_function()</code> to create a simplified help page for an R function, <code>ai_explain_code()</code> to explain how a (short piece of) code works and <code>ai_explain_error()</code> which details error message given the code and the error it generates. Credentials are handled through API keys.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.6.1" id="sciviews-161">SciViews 1.6.1<a class="anchor" aria-label="anchor" href="#sciviews-161"></a></h2>
