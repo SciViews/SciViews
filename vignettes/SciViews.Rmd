@@ -1,5 +1,5 @@
 ---
-title: "'SciViews::R' - Data Processing and Visualization R Dialect"
+title: "'SciViews::R' - Data Science R Dialect"
 author: "Philippe Grosjean"
 date: "`r Sys.Date()`"
 output:
@@ -8,7 +8,7 @@ output:
     toc_depth: 3
     fig_caption: yes
 vignette: >
-  %\VignetteIndexEntry{'SciViews::R' - Data Processing and Visualization R Dialect}
+  %\VignetteIndexEntry{'SciViews::R' - Data Science R Dialect}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
