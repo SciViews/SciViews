@@ -49,8 +49,8 @@ silent = TRUE, warn = TRUE, global_entrace = "error") {
     # Avoid calling twice global_entrace() with the same argument
     current_entrace <- .get_temp(".current_global_entrace", default = "")
     if (!identical(global_entrace, current_entrace)) {
-      global_entrace(class = global_entrace)
-      .assign_temp(".current_global_entrace", global_entrace)
+      try({global_entrace(class = global_entrace)
+      .assign_temp(".current_global_entrace", global_entrace)}, silent = TRUE)
     }
   }
 

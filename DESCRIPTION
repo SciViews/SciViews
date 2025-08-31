@@ -1,6 +1,6 @@
 Package: SciViews
 Type: Package
-Version: 1.9.0
+Version: 1.9.1
 Title: 'SciViews::R' - Data Science R Dialect
 Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
