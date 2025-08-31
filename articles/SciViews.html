@@ -98,7 +98,7 @@
 </li>
       </ul>
 <div class="navbar-title">
-        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.9.0</small></p></a>
+        <a class="navbar-brand" href="../index.html"><p class="h2">SciViews <small>v1.9.1</small></p></a>
       </div>
     </div>
 <!--/.nav-collapse -->
@@ -118,7 +118,7 @@
                         <h4 data-toc-skip class="author">Philippe
 Grosjean</h4>
             
-            <h4 data-toc-skip class="date">2025-08-29</h4>
+            <h4 data-toc-skip class="date">2025-08-31</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/SciViews/SciViews/blob/main/vignettes/SciViews.Rmd" class="external-link"><code>vignettes/SciViews.Rmd</code></a></small>
       <div class="hidden name"><code>SciViews.Rmd</code></div>
@@ -135,8 +135,8 @@ In order to load all required packages, just use:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">SciViews</span><span class="fu">::</span><span class="fu"><a href="../reference/SciViews_R.html">R</a></span><span class="op">(</span>silent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">Default data frame object (dtx): </span><span style="font-weight: bold;">data.trame</span></span></span>
-<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ───────────────────────────────────── SciViews::R 1.9.0 ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">SciViews  </span> 1.9.0      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats   </span> 1.0.0 </span></span>
+<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ───────────────────────────────────── SciViews::R 1.9.1 ──</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">SciViews  </span> 1.9.1      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats   </span> 1.0.0 </span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tabularise</span> 0.7.0      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">broom     </span> 1.0.9 </span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">chart     </span> 1.5.4      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dtplyr    </span> 1.3.1 </span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">data.io   </span> 1.7.0      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr     </span> 1.1.4 </span></span>
@@ -154,11 +154,9 @@ In order to load all required packages, just use:</p>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">svTidy</span>::<span style="color: #00BB00;">all_of()</span>        masks <span style="color: #0000BB;">dplyr</span>::all_of(), <span style="color: #0000BB;">tidyr</span>::all_of()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">collapse</span>::<span style="color: #00BB00;">D()</span>           masks <span style="color: #0000BB;">stats</span>::D()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>         masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">svBase</span>::<span style="color: #00BB00;">get_section()</span>   masks <span style="color: #0000BB;">svMisc</span>::get_section()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>            masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">svBase</span>::<span style="color: #00BB00;">list_types()</span>    masks <span style="color: #0000BB;">svMisc</span>::list_types()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">collapse</span>::<span style="color: #00BB00;">replace_na()</span>  masks <span style="color: #0000BB;">tidyr</span>::replace_na()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">svBase</span>::<span style="color: #00BB00;">section()</span>       masks <span style="color: #0000BB;">svMisc</span>::section()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">select()</span>         masks <span style="color: #0000BB;">MASS</span>::select()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">data.trame</span>::<span style="color: #00BB00;">set_names()</span> masks <span style="color: #0000BB;">rlang</span>::set_names()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">data.io</span>::<span style="color: #00BB00;">write()</span>        masks <span style="color: #0000BB;">base</span>::write()</span></span></code></pre></div>
