@@ -1,6 +1,6 @@
 Package: SciViews
 Type: Package
-Version: 1.9.1
+Version: 1.9.2
 Title: 'SciViews::R' - Data Science R Dialect
 Description: The 'SciViews::R' dialect provides a set of functions that
   streamlines data input, process, analysis and visualization especially, but
@@ -35,6 +35,7 @@ Suggests:
     dbplyr (>= 2.3.2),
     dplyr (>= 1.1.4),
     dtplyr (>= 1.3.1),
+    equatiomatic (>= 0.4.4),
     forcats (>= 1.0.0),
     fs (>= 1.6.1),
     ggplot2 (>= 3.4.2),

@@ -1,3 +1,7 @@
+# SciViews 1.9.2
+
+-   {equatiomatic} is now imported by `SciViews::R` since the `equation()`, `eq_()` and `eq__()` functions where moved there.
+
 # SciViews 1.9.1
 
 -   `global_entrace()` fails is some conditions, like running a Quarto chunk in RStudio. We now capture this error silently (because it is not critical not to have global entrace activated).

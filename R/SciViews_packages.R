@@ -33,13 +33,13 @@ SciViews_packages <- function(..., all = FALSE) {
       'lubridate', 'magrittr', 'modelr', 'pillar', 'purrr', 'readr', 'readxl',
       'reprex', 'rlang', 'rstudioapi', 'rvest', 'stringr', 'tibble', 'tidyr',
       'xml2', 'tidyverse', 'collapse', 'fs', 'helpai', 'svMisc', 'svBase',
-      'svFlow', 'svFast', 'svTidy', 'data.io', 'chart', 'tabularise',
-      'SciViews'))
+      'svFlow', 'svFast', 'svTidy', 'data.io', 'chart', 'equatiomatic',
+      'tabularise', 'SciViews'))
   } else {# Just the list of packages to attach to the search path
     pkgs <- list(SciViews = c('rlang', 'MASS', 'lattice', 'data.trame',
       'ggplot2', 'tibble', 'tidyr', 'dplyr', 'dtplyr', 'broom', 'forcats',
       'collapse', 'fs', 'helpai', 'svMisc', 'svBase', 'svFlow', 'svFast',
-      'svTidy', 'data.io', 'chart', 'tabularise', 'SciViews'))
+      'svTidy', 'data.io', 'chart', 'equatiomatic', 'tabularise', 'SciViews'))
   }
 
   # ... specifies the topics to use (= loading more packages)
